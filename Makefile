@@ -3,6 +3,7 @@ start:
 
 db.init:
 	createdb ensiie
+	psql -U ensiie -d ensiie -a -f data/init.sql
 
 db.drop:
 	dropdb ensiie
