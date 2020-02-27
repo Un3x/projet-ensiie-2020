@@ -1,3 +1,13 @@
+<?php
+
+include '../src/User.php';
+include '../src/UserRepository.php';
+
+$userRepository = new \User\UserRepository();
+$users = $userRepository->fetchAll();
+
+?>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -34,30 +44,14 @@
                     <th>email</th>
                     <th>creation date</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>unex</td>
-                    <td>patati@patata.com</td>
-                    <td>2012/01/01 12:00:00</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>unex</td>
-                    <td>patati@patata.com</td>
-                    <td>2012/01/01 12:00:00</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>unex</td>
-                    <td>patati@patata.com</td>
-                    <td>2012/01/01 12:00:00</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>unex</td>
-                    <td>patati@patata.com</td>
-                    <td>2012/01/01 12:00:00</td>
-                </tr>
+                <?php foreach($users as $user): ?>
+                    <tr>
+                        <td><?= $user->getId() ?></td>
+                        <td><?= $user->getUsername() ?></td>
+                        <td><?= $user->getEmail() ?></td>
+                        <td><?= $user->getCreatedAt()->format(\DateTime::ATOM) ?></td>
+                    </tr>
+                <?php endforeach; ?>
             </table>
         </div>
     </div>
