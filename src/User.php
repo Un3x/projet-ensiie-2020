@@ -76,7 +76,7 @@ class User
     }
 
     /**
-     * @return DateTime
+     * @return \DateTime
      */
     public function getCreatedAt ()
     {
@@ -84,7 +84,7 @@ class User
     }
 
     /**
-     * @param DateTime $createdAt
+     * @param \DateTime $createdAt
      */
     public function setCreatedAt ($createdAt)
     {

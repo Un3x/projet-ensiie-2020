@@ -7,19 +7,19 @@ class UserRepository
     /**
      * @var \PDO
      */
-    private $pdo;
+    private $dbAdapter;
 
-    public function __construct()
+    public function __construct(\PDO $dbAdapter)
     {
-        $this->pdo = new \PDO('pgsql:host=localhost;dbname=ensiie', 'ensiie', 'ensiie');
+        $this->dbAdapter = $dbAdapter;
     }
 
     public function fetchAll()
     {
-        $usersData = $this->pdo->query('SELECT * FROM "user"');
+        $usersData = $this->dbAdapter->query('SELECT * FROM "user"');
         $users = [];
         foreach ($usersData as $usersDatum) {
-            $user = new \User\User();
+            $user = new User();
             $user
                 ->setId($usersDatum['id'])
                 ->setUsername($usersDatum['username'])
@@ -28,5 +28,15 @@ class UserRepository
             $users[] = $user;
         }
         return $users;
+    }
+
+    public function delete ($userId)
+    {
+        $stmt = $this
+            ->dbAdapter
+            ->prepare('DELETE FROM "user" where id = :userId');
+
+        $stmt->bindParam('userId', $userId);
+        $stmt->execute();
     }
 }
