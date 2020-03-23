@@ -130,8 +130,9 @@ Aussi, n’oubliez pas qu’on est là pour passer un bon moment, pas de lynchag
 ### Notre équipe
 
 * Thomas COMES : ENSIIE promo 2012, Project Lead chez Matters.
-* Nassim Kirouane : Tech Lead chez Matters.
-* Remi Parpaillon : Php Gourou chez Matters.
+* Thomas LAURENT : Ecole 42, CTO chez Ethereal Games.
+* Vincent JEANNAS : ENSIIE promo 2017, Game Designer chez Ethereal Games.
+* Vitéra Y : ENSIIE promo 2011, CEO chez Ethereal Games.
 
 ### Comment nous contacter
 
