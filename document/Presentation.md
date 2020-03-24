@@ -66,12 +66,6 @@ Nous attendons de la part des élèves une véritable appropriation du sujet. Il
 * jQuery utilisé n’importe comment
 * HTML5 utilisé n’importe comment
 
-### Séances
-
-> * **26 mars 2019** : choix du sujet, début des projets, présentation de cloud9 (documentation)
-> * **09 avril 2019** : point d’avancement, échange sur les bonnes pratiques, analyse du code
-> * **14 mai 2019** : soutenance, livraison des sources
-
 ### La notation
 
 Une partie de la note sera attribuée par groupe, une autre réservée à l’investissement personnel.
@@ -82,11 +76,6 @@ Une partie de la note sera attribuée par groupe, une autre réservée à l’in
 > * La qualité technique du projet, nous voulons pouvoir comprendre votre code sans nous arracher les cheveux. Préférez peu de code bien fait avec des fonctionnalités complètes à une grosse quantité de code illisible, avec beaucoup de fonctionnalités copiées collées et/ou à moitié terminées.
 > * La soutenance du projet, nous souhaitons voir une soutenance dynamique. Pas de présentation point par point afin de vérifier que oui il y a bien une inscription et ou un CRUD. On veut voir que ça marche, on veut être convaincu et on veut se l’arracher votre projet. Encore moins une lecture de votre rapport.
 > * Le rapport du projet a un but complètement différent de la soutenance. La soutenance nous permet de voir le produit tel que vous avez imaginé son utilisation, le rapport nous permet de comprendre la partie interne du fonctionnement de votre groupe. Il est très important pour nous de bien comprendre quels ont été les enjeux de chaque groupe, quelles ont été les difficultés rencontrées et surtout quelles ont été les solutions trouvées pour les contourner.
-
-### L’environnement de développement
-
-Afin de s’affranchir de problème d’infrastructure, nous vous mettons à disposition un environnement de développement pour ce projet.
->Lors du premier cours nous vous présenterons l'utilisation du git que nous avons mis à votre disposition ainsi que le fonctionnement d'un Docker entièrement configuré et prêt à être utilisé pour développer votre projet.
 
 ### Le rendu des sources et du rapport
 
