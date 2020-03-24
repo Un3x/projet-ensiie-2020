@@ -9,3 +9,4 @@ db.drop:
 	dropdb ensiie
 
 db.reset: db.drop db.init
+test
