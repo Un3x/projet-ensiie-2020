@@ -79,7 +79,7 @@ Une partie de la note sera attribuée par groupe, une autre réservée à l’in
 
 ### Le rendu des sources et du rapport
 
->Les projets devront être pushé sur ce [repository git](https://github.com/Un3x/ensiie-project) sur une branche ```<nom-de-votre-groupe>-group```.
+>Les projets devront être pushé sur ce [repository git](https://github.com/Un3x/projet-ensiie-2020) sur une branche ```<nom-de-votre-groupe>-group```.
 
 **ATTENTION**: ce repo git n'as pas pour but d'être utilisé pendant le développement. Il s'agit de notre outil pour récupérer vos projets et pouvoir les utiliser. L'utilisation d'un git au cours du développement n'est pas obligatoire, mais nous vous encourageons à en utiliser un (github, arise, ensiie, bitbucket, gitlab etc)/
 
