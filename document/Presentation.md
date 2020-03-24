@@ -1,6 +1,6 @@
 ![matters](https://cdn-images-1.medium.com/max/2000/1*Pl-fB1X01RfcEbPP-FVlew.jpeg)
 
-Projet web ENSIIE 1A 2019
+Projet web ENSIIE 1A 2020
 ======
 
 Objectif pédagogique
@@ -125,6 +125,6 @@ Aussi, n’oubliez pas qu’on est là pour passer un bon moment, pas de lynchag
 
 ### Comment nous contacter
 
-Nous mettons un slack à votre disposition pour échanger avec nous. L'url vous sera communiqué lors du premier cours.
+Nous mettons un discord à votre disposition pour échanger avec vous. 
 
 Vous êtes également les bienvenus tous les jeudis après-midi dans nos locaux au 10 rue du Faubourg Poissonnière 75010 PARIS. Ce sera l’occasion de faire un peu plus connaissance, et d’assister à nos SteamLearn, les formations hebdo !
