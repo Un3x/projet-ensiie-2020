@@ -1,4 +1,4 @@
-CREATE TABLE user(
+CREATE TABLE Membre(
     id VARCHAR PRIMARY KEY,
     username VARCHAR NOT NULL,
     email VARCHAR NOT NULL,
@@ -6,8 +6,8 @@ CREATE TABLE user(
 );
 
 CREATE TABLE Administrateur(
-	Id_MembreA VARCHAR,
-	FOREIGN KEY (Id_MembreA) REFERENCES user(id)
+	Id_MembreA VARCHAR PRIMARY KEY,
+	FOREIGN KEY (Id_MembreA) REFERENCES Membre(id)
 );
 
 CREATE TABLE Association(
@@ -27,29 +27,29 @@ CREATE TABLE Appartenir(
 	Id_Assoc VARCHAR,
 	Id_Membre VARCHAR,
 	FOREIGN KEY (Id_Assoc) REFERENCES Association(Id_Assoc),
-	FOREIGN KEY (Id_Membre) REFERENCES user(id)
+	FOREIGN KEY (Id_Membre) REFERENCES Membre(id)
 );
 
 CREATE TABLE Administrer(
 	Id_Assoc VARCHAR,
 	Id_Membre VARCHAR,
 	FOREIGN KEY (Id_Assoc) REFERENCES Association(Id_Assoc),
-	FOREIGN KEY (Id_Membre) REFERENCES user(id)
+	FOREIGN KEY (Id_Membre) REFERENCES Membre(id)
 );
 
 CREATE TABLE Participations(
 	Id_reu VARCHAR,
 	Id_Membre VARCHAR,
 	FOREIGN KEY (Id_reu) REFERENCES Reunion(Id_reu),
-	FOREIGN KEY (Id_Membre) REFERENCES user(id)
+	FOREIGN KEY (Id_Membre) REFERENCES Membre(id)
 );
 
-create view Vue_admin as select(Administrateur.Id_MembresA) 
-	from user 
-	join Administration on (user.id = Administrateur.Id_MembresA);
+create view Vue_admin as select(Administrateur.Id_MembreA) 
+	from Membre 
+	join Administrateur on (Membre.id = Administrateur.Id_MembreA);
 
-INSERT INTO "user" (username, email, created_at)  VALUES ('unex', 'patati@patata.com', NOW());
-INSERT INTO "user" (username, email, created_at)  VALUES ('caillou', 'caillou@rocher.com', NOW());
-INSERT INTO "user" (username, email, created_at)  VALUES ('viteira', 'vivi@taira.com', NOW());
-INSERT INTO "user" (username, email, created_at)  VALUES ('césar', 'jule@cesar.com', NOW());
-INSERT INTO "user" (username, email, created_at)  VALUES ('gengis', 'gengis@khan.com', NOW());
+INSERT INTO Membre (id,username, email, created_at)  VALUES (1,'unex', 'patati@patata.com', NOW());
+INSERT INTO Membre (id,username, email, created_at)  VALUES (2,'caillou', 'caillou@rocher.com', NOW());
+INSERT INTO Membre (id,username, email, created_at)  VALUES (3,'viteira', 'vivi@taira.com', NOW());
+INSERT INTO Membre (id,username, email, created_at)  VALUES (4,'césar', 'jule@cesar.com', NOW());
+INSERT INTO Membre (id,username, email, created_at)  VALUES (5,'gengis', 'gengis@khan.com', NOW());
