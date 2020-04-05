@@ -3,9 +3,9 @@
 
 use User\UserRepository;
 
-include '../../src/User.php';
-include '../../src/UserRepository.php';
-include '../../src/Factory/DbAdaperFactory.php';
+include '../src/User.php';
+include '../src/UserRepository.php';
+include '../src/Factory/DbAdaperFactory.php';
 
 session_start();
 
@@ -21,10 +21,10 @@ $db = (new DbAdaperFactory())->createService();
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
-  $username =  $_POST['username'];
-  $email = $_POST['email'];
-  $password_1 = $_POST['passwd'];
-  $password_2 = $_POST['confpasswd'];
+  $username = htmlspecialchars($_POST['username']);
+  $email = htmlspecialchars($_POST['email']);
+  $password_1 = htmlspecialchars($_POST['passwd']);
+  $password_2 = htmlspecialchars($_POST['confpasswd']);
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -37,8 +37,11 @@ if (isset($_POST['reg_user'])) {
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM user WHERE username='$username' OR email='$email' LIMIT 1";
-  $result = $db->query($user_check_query);
+  $user_check_query = "SELECT * FROM users WHERE username=:username OR email=:email LIMIT 1";
+  $result = $db->prepare($user_check_query);
+  $result->bindParam(':username', $username);
+  $result->bindParam(':email', $email);
+  $result->execute();
   $user = $result->fetchAll();
   
   if ($user) { // if user exists
@@ -53,11 +56,15 @@ if (isset($_POST['reg_user'])) {
 
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
-  	$password = md5($password_1);//encrypt the password before saving in the database
+  	$password = crypt($password_1, 'stupefaction');//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO user (username, email, pwd) 
-  			  VALUES('$username', '$email', '$password')";
-  	$db->query($query);
+  	$query = "INSERT INTO users (username, email, pwd) 
+  			  VALUES(:username, :email, :password)";
+    $result = $db->prepare($query);
+    $result->bindParam(':username', $username);
+    $result->bindParam(':email', $email);
+    $result->bindParam(':password', $password);
+    $result->execute();
   	$_SESSION['userName'] = $username;
   	$_SESSION['success'] = "Vous êtes connectés !";
   	header('location: index.php');
@@ -78,10 +85,13 @@ if (isset($_POST['log_user'])) {
     }
   
     if (count($errors) == 0) {
-        $password = md5($password);
-        $query = "SELECT * FROM user WHERE username='$username' AND pwd='$password'";
-        $results = $query->query($query);
-        $nbRow = $results->rowCount();
+        $password = crypt($password, 'stupefaction');
+        $query = "SELECT * FROM users WHERE username=:username AND pwd=:password";
+        $result = $db->prepare($query);
+        $result->bindParam(':username', $username);
+        $result->bindParam(':password', $password);
+        $result->execute();
+        $nbRow = $result->rowCount();
         if ($nbRow == 1) {
           $_SESSION['username'] = $username;
           $_SESSION['success'] = "Vous êtes connecté !";
@@ -90,6 +100,8 @@ if (isset($_POST['log_user'])) {
             array_push($errors, "Le mot de passe ne correspond pas à l'utilisateur.");
         }
     }
+    include 'errors.php';
   }
+
   
   ?>

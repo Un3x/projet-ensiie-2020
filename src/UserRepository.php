@@ -16,7 +16,7 @@ class UserRepository
 
     public function fetchAll()
     {
-        $usersData = $this->dbAdapter->query('SELECT * FROM "user"');
+        $usersData = $this->dbAdapter->query('SELECT * FROM users');
         $users = [];
         foreach ($usersData as $usersDatum) {
             $user = new User();
@@ -34,7 +34,7 @@ class UserRepository
     {
         $stmt = $this
             ->dbAdapter
-            ->prepare('DELETE FROM "user" where id = :userId');
+            ->prepare('DELETE FROM users where id = :userId');
 
         $stmt->bindParam('userId', $userId);
         $stmt->execute();

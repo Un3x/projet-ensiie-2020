@@ -7,6 +7,7 @@ include '../src/Factory/DbAdaperFactory.php';
 $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new \User\UserRepository($dbAdaper);
 $users = $userRepository->fetchAll();
+session_start();
 
 ?>
 
@@ -33,6 +34,7 @@ $users = $userRepository->fetchAll();
         </div>
     </nav>
 </header>
+<?php if (isset($_SESSION['username'])) echo "Hello " . $_SESSION['username']; ?>
 <div class="container">
     <div class="row">
         <div class="col-sm-12">

@@ -8,8 +8,8 @@
     <h1>Se connecter</h1>
     <form method="post" action="server.php">
     <div>
-      <label for="mail">Adresse Em@il</label>
-      <input type="email" name="email"/>
+      <label for="username">Nom d'utilisateur</label>
+      <input type="username" name="username"/>
     </div>
     <div>
       <label for="passwd">Mot de passe</label>
