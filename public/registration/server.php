@@ -1,5 +1,12 @@
 <?php
 //sudo systemctl start postgresql
+
+use User\UserRepository;
+
+include '../../src/User.php';
+include '../../src/UserRepository.php';
+include '../../src/Factory/DbAdaperFactory.php';
+
 session_start();
 
 // initializing variables
@@ -7,16 +14,17 @@ $username = "";
 $email    = "";
 $errors = array(); 
 
-// connect to the database
-$db = mysqli_connect('localhost:8080', 'php', '', 'ensiie');
+// connect to the database (attention, db est un dbAdapter)
+$db = (new DbAdaperFactory())->createService();
+
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
-  $username = mysqli_real_escape_string($db, $_POST['username']);
-  $email = mysqli_real_escape_string($db, $_POST['mail']);
-  $password_1 = mysqli_real_escape_string($db, $_POST['passwd']);
-  $password_2 = mysqli_real_escape_string($db, $_POST['confpasswd']);
+  $username =  $_POST['username'];
+  $email = $_POST['email'];
+  $password_1 = $_POST['passwd'];
+  $password_2 = $_POST['confpasswd'];
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -29,16 +37,16 @@ if (isset($_POST['reg_user'])) {
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM User WHERE userName='$username' OR mail='$email' LIMIT 1";
-  $result = mysqli_query($db, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
+  $user_check_query = "SELECT * FROM user WHERE username='$username' OR email='$email' LIMIT 1";
+  $result = $db->query($user_check_query);
+  $user = $result->fetchAll();
   
   if ($user) { // if user exists
-    if ($user['userName'] === $username) {
+    if ($user['username'] === $username) {
       array_push($errors, "Cet utilisateur existe déjà !");
     }
 
-    if ($user['mail'] === $email) {
+    if ($user['email'] === $email) {
       array_push($errors, "Cet email est déjà utilisé !");
     }
   }
@@ -47,9 +55,9 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO users (userName, mail, pwd) 
+  	$query = "INSERT INTO user (username, email, pwd) 
   			  VALUES('$username', '$email', '$password')";
-  	mysqli_query($db, $query);
+  	$db->query($query);
   	$_SESSION['userName'] = $username;
   	$_SESSION['success'] = "Vous êtes connectés !";
   	header('location: index.php');
@@ -59,11 +67,11 @@ if (isset($_POST['reg_user'])) {
 
 // LOGIN USER
 if (isset($_POST['log_user'])) {
-    $username = mysqli_real_escape_string($db, $_POST['username']);
-    $password = mysqli_real_escape_string($db, $_POST['passwd']);
+    $username = $_POST['username'];
+    $password = $_POST['passwd'];
   
     if (empty($username)) {
-        array_push($errors, "Nom d'utilisateur requis (sinon on peut pas savoir qui vous êtes !)");
+        array_push($errors, "Nom d'utilisateur requis (sinon on ne peut pas savoir qui vous êtes !)");
     }
     if (empty($password)) {
         array_push($errors, "Mot de passe requis");
@@ -71,10 +79,11 @@ if (isset($_POST['log_user'])) {
   
     if (count($errors) == 0) {
         $password = md5($password);
-        $query = "SELECT * FROM User WHERE userName='$username' AND pwd='$password'";
-        $results = mysqli_query($db, $query);
-        if (mysqli_num_rows($results) == 1) {
-          $_SESSION['userName'] = $username;
+        $query = "SELECT * FROM user WHERE username='$username' AND pwd='$password'";
+        $results = $query->query($query);
+        $nbRow = $results->rowCount();
+        if ($nbRow == 1) {
+          $_SESSION['username'] = $username;
           $_SESSION['success'] = "Vous êtes connecté !";
           header('location: index.php');
         }else {

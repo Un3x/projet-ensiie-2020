@@ -1,4 +1,3 @@
-<?php include('server.php') ?>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
@@ -7,10 +6,10 @@
 </head>
 <body>
     <h1>Se connecter</h1>
-    <form method="post" action="login.php">
+    <form method="post" action="server.php">
     <div>
       <label for="mail">Adresse Em@il</label>
-      <input type="email" name="mail"/>
+      <input type="email" name="email"/>
     </div>
     <div>
       <label for="passwd">Mot de passe</label>

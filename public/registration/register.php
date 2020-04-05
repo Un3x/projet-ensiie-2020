@@ -1,4 +1,3 @@
-<?php include('server.php') ?>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
@@ -12,14 +11,14 @@
     un compte. Vous pouvez tout de même jouer sans créer de compte.
     Promis on ne vendra pas vos informations à d'autres entreprises.
     </p>
-    <form method="post" action="register.php">
+    <form method="post" action="server.php">
         <div>
           <label for="username">Nom d'utilisateur</label>
           <input type="text" name="username" size="20"/>
         </div>
         <div>
-          <label for="mail">Adresse Em@il</label>
-          <input type="email" name="mail"/>
+          <label for="email">Adresse Em@il</label>
+          <input type="email" name="email"/>
         </div>
         <div>
           <label for="passwd">Mot de passe</label>
