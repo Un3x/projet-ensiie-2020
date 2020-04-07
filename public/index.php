@@ -1,12 +1,10 @@
 <?php
-
+#phpinfo();
 include '../src/User.php';
 include '../src/UserRepository.php';
 include '../src/Factory/DbAdaperFactory.php';
 
-$dbAdaper = (new DbAdaperFactory())->createService();
-$userRepository = new \User\UserRepository($dbAdaper);
-$users = $userRepository->fetchAll();
+
 
 ?>
 
@@ -27,44 +25,39 @@ $users = $userRepository->fetchAll();
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="./userlist.php">Home</a>
                 </li>
             </ul>
         </div>
     </nav>
 </header>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1>User List</h1>
+       <meta charset="utf-8">
+        <!-- importer le fichier de style -->
+        <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+    <body>
+        <div id="container">
+            <!-- zone de connexion -->
+            
+            <form action="verification.php" method="POST">
+                <h1>Connexion</h1>
+                
+                <label><b>Nom d'utilisateur</b></label>
+                <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+
+                <label><b>Mot de passe</b></label>
+                <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+                <input type="submit" id='submit' value='LOGIN' >
+                <?php
+                if(isset($_GET['erreur'])){
+                    $err = $_GET['erreur'];
+                    if($err==1 || $err==2)
+                        echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+                }
+                ?>
+            </form>
         </div>
-        <div class="col-sm-12">
-            <table class="table">
-                <tr>
-                    <th>id</th>
-                    <th>username</th>
-                    <th>email</th>
-                    <th>creation date</th>
-                    <th>Action</th>
-                </tr>
-                <?php foreach($users as $user): ?>
-                    <tr>
-                        <td><?= $user->getId() ?></td>
-                        <td><?= $user->getUsername() ?></td>
-                        <td><?= $user->getEmail() ?></td>
-                        <td><?= $user->getCreatedAt()->format(\DateTime::ATOM) ?></td>
-                        <td>
-                            <form method="POST" action="/deleteUser.php">
-                                <input name="user_id" type="hidden" value="<?= $user->getId() ?>">
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
-        </div>
-    </div>
-</div>
+    </body>
 <script src="js/scripts.js"></script>
 </body>
 </html>

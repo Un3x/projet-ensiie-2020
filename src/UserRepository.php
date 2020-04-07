@@ -16,7 +16,7 @@ class UserRepository
 
     public function fetchAll()
     {
-        $usersData = $this->dbAdapter->query('SELECT * FROM "user"');
+        $usersData = $this->dbAdapter->query('SELECT * FROM "membre"');
         $users = [];
         foreach ($usersData as $usersDatum) {
             $user = new User();

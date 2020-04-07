@@ -2,7 +2,7 @@
 
 return [
     'db' => [
-        'host' => 'localhost:8080',
+        'host' => '127.0.0.1',
         'user' => 'ensiie',
         'password' => 'ensiie',
         'dbname' => 'ensiie'
