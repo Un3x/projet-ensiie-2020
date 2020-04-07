@@ -12,10 +12,11 @@ session_start();
 // initializing variables
 $username = "";
 $email    = "";
-$errors = array(); 
+$errors = array();
 
 // connect to the database (attention, db est un dbAdapter)
 $db = (new DbAdaperFactory())->createService();
+$urep = new \User\UserRepository($db);
 
 
 // REGISTER USER
@@ -37,40 +38,20 @@ if (isset($_POST['reg_user'])) {
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM users WHERE username=:username OR email=:email LIMIT 1";
-  $result = $db->prepare($user_check_query);
-  $result->bindParam(':username', $username);
-  $result->bindParam(':email', $email);
-  $result->execute();
-  $user = $result->fetchAll();
   
-  if ($user) { // if user exists
-    if ($user['username'] === $username) {
-      array_push($errors, "Cet utilisateur existe déjà !");
-    }
-
-    if ($user['email'] === $email) {
-      array_push($errors, "Cet email est déjà utilisé !");
-    }
+  if ($urep->alreadyUser($username, $email)){
+    array_push($errors, "Ce nom d'utilisateur ou cette adresse mail est déjà utilisé.e");
   }
 
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
-  	$password = crypt($password_1, 'stupefaction');//encrypt the password before saving in the database
-
-  	$query = "INSERT INTO users (username, email, pwd) 
-  			  VALUES(:username, :email, :password)";
-    $result = $db->prepare($query);
-    $result->bindParam(':username', $username);
-    $result->bindParam(':email', $email);
-    $result->bindParam(':password', $password);
-    $result->execute();
-  	$_SESSION['userName'] = $username;
+  	$urep->addUser($username, $email, $password_1);
+  	$_SESSION['username'] = $username;
   	$_SESSION['success'] = "Vous êtes connectés !";
   	header('location: index.php');
   }
+  include "errors.php";
 }
-
 
 // LOGIN USER
 if (isset($_POST['log_user'])) {
@@ -85,12 +66,7 @@ if (isset($_POST['log_user'])) {
     }
   
     if (count($errors) == 0) {
-        $password = crypt($password, 'stupefaction');
-        $query = "SELECT * FROM users WHERE username=:username AND pwd=:password";
-        $result = $db->prepare($query);
-        $result->bindParam(':username', $username);
-        $result->bindParam(':password', $password);
-        $result->execute();
+        $result = $urep->fecthUserConnection($username, $password);
         $nbRow = $result->rowCount();
         if ($nbRow == 1) {
           $_SESSION['username'] = $username;
@@ -101,7 +77,5 @@ if (isset($_POST['log_user'])) {
         }
     }
     include 'errors.php';
-  }
-
-  
+  }  
   ?>

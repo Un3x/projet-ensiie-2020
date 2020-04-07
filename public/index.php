@@ -29,6 +29,8 @@ session_start();
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/login.php">Se connecter</a>
+                    <a class="nav-link" href="/register.php">Créer un compte</a>
                 </li>
             </ul>
         </div>
