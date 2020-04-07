@@ -15,12 +15,17 @@ CREATE TABLE IF NOT EXISTS "kara" (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     song_name   TEXT    NOT NULL,
     source_name TEXT    NOT NULL,
-    category    INTEGER NOT NULL REFERENCES kara_category,
-    song_type   INTEGER NOT NULL REFERENCES kara_type,
+    category    INTEGER NOT NULL,
+    song_type   INTEGER NOT NULL,
     song_number INTEGER NOT NULL CHECK(song_number > 0),
-    language    TEXT    REFERENCES language,
+    language    TEXT,
     file_path   TEXT    NOT NULL UNIQUE,
     is_new      INTEGER NOT NULL,
     author_name TEXT,
     author_year INTEGER CHECK(author_year > 0)
+);
+
+CREATE TABLE IF NOT EXISTS "queue" (
+    position INTEGER PRIMARY KEY,
+    id INTEGER NOT NULL REFERENCES kara
 );
