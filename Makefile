@@ -1,5 +1,5 @@
 start:
-	php -S localhost:8080 -t public/
+	php -S localhost:8080 -t public
 
 db.init:
 	createdb ensiie

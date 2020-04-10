@@ -65,6 +65,26 @@ $users = $userRepository->fetchAll();
         </div>
     </div>
 </div>
+
+<!-- This is the test area for communication with lektor -->
+
+
+    <form method="POST" action="/lektorTest.php">
+        <input name="test" type="hidden" value="testvalue">
+        <button type="submit">Play</button>
+    </form>
+
+    <form method="POST" action="/idtest.php" name="addid">
+        <input type="number" name="id">
+        <button type="submit">Add kara (by id)</button>
+    </form>
+
+
+<!-- End of the test area -->
+
+
+
+
 <script src="js/scripts.js"></script>
 </body>
 </html>
