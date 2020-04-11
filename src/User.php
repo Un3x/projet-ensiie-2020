@@ -5,7 +5,7 @@ namespace User;
 class User
 {
     /**
-     * @var int
+     * @var int, should we use like a account name or something?
      */
     private $id;
 
@@ -15,14 +15,21 @@ class User
     private $email;
 
     /**
-     * @var string
+     * @var string, not constant
      */
     private $username;
+
 
     /**
      * @var \DateTime
      */
     private $createdAt;
+
+    /**
+     * @var int describing user rights
+     * 	->decide which number corresponds to which rights.
+     */
+    private $rights;
 
     /**
      * @return int
@@ -90,5 +97,16 @@ class User
     {
         $this->createdAt = $createdAt;
         return $this;
+    }
+
+    public getRights ()
+    {
+    	return $this->rights;
+    }
+
+    public setRights ($rights)
+    {
+    	$this->rights = $rights;
+	return $this;
     }
 }
