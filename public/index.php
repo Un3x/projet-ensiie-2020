@@ -1,8 +1,8 @@
 <?php
 
-include '../src/User.php';
-include '../src/UserRepository.php';
-include '../src/Factory/DbAdaperFactory.php';
+include_once '../src/User.php';
+include_once '../src/UserRepository.php';
+include_once '../src/Factory/DbAdaperFactory.php';
 
 $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new \User\UserRepository($dbAdaper);
@@ -68,8 +68,9 @@ $users = $userRepository->fetchAll();
 
 <!-- This is the test area for communication with lektor -->
 
+<?php echo $_SERVER['REMOTE_ADDR'] ?>
 
-    <form method="POST" action="/lektorTest.php">
+    <form method="POST" action="/play.php">
         <input name="test" type="hidden" value="testvalue">
         <button type="submit">Play</button>
     </form>

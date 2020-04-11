@@ -9,7 +9,7 @@ set_time_limit(0);
  * as it comes in. */
 ob_implicit_flush();
 
-$address = 'localhost';
+$address = $_SERVER['REMOTE_ADDR'];
 $port = 6600;
 
 if (($sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP)) === false)
