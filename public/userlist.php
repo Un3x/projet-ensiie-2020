@@ -22,6 +22,7 @@ $users = $userRepository->fetchAll();
 
 <body>
 <header>
+    <!-- <link rel="stylesheet" href="style.css" media="screen" type="text/css" /> -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Projet Web Ensiie 2020</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -29,6 +30,15 @@ $users = $userRepository->fetchAll();
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home</a>
                 </li>
+                    <?php session_start();
+                    if($_SESSION['username'] !== ""){
+                    $user = $_SESSION['username'];
+                    // afficher un message
+                    echo "<div class='connection_id' id='idco'>";
+                    echo "$user";
+                    echo "</div>";
+                }
+                ?>
             </ul>
         </div>
     </nav>

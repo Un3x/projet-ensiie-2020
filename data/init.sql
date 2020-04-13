@@ -49,8 +49,8 @@ create view Vue_admin as select(Administrateur.Id_MembreA)
 	from Membre 
 	join Administrateur on (Membre.id = Administrateur.Id_MembreA);
 
-INSERT INTO Membre (id,username, email, created_at)  VALUES (1,'unex', 'patati@patata.com', NOW());
-INSERT INTO Membre (id,username, email, created_at)  VALUES (2,'caillou', 'caillou@rocher.com', NOW());
-INSERT INTO Membre (id,username, email, created_at)  VALUES (3,'viteira', 'vivi@taira.com', NOW());
-INSERT INTO Membre (id,username, email, created_at)  VALUES (4,'césar', 'jule@cesar.com', NOW());
-INSERT INTO Membre (id,username, email, created_at)  VALUES (5,'gengis', 'gengis@khan.com', NOW());
+INSERT INTO Membre (id,username,passwd, email, created_at)  VALUES (1,'unex','nenex', 'patati@patata.com', NOW());
+INSERT INTO Membre (id,username,passwd, email, created_at)  VALUES (2,'caillou','voyou', 'caillou@rocher.com', NOW());
+INSERT INTO Membre (id,username,passwd, email, created_at)  VALUES (3,'viteira','teteh', 'vivi@taira.com', NOW());
+INSERT INTO Membre (id,username,passwd, email, created_at)  VALUES (4,'césar','jules','jule@cesar.com', NOW());
+INSERT INTO Membre (id,username,passwd, email, created_at)  VALUES (5,'gengis','regis','gengis@khan.com', NOW());
