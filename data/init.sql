@@ -2,7 +2,8 @@ CREATE TABLE Membre(
     id VARCHAR PRIMARY KEY,
     username VARCHAR NOT NULL,
     email VARCHAR NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE
+    created_at TIMESTAMP WITH TIME ZONE,
+    passwd VARCHAR
 );
 
 CREATE TABLE Administrateur(
