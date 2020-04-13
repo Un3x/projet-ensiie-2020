@@ -3,7 +3,7 @@ start:
 
 db.init:
 	createdb ensiie
-	psql -U hugom -d ensiie -a -f data/init.sql
+	psql -U ensiie -h 127.0.0.1 -a -f data/init.sql
 
 db.drop:
 	dropdb ensiie
