@@ -1,35 +1,29 @@
 <?php
-include_once 'sockets_utils.php';
-
 error_reporting(E_ALL);
 ob_implicit_flush();
 
+require_once 'sockets_utils.php';
+require_once '../src/Lector.php';
+require_once '../src/LectorRepository.php';
+include_once '../src/Factory/DbAdaperFactory.php';
 
-if ( $GLOBALS["lektordIP"] == NULL )
-{
-    echo "Getting lektord IP address\n";
-    $address = $_SERVER['REMOTE_ADDR'];
-    $GLOBALS["lektordIP"] = $address;
-}
-else echo "Using stored value for lektord IP address\n";
+$dbAdaper = (new DbAdaperFactory())->createService();
+$lectorRepository = new \Lector\LectorRepository($dbAdaper);
+$lectors = $lectorRepository->fetchAll();
+$socks = [];
 
-if ( $GLOBALS["lektordPort"] == NULL )
-{
-    $port = 6600; // Default port for lektord
-    $GLOBALS["lektordPort"] = $port;
-}
+foreach($lectors as $lector){
+    //Re-initializing variables to make sure we don't get the one from the previous lector for I don't what reason
+    $address="";
+    $port=0;
+    $domain="";
 
-if ( $GLOBALS["lektordIPDomain"] == NULL )
-{
+    $address = $lector->getIP();
+    $port = $lector->getPort();
     $domain = correctIPDomain($address);
-    $GLOBALS["lektordIPDomain"] = $domain;
-}
-
-if ( $GLOBALS["lektordSocket"] == NULL )
-{
-    echo "Creating socket to connect to lektord\n";
     $sock = socket_create_and_connect($address, $port, $domain);
-    $GLOBALS["lektordSocket"] = $sock;
+
+    echo "Creating socket to connect to lektord on IP " . $address . " at port " . $port . "\n";
+    $socks[] = $sock;
 }
-else echo "Using created socket\n";
 ?>

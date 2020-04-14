@@ -37,3 +37,19 @@ CREATE TABLE IF NOT EXISTS "queue" (
     position INTEGER PRIMARY KEY,
     id INTEGER NOT NULL REFERENCES kara
 );
+
+CREATE TABLE IF NOT EXISTS "playlist"(
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(32) NOT NULL,
+    creator SERIAL NOT NULL REFERENCES "user",
+    content INTEGER[]
+);
+
+CREATE TABLE IF NOT EXISTS "lector"(
+    id INTEGER PRIMARY KEY REFERENCES kara,
+    ip VARCHAR,
+    port INTEGER
+);
+
+INSERT INTO "lector" (id, ip, port)  VALUES (1, '::1', 6600);
+--INSERT INTO "lector" (id, ip, port)  VALUES (2, '12.2.3.4', 1234);  --removing for now as a wrong lector is making actions fail
