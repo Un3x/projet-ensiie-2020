@@ -52,4 +52,4 @@ CREATE TABLE IF NOT EXISTS "lector"(
 );
 
 INSERT INTO "lector" (id, ip, port)  VALUES (1, '::1', 6600);
---INSERT INTO "lector" (id, ip, port)  VALUES (2, '12.2.3.4', 1234);  --removing for now as a wrong lector is making actions fail
+INSERT INTO "lector" (id, ip, port)  VALUES (2, '12.2.3.4', 1234);

@@ -100,7 +100,7 @@ $lectors = $lectorRepository->fetchAll();
 
 <?php echo $_SERVER['REMOTE_ADDR'] ?>
 
-    <form method="POST" action="./play.php">
+    <form method="POST" action="/play.php">
         <input name="test" type="hidden" value="testvalue">
         <button type="submit">Play</button>
     </form>

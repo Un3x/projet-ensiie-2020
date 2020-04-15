@@ -13,7 +13,6 @@ $lectors = $lectorRepository->fetchAll();
 $socks = [];
 
 foreach($lectors as $lector){
-    //Re-initializing variables to make sure we don't get the one from the previous lector for I don't what reason
     $address="";
     $port=0;
     $domain="";
