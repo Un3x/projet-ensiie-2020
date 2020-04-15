@@ -12,26 +12,22 @@ function correctIPDomain(&$ip)
 {
     if ( filter_var($ip, FILTER_VALIDATE_IP,FILTER_FLAG_IPV4) === true || $ip == "127.0.0.1" )
     {
-        echo "Using IPV4 addresses\n";
-        return AF_INET;
-    }
-    else if ( (filter_var($ip, FILTER_VALIDATE_IP,FILTER_FLAG_IPV6) === true) || $ip == "::1" )
-    {
-        /*
-        if ($ip == "::1")
+        if ($ip == "127.0.0.1")
         {
-            echo "Saw localhost in IPV6 format. Forcing localhost in IPV4 format for lektord to work\n";
-            $ip = "127.0.0.1";
-            return = AF_INET;
+            echo "Saw localhost in IPV4 format. Forcing localhost in IPV6 format to be compatible with lektord.\n";
+            $ip = "::1";
+            return AF_INET6;
         }
         else
         {
-         */
+        echo "Using IPV4 addresses\n";
+        return AF_INET;
+        }
+    }
+    else if ( (filter_var($ip, FILTER_VALIDATE_IP,FILTER_FLAG_IPV6) === true) | $ip == "::1" )
+    {
         echo "Using IPV6 addresses\n";
         return AF_INET6;
-    /*
-        }
-    */
     }
     else 
     {
@@ -80,7 +76,7 @@ function socket_write_message($sock, $msg)
  * @assigns still don't know what exactly I'm supposed to put in this
  * @ensures send $msg to all lectors registered in the corresponding sql table
  */
-function execute_to_all_lectors($msg)
+function send_to_all_lectors($msg)
 {
     $dbAdaper = (new DbAdaperFactory())->createService();
     $lectorRepository = new \Lector\LectorRepository($dbAdaper);

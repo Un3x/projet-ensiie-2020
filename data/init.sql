@@ -51,5 +51,6 @@ CREATE TABLE IF NOT EXISTS "lector"(
     port INTEGER
 );
 
-INSERT INTO "lector" (id, ip, port)  VALUES (1, '::1', 6600);
+INSERT INTO "lector" (id, ip, port)  VALUES (1, '127.0.0.1', 6600);
+-- INSERT INTO "lector" (id, ip, port)  VALUES (1, '::1', 6600);
 INSERT INTO "lector" (id, ip, port)  VALUES (2, '12.2.3.4', 1234);
