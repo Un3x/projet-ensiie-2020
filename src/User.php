@@ -27,7 +27,7 @@ class User
 
     /**
      * @var int describing user rights
-     * 	->decide which number corresponds to which rights.
+     * 	->will have to decide which number corresponds to which rights.
      */
     private $rights;
 
@@ -99,12 +99,12 @@ class User
         return $this;
     }
 
-    public getRights ()
+    public function getRights ()
     {
     	return $this->rights;
     }
 
-    public setRights ($rights)
+    public function setRights ($rights)
     {
     	$this->rights = $rights;
 	return $this;
