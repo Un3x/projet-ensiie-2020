@@ -1,4 +1,8 @@
 <?php
+//******
+//This page is used for adding a new user to the database, after checking if the infos are correct
+//what to add: rights, experience, also maybe a passwrod (if we so desired)
+//*****
 
 use User\UserRepository;
 
@@ -9,43 +13,51 @@ include '../src/Factory/DbAdaperFactory.php';
 $errsCount=0;
 $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new UserRepository($dbAdaper);
-echo 'oui';
+
 $username=$_POST['username'];
 $email=$_POST['email'];
 
 //check validity of given userName
 
 if ($username==''){
-	echo "ERROR: username not given\n";
-	$errsCount= $errsCount + 1;
+	if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+		header("Location: /registration.php?errs=noUsername&email=$email");
+	}
+	else {
+		header("Location: /registration.php?errs=noUsername");
+	}
+	exit();
 }
 elseif ($userRepository->checkUser($username)>0){ //check if user already exist
-	echo "ERROR: username already taken\n";
-	$errsCount= $errsCount + 1;
-}
-echo 'non';
-//check validity of given email
-if ($email==''){
-	echo "ERROR: enter email adress\n";
-	$errsCount= $errsCount + 1;
+	if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+		header("Location: /registration.php?errs=usedUsername&email=$email");
+	}
+	else {
+		header("Location: /registration.php?errs=usedUsername");
+	}
+	exit();
 }
 
+//check validity of given email
+
 elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){
-	echo "ERROR: invalid email adress\n";
-	$errsCount= $errsCount + 1;
+	header("Location: /registration.php?errs=invalidEmail&username=$username");
+	exit();
 }
 
 elseif ($userRepository->checkEmail($email)>0){ //check if email is already taken
-	echo "ERROR: email adress already taken";
-	$errsCount= $errsCount + 1;
+	header("Location: /registration.php?errs=usedEmail&username=$username");
+	exit();
 }
-echo 'abon'; 
-if (errsCount==0){
+
+if ($errsCount==0){
 	$userRepository->add($username,$email);
+	header('Location: /');
+}
+else{
+
+	header('Location: /registration.php');
 }
 
-
-
-header('Location: /');
 
 ?>
