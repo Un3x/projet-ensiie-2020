@@ -5,12 +5,16 @@
 <script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
-<!-- cette page permet de creer un compte -->
-
-<!--creer un compte -->
-<h1>Inserez vos identifiants:</h1>
-<form name= "formAddUser" action="addUser.php" onsubmit="return validationFormulaire();" method="post">
-<label for="username"> Nom de compte :</label></br>
+<!-- cette page permet à l'utilisateur de se connecter, il faudra peut être changer la maniere dont l'utilisateur se login-->
+<?php
+  $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+  if (strpos($fullUrl,"signup=success")){
+	echo '<p>Compte créé avec succés!</p></br>';
+  }
+?>
+<p> Inserez vos identifiants: </p>
+<form name= "formLoginUser" action="loginUser.php" onsubmit="return validationFormulaire();" method="post">
+<label for="username"> Nom du compte :</label></br>
 	<?php
 	  if (isset($_GET['username'])){
 		  $username=$_GET['username'];
@@ -23,8 +27,8 @@
   		  if (strpos($fullUrl, "errs=noUsername")){
   			  echo "<p>ERROR, no username given</p></br>";
   	    	  }
-  		  elseif (strpos($fullUrl, "errs=usedUsername")){
-  			  echo "<p>ERROR, username already taken</p></br>";
+  		  elseif (strpos($fullUrl, "login=userUnknown")){
+  			  echo "<p>ERROR, username is unknown</p></br>";
   		  }	
 	  }
 	?>
@@ -40,30 +44,19 @@
   		  if (strpos($fullUrl, "errs=invalidEmail")){
   			  echo "<p>ERROR, invalid email adress</p></br>";
   		  }
-  		  elseif (strpos($fullUrl, "errs=usedEmail")){
-  			  echo "<p>ERROR, email already taken</p></br>";
+  		  elseif (strpos($fullUrl, "login=emailUnknown")){
+  			  echo "<p>ERROR, email is unknown</p></br>";
   		  }
 	  }
 	?>
-<button type="submit">Creer un compte</button>
+<button type="submit">Se connecter</button>
 
 <?php
-	 /*
   $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-  if (strpos($fullUrl, "errs=noUsername")){
-  	echo "<p>ERROR, no username given</p></br>";
+  if (strpos($fullUrl, "login=failed")){
+  	echo "<p> email and username do not match! Try again </p>";
   }
-  elseif (strpos($fullUrl, "errs=usedUsername")){
-  	echo "<p>ERROR, username already taken</p></br>";
-  }
-  elseif (strpos($fullUrl, "errs=invalidEmail")){
-  	echo "<p>ERROR, invalid email adress</p></br>";
-  }
-  elseif (strpos($fullUrl, "errs=usedEmail")){
-  	echo "<p>ERROR, email already taken</p></br>";
-  }
-	  */
 ?>
 </body>
 </html>
+

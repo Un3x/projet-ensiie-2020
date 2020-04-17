@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include '../src/User.php';
 include '../src/UserRepository.php';
@@ -65,6 +66,16 @@ $users = $userRepository->fetchAll();
         </div>
     </div>
 </div>
+<?php
+if (isset($_SESSION['username'])){
+	$idSession=$_SESSION['id'];
+	$userSession=$_SESSION['username'];
+	echo "<p> you are logged in as $userSession, $idSession </p>";
+}
+else {
+	echo "<p> you are logged out </p>";
+}
+?>
 <script src="js/scripts.js"></script>
 </body>
 </html>

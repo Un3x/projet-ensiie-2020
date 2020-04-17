@@ -1,7 +1,7 @@
 <?php
 //******
 //This page is used for adding a new user to the database, after checking if the infos are correct
-//what to add: rights, experience, also maybe a passwrod (if we so desired)
+//what to add: rights, experience, also maybe a password (if we so desired)
 //*****
 
 use User\UserRepository;
@@ -52,7 +52,7 @@ elseif ($userRepository->checkEmail($email)>0){ //check if email is already take
 
 if ($errsCount==0){
 	$userRepository->add($username,$email);
-	header('Location: /');
+	header('Location: /login.php?signup=success');
 }
 else{
 
