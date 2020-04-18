@@ -1,3 +1,9 @@
+<?php
+session_start();
+$token = md5(rand(0,99999999));
+$_SESSION['post.token']=$token;
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,19 +11,21 @@
 <script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
-<!-- cette page permet de creer un compte -->
+<!-- cette page permet de creer un compte 
+envoie les informations à inc/addUser
+-->
 
 <!--creer un compte -->
 <h1>Inserez vos identifiants:</h1>
-<form name= "formAddUser" action="addUser.php" onsubmit="return validationFormulaire();" method="post">
+<form name= "formAddUser" action="inc/addUser.php" onsubmit="return validationFormulaire();" method="POST">
 <label for="username"> Nom de compte :</label></br>
 	<?php
 	  if (isset($_GET['username'])){
 		  $username=$_GET['username'];
-		  echo '<input type="text" name="username" placeholder="username" value="'.$username.'"></br>';
+		  echo '<input type="text" name="username" placeholder="username" maxlength="20" value="'.$username.'"></br>';
 	  }
 	  else {
-		  echo '<input type="text" name="username" placeholder="username"></br>';
+		  echo '<input type="text" name="username" placeholder="username" maxlength="20" ></br>';
   		  $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
   		  if (strpos($fullUrl, "errs=noUsername")){
@@ -32,11 +40,11 @@
 	<?php
 	  if (isset($_GET['email'])){
 		  $email=$_GET['email'];
-		  echo '<input type="text" name="email" placeholder="email adress" value="'.$email.'"></br>';
+		  echo '<input type="text" name="email" placeholder="email adress" maxlength="50" value="'.$email.'"></br>';
 	  }
 	  else {
   		  $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-		  echo '<input type="text" name="email" placeholder="email adress"></br>';
+		  echo '<input type="text" name="email" placeholder="email adress" maxlength="50" ></br>';
   		  if (strpos($fullUrl, "errs=invalidEmail")){
   			  echo "<p>ERROR, invalid email adress</p></br>";
   		  }
@@ -45,7 +53,10 @@
   		  }
 	  }
 	?>
+<input type="hidden" id="post.token" name="post.token" value="{$token}" /> 
 <button type="submit">Creer un compte</button>
+</br>
+<a href="login.php">déjà inscrit? connecte toi!</a>
 
 <?php
 	 /*

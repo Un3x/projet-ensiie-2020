@@ -29,14 +29,16 @@ class UserRepository
         }
         return $users;
     }
-    //check if username is already used , returns 0 if the userName is free
-    
+
+
+    //check if username is already used , returns 0 if the userName is free   
     public function checkUser ($userName)
     {
 	$users= $this->dbAdapter->prepare('SELECT COUNT(*) FROM "user" WHERE username= :userName');	    
 	$users->execute(['userName'=>$userName]);
 	return $users->fetchColumn();
     }
+
 
     //check if username is already used , returns 0 if the email is free
     public function checkEmail($email)
@@ -51,7 +53,9 @@ class UserRepository
 	    //add rights in the future
 	$newUser=$this->dbAdapter->prepare('INSERT INTO "user" (username, email, created_at) VALUES (:username, :email, NOW())');
 	$newUser->execute(['username'=>$username, 'email'=>$email]);
-    } 
+    }
+
+
     public function delete ($userId)
     {
         $stmt = $this

@@ -1,3 +1,8 @@
+<?php
+session_start();
+$token = md5(rand(0,99999999));
+$_SESSION['post.token']=$token;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +10,14 @@
 <script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
-<!-- cette page permet à l'utilisateur de se connecter, il faudra peut être changer la maniere dont l'utilisateur se login-->
+<!-- 
+Cette page permet à l'utilisateur de se connecter, 
+il faudra peut être changer la maniere dont l'utilisateur se login (ajout de mdp par exemple).
+Ce fichier envoie ses infos à loginUser.php
+
+!! Si l'utilisateur est déjà connecté, cette page ne devrait pas être accessible !!
+pour faire ça: check si les attributs de SESSION sont défini (fonction isset()) ^^ 
+-->
 <?php
   $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   if (strpos($fullUrl,"signup=success")){
@@ -13,15 +25,15 @@
   }
 ?>
 <p> Inserez vos identifiants: </p>
-<form name= "formLoginUser" action="loginUser.php" onsubmit="return validationFormulaire();" method="post">
+<form name= "formLoginUser" action="inc/loginUser.php" onsubmit="return validationFormulaire();" method="POST">
 <label for="username"> Nom du compte :</label></br>
 	<?php
 	  if (isset($_GET['username'])){
 		  $username=$_GET['username'];
-		  echo '<input type="text" name="username" placeholder="username" value="'.$username.'"></br>';
+		  echo '<input type="text" name="username" placeholder="username" maxlength="20"  value="'.$username.'"></br>';
 	  }
 	  else {
-		  echo '<input type="text" name="username" placeholder="username"></br>';
+		  echo '<input type="text" name="username" placeholder="username" maxlength="20" ></br>';
   		  $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
   		  if (strpos($fullUrl, "errs=noUsername")){
@@ -36,11 +48,11 @@
 	<?php
 	  if (isset($_GET['email'])){
 		  $email=$_GET['email'];
-		  echo '<input type="text" name="email" placeholder="email adress" value="'.$email.'"></br>';
+		  echo '<input type="text" name="email" placeholder="email adress" maxlength="50" value="'.$email.'"></br>';
 	  }
 	  else {
   		  $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-		  echo '<input type="text" name="email" placeholder="email adress"></br>';
+		  echo '<input type="text" name="email" placeholder="email adress" maxlength="50" ></br>';
   		  if (strpos($fullUrl, "errs=invalidEmail")){
   			  echo "<p>ERROR, invalid email adress</p></br>";
   		  }
@@ -49,6 +61,7 @@
   		  }
 	  }
 	?>
+<input type="hidden" id="post.token" name="post.token" value="{$token}" /> 
 <button type="submit">Se connecter</button>
 
 <?php
@@ -56,7 +69,14 @@
   if (strpos($fullUrl, "login=failed")){
   	echo "<p> email and username do not match! Try again </p>";
   }
+  if (isset($_SESSION['username'])){
+	  $userSession=$_SESSION['username'];
+	  echo "<p>you are logged as $userSession</p>";
+  }
 ?>
+</br>
+<a href="registration.php">Se créer un compte</a>
+
 </body>
 </html>
 

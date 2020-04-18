@@ -1,5 +1,9 @@
 <?php
-
+//****
+//allow to delete a user from de database
+//will be placed in the inc folder, will wait for my colleagues's approval :^)
+//obviously only admins have acces to this
+//****
 use User\UserRepository;
 
 include '../src/User.php';
