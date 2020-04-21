@@ -30,6 +30,11 @@ class UserRepository
         return $users;
     }
 
+    public function login($userId, $userPwd)
+    {
+        return False;
+    }
+
     public function delete ($userId)
     {
         $stmt = $this
@@ -39,4 +44,15 @@ class UserRepository
         $stmt->bindParam('userId', $userId);
         $stmt->execute();
     }
+
+    public function create($userUsername, $userPwd)
+    {
+        $stmt = $this
+            ->dbAdapter
+            ->prepare('INSERT INTO "user" (username, email, created_at)  VALUES (:name, :mdp, NOW())');
+        $stmt->bindParam('name', $userUsername);
+        $stmt->bindParam('mdp', $userPwd);
+        $stmt->execute();
+    }
+
 }
