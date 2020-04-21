@@ -4,7 +4,7 @@ return [
     'db' => [
         'host' => 'localhost',
         'user' => 'ensiie',
-        'password' => 'ensiie',
+        'password' => '',
         'dbname' => 'ensiie'
     ]
 ];
