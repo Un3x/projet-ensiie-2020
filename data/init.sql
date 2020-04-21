@@ -2,14 +2,16 @@ CREATE TABLE "user" (
     id SERIAL PRIMARY KEY,
     username VARCHAR NOT NULL,
     email VARCHAR NOT NULL,
+    password VARCHAR NOT NULL,
+    rights INTEGER,
     created_at TIMESTAMP WITH TIME ZONE
 );
 
-INSERT INTO "user" (username, email, created_at)  VALUES ('unex', 'patati@patata.com', NOW());
-INSERT INTO "user" (username, email, created_at)  VALUES ('caillou', 'caillou@rocher.com', NOW());
-INSERT INTO "user" (username, email, created_at)  VALUES ('viteira', 'vivi@taira.com', NOW());
-INSERT INTO "user" (username, email, created_at)  VALUES ('césar', 'jule@cesar.com', NOW());
-INSERT INTO "user" (username, email, created_at)  VALUES ('gengis', 'gengis@khan.com', NOW());
+INSERT INTO "user" (username, email, created_at, rights)  VALUES ('unex', 'patati@patata.com', NOW(), 1);
+INSERT INTO "user" (username, email, created_at, rights)  VALUES ('caillou', 'caillou@rocher.com', NOW(), 0);
+INSERT INTO "user" (username, email, created_at, rights)  VALUES ('viteira', 'vivi@taira.com', NOW(), 0);
+INSERT INTO "user" (username, email, created_at, rights)  VALUES ('césar', 'jule@cesar.com', NOW(), 0);
+INSERT INTO "user" (username, email, created_at, rights)  VALUES ('gengis', 'gengis@khan.com', NOW(), 1);
 
 CREATE TABLE IF NOT EXISTS "kara" (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -36,3 +38,21 @@ CREATE TABLE IF NOT EXISTS "playlist" (
     createur SERIAL REFERENCES user,
     content id[] REFERENCES kara
 );
+
+
+CREATE TABLE IF NOT EXISTS "userCosmetics"(
+	id SERIAL PRIMARY KEY,
+	IDimage INTEGER,
+        IDtitle INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS "image"(
+	IDimage SERIAL PRIMARY KEY,
+	image VARCHAR 
+);
+
+CREATE TABLE IF NOT EXISTS "title"(
+	IDtitle SERIAL PRIMARY KEY,
+	title VARCHAR 
+);
+
