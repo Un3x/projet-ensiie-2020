@@ -31,6 +31,7 @@ session_start();
                     <a class="nav-link" href="/">Home</a>
                     <a class="nav-link" href="/login.php">Se connecter</a>
                     <a class="nav-link" href="/register.php">Créer un compte</a>
+                    <form method="post" action="server.php" ><button type="submit" name="disconnect">Déconnection</button></form>
                 </li>
             </ul>
         </div>

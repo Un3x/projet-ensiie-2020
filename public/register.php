@@ -3,6 +3,28 @@
     <meta charset="utf-8" />
     <title>Créer un compte</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+    function checkForm()
+    {
+      if (! document.register.username.value){
+        alert("Veuillez spécifier un nom d'utilisateur.")
+        return false
+      }
+      if (! (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.register.email.value))){
+        alert ("Veuillez entrer une adresse email valide.")
+        return false
+      }
+      if (! document.register.passwd.value){
+        alert("Veuillez spécifier un mot de passe.")
+        return false
+      }
+      if (! document.register.passwd.value == document.register.confpasswd.value){
+        alert("Les mots de passe ne concordent pas.")
+        return false
+      }
+      return true
+    }
+    </script>
 </head>
 <body>
     <h1>Création de votre compte</h1>
@@ -11,7 +33,7 @@
     un compte. Vous pouvez tout de même jouer sans créer de compte.
     Promis on ne vendra pas vos informations à d'autres entreprises.
     </p>
-    <form method="post" action="server.php">
+    <form name="register" method="post" action="server.php" onsubmit="return checkForm()">
         <div>
           <label for="username">Nom d'utilisateur</label>
           <input type="text" name="username" size="20"/>

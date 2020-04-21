@@ -3,10 +3,24 @@
     <meta charset="utf-8" />
     <title>Créer un compte</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+    function checkForm()
+    {
+      if (! document.login.username.value){
+        alert("Veuillez spécifier un nom d'utilisateur.")
+        return false
+      }
+      if (! document.login.passwd.value){
+        alert("Veuillez spécifier un mot de passe.")
+        return false
+      }
+      return true
+    }
+    </script>
 </head>
 <body>
     <h1>Se connecter</h1>
-    <form method="post" action="server.php">
+    <form method="post" name="login" action="server.php" onsubmit="return checkForm()">
     <div>
       <label for="username">Nom d'utilisateur</label>
       <input type="username" name="username"/>
