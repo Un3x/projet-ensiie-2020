@@ -1,0 +1,31 @@
+#karaSearch
+{
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #0000FF;
+    background-color: #FF0000;
+    border-color: #00FF00;
+    border-radius: 5px;
+}
+
+#aKaraInKaraList
+{
+    width: 100%;
+    padding: 15px 32px;
+    text-align: left;
+    background-color: #00FF00;
+    border-radius: 15px;
+}
+
+#aKaraInKaraList:hover
+{
+    border-color: #FF0000;
+}
+
+#karaList
+{
+    height: 800px; /* Prevent the page to go up when all karas are disables,
+                     so that the user is forced to scroll down to see karas
+                     after he cleared the search*/
+}

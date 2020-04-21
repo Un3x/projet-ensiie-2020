@@ -3,6 +3,8 @@ session_start();
 
 include_once '../src/User.php';
 include_once '../src/UserRepository.php';
+include_once '../src/Kara.php';
+include_once '../src/KaraRepository.php';
 include_once '../src/Lector.php';
 include_once '../src/LectorRepository.php';
 include_once '../src/Factory/DbAdaperFactory.php';
@@ -12,6 +14,8 @@ $userRepository = new \User\UserRepository($dbAdaper);
 $users = $userRepository->fetchAll();
 $lectorRepository = new \Lector\LectorRepository($dbAdaper);
 $lectors = $lectorRepository->fetchAll();
+$karaRepository = new \Kara\KaraRepository($dbAdaper);
+$karas = $karaRepository->fetchAll();
 
 ?>
 
@@ -22,7 +26,7 @@ $lectors = $lectorRepository->fetchAll();
     <meta name="description" content="Projet web Ensiie">
     <meta name="author" content="Thomas COMES">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="style.css?v=1.0">
 </head>
 
 <body>
@@ -98,12 +102,12 @@ $lectors = $lectorRepository->fetchAll();
 </div>
 <?php
 if (isset($_SESSION['username'])){
-	$idSession=$_SESSION['id'];
-	$userSession=$_SESSION['username'];
-	echo "<p> you are logged in as $userSession, $idSession </p>";
+    $idSession=$_SESSION['id'];
+    $userSession=$_SESSION['username'];
+    echo "<p> you are logged in as $userSession, $idSession </p>";
 }
 else {
-	echo "<p> you are logged out </p>";
+    echo "<p> you are logged out </p>";
 }
 ?>
 
@@ -124,6 +128,21 @@ else {
 
 <!-- End of the test area -->
 
-<script src="js/scripts.js"></script>
+<!-- This is the test area for searching a kara -->
+
+<input type="text" id="karaSearch" onkeyup="dynamicSearch()" placeholder="Search for karas">
+
+<div id="karaList">
+    <?php foreach ($karas as $kara): ?>
+        <form method="POST" action="./idtest.php">
+            <input type="hidden" name="id" value=<?= $kara->getId()?>>
+                <button type="submit" id="aKaraInKaraList"><?= $kara->getString()?></button>
+        </form>
+    <?php endforeach; ?>
+</div> 
+
+<!-- End of the test area -->
+
+<script src="scripts.js"></script>
 </body>
 </html>
