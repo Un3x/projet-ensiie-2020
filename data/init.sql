@@ -29,3 +29,10 @@ CREATE TABLE IF NOT EXISTS "queue" (
     position INTEGER PRIMARY KEY,
     id INTEGER NOT NULL REFERENCES kara
 );
+
+CREATE TABLE IF NOT EXISTS "playlist" (
+    id INTEGER PRIMARY KEY,
+    nom TEXT NOT NULL,
+    createur SERIAL REFERENCES user,
+    content id[] REFERENCES kara
+);
