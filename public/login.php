@@ -25,8 +25,8 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
   }
 ?>
 <p> Inserez vos identifiants: </p>
-<form name= "formLoginUser" action="inc/loginUser.php" onsubmit="return validationFormulaire();" method="POST">
-<label for="username"> Nom du compte :</label></br>
+<form name= "formLoginUser" action="inc/loginUser.php" onsubmit="return validationFormulaireLogin();" method="POST">
+<label for="username"> Nom du compte ou email :</label></br>
 	<?php
 	  if (isset($_GET['username'])){
 		  $username=$_GET['username'];
@@ -44,8 +44,10 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
   		  }	
 	  }
 	?>
+<!--
 <label for="email">votre adresse mail:</label></br>
 	<?php
+	/*
 	  if (isset($_GET['email'])){
 		  $email=$_GET['email'];
 		  echo '<input type="text" name="email" placeholder="email adress" maxlength="50" value="'.$email.'"></br>';
@@ -60,14 +62,25 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
   			  echo "<p>ERROR, email is unknown</p></br>";
   		  }
 	  }
+  	*/
+	?> 
+-->
+<label for="password">votre mot de passe:</label></br>
+	<input type="password" name="password" placeholder="your password" minlength="8"></br>
+	<?php
+  	  $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+  	  if (strpos($fullUrl, "errs=noPsw")){
+  		echo "<p>ERROR, no password given</p></br>";
+  	  }
 	?>
+
 <input type="hidden" id="post.token" name="post.token" value="{$token}" /> 
 <button type="submit">Se connecter</button>
 
 <?php
   $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   if (strpos($fullUrl, "login=failed")){
-  	echo "<p> email and username do not match! Try again </p>";
+  	echo "<p> password and username do not match! Try again </p>";
   }
   if (isset($_SESSION['username'])){
 	  $userSession=$_SESSION['username'];

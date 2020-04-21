@@ -53,6 +53,23 @@ envoie les informations à inc/addUser
   		  }
 	  }
 	?>
+<label for="password"> votre mot de passe: </label></br>
+	<input type="password" name="password" placeholder="Enter password" minlength="8" ></br>
+	<?php
+  		  $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+  		  if (strpos($fullUrl, "errs=noMatchPsw")){
+  			  echo "<p>ERROR, passwords do not match</p></br>";
+  		  }
+  		  elseif (strpos($fullUrl, "errs=shortPsw")){
+  			  echo "<p>ERROR, your password must be at least 8 characters long</p></br>";
+  		  } 
+	?>
+ 
+<label for="checkPassword"> votre mot de passe: </label></br>
+	<input type="password" name="checkPassword" placeholder="Enter password" minlength="8" ></br>
+  
+	
+
 <input type="hidden" id="post.token" name="post.token" value="{$token}" /> 
 <button type="submit">Creer un compte</button>
 </br>
