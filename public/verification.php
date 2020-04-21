@@ -1,26 +1,22 @@
 <?php
+include '../src/User.php';
+include '../src/UserRepository.php';
+include '../src/Factory/DbAdaperFactory.php';
+
 session_start();
+
 if(isset($_POST['username']) && isset($_POST['password']))
 {
     // connexion à la base de données
-    $db_username = 'ensiie';
-    $db_password = 'ensiie';
-    $db_name     = 'ensiie';
-    $db_host     = 'localhost';
-    $db = pg_connect("host=localhost dbname=ensiie user=ensiie password=ensiie");
+    $dbAdaper = (new DbAdaperFactory())->createService();
+    $userRepository = new \User\UserRepository($dbAdaper);
     
-    // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
-    // pour éliminer toute attaque de type injection SQL et XSS
-    $username = pg_escape_string($db,htmlspecialchars($_POST['username'])); 
-    $password = pg_escape_string($db,htmlspecialchars($_POST['password']));
-     echo "<p> $username </p>";
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    
     if($username !== "" && $password !== "")
     {
-        $requete = "SELECT count(*) FROM membre where 
-              username = '".$username."' and passwd = '".$password."' ";
-        $exec_requete = pg_query($db,$requete);
-        $reponse      = pg_fetch_array($exec_requete);
-        $count = $reponse["count"];
+        $count = $userRepository->checkUserAuthentification($username, $password);
         if($count!=0) // nom d'utilisateur et mot de passe correctes
         {
            $_SESSION['username'] = $username;
@@ -40,5 +36,4 @@ else
 {
    header('Location: index.php');
 }
-pg_close($db); // fermer la connexion
 ?>
