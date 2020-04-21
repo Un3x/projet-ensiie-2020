@@ -28,16 +28,23 @@ $users = $userRepository->fetchAll();
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/userlist.php">Home</a>
                 </li>
-                    <?php session_start();
-                    if($_SESSION['username'] !== ""){
-                    $user = $_SESSION['username'];
-                    // afficher un message
-                    echo "<div class='connection_id' id='idco'>";
-                    echo "$user";
-                    echo "</div>";
-                }
+		<a href='userlist.php?deconnexion=true'><span>Déconnexion</span></a>	
+                <?php session_start();
+		    if(isset($_GET['deconnexion'])) { 
+                       if($_GET['deconnexion']==true) {  
+                  	    session_unset();
+                  	    header("location:index.php");
+                       }
+             	    }
+		    if($_SESSION['username'] !== ""){
+                         $user = $_SESSION['username'];
+                   	 // afficher un message
+                   	 echo "<div class='connection_id' id='idco'>";
+                  	 echo "$user";
+                  	 echo "</div>";
+               	    }
                 ?>
             </ul>
         </div>
