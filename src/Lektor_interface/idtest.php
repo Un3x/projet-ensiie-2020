@@ -1,7 +1,6 @@
 <?php
-include_once 'sockets_utils.php';
-include_once 'lektord_communication_setup.php';
+require_once 'sockets_utils.php';
 
 $msg = "add id://" . $_POST['id'] . "\n" ;
-socket_write_message($sock, $msg);
+send_to_all_lectors($msg);
 ?>

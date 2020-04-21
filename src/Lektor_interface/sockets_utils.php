@@ -51,7 +51,7 @@ function socket_create_and_connect($address, $port, $domain)
 
     if ( ( socket_connect($sock, $address, $port)) === false )
     {
-        echo "socket_connect() failed: reason: " . socket_strerror(socket_last_error()) . "\n";
+        echo "socket_connect() failed: reason: " . socket_strerror(socket_last_error()) . " : is lektord active on this lector ?\n";
         exit(2);
     }
     return $sock;
