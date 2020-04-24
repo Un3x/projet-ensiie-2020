@@ -23,7 +23,13 @@ class KaraRepository
             $string = $karaDatum['source_name'] . " - " . $karaDatum['category'] . $karaDatum['song_number'] . " - " . $karaDatum['song_name'] . " [" .$karaDatum['author_name'] . "]";
             $kara
                 ->setId($karaDatum['id'])
-                ->setString($string);
+                ->setString($string)
+                ->setSourceName($karaDatum['source_name'])
+                ->setSongName($karaDatum['song_name'])
+                ->setCategory($karaDatum['category'])
+                ->setAuthorName($karaDatum['author_name'])
+                ->setSongNumber($karaDatum['song_number'])
+                ->setLanguage('language');
             $karas[] = $kara;
         }
         return $karas;
