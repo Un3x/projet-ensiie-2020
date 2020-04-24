@@ -28,24 +28,29 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
 <form name= "formLoginUser" action="inc/loginUser.php" onsubmit="return validationFormulaireLogin();" method="POST">
 <label for="username"> Nom du compte ou email :</label></br>
 	<?php
-	  if (isset($_GET['username'])){
+  	  if (isset($_GET['username']))
+  	  {
 		  $username=$_GET['username'];
-		  echo '<input type="text" name="username" placeholder="username" maxlength="20"  value="'.$username.'"></br>';
+		  echo '<input type="text" name="username" placeholder="username or email adress" maxlength="20"  value="'.$username.'"></br>';
 	  }
-	  else {
-		  echo '<input type="text" name="username" placeholder="username" maxlength="20" ></br>';
+	  else 
+	  {
+		  echo '<input type="text" name="username" placeholder="username or email adress" maxlength="20" ></br>';
   		  $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-  		  if (strpos($fullUrl, "errs=noUsername")){
+		  if (strpos($fullUrl, "errs=noUsername"))
+		  {
   			  echo "<p>ERROR, no username given</p></br>";
   	    	  }
-  		  elseif (strpos($fullUrl, "login=userUnknown")){
+		  elseif (strpos($fullUrl, "login=userUnknown"))
+		  {
   			  echo "<p>ERROR, username is unknown</p></br>";
   		  }	
 	  }
 	?>
 <!--
 <label for="email">votre adresse mail:</label></br>
+-->
 	<?php
 	/*
 	  if (isset($_GET['email'])){
@@ -64,7 +69,7 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
 	  }
   	*/
 	?> 
--->
+
 <label for="password">votre mot de passe:</label></br>
 	<input type="password" name="password" placeholder="your password" minlength="8"></br>
 	<?php
@@ -79,12 +84,14 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
 
 <?php
   $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-  if (strpos($fullUrl, "login=failed")){
+  if (strpos($fullUrl, "login=failed"))
+  {
   	echo "<p> password and username do not match! Try again </p>";
   }
-  if (isset($_SESSION['username'])){
-	  $userSession=$_SESSION['username'];
-	  echo "<p>you are logged as $userSession</p>";
+  if (isset($_SESSION['username']))
+  {
+	$userSession=$_SESSION['username'];
+	echo "<p>you are logged as $userSession</p>";
   }
 ?>
 </br>

@@ -29,11 +29,14 @@ if ($token!==$trueToken){
 }
 //check validity of given userName
 
-if ($username==''){
-	if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+if ($username=='')
+{
+	if (filter_var($email, FILTER_VALIDATE_EMAIL))
+	{
 		header("Location: ../registration.php?errs=noUsername&email=$email");
 	}
-	else {
+	else 
+	{
 		header("Location: ../registration.php?errs=noUsername");
 	}
 	exit();
@@ -61,17 +64,20 @@ elseif ($userRepository->checkEmail($email)>0){ //check if email is already take
 }
 
 //check validity of given password
-elseif (strcmp($password,$checkPassword)<0){
+elseif (strcmp($password,$checkPassword)!=0)
+{
 	header("Location: ../registration.php?errs=noMatchPsw&username=$username&email=$email");
 	exit();
 }
 
-elseif (strlen($password)<8){ 
+elseif (strlen($password)<8)
+{ 
 	header("Location: ../registration.php?errs=shortPsw&username=$username&email=$email");
 	exit();
 }
 
-if ($errsCount==0){
+if ($errsCount==0)
+{
 	$hashed_password=password_hash($password,PASSWORD_DEFAULT);
 	$userRepository->add($username,$email,$hashed_password);
 	header('Location: ../login.php?signup=success');
