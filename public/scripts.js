@@ -31,8 +31,8 @@ function dynamicSearch()
 
     for ( i = 0; i < kara.length; i++ )
     {
-        a = kara[i];
-        txtValue = a.textContent || a.innerText;
+        a = kara[i].getElementsByTagName('button');
+        txtValue = a[0].textContent;
         if ( txtValue.toUpperCase().indexOf(filter) > -1 )
             kara[i].style.display = "";
         else
