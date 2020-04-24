@@ -1,7 +1,15 @@
 <?php
-//this file changes the username, the email, OR the password of the user. (only one of those things at the time)
-//there won't be a need for him to login again after the change
-//let's hope it doesn't break anything in the db ᕕ( ᐛ )ᕗ
+/*******/
+/* this file changes the username, the email, OR the password of the user. (only one of those things at the time)
+/* there won't be a need for him to login again after the change
+/* let's hope it doesn't break anything in the db ᕕ( ᐛ )ᕗ
+ *
+ * the form from ../modifyUser.php will send via POST:
+ * -newUsername
+ * -newEmail
+ * -newPassword
+ * -newPasswordCheck
+/*******/
 
 use User\UserRepository;
 
