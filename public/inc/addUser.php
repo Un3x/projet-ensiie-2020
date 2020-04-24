@@ -17,21 +17,26 @@ $userRepository = new UserRepository($dbAdaper);
 
 $username=htmlspecialchars($_POST['username']);
 $email=htmlspecialchars($_POST['email']);
+$password=htmlspecialchars($_POST['password']);
+$checkPassword=htmlspecialchars($_POST['checkPassword']);
 $token=htmlspecialchars($_POST['post.token']);
 $trueToken=$_SESSION['post.token'];
 
-//check if the seesion is valid, in order to prevent malicious POST
+//check if the session is valid, in order to prevent malicious POST
 
 if ($token!==$trueToken){
 	header("Location: ../registration.php");
 }
 //check validity of given userName
 
-if ($username==''){
-	if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+if ($username=='')
+{
+	if (filter_var($email, FILTER_VALIDATE_EMAIL))
+	{
 		header("Location: ../registration.php?errs=noUsername&email=$email");
 	}
-	else {
+	else 
+	{
 		header("Location: ../registration.php?errs=noUsername");
 	}
 	exit();
@@ -58,10 +63,26 @@ elseif ($userRepository->checkEmail($email)>0){ //check if email is already take
 	exit();
 }
 
-if ($errsCount==0){
-	$userRepository->add($username,$email);
+//check validity of given password
+elseif (strcmp($password,$checkPassword)!=0)
+{
+	header("Location: ../registration.php?errs=noMatchPsw&username=$username&email=$email");
+	exit();
+}
+
+elseif (strlen($password)<8)
+{ 
+	header("Location: ../registration.php?errs=shortPsw&username=$username&email=$email");
+	exit();
+}
+
+if ($errsCount==0)
+{
+	$hashed_password=password_hash($password,PASSWORD_DEFAULT);
+	$userRepository->add($username,$email,$hashed_password);
 	header('Location: ../login.php?signup=success');
 }
+
 else{
 
 	header('Location: ../registration.php');

@@ -48,11 +48,14 @@ class UserRepository
 	return $emails->fetchColumn();
     }
 
-    public function add ($username, $email)
+    public function add ($username, $email, $password)
     {
-	    //add rights in the future
-	$newUser=$this->dbAdapter->prepare('INSERT INTO "user" (username, email, created_at) VALUES (:username, :email, NOW())');
-	$newUser->execute(['username'=>$username, 'email'=>$email]);
+	//add rights in the future
+	$newUser=$this->dbAdapter->prepare('INSERT INTO "user" (username, email, password, rights, created_at) VALUES (:userName, :Email, :passWord, 0, NOW())');
+        $newUser->bindParam('userName', $username);
+        $newUser->bindParam('Email', $email);
+        $newUser->bindParam('passWord', $password);
+	$newUser->execute();
     }
 
 

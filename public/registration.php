@@ -18,27 +18,33 @@ envoie les informations à inc/addUser
 <!--creer un compte -->
 <h1>Inserez vos identifiants:</h1>
 <form name= "formAddUser" action="inc/addUser.php" onsubmit="return validationFormulaire();" method="POST">
-<label for="username"> Nom de compte :</label></br>
+  <label for="username"> Nom de compte :</label></br>
 	<?php
-	  if (isset($_GET['username'])){
+	  if (isset($_GET['username']))
+	  {
 		  $username=$_GET['username'];
 		  echo '<input type="text" name="username" placeholder="username" maxlength="20" value="'.$username.'"></br>';
 	  }
-	  else {
+	  else 
+	  {
 		  echo '<input type="text" name="username" placeholder="username" maxlength="20" ></br>';
   		  $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
-  		  if (strpos($fullUrl, "errs=noUsername")){
+		  if (strpos($fullUrl, "errs=noUsername"))
+		  {
   			  echo "<p>ERROR, no username given</p></br>";
-  	    	  }
-  		  elseif (strpos($fullUrl, "errs=usedUsername")){
+		  }
+
+		  elseif (strpos($fullUrl, "errs=usedUsername"))
+		  {
   			  echo "<p>ERROR, username already taken</p></br>";
   		  }	
 	  }
 	?>
-<label for="email">votre adresse mail:</label></br>
+  <label for="email">votre adresse mail:</label></br>
 	<?php
-	  if (isset($_GET['email'])){
+	  if (isset($_GET['email']))
+	  {
 		  $email=$_GET['email'];
 		  echo '<input type="text" name="email" placeholder="email adress" maxlength="50" value="'.$email.'"></br>';
 	  }
@@ -53,6 +59,26 @@ envoie les informations à inc/addUser
   		  }
 	  }
 	?>
+  <label for="password"> votre mot de passe: </label></br>
+	<input type="password" name="password" placeholder="Enter password" minlength="8" ></br>
+	<?php
+	  	  $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+	  	  if (strpos($fullUrl, "errs=noMatchPsw"))
+	  	  {
+  			  echo "<p>ERROR, passwords do not match</p></br>";
+  		  }
+		  elseif (strpos($fullUrl, "errs=shortPsw"))
+		  {
+  			  echo "<p>ERROR, your password must be at least 8 characters long</p></br>";
+  		  } 
+	?>
+ 
+  <label for="checkPassword"> repetez votre mot de passe: </label></br>
+	<input type="password" name="checkPassword" placeholder="Enter password" minlength="8" ></br>
+  
+	
+
 <input type="hidden" id="post.token" name="post.token" value="{$token}" /> 
 <button type="submit">Creer un compte</button>
 </br>
