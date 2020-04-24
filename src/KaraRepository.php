@@ -20,7 +20,7 @@ class KaraRepository
         $karas = [];
         foreach ($karasData as $karaDatum) {
             $kara = new Kara();
-            $string = $karaDatum['source_name'] . " - " . $karaDatum['category'] . $karaDatum['song_number'] . " - " . $karaDatum['song_name'] . " [" .$karaDatum['author_name'] . "]";
+            $string = $karaDatum['source_name'] . " - " . $karaDatum['category'] . $karaDatum['song_number'] . " - " . $karaDatum['song_name'] . " [" .$karaDatum['author_name'] . "] {". $karaDatum['language'] . "}";
             $kara
                 ->setId($karaDatum['id'])
                 ->setString($string)
@@ -29,7 +29,7 @@ class KaraRepository
                 ->setCategory($karaDatum['category'])
                 ->setAuthorName($karaDatum['author_name'])
                 ->setSongNumber($karaDatum['song_number'])
-                ->setLanguage('language');
+                ->setLanguage($karaDatum['language']);
             $karas[] = $kara;
         }
         return $karas;

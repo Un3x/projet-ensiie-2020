@@ -21,21 +21,32 @@ function validationFormulaire(){
 
 function dynamicSearch()
 {
-    var input, filter, ul, li, a, i, txtValue;
+    var input, filter, karas, kara, a, i, txtValue;
 
     input = document.getElementById('karaSearch');
     filter = input.value.toUpperCase();
 
-    ul = document.getElementById("karaList");
-    li = ul.getElementsByTagName('form');
+    karas = document.getElementById("karaList");
+    kara = karas.getElementsByTagName('form');
 
-    for ( i = 0; i < li.length; i++ )
+    for ( i = 0; i < kara.length; i++ )
     {
-        a = li[i];
+        a = kara[i];
         txtValue = a.textContent || a.innerText;
         if ( txtValue.toUpperCase().indexOf(filter) > -1 )
-            li[i].style.display = "";
+            kara[i].style.display = "";
         else
-            li[i].style.display = "none";
+            kara[i].style.display = "none";
     }
+}
+
+function toggleKaraInfo(i)
+{
+    var div;
+
+    div = document.getElementById("KaraInfo_" + i);
+    if ( div.style.display === "none" )
+        div.style.display = "block";
+    else
+        div.style.display = "none";
 }
