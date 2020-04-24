@@ -130,7 +130,7 @@ else {
 
 <!-- This is the test area for searching a kara -->
 
-<input type="text" id="karaSearch" onkeyup="dynamicSearch()" placeholder="Search for karas">
+<input type="text" id="karaSearch" onkeydown="dynamicSearch()" placeholder="Search for karas">
 
 <div id="karaList">
     <?php foreach ($karas as $kara): ?>
