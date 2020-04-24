@@ -130,13 +130,26 @@ else {
 
 <!-- This is the test area for searching a kara -->
 
-<input type="text" id="karaSearch" onkeyup="dynamicSearch()" placeholder="Search for karas">
+<input type="text" id="karaSearch" onkeydown="dynamicSearch()" placeholder="Search for karas">
 
 <div id="karaList">
     <?php foreach ($karas as $kara): ?>
         <form method="POST" action="./idtest.php">
             <input type="hidden" name="id" value=<?= $kara->getId()?>>
                 <button type="submit" id="aKaraInKaraList"><?= $kara->getString()?></button>
+            <button type="button" onclick="toggleKaraInfo(<?= $kara->getId()?>)">Infos</button>
+            <div id=KaraInfo_<?= $kara->getId()?> style="display: none">
+                <h3>Infos</h3>
+                <ul>
+                    <li>Source Name : <?= $kara->getSourceName()?></li>
+                    <li>Song Name : <?= $kara->getSongName()?></li>
+                    <li>Category : <?php    echo $kara->getCategory();
+                                            echo $kara->getSongNumber();?></li>
+                    <li>Author Name : <?= $kara->getAuthorName()?></li>
+                    <li>Language : <?= $kara->getLanguage()?></li>
+                    <li>ID : <?= $kara->getID()?></li>
+                </ul>
+            </div>
         </form>
     <?php endforeach; ?>
 </div> 

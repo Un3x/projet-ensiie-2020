@@ -48,21 +48,44 @@ function validationFormulaireLogin(){
 
 function dynamicSearch()
 {
-    var input, filter, ul, li, a, i, txtValue;
+    var input, filter, karas, kara, a, i, txtValue, j, hide;
 
     input = document.getElementById('karaSearch');
     filter = input.value.toUpperCase();
+    filter = filter.split(' ');
 
-    ul = document.getElementById("karaList");
-    li = ul.getElementsByTagName('form');
+    karas = document.getElementById("karaList");
+    kara = karas.getElementsByTagName('form');
 
-    for ( i = 0; i < li.length; i++ )
+    for ( i = 0; i < kara.length; i++ )
     {
-        a = li[i];
-        txtValue = a.textContent || a.innerText;
-        if ( txtValue.toUpperCase().indexOf(filter) > -1 )
-            li[i].style.display = "";
+        hide = false;
+        a = kara[i].getElementsByTagName('button');
+        txtValue = a[0].textContent;
+        search_loop:
+        for (j=0; j<filter.length; j++)
+        {
+            if ( txtValue.toUpperCase().search(filter[j]) <= -1 )
+            {
+                hide = true;
+                break search_loop;
+            }
+
+        }
+        if ( hide )
+            kara[i].style.display = "none";
         else
-            li[i].style.display = "none";
+            kara[i].style.display = "";
     }
+}
+
+function toggleKaraInfo(i)
+{
+    var div;
+
+    div = document.getElementById("KaraInfo_" + i);
+    if ( div.style.display === "none" )
+        div.style.display = "block";
+    else
+        div.style.display = "none";
 }
