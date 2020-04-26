@@ -28,15 +28,19 @@ $users = $userRepository->fetchAll();
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/userlist.php"><span>Home</span></a>
                 </li>
+                <a href='index.php?deconnexion=true'><span>Déconnexion</span></a>
                     <?php session_start();
-                    if($_SESSION['username'] !== ""){
+                if(isset($_GET['deconnexion'])){
+                    if($_GET['deconnexion']==true){
+                        session_unset();
+                        header("location:login.php");
+                    }
+                }
+                else($_SESSION['username'] !== ""){
                     $user = $_SESSION['username'];
-                    // afficher un message
-                    echo "<div class='connection_id' id='idco'>";
-                    echo "$user";
-                    echo "</div>";
+                    echo "<br> Boujour $user, vous etes connectés";
                 }
                 ?>
             </ul>

@@ -16,6 +16,7 @@ include '../src/Factory/DbAdaperFactory.php';
     <meta name="author" content="Thomas COMES">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
@@ -58,6 +59,7 @@ include '../src/Factory/DbAdaperFactory.php';
                 }
                 ?>
             </form>
+            <a class="nav-link" href="./inscription.php" id="inscri">Si vous n'êtes pas inscrit</a>
         </div>
     </body>
 <script src="js/scripts.js"></script>
