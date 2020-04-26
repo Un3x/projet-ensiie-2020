@@ -60,22 +60,22 @@ CREATE TABLE IF NOT EXISTS "image"(
 	image VARCHAR 
 );
 
-INSERT INTO "image" (IDimage, image) VALUES (1,waifu1.png);
-INSERT INTO "image" (IDimage, image) VALUES (2,waifu2.png);
-INSERT INTO "image" (IDimage, image) VALUES (3,waifu3.png);
-INSERT INTO "image" (IDimage, image) VALUES (4,waifu4.png);
-INSERT INTO "image" (IDimage, image) VALUES (5,waifu5.png);
-INSERT INTO "image" (IDimage, image) VALUES (6,waifu6.png);
-INSERT INTO "image" (IDimage, image) VALUES (7,waifu7.png);
-INSERT INTO "image" (IDimage, image) VALUES (8,waifu8.png);
-INSERT INTO "image" (IDimage, image) VALUES (9,waifu9.png);
-INSERT INTO "image" (IDimage, image) VALUES (10,waifu10.png);
-INSERT INTO "image" (IDimage, image) VALUES (11,waifu11.png);
-INSERT INTO "image" (IDimage, image) VALUES (12,waifu12.png);
-INSERT INTO "image" (IDimage, image) VALUES (13,waifu13.png);
-INSERT INTO "image" (IDimage, image) VALUES (14,waifu14.png);
-INSERT INTO "image" (IDimage, image) VALUES (15,waifu15.png);
-INSERT INTO "image" (IDimage, image) VALUES (16,waifu16.png);
+INSERT INTO "image" (IDimage, image) VALUES (1,'waifu1.png');
+INSERT INTO "image" (IDimage, image) VALUES (2,'waifu2.png');
+INSERT INTO "image" (IDimage, image) VALUES (3,'waifu3.png');
+INSERT INTO "image" (IDimage, image) VALUES (4,'waifu4.png');
+INSERT INTO "image" (IDimage, image) VALUES (5,'waifu5.png');
+INSERT INTO "image" (IDimage, image) VALUES (6,'waifu6.png');
+INSERT INTO "image" (IDimage, image) VALUES (7,'waifu7.png');
+INSERT INTO "image" (IDimage, image) VALUES (8,'waifu8.png');
+INSERT INTO "image" (IDimage, image) VALUES (9,'waifu9.png');
+INSERT INTO "image" (IDimage, image) VALUES (10,'waifu10.png');
+INSERT INTO "image" (IDimage, image) VALUES (11,'waifu11.png');
+INSERT INTO "image" (IDimage, image) VALUES (12,'waifu12.png');
+INSERT INTO "image" (IDimage, image) VALUES (13,'waifu13.png');
+INSERT INTO "image" (IDimage, image) VALUES (14,'waifu14.png');
+INSERT INTO "image" (IDimage, image) VALUES (15,'waifu15.png');
+INSERT INTO "image" (IDimage, image) VALUES (16,'waifu16.png');
 
 CREATE TABLE IF NOT EXISTS "title"(
 	IDtitle SERIAL PRIMARY KEY,
