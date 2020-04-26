@@ -57,10 +57,12 @@ class UserRepository
 	$newUser->bindParam('passWord', $password);
 	$newUser->execute();
 
-	//add a row to usersCosmetics
+	//add a row to userCosmetics
 	$sql='SELECT id FROM "user" WHERE username= :userName';
 	$newUserID=$this->dbAdapter->prepare($sql);
-	$id=$newUserID->execute(['userName'=>$username])->fetch(PDO::FETCH_BOTH)['id'];
+	$UserRow=$newUserID->execute(['userName'=>$username]);
+	$UserRow=$newUserID->fetch();
+	$id=$UserRow['id'];
 
 	$newCosmetics='INSERT INTO "userCosmetics" (id, IDimage, IDtitle) VALUES (:ID, 1, 1)';
 	$stmt=$this->dbAdapter->prepare($newCosmetics);
