@@ -50,3 +50,40 @@ input[type=submit]:hover {
     background-color: yellow;
     color: #53af57;
 }
+
+fieldset {
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+
+#leg1 {
+    padding: 0px 3px;
+    font-weight: bold;
+    font-variant: small-caps;
+    font-size: 160%;
+  }
+
+#bouton_envoi {
+    width: 150px;
+    padding: 10px;
+    background-color : grey;
+    font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 3px;
+    cursor: pointer; 
+    box-shadow: 0 8px 16px 0 grey;
+    text-decoration: none;  
+    display: block;
+    margin : auto;
+  }
+
+#em1 {
+    font-weight: bold;
+    font-style: normal;
+    color: #f00;
+  }
+
+#inscri {
+    color:white; 
+    text-align: center;
+}

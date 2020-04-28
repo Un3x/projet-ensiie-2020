@@ -12,14 +12,14 @@ CREATE TABLE Administrateur(
 );
 
 CREATE TABLE Association(
-	Id_Assoc VARCHAR PRIMARY KEY
+	Id_Assoc INTEGER PRIMARY KEY,
+	Nom_assoc VARCHAR
 );
 
 CREATE TABLE Reunion(
 	Id_Assoc VARCHAR NOT NULL,
 	Id_reu VARCHAR PRIMARY KEY,
-	Date_reu date NOT NULL,
-	Horaire TIMESTAMP,
+	Date_reu TIMESTAMP,
 	Id_MembreA VARCHAR,
 	FOREIGN KEY (Id_MembreA) REFERENCES Administrateur(Id_MembreA)
 );
@@ -50,7 +50,23 @@ create view Vue_admin as select(Administrateur.Id_MembreA)
 	join Administrateur on (Membre.id = Administrateur.Id_MembreA);
 
 INSERT INTO Membre (id,username,passwd, email, created_at)  VALUES (1,'unex','nenex', 'patati@patata.com', NOW());
-INSERT INTO Membre (id,username,passwd, email, created_at)  VALUES (2,'caillou','voyou', 'caillou@rocher.com', NOW());
+INSERT INTO Membre (id,username,passwd, email, created_at)  VALUES (2,'caillou','voyou', 'caillou@rocher.com',  NOW());
 INSERT INTO Membre (id,username,passwd, email, created_at)  VALUES (3,'viteira','teteh', 'vivi@taira.com', NOW());
 INSERT INTO Membre (id,username,passwd, email, created_at)  VALUES (4,'césar','jules','jule@cesar.com', NOW());
 INSERT INTO Membre (id,username,passwd, email, created_at)  VALUES (5,'gengis','regis','gengis@khan.com', NOW());
+
+
+INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (1,'BDE');
+INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (2,'Cuisine');
+INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (3,'BDS');
+INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (4,'BDA');
+INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (5,'I-TV');
+INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (6,'Bakaclub');
+
+INSERT INTO Administrateur (Id_MembreA) VALUES (1); 
+INSERT INTO Administrateur (Id_MembreA) VALUES (5); 
+
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_reu, Id_MembreA) VALUES (1,1,'2008-01-01 00:00:01', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_reu, Id_MembreA) VALUES (4,2,'2020-04-26 14:30:00', 5);
+
+
