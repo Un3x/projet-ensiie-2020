@@ -17,16 +17,19 @@ function searchKara(string $str)
     $regex = substr($regex, 0, -3);
     $regex = $regex . "'";
 
-    $req = 'SELECT DISTINCT song_name, song_type, song_number, source_name FROM "kara" WHERE CONCAT_WS(\'||\', song_name, source_name, category) ~* ' . $regex . ';';
-    $ret = $dbAdaper->query($req)->fetch(PDO::FETCH_NUM);
+    $req = 'SELECT DISTINCT song_name, song_type, song_number, source_name FROM "karas" WHERE CONCAT_WS(\'||\', song_name, source_name, category) ~* ' . $regex . ';';
+    $ret = $dbAdaper->query($req)->fetchAll(PDO::FETCH_NUM);
 
     return $ret;
 }
 
-$results = searchKara("some il");
+$results = searchKara("g");
+var_dump($results);
 foreach ( $results as $result )
 {
+    /*
     echo $result . " - ";
+     */
 }
 
 ?>

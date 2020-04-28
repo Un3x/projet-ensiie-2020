@@ -131,6 +131,7 @@ else {
 <!-- This is the test area for displaying the current queue -->
 
 <button type="button" onclick="loadQueue()">Refresh Queue</button>
+<button type="button" onclick="autoRefreshQueue(10000)">Set Auto Refresh Queue</button>
 <div id="karaQueue">
 <span>
 coucou

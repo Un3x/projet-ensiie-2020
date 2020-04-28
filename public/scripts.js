@@ -98,10 +98,34 @@ function loadQueue()
 
     xhr.addEventListener('readystatechange', function ()
 {
-    if (xhr.readyState === XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 )) { // <-- FIXME Delete the xhr.status === 0 if the site isn't on localhost
+    if (xhr.readyState === XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 )) { // <-- FIXME Delete the xhr.status === 0 when the site isn't on localhost
         document.getElementById('karaQueue').innerHTML = '<span>' + xhr.responseText + '</span>';
     }
 });
 
     xhr.send(null);
+}
+
+function sayCoucou ()
+{
+    alert("coucou");
+}
+
+function wait(i) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, i);
+  });
+}
+
+async function autoRefreshQueue(i) {
+    var x;
+    loadQueue();
+
+    while ( true )
+    {
+        x = await wait(i);
+        loadQueue();
+    }
 }

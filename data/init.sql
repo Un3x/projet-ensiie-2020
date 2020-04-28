@@ -39,8 +39,12 @@ INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_numbe
 CREATE TABLE IF NOT EXISTS "queue" (
     position INTEGER PRIMARY KEY,
     id INTEGER NOT NULL REFERENCES karas,
-    added_by INTEGER REFERENCES "user"
+    added_by INTEGER
 );
+
+INSERT INTO "queue" (position, id, added_by) VALUES(1,2,2);
+INSERT INTO "queue" (position, id, added_by) VALUES(0,1,3);
+INSERT INTO "queue" (position, id, added_by) VALUES(2,4,4);
 
 CREATE TABLE IF NOT EXISTS "playlist" (
     id INTEGER PRIMARY KEY,
@@ -68,7 +72,7 @@ CREATE TABLE IF NOT EXISTS "title"(
 
 
 CREATE TABLE IF NOT EXISTS "lector"(
-    id INTEGER PRIMARY KEY REFERENCES karas,
+    id INTEGER PRIMARY KEY,
     ip VARCHAR,
     port INTEGER
 );
