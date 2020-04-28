@@ -28,8 +28,7 @@ $users = $userRepository->fetchAll();
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-<<<<<<< HEAD
-                    <a class="nav-link" href="/userlist.php">Home</a>
+                <a class="nav-link" href="/userlist.php"><span>Home</span></a>
                 </li>
 		<a href='userlist.php?deconnexion=true'><span>Déconnexion</span></a>	
                 <?php session_start();
@@ -46,22 +45,6 @@ $users = $userRepository->fetchAll();
                   	 echo "$user";
                   	 echo "</div>";
                	    }
-=======
-                    <a class="nav-link" href="/userlist.php"><span>Home</span></a>
-                </li>
-                <a href='index.php?deconnexion=true'><span>Déconnexion</span></a>
-                    <?php session_start();
-                if(isset($_GET['deconnexion'])){
-                    if($_GET['deconnexion']==true){
-                        session_unset();
-                        header("location:login.php");
-                    }
-                }
-                else($_SESSION['username'] !== ""){
-                    $user = $_SESSION['username'];
-                    echo "<br> Boujour $user, vous etes connectés";
-                }
->>>>>>> Laura
                 ?>
             </ul>
         </div>
