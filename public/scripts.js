@@ -89,3 +89,19 @@ function toggleKaraInfo(i)
     else
         div.style.display = "none";
 }
+
+function loadQueue()
+{
+    var xhr = new XMLHttpRequest()
+
+    xhr.open('GET', 'http://localhost:8080/getQueue.php?getQueue=42', true)
+
+    xhr.addEventListener('readystatechange', function ()
+{
+    if (xhr.readyState === XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 )) { // <-- FIXME Delete the xhr.status === 0 if the site isn't on localhost
+        document.getElementById('karaQueue').innerHTML = '<span>' + xhr.responseText + '</span>';
+    }
+});
+
+    xhr.send(null);
+}

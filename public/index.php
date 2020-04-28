@@ -128,6 +128,17 @@ else {
 
 <!-- End of the test area -->
 
+<!-- This is the test area for displaying the current queue -->
+
+<button type="button" onclick="loadQueue()">Refresh Queue</button>
+<div id="karaQueue">
+<span>
+coucou
+</span>
+</div>
+
+<!-- End of the test area -->
+
 <!-- This is the test area for searching a kara -->
 
 <input type="text" id="karaSearch" onkeydown="dynamicSearch()" placeholder="Search for karas">
