@@ -16,7 +16,7 @@ class UserRepository
 
     public function fetchAll()
     {
-        $usersData = $this->dbAdapter->query('SELECT * FROM "membre"');
+        $usersData = $this->dbAdapter->query("SELECT * FROM membre");
         $users = [];
         foreach ($usersData as $usersDatum) {
             $user = new User();
@@ -32,7 +32,7 @@ class UserRepository
 
     public function checkUserAuthentification($username,$password)
     {
-	$requete = "SELECT count(*) FROM membre where username = '.$username.' and passwd = '.$password.'";
+	$requete = "SELECT * FROM membre where username = '$username' and passwd = '$password'";
 	$exec_requete = $this->dbAdapter->query($requete);
 	$count   =  0;
 	foreach ($exec_requete as $entry) {
