@@ -78,9 +78,15 @@ elseif (strlen($password)<8)
 
 if ($errsCount==0)
 {
-	$hashed_password=password_hash($password,PASSWORD_DEFAULT);
-	$userRepository->add($username,$email,$hashed_password);
-	header('Location: ../login.php?signup=success');
+	try {
+		$hashed_password=password_hash($password,PASSWORD_DEFAULT);
+		$userRepository->add($username,$email,$hashed_password);
+		header('Location: ../login.php?signup=success');
+		exit();
+	}
+	catch (PDOException $err) {
+		header('Location: ../login.php?err=sqlerror');
+	}
 }
 
 else{

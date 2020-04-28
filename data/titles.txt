@@ -1,0 +1,12 @@
+liste des titres:
+amusez vous.
+Oubliez pas de rajouter le insert dans init.sql
+
+------------------------
+
+"Titre défectueux"
+"Karamaker"
+"Kara-pas-maker"
+"DJ weeb"
+
+------------------------
