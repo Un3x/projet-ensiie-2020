@@ -56,6 +56,18 @@ if ($userRepository->checkUser($username)>0 || $userRepository->checkEmail($emai
 			$_SESSION['username']=$userFound['username'];
 			$_SESSION['email']=$userFound['email'];
 			$_SESSION['rights']=$userFound['rights'];
+			$sql='SELECT * FROM "userCosmetics" NATURAL JOIN "user" WHERE id= :userID;';
+			try {
+				$cosmetics=$dbAdaper->prepare($sql);
+				$cosmetics->bindParam('userID',$userFound['id']);
+				$cosmetics->execute();
+				$cosmetics=$cosmetics->fetch();
+				$_SESSION['image']=$userFound['image'];
+				$_SESSION['title']=$userFound['title'];
+			}
+			catch (PDOException $err){
+			header('Location: ../index.php?err=sqlError');
+			}
 			header('Location: ../index.php?login=success');
 		}
 		else { 
