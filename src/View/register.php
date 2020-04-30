@@ -15,15 +15,15 @@ Promis on ne vendra pas vos informations à d'autres entreprises.
     </div>
     <div>
       <label for="passwd">Mot de passe</label>
-      <input type="password" name="passwd"/>
-      <label for="confpasswd">Confirmer votre mdp</label><br/>
+      <input type="password" name="passwd"/><br/>
+      <label for="confpasswd">Confirmer votre mdp</label>
       <input type="password" name="confpasswd"/>
     </div>
-    <button type="submit" name="reg_user">Créer mon compte</button>
-    <button type="reset">Annuler</button>
+    <button type="submit" name="reg_user" class="btn btn-primary">Créer mon compte</button>
+    <button type="reset" class="btn btn-danger">Annuler</button>
 </form>
 <div>
 <br/>
   Vous avez déjà un compte ?
-  <a href=login.php><button type="button">Se connecter</a>
+  <a href=login.php><button type="button" class="btn btn-link">Se connecter</button></a>
 </div>

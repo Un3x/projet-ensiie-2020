@@ -14,5 +14,5 @@
 <div>
 <br/>
   Vous n'avez pas de compte ?
-  <a href=register.php><button type="button" class="btn">En créer un</a>
+  <a href=register.php><button type="button" class="btn btn-link">En créer un</button></a>
 </div>
