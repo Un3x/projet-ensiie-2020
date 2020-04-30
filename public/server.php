@@ -66,7 +66,7 @@ if (isset($_POST['log_user'])) {
     }
   
     if (count($errors) == 0) {
-        $result = $urep->fecthUserConnection($username, $password);
+        $result = $urep->fetchUserConnection($username, $password);
         $nbRow = $result->rowCount();
         if ($nbRow == 1) {
           $_SESSION['username'] = $username;
