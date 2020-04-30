@@ -27,7 +27,9 @@
         <a class="nav-link" href="#"><?php echo $_SESSION['username']; ?></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Log out</a>
+        <form name="disconnect" method="post" action="server.php">
+          <button type="submit" class="btn btn-link nav-link" name="disconnect">Log out</button>
+        </form>
       </li>
       <?php } ?>
     </ul>

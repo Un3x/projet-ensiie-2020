@@ -77,5 +77,14 @@ if (isset($_POST['log_user'])) {
         }
     }
     include 'errors.php';
-  }  
+
+  }
+
+
+//DISCONNECT
+if (isset($_POST['disconnect'])){
+  unset($_SESSION['username']);
+}
+  header('location: index.php');
+
   ?>
