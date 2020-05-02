@@ -24,7 +24,11 @@
       </li>
       <?php } else { ?>
       <li class="nav-item">
-        <a class="nav-link" href="#"><?php echo $_SESSION['username']; ?></a>
+        <?php if (is_null($_SESSION['admin'])){ ?>
+        <a class="nav-link" href="user_page.php"><?php echo $_SESSION['username']; ?></a>
+        <?php } else { ?>
+          <a class="nav-link" href="admin_page.php"><?php echo $_SESSION['username']; ?></a>
+        <?php } ?>
       </li>
       <li class="nav-item">
         <form name="disconnect" method="post" action="server.php">

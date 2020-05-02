@@ -30,21 +30,21 @@ class UserRepository
         return $users;
     }
 
-    public function delete ($userId)
+    public function delete (int $userId)
     {
         $stmt = $this
             ->dbAdapter
-            ->prepare('DELETE FROM users where id = :userId');
+            ->prepare('DELETE FROM users WHERE userId = :userId');
 
-        $stmt->bindParam('userId', $userId);
+        $stmt->bindParam(':userId', $userId);
         $stmt->execute();
     }
 
     public function addUser(String $username, String $email, String $password)
     {
         $password = crypt($password, 'stupefaction'); //encrypt the password before saving in the database
-        $query = "INSERT INTO users (username, email, pwd) 
-                VALUES(:username, :email, :password)";
+        $query = "INSERT INTO users (username, email, pwd, isAdmin) 
+                VALUES(:username, :email, :password, false)";
         $result = $this->dbAdapter->prepare($query);
         $result->bindParam(':username', $username);
         $result->bindParam(':email', $email);
@@ -74,4 +74,25 @@ class UserRepository
         $user = $result->fetch();
         return (! empty($user));
     }
+
+    public function get_UserID(String $username)
+    {
+        $query = "SELECT userID FROM users WHERE username=:username";
+        $result = $this->dbAdapter->prepare($query);
+        $result->bindParam(':username', $username);
+        $result->execute();
+        $userID = $result->fetch();
+        return $userID[0]; //le résultat d'une requête est toujours un array !!!
+    }
+
+    public function isAdmin(String $username)
+    {
+        $query = "SELECT isAdmin FROM users WHERE username=:username";
+        $result = $this->dbAdapter->prepare($query);
+        $result->bindParam(':username', $username);
+        $result->execute();
+        $is = $result->fetch();
+        return $is[0];
+    }
+
 }

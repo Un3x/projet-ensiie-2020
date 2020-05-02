@@ -70,6 +70,9 @@ if (isset($_POST['log_user'])) {
         $nbRow = $result->rowCount();
         if ($nbRow == 1) {
           $_SESSION['username'] = $username;
+          if ($urep->isAdmin($username)){
+            $_SESSION['admin'] = true;
+          }
           $_SESSION['success'] = "Vous êtes connecté !";
           header('location: index.php');
         }else {
@@ -84,7 +87,16 @@ if (isset($_POST['log_user'])) {
 //DISCONNECT
 if (isset($_POST['disconnect'])){
   unset($_SESSION['username']);
-}
+  unset($_SESSION['admin']);
   header('location: index.php');
+}
+
+//DELETE ACCOUNT
+if (isset($_POST['delete_account'])){
+  $urep->delete($urep->get_UserID($_SESSION['username']));
+  unset($_SESSION['username']);
+  unset($_SESSION['admin']);
+  header('location: index.php');
+}
 
   ?>

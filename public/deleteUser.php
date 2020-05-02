@@ -14,6 +14,6 @@ if ($userId) {
     $userRepository->delete($userId);
 }
 
-header('Location: /');
+header('Location: admin_page.php');
 
 ?>

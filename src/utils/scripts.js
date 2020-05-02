@@ -1,3 +1,4 @@
+<script>
 function checkRegisterForm(){
   if (! document.register.username.value){
     alert("Veuillez spécifier un nom d'utilisateur.")
@@ -30,3 +31,13 @@ function checkLoginForm()
   }
   return true
 }
+
+function areYouSure()
+{
+  if(confirm("Êtes-vous sûr ? Cette action est irréversible.")){
+    return true
+  }
+  return false
+}
+
+</script>

@@ -53,7 +53,7 @@ CREATE TABLE rate (
 INSERT INTO users (username, email, pwd, isAdmin) VALUES ('gecko', 'gecko@ensiie.fr', 'stP8rjdy2aYD2', false); --mot de passe : gecko
 INSERT INTO users (username, email, pwd, isAdmin) VALUES ('hail', 'hail@ensiie.fr', 'stEmItvcPVouI', false); --mot de passe : hail
 INSERT INTO users (username, email, pwd, isAdmin) VALUES ('baboul', 'baboul@ensiie.fr', 'stPcMAc6VLOrg ', false); --mot de passe : baboul
-INSERT INTO users (username, email, pwd, isAdmin) VALUES ('spike', 'spike@ensiie.fr', 'stJwSQ4n597nU' , false); --mot de passe : spike (crypté avec crypt et salt = stupefaction)
+INSERT INTO users (username, email, pwd, isAdmin) VALUES ('spike', 'spike@ensiie.fr', 'stJwSQ4n597nU' , true); --mot de passe : spike (crypté avec crypt et salt = stupefaction)
 
 INSERT INTO story (title, author, summary, heroSkill, heroStamina, heroLuck) VALUES ('La cité des voleurs', 'Ian Livingstone', 'La terreur s''est abattue sur la ville de Silverstone depuis que Zanbar Bone et ses Chiens de Lune assoiffés de sang y exercent leurs méfaits. Parviendrez vous à traverser le Port-du-Sable-Noir pour affronté l''infâme Zanbar Bone retranché dans sa place forte ?', 9, 21, 10);
 INSERT INTO story (title, author, summary, heroSkill, heroStamina, heroLuck) VALUES ('La sorcière des neiges', 'Ian Livingstone', 'Au sommet des Pics de Glace la Caverne de Crystal renferme le royaume de la terrible Sorcière des Neiges qui a juré de plonger le monde dans une nouvelle ère glacière. Alors que six hommes qui gardaient l''avant poste des Pics de Glace ont été massacrés, vous êtes missioné par un marchant pour vous débarasser de la créature auteur du méfait en échange de 50 pièces d''or. Saurez-vous faire face au monstre et à la sorcière maléfique ?', 11, 20, 7);
