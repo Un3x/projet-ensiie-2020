@@ -1,5 +1,5 @@
 CREATE TABLE Membre(
-    id VARCHAR PRIMARY KEY,
+    id INTEGER PRIMARY KEY,
     username VARCHAR NOT NULL,
     email VARCHAR NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE,
@@ -7,21 +7,22 @@ CREATE TABLE Membre(
 );
 
 CREATE TABLE Administrateur(
-	Id_MembreA VARCHAR PRIMARY KEY,
+	Id_MembreA INTEGER PRIMARY KEY,
 	Droit INTEGER, /* 0 = superAdmin, 1 = Admin*/
 	FOREIGN KEY (Id_MembreA) REFERENCES Membre(id)
 );
 
 CREATE TABLE Association(
-	Id_Assoc INTEGER PRIMARY KEY,
+	Id_Assoc VARCHAR PRIMARY KEY,
 	Nom_assoc VARCHAR
 );
 
 CREATE TABLE Reunion(
 	Id_Assoc VARCHAR NOT NULL,
-	Id_reu VARCHAR PRIMARY KEY,
-	Date_reu TIMESTAMP,
-	Id_MembreA VARCHAR,
+	Id_reu  VARCHAR PRIMARY KEY,
+	Date_debut_reu TIMESTAMP,
+	Date_fin_reu TIMESTAMP,
+	Id_MembreA INTEGER,
 	FOREIGN KEY (Id_MembreA) REFERENCES Administrateur(Id_MembreA)
 );
 
@@ -32,22 +33,26 @@ CREATE TABLE Demandes_user_Superadmin(
 );
 
 CREATE TABLE Appartenir(
+	Nom_Assoc VARCHAR,
+	username VARCHAR,
+	FOREIGN KEY (Nom_Assoc) REFERENCES Association(Nom_Assoc),
+	FOREIGN KEY (username) REFERENCES Membre(username)
 	Id_Assoc VARCHAR,
-	Id_Membre VARCHAR,
+	Id_Membre INTEGER,
 	FOREIGN KEY (Id_Assoc) REFERENCES Association(Id_Assoc),
 	FOREIGN KEY (Id_Membre) REFERENCES Membre(id)
 );
 
 CREATE TABLE Administrer(
 	Id_Assoc VARCHAR,
-	Id_Membre VARCHAR,
+	Id_Membre INTEGER,
 	FOREIGN KEY (Id_Assoc) REFERENCES Association(Id_Assoc),
 	FOREIGN KEY (Id_Membre) REFERENCES Membre(id)
 );
 
 CREATE TABLE Participations(
 	Id_reu VARCHAR,
-	Id_Membre VARCHAR,
+	Id_Membre INTEGER,
 	FOREIGN KEY (Id_reu) REFERENCES Reunion(Id_reu),
 	FOREIGN KEY (Id_Membre) REFERENCES Membre(id)
 );
@@ -73,7 +78,15 @@ INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (6,'Bakaclub');
 INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (1, 0); 
 INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (5, 1); 
 
-INSERT INTO Reunion (Id_Assoc, Id_reu, Date_reu, Id_MembreA) VALUES (1,1,'2008-01-01 00:00:01', 1);
-INSERT INTO Reunion (Id_Assoc, Id_reu, Date_reu, Id_MembreA) VALUES (4,2,'2020-04-26 14:30:00', 5);
-
 INSERT INTO Demandes_user_Superadmin (username, Nom_assoc) VALUES ('césar', 'Cuisine' ); 
+
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,1,'2008-01-01 00:00:01','2008-01-01 23:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,2,'2009-01-01 00:00:01','2009-01-01 23:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,3,'2010-01-01 00:00:01','2010-01-01 23:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,4,'2011-01-01 00:00:01','2011-01-01 23:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,5,'2011-01-01 00:00:01','2011-01-01 23:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,6,'2012-01-01 00:00:01','2012-01-01 23:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (4,7,'2020-04-26 14:30:00','2020-04-26 14:30:01', 5);
+
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (1,2);
+
