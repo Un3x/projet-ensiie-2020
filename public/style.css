@@ -1,10 +1,26 @@
 body{
-    background: #67BE4B;
+    background: cornflowerblue;
+}
+
+#body1{
+    background: white;
+}
+
+#td1{
+    border: 1px solid #333;
+}
+
+#but1{
+    box-shadow:1px 1px 1px;
+    cursor:pointer;
 }
 #container{
     width:400px;
     margin:0 auto;
     margin-top:10%;
+}
+#id1{
+    background: white;
 }
 /* Bordered form */
 form {
@@ -32,7 +48,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 input[type=submit] {
-    background-color: #53af57;
+    background-color: cornflowerblue;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -42,13 +58,13 @@ input[type=submit] {
 }
 input[type=submit]:hover {
     background-color: white;
-    color: #53af57;
-    border: 1px solid #53af57;
+    color:cornflowerblue;
+    border: 1px solid cornflowerblue;
 }
 
 #idco{
     background-color: yellow;
-    color: #53af57;
+    color: lightblue;
 }
 
 fieldset {

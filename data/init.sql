@@ -8,6 +8,7 @@ CREATE TABLE Membre(
 
 CREATE TABLE Administrateur(
 	Id_MembreA VARCHAR PRIMARY KEY,
+	Droit INTEGER, /* 0 = superAdmin, 1 = Admin*/
 	FOREIGN KEY (Id_MembreA) REFERENCES Membre(id)
 );
 
@@ -22,6 +23,12 @@ CREATE TABLE Reunion(
 	Date_reu TIMESTAMP,
 	Id_MembreA VARCHAR,
 	FOREIGN KEY (Id_MembreA) REFERENCES Administrateur(Id_MembreA)
+);
+
+
+CREATE TABLE Demandes_user_Superadmin(
+	username VARCHAR PRIMARY KEY,
+	Nom_assoc VARCHAR
 );
 
 CREATE TABLE Appartenir(
@@ -63,10 +70,10 @@ INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (4,'BDA');
 INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (5,'I-TV');
 INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (6,'Bakaclub');
 
-INSERT INTO Administrateur (Id_MembreA) VALUES (1); 
-INSERT INTO Administrateur (Id_MembreA) VALUES (5); 
+INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (1, 0); 
+INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (5, 1); 
 
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_reu, Id_MembreA) VALUES (1,1,'2008-01-01 00:00:01', 1);
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_reu, Id_MembreA) VALUES (4,2,'2020-04-26 14:30:00', 5);
 
-
+INSERT INTO Demandes_user_Superadmin (username, Nom_assoc) VALUES ('césar', 'Cuisine' ); 
