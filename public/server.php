@@ -99,4 +99,11 @@ if (isset($_POST['delete_account'])){
   header('location: index.php');
 }
 
+// //DELETE SOMEONE ELSE
+// if (isset($_POST['del_as_admin'])){
+//   $urep->delete($urep->get_UserID($_POST['del_as_asmin']));
+//   header('location: admin_page.php');
+// }
+
+
   ?>

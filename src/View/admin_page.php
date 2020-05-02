@@ -1,3 +1,8 @@
+<?php //On vérifie que l'utilisateur est bien un admin.
+    if (is_null($_SESSION['admin'])){
+        header('Location: user_page.php');
+    }
+?>
 <h1>Bienvenue chez vous, Ô tout puissant <?php echo $_SESSION['username'] ?>, administrateur de votre état.</h1>
 <h3>Voici la liste de vos fidèles disciples :</h3>
     </br>
@@ -11,8 +16,8 @@
         <?php foreach($users as $user){ ?>
             <tr>
             <td><?php echo $user->getId() ?></td><td><?php echo $user->getUsername()?></td>
-            <td><?php echo $user->getEmail() ?></td><td><form method="post" action="deleteUser.php" onsubmit="return areYouSure();">
-                                                        <button type="submit" class="btn btn-danger" value=<?php $user->getId() ?> name=user_id>Supprimer cet utilisateur (ne marche pas encore)</button></td>
+            <td><?php echo $user->getEmail() ?></td><td><form method="post" action="server.php" onsubmit="return areYouSure();">
+                                <button type="submit" class="btn btn-danger" name=del_as_admin value=<?php echo $user->getUsername() ?>>Supprimer cet utilisateur (ne marche pas encore)</button></td>
             </tr>
         <?php } ?>
     </table>
