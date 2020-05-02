@@ -1,8 +1,8 @@
 <?php
 
-namespace Map;
+namespace Utilisateur;
 
-class Map
+class Utilisateur
 {
     /**
      * @var int
@@ -60,6 +60,23 @@ class Map
     public function setPseudo ($pseudo)
     {
         $this->pseudo = $pseudo;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMdp ()
+    {
+        return $this->mdp;
+    }
+
+    /**
+     * @param string $meteo
+     */
+    public function setMdp ($mdp)
+    {
+        $this->mdp = $mdp;
         return $this;
     }
 

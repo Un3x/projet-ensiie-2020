@@ -24,8 +24,7 @@ class UtilisateurRepository
                 ->setId($utilisateursDatum['num_id'])
                 ->setPseudo($utilisateursDatum['pseudo'])
                 ->setMdp($utilisateursDatum['mdp'])
-                ->setMail($utilisateursDatum['mail'])
-                ->setDateCreation($utilisateursDatum['date_crea']);
+                ->setMail($utilisateursDatum['mail']);
             $utilisateurs[] = $utilisateur;
         }
         return $utilisateurs;
@@ -73,15 +72,11 @@ class UtilisateurRepository
     {
         $stmt = $this
             ->dbAdapter
-            ->prepare('INSERT INTO "utilisateurs" (pseudo, mdp, mail)  VALUES (:pseudo, :mdp, :mail)');
+            ->prepare('INSERT INTO "utilisateurs" (pseudo, mdp, mail) VALUES (:pseudo, :mdp, :mail)');
         $stmt->bindParam('pseudo', $uNom);
         $stmt->bindParam('mdp', $uMdp);
         $stmt->bindParam('mail', $uMail);
         $stmt->execute();
-        $utilisateursData = $this->dbAdapter->query('SELECT * FROM "utilisateurs"');
-        foreach($utilisateursData as $utilisateursDatum){
-            echo($utilisateursDatum['pseudo']);
-        }
     }
 
 }

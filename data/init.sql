@@ -9,8 +9,7 @@ CREATE TABLE "utilisateurs" (
     num_id SERIAL PRIMARY KEY,
     pseudo VARCHAR NOT NULL,
     mdp VARCHAR NOT NULL,
-    mail VARCHAR,
-    date_crea DATE NOT NULL
+    mail VARCHAR
 );
 
 CREATE TABLE "joueurs" (
@@ -51,7 +50,8 @@ INSERT INTO "user" (username, email, created_at)  VALUES ('viteira', 'vivi@taira
 INSERT INTO "user" (username, email, created_at)  VALUES ('césar', 'jule@cesar.com', NOW());
 INSERT INTO "user" (username, email, created_at)  VALUES ('gengis', 'gengis@khan.com', NOW());
 
-INSERT INTO "utilisateurs" (pseudo, mdp, mail, date_crea) VALUES ('corrian', 'corrian', 'corrian@gmail.com', '2020-07-04');
+INSERT INTO "utilisateurs" (pseudo, mdp, mail) VALUES ('corrian', 'corrian', 'corrian@gmail.com');
+INSERT INTO "utilisateurs" (pseudo, mdp, mail) VALUES ('pierre', 'jean', 'pierre.jean@gmail.com');
 INSERT INTO "joueurs" (pseudo, mdp, mail, date_crea, role_princ, role_second) VALUES ('corrian', 'corrian', 'corrian@gmail.com', '2020-07-04', 1, 2);
 INSERT INTO "administrateurs" (pseudo, mdp, mail, date_crea) VALUES ('corrian', 'corrian', 'corrian@gmail.com', '2020-07-04');
 INSERT INTO "partie" (id_partie, duree, condition_win) VALUES (1, '00:30:00', 'win');
