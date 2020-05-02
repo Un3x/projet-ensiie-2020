@@ -25,10 +25,10 @@ CREATE TABLE Reunion(
 );
 
 CREATE TABLE Appartenir(
-	Id_Assoc VARCHAR,
-	Id_Membre VARCHAR,
-	FOREIGN KEY (Id_Assoc) REFERENCES Association(Id_Assoc),
-	FOREIGN KEY (Id_Membre) REFERENCES Membre(id)
+	Nom_Assoc VARCHAR,
+	username VARCHAR,
+	FOREIGN KEY (Nom_Assoc) REFERENCES Association(Nom_Assoc),
+	FOREIGN KEY (username) REFERENCES Membre(username)
 );
 
 CREATE TABLE Administrer(

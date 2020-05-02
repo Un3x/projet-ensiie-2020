@@ -41,13 +41,42 @@ class UserRepository
 	return $count;
     }
 
-    public function delete ($userId)
+    public function delete ($userName)
     {
         $stmt = $this
             ->dbAdapter
-            ->prepare('DELETE FROM "user" where id = :userId');
+            ->prepare('DELETE FROM Membre where username = :userName');
 
-        $stmt->bindParam('userId', $userId);
+        $stmt->bindParam('userName', $userName);
         $stmt->execute();
+    }
+
+    public function newUser($id, $username, $email, $password)
+    {
+        $req = $this->dbAdapter->prepare('INSERT INTO Membre(id, username, email,  passwd) VALUES(:id, :username, :email, :password)');
+
+        $req->bindParam('id', $id);    
+        $req->bindParam('username', $username);
+        $req->bindParam('email', $email);
+        $req->bindParam('password', $password);
+
+        if (!$req) {
+        echo "\nPDO::errorInfo():\n";
+        print_r($dbh->errorInfo());
+        } 
+        $req->execute();
+    }
+
+    public function modifyPSWD($username,$newPswd)
+    {
+        $req=$this->dbAdapter->prepare('UPDATE Membre SET passwd = :newPswd WHERE username = :username');
+        $req->bindParam('newPswd',$newPswd);
+        $req->bindParam('username',$username);
+
+        if (!$req) {
+        echo "\nPDO::errorInfo():\n";
+        print_r($dbh->errorInfo());
+        } 
+        $req->execute();
     }
 }
