@@ -33,12 +33,10 @@ CREATE TABLE Demandes_user_Superadmin(
 );
 
 CREATE TABLE Appartenir(
-	Nom_Assoc VARCHAR,
-	username VARCHAR,
-	FOREIGN KEY (Nom_Assoc) REFERENCES Association(Nom_Assoc),
-	FOREIGN KEY (username) REFERENCES Membre(username)
 	Id_Assoc VARCHAR,
 	Id_Membre INTEGER,
+	Nom_Assoc VARCHAR,
+	username VARCHAR,
 	FOREIGN KEY (Id_Assoc) REFERENCES Association(Id_Assoc),
 	FOREIGN KEY (Id_Membre) REFERENCES Membre(id)
 );
@@ -88,5 +86,4 @@ INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA)
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,6,'2012-01-01 00:00:01','2012-01-01 23:59:59', 1);
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (4,7,'2020-04-26 14:30:00','2020-04-26 14:30:01', 5);
 
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (1,2);
-
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_Assoc, username) VALUES (1,2, 'BDE','caillou');

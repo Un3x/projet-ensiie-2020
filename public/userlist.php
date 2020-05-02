@@ -9,8 +9,8 @@ $userRepository = new \User\UserRepository($dbAdaper);
 $users = $userRepository->fetchAll();
 
 //test nb d'id pour pouvoir creer le prochain id du nouveau username qui s'inscrit
-$nb_id = $userRepository->nb_users();
-echo "nb d'identifiants = ".$nb_id;
+/*$nb_id = $userRepository->nb_users();
+echo "nb d'identifiants = ".$nb_id;*/
 
 ?>
 
