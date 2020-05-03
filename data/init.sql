@@ -8,10 +8,10 @@ CREATE TABLE "user" (
 );
 
 INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('unex', 'patati@patata.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('caillou', 'caillou@rocher.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('viteira', 'vivi@taira.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('césar', 'jule@cesar.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('gengis', 'gengis@khan.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
+INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('caillou', 'caillou@rocher.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
+INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('viteira', 'vivi@taira.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
+INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('césar', 'jule@cesar.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
+INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('gengis', 'gengis@khan.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
 
 CREATE TABLE IF NOT EXISTS "karas" (
     id INTEGER PRIMARY KEY,
