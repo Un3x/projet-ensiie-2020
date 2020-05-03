@@ -1,7 +1,8 @@
 <?php
-require_once '../src/Lector.php';
-require_once '../src/LectorRepository.php';
-require_once '../src/Factory/DbAdaperFactory.php';
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
+require_once 'Lector.php';
+require_once 'LectorRepository.php';
+require_once 'Factory/DbAdaperFactory.php';
 
 /** 
  * @requires an IP adress

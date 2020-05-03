@@ -134,7 +134,7 @@ async function autoRefreshQueue(i) {
 function sendKara(i)
 {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:8080/idtest.php', true); // <--- FIXME : URL
+    xhr.open('POST', 'http://localhost:8080/inc/addKara.php', true); // <--- FIXME : URL
 
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 

@@ -1,5 +1,7 @@
 <?php
 session_start();
+define('PR_ROOT', '/home/elliu');
+set_include_path('.:' . PR_ROOT . '/src/');
 
 include_once '../src/User.php';
 include_once '../src/UserRepository.php';

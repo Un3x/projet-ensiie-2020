@@ -7,7 +7,7 @@ require_once '../../src/Factory/DbAdaperFactory.php';
 
 function searchKara(string $str)
 {
-    $dbAdaper = (new DbAdaperFactoryDepth())->createService();
+    $dbAdapter = (new DbAdaperFactoryDepth())->createService();
     $words = explode(" ", $str);
     $regex = "'.*";
     foreach ($words as $word)
@@ -17,8 +17,11 @@ function searchKara(string $str)
     $regex = substr($regex, 0, -3);
     $regex = $regex . "'";
 
-    $req = 'SELECT DISTINCT song_name, song_type, song_number, source_name FROM "karas" WHERE CONCAT_WS(\'||\', song_name, source_name, category) ~* ' . $regex . ';';
-    $ret = $dbAdaper->query($req)->fetchAll(PDO::FETCH_NUM);
+    $req =
+        'SELECT DISTINCT song_name, song_type, song_number, source_name
+         FROM "karas" 
+         WHERE CONCAT_WS(\'||\', song_name, source_name, category) ~* ' . $regex . ';';
+    $ret = $dbAdapter->query($req)->fetchAll(PDO::FETCH_NUM);
 
     return $ret;
 }
