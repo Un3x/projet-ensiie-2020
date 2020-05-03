@@ -145,25 +145,30 @@ coucou
 <input type="text" id="karaSearch" onkeydown="dynamicSearch()" placeholder="Search for karas">
 
 <div id="karaList">
-    <?php foreach ($karas as $kara): ?>
-        <form method="POST" action="./idtest.php">
-            <input type="hidden" name="id" value=<?= $kara->getId()?>>
-                <button type="submit" id="aKaraInKaraList"><?= $kara->getString()?></button>
-            <button type="button" onclick="toggleKaraInfo(<?= $kara->getId()?>)">Infos</button>
-            <div id=KaraInfo_<?= $kara->getId()?> style="display: none">
-                <h3>Infos</h3>
-                <ul>
-                    <li>Source Name : <?= $kara->getSourceName()?></li>
-                    <li>Song Name : <?= $kara->getSongName()?></li>
-                    <li>Category : <?php    echo $kara->getCategory();
-                                            echo $kara->getSongNumber();?></li>
-                    <li>Author Name : <?= $kara->getAuthorName()?></li>
-                    <li>Language : <?= $kara->getLanguage()?></li>
-                    <li>ID : <?= $kara->getID()?></li>
-                </ul>
-            </div>
-        </form>
-    <?php endforeach; ?>
+    <ul>
+        <?php foreach ($karas as $kara): ?>
+            <form method="POST" action="./idtest.php">
+                <li id="aKaraInKaraList">
+                    <input type="hidden" name="id" value=<?= $kara->getId()?>>
+                    <div><?= $kara->getString()?></div>
+                    <button type="submit">Add</button>
+                    <button type="button" onclick="toggleKaraInfo(<?= $kara->getId()?>)">Infos</button>
+                    <div id=KaraInfo_<?= $kara->getId()?> style="display: none">
+                        <h3>Infos</h3>
+                        <ul>
+                            <li>Source Name : <?= $kara->getSourceName()?></li>
+                            <li>Song Name : <?= $kara->getSongName()?></li>
+                            <li>Category : <?php    echo $kara->getCategory();
+                                                    echo $kara->getSongNumber();?></li>
+                            <li>Author Name : <?= $kara->getAuthorName()?></li>
+                            <li>Language : <?= $kara->getLanguage()?></li>
+                            <li>ID : <?= $kara->getID()?></li>
+                        </ul>
+                    </div>
+                </li>
+            </form>
+        <?php endforeach; ?>
+    </ul>
 </div> 
 
 <!-- End of the test area -->
