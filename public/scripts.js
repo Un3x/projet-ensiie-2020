@@ -92,9 +92,9 @@ function toggleKaraInfo(i)
 
 function loadQueue()
 {
-    var xhr = new XMLHttpRequest()
+    var xhr = new XMLHttpRequest();
 
-    xhr.open('GET', 'http://localhost:8080/getQueue.php?getQueue=42', true)
+    xhr.open('GET', 'http://localhost:8080/getQueue.php?getQueue=42', true); // <--- FIXME : URL
 
     xhr.addEventListener('readystatechange', function ()
 {
@@ -128,4 +128,20 @@ async function autoRefreshQueue(i) {
         x = await wait(i);
         loadQueue();
     }
+}
+
+
+function sendKara(i)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:8080/idtest.php', true); // <--- FIXME : URL
+
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function() {//Call a function when the state changes.
+        if(xhr.readyState == XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 )) {
+            alert(xhr.responseText);
+        }
+    }
+    xhr.send('id=' + i);
 }

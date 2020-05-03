@@ -149,9 +149,8 @@ coucou
         <?php foreach ($karas as $kara): ?>
             <form method="POST" action="./idtest.php">
                 <li id="aKaraInKaraList">
-                    <input type="hidden" name="id" value=<?= $kara->getId()?>>
                     <div><?= $kara->getString()?></div>
-                    <button type="submit">Add</button>
+                    <button type="button" onclick="sendKara(<?= $kara->getId()?>)">Add</button>
                     <button type="button" onclick="toggleKaraInfo(<?= $kara->getId()?>)">Infos</button>
                     <div id=KaraInfo_<?= $kara->getId()?> style="display: none">
                         <h3>Infos</h3>
