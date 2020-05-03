@@ -11,12 +11,12 @@ if (isset($_SESSION['id']))
     $dbAdapter = (new DbAdaperFactory())->createService();
     echo "Adding kara n°" . $_POST['id'] . "...\n";
     $req =
-        'INSERT INTO "queue" (position, id, added_by)
-         VALUES(4, :id, :adder);';  // <-- FIXME
+        'INSERT INTO "queue" (id, added_by)
+         VALUES(:id, :adder);';  // <-- FIXME
     $addition = $dbAdapter->prepare($req);
     $addition->bindParam('id', $_POST['id']);
     //$addition->bindParam('adder', $_SESSION['username']);
-    $bruh = 42;
+    $bruh = 5;
     $addition->bindParam('adder', $bruh);  // <--- FIXME : delete this and replace with above line when checking if session id is set
     $addition->execute();
 

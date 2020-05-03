@@ -37,14 +37,10 @@ INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_numbe
 INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_number, language, is_new, author_name) VALUES (9,'Opening','Sailor Moon','OP','va',1,'fr',0,'Viieux');
 
 CREATE TABLE IF NOT EXISTS "queue" (
-    position INTEGER PRIMARY KEY,
+    position SERIAL PRIMARY KEY,
     id INTEGER NOT NULL REFERENCES karas,
     added_by INTEGER
 );
-
-INSERT INTO "queue" (position, id, added_by) VALUES(1,2,2);
-INSERT INTO "queue" (position, id, added_by) VALUES(0,1,3);
-INSERT INTO "queue" (position, id, added_by) VALUES(2,4,4);
 
 CREATE TABLE IF NOT EXISTS "playlist" (
     id INTEGER PRIMARY KEY,
