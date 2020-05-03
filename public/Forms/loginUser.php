@@ -4,12 +4,13 @@
 //what to add: rights, experience, (if we so desired)
 //
 //*****
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 session_start();
 use User\UserRepository;
 
-include '../../src/User.php';
-include '../../src/UserRepository.php';
-include '../../src/Factory/DbAdaperFactory.php';
+include 'Users/User.php';
+include 'Users/UserRepository.php';
+include 'Factory/DbAdaperFactory.php';
 
 $dbAdaper = (new DbAdaperFactoryDepth())->createService();
 $userRepository = new UserRepository($dbAdaper);

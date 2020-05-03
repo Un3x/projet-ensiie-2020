@@ -3,7 +3,7 @@ session_start();
 
 /*******/
 /*this file is used by the user to change its account settings, 
- * the new settings are send to src/Users/modifyUserAccout.php
+ * the new settings are send to Forms/modifyUserAccout.php
  *******/
 ?>
 

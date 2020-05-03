@@ -25,7 +25,7 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
   }
 ?>
 <p> Inserez vos identifiants: </p>
-<form name= "formLoginUser" action="inc/loginUser.php" onsubmit="return validationFormulaireLogin();" method="POST">
+<form name= "formLoginUser" action="Forms/loginUser.php" onsubmit="return validationFormulaireLogin();" method="POST">
 <label for="username"> Nom du compte ou email :</label></br>
 	<?php
   	  if (isset($_GET['username']))

@@ -1,10 +1,11 @@
 <?php
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 
 use Lector\LectorRepository;
 
-include '../src/Lector.php';
-include '../src/LectorRepository.php';
-include '../src/Factory/DbAdaperFactory.php';
+include 'Lectors/Lector.php';
+include 'Lectors/LectorRepository.php';
+include 'Factory/DbAdaperFactory.php';
 
 $dbAdaper = (new DbAdaperFactory())->createService();
 
