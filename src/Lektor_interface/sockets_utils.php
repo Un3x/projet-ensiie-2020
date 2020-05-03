@@ -122,23 +122,22 @@ function send_to_all_lectors($msg)
             }
 
             echo "Created socket to connect to lektord on IP " . $address . " at port " . $port . "\n";
-            if ( !socket_write_message($sock, $msg) )
+            if ( socket_write_message($sock, $msg) === 1 )
             {
                 echo "Writing to socket " . $i . " failed.\n";
                 exit(3);
             }
-            socket_close($sock);
             echo "Written to lektord on IP " . $address . " at port " . $port . "\n";
             exit(0);
+            socket_close($sock);
         }
-
         $i = $i+1;
     }
 
     for  ( $j=0; $j<$i; $j++ )
     {
         pcntl_waitpid($pids[$j], $status);
-        if ( $status != 0 )
+        if ( $status !== 0 )
             echo "Lector " . $j . " exited with code error " . $status . "\n";
         else
             echo "OK\n";
