@@ -12,7 +12,7 @@ include 'Users/User.php';
 include 'Users/UserRepository.php';
 include 'Factory/DbAdaperFactory.php';
 
-$dbAdaper = (new DbAdaperFactoryDepth())->createService();
+$dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new UserRepository($dbAdaper);
 
 $token=$_POST['post.token'];

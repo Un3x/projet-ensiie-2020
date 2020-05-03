@@ -8,7 +8,7 @@ require_once 'Factory/DbAdaperFactory.php';
 
 function searchKara(string $str)
 {
-    $dbAdaper = (new DbAdaperFactoryDepth())->createService();
+    $dbAdaper = (new DbAdaperFactory())->createService();
     $words = explode(" ", $str);
     $regex = "'.*";
     foreach ($words as $word)

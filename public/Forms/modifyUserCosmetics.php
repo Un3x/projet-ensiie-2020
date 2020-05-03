@@ -14,7 +14,7 @@ include 'Users/User.php';
 include 'Users/UserRepository.php';
 include 'Factory/DbAdaperFactory.php';
 
-$dbAdapter = (new DbAdaperFactoryDepth())->createService();
+$dbAdapter = (new DbAdaperFactory())->createService();
 $userRepository = new UserRepository($dbAdaper);
 
 $userID=htmlspecialchars($_POST['userID']);

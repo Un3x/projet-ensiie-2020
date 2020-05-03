@@ -13,7 +13,7 @@ include 'Users/UserRepository.php';
 include 'Factory/DbAdaperFactory.php';
 
 $errsCount=0;
-$dbAdaper = (new DbAdaperFactoryDepth())->createService();
+$dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new UserRepository($dbAdaper);
 
 $username=htmlspecialchars($_POST['username']);
