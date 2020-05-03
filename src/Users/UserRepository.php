@@ -47,15 +47,27 @@ class UserRepository
 	$emails->execute(['Email'=>$email]);
 	return $emails->fetchColumn();
     }
-
+    
+    //add a new row to the table "user" and "userCosmetics"
     public function add ($username, $email, $password)
     {
-	//add rights in the future
 	$newUser=$this->dbAdapter->prepare('INSERT INTO "user" (username, email, password, rights, created_at) VALUES (:userName, :Email, :passWord, 0, NOW())');
         $newUser->bindParam('userName', $username);
         $newUser->bindParam('Email', $email);
-        $newUser->bindParam('passWord', $password);
+	$newUser->bindParam('passWord', $password);
 	$newUser->execute();
+
+	//add a row to userCosmetics
+	$sql='SELECT id FROM "user" WHERE username= :userName';
+	$newUserID=$this->dbAdapter->prepare($sql);
+	$UserRow=$newUserID->execute(['userName'=>$username]);
+	$UserRow=$newUserID->fetch();
+	$id=$UserRow['id'];
+
+	$newCosmetics='INSERT INTO "userCosmetics" (id, IDimage, IDtitle) VALUES (:ID, 1, 1)';
+	$stmt=$this->dbAdapter->prepare($newCosmetics);
+	$stmt->bindParam('ID', $id);
+	$stmt->execute();
     }
 
 

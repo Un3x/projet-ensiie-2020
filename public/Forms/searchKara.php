@@ -1,13 +1,14 @@
 <?php
 declare(strict_types=1);
 session_start();
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 
-require_once '../../src/Factory/DbAdaperFactory.php';
+require_once 'Factory/DbAdaperFactory.php';
 
 
 function searchKara(string $str)
 {
-    $dbAdapter = (new DbAdaperFactoryDepth())->createService();
+    $dbAdaper = (new DbAdaperFactory())->createService();
     $words = explode(" ", $str);
     $regex = "'.*";
     foreach ($words as $word)

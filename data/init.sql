@@ -7,11 +7,11 @@ CREATE TABLE "user" (
     created_at TIMESTAMP WITH TIME ZONE
 );
 
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('unex', 'patati@patata.com', NOW(), 1);
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('caillou', 'caillou@rocher.com', NOW(), 0);
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('viteira', 'vivi@taira.com', NOW(), 0);
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('césar', 'jule@cesar.com', NOW(), 0);
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('gengis', 'gengis@khan.com', NOW(), 1);
+INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('unex', 'patati@patata.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
+INSERT INTO "user" (username, email, created_at, rights)  VALUES ('caillou', 'caillou@rocher.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
+INSERT INTO "user" (username, email, created_at, rights)  VALUES ('viteira', 'vivi@taira.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
+INSERT INTO "user" (username, email, created_at, rights)  VALUES ('césar', 'jule@cesar.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
+INSERT INTO "user" (username, email, created_at, rights)  VALUES ('gengis', 'gengis@khan.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
 
 CREATE TABLE IF NOT EXISTS "karas" (
     id INTEGER PRIMARY KEY,
@@ -64,6 +64,23 @@ CREATE TABLE IF NOT EXISTS "image"(
 	IDimage SERIAL PRIMARY KEY,
 	image VARCHAR 
 );
+
+INSERT INTO "image" (IDimage, image) VALUES (1,'waifu1.png');
+INSERT INTO "image" (IDimage, image) VALUES (2,'waifu2.png');
+INSERT INTO "image" (IDimage, image) VALUES (3,'waifu3.png');
+INSERT INTO "image" (IDimage, image) VALUES (4,'waifu4.png');
+INSERT INTO "image" (IDimage, image) VALUES (5,'waifu5.png');
+INSERT INTO "image" (IDimage, image) VALUES (6,'waifu6.png');
+INSERT INTO "image" (IDimage, image) VALUES (7,'waifu7.png');
+INSERT INTO "image" (IDimage, image) VALUES (8,'waifu8.png');
+INSERT INTO "image" (IDimage, image) VALUES (9,'waifu9.png');
+INSERT INTO "image" (IDimage, image) VALUES (10,'waifu10.png');
+INSERT INTO "image" (IDimage, image) VALUES (11,'waifu11.png');
+INSERT INTO "image" (IDimage, image) VALUES (12,'waifu12.png');
+INSERT INTO "image" (IDimage, image) VALUES (13,'waifu13.png');
+INSERT INTO "image" (IDimage, image) VALUES (14,'waifu14.png');
+INSERT INTO "image" (IDimage, image) VALUES (15,'waifu15.png');
+INSERT INTO "image" (IDimage, image) VALUES (16,'waifu16.png');
 
 CREATE TABLE IF NOT EXISTS "title"(
 	IDtitle SERIAL PRIMARY KEY,

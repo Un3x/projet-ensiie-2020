@@ -12,12 +12,12 @@ $_SESSION['post.token']=$token;
 </head>
 <body>
 <!-- cette page permet de creer un compte 
-envoie les informations à inc/addUser
+envoie les informations à Forms/addUser
 -->
 
 <!--creer un compte -->
 <h1>Inserez vos identifiants:</h1>
-<form name= "formAddUser" action="inc/addUser.php" onsubmit="return validationFormulaire();" method="POST">
+<form name= "formAddUser" action="Forms/addUser.php" onsubmit="return validationFormulaire();" method="POST">
   <label for="username"> Nom de compte :</label></br>
 	<?php
 	  if (isset($_GET['username']))

@@ -1,7 +1,8 @@
 <?php
 set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
-require_once 'Lector.php';
-require_once 'LectorRepository.php';
+
+require_once 'Lectors/Lector.php';
+require_once 'Lectors/LectorRepository.php';
 require_once 'Factory/DbAdaperFactory.php';
 
 /** 

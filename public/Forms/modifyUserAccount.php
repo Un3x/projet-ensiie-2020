@@ -10,17 +10,18 @@
  * -newPassword
  * -newPasswordCheck
 /*******/
-
+session_start();
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 use User\UserRepository;
 
-include '../../src/User.php';
-include '../../src/UserRepository.php';
-include '../../src/Factory/DbAdaperFactory.php';
+include 'Users/User.php';
+include 'Users/UserRepository.php';
+include 'Factory/DbAdaperFactory.php';
 
-$dbAdaper = (new DbAdaperFactoryDepth())->createService();
+$dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new UserRepository($dbAdaper);
 
-$userID=htmlspecialchars($_POST['userID']);;
+$userID=htmlspecialchars($_POST['userID']);
 
 //to change your username, you only need to give a new one (newUsername) (as long as it's not already used by someone)
 if (isset($_POST['newUsername']))
@@ -118,11 +119,12 @@ elseif (isset($_POST['newPassword']))
 
 	if ($userID!==null)
 	{
+	try{
 		$sql='SELECT * FROM "user" WHERE id= :userID;';
 		$getOldPassword=dbAdaper->prepare($sql);
 		$getOldPassword->bindParam('userID',$userID);
 		$getOldPassword->execute();
-		$trueOldPassword=$getOldPassword->fetch(PDO::FETCH_BOTH);
+		$trueOldPassword=$getOldPassword->fetch();
 		if (password_verify($oldPassword,$trueOldPassword['password']))
 		{
 			//the user has not given his old password
@@ -136,6 +138,11 @@ elseif (isset($_POST['newPassword']))
 		$stmt->execute(['newPassword'=>$newPasswordHash, 'userID'=>$userID]);
 		header('Location: ../modifyAccount.php?newPassword=changed');
 		exit();
+	}
+	catch (PDOException $err) {
+		header('Location: ../modifyAccount.php?err=sqlerror');
+	}
+
 	}
 }
 

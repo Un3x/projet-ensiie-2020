@@ -1,15 +1,14 @@
 <?php
 session_start();
-define('PR_ROOT', '/home/elliu');
-set_include_path('.:' . PR_ROOT . '/src/');
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 
-include_once '../src/User.php';
-include_once '../src/UserRepository.php';
-include_once '../src/Kara.php';
-include_once '../src/KaraRepository.php';
-include_once '../src/Lector.php';
-include_once '../src/LectorRepository.php';
-include_once '../src/Factory/DbAdaperFactory.php';
+include_once 'Users/User.php';
+include_once 'Users/UserRepository.php';
+include_once 'Karas/Kara.php';
+include_once 'Karas/KaraRepository.php';
+include_once 'Lectors/Lector.php';
+include_once 'Lectors/LectorRepository.php';
+include_once 'Factory/DbAdaperFactory.php';
 
 $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new \User\UserRepository($dbAdaper);
@@ -65,7 +64,7 @@ $karas = $karaRepository->fetchAll();
                         <td><?= $user->getEmail() ?></td>
                         <td><?= $user->getCreatedAt()->format(\DateTime::ATOM) ?></td>
                         <td>
-                            <form method="POST" action="/deleteUser.php">
+                            <form method="POST" action="Forms/deleteUser.php">
                                 <input name="user_id" type="hidden" value="<?= $user->getId() ?>">
                                 <button type="submit">Delete</button>
                             </form>
@@ -91,7 +90,7 @@ $karas = $karaRepository->fetchAll();
                         <td><?= $lector->getIP() ?></td>
                         <td><?= $lector->getPort() ?></td>
                         <td>
-                            <form method="POST" action="/deleteLector.php">
+                            <form method="POST" action="Forms/deleteLector.php">
                                 <input name="lector_id" type="hidden" value="<?= $lector->getId() ?>">
                                 <button type="submit">Delete</button>
                             </form>
@@ -117,12 +116,12 @@ else {
 
 <?php echo $_SERVER['REMOTE_ADDR'] ?>
 
-    <form method="POST" action="/play.php">
+    <form method="POST" action="Forms/play.php">
         <input name="test" type="hidden" value="testvalue">
         <button type="submit">Play</button>
     </form>
 
-    <form method="POST" action="./idtest.php">
+    <form method="POST" action="Forms/idtest.php">
         <input type="number" name="id">
         <button type="submit">Add kara (by id)</button>
     </form>
