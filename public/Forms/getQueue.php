@@ -1,5 +1,8 @@
 <?php
-include_once '../src/Factory/DbAdaperFactory.php';
+session_start();
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
+
+include_once 'Factory/DbAdaperFactory.php';
 
 if (/*isset($_GET["getQueue"])*/ true)
 {

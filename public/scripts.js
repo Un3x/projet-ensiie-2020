@@ -94,7 +94,7 @@ function loadQueue()
 {
     var xhr = new XMLHttpRequest();
 
-    xhr.open('GET', 'http://localhost:8080/getQueue.php?getQueue=42', true); // <--- FIXME : URL
+    xhr.open('GET', 'http://localhost:8080/Forms/getQueue.php?getQueue=42', true); // <--- FIXME : URL
 
     xhr.addEventListener('readystatechange', function ()
 {
@@ -134,7 +134,7 @@ async function autoRefreshQueue(i) {
 function sendKara(i)
 {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:8080/inc/addKara.php', true); // <--- FIXME : URL
+    xhr.open('POST', 'http://localhost:8080/Forms/addKara.php', true); // <--- FIXME : URL
 
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
