@@ -21,10 +21,11 @@ class UserRepository
         foreach ($usersData as $usersDatum) {
             $user = new User();
             $user
-                ->setId($usersDatum['id'])
+                ->setId($usersDatum['userId'])
                 ->setUsername($usersDatum['username'])
                 ->setEmail($usersDatum['email'])
-                ->setCreatedAt(new \DateTime($usersDatum['created_at']));
+                ->setCreatedAt(new \DateTime($usersDatum['created_at']))
+                ->setAdmin($userDatum['isAdmin']);
             $users[] = $user;
         }
         return $users;

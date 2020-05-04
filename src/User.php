@@ -25,6 +25,11 @@ class User
     private $createdAt;
 
     /**
+     * @var bool
+     */
+    private $isAdmin;
+
+    /**
      * @return int
      */
     public function getId ()
@@ -89,6 +94,17 @@ class User
     public function setCreatedAt ($createdAt)
     {
         $this->createdAt = $createdAt;
+        return $this;
+    }
+
+    public function getAdmin()
+    {
+        return $this->isAdmin;
+    }
+
+    public function setAdmin($bool)
+    {
+        $this->isAdmin = $bool;
         return $this;
     }
 }

@@ -12,12 +12,19 @@
     $users = $urep->fetchall();
     ?>
     <table>
-    <tr><td>Identifiant</td><td>Nom d'utilisateur</td><td>Email</td><td>Est-ce qu'on a été sage ?</td></tr>
+    <tr><td>Identifiant </td><td>Nom d'utilisateur</td><td>Email</td><td>Est-ce qu'on a été sage ?</td></tr>
         <?php foreach($users as $user){ ?>
             <tr>
-            <td><?php echo $user->getId() ?></td><td><?php echo $user->getUsername()?></td>
-            <td><?php echo $user->getEmail() ?></td><td><form method="post" action="server.php" onsubmit="return areYouSure();">
-                                <button type="submit" class="btn btn-danger" name=del_as_admin value=<?php echo $user->getUsername() ?>>Supprimer cet utilisateur (ne marche pas encore)</button></td>
+            <td><?php echo $urep->get_UserID($user->getUsername()) ?></td><td><?php echo $user->getUsername()?></td>
+            <td><?php echo $user->getEmail() ?></td>
+                    <?php if (! $urep->isAdmin($user->getUsername())) {?>
+                    <td><form method="post" action="server.php" onsubmit="return areYouSure()">
+                        <input type=hidden name="user_id" value="<?php echo $user->getUsername()?>" />
+                        <button type="submit" class="btn btn-danger" name="del_as_admin">Supprimer cet utilisateur</button>
+                        </form>
+                        </td>
+                    <?php } ?>
+
             </tr>
         <?php } ?>
     </table>
@@ -25,4 +32,5 @@
     <p>Vous pouvez aussi supprimer votre propre compte :
         <form method="post" action="server.php" onsubmit="return areYouSure();">
         <button type=submit name="delete_account" class="btn btn-danger">/!\ SUPPRIMER MON COMPTE /!\</button>
+        </form>
     </p>
