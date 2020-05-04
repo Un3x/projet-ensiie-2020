@@ -4,10 +4,8 @@ set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 require_once 'Factory/DbAdaperFactory.php';
 require_once 'Lektor_interface/sockets_utils.php';
 
-/*
 if (isset($_SESSION['id']) && $_SESSION['rights'] === 1)
 {
- */
     $dbAdapter = (new DbAdaperFactory())->createService();
     echo "Deleting kara at position " . $_POST['id'] . "...\n";
     $req =
@@ -22,12 +20,10 @@ if (isset($_SESSION['id']) && $_SESSION['rights'] === 1)
     error_log("SOCKETS : Starting sending to all lectors");
     send_to_all_lectors($msg);
     error_log("SOCKETS : Finished sending to all lectors");
-    /*
 }
 
 else
 {
     echo "I'm gonna pay you $100 to fuck off.";
 }
-     */
 ?>

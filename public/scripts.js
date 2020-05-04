@@ -136,20 +136,24 @@ function toggleAutoRefreshQueue(i)
     if ( timer_isOn === 0 )
     {
         timer_isOn = 1;
+        document.getElementById("toggleButton").innerHTML="Toggle Auto Refresh Queue (current : on)";
         loadQueue();
         window.timer = setTimeout(function tick(){
                 loadQueue();
                 timer = setTimeout(tick,i);},
             i);
+
     }
     else
     {
         timer_isOn = 0;
+        document.getElementById("toggleButton").innerHTML="Toggle Auto Refresh Queue (current : off)";
         clearTimeout(window.timer);
     }
 }
 
 var timer_isOn = 0;
+loadQueue(); // We load the queue at the start
 
 
 
