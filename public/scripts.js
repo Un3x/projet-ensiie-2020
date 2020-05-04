@@ -153,10 +153,26 @@ var timer_isOn = 0;
 
 
 
-function sendKara(i)
+function addKara(i)
 {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost:8080/Forms/addKara.php', true); // <--- FIXME : URL
+
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function() {//Call a function when the state changes.
+        if(xhr.readyState == XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 )) {
+            alert(xhr.responseText);
+        }
+    }
+    xhr.send('id=' + i);
+}
+
+
+function deleteKara(i)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:8080/Forms/deleteKara.php', true); // <--- FIXME : URL
 
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 

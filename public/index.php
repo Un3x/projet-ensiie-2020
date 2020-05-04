@@ -148,10 +148,10 @@ coucou
 <div id="karaList">
     <ul>
         <?php foreach ($karas as $kara): ?>
-            <form method="POST" action="./idtest.php">
+            <form method="POST">
                 <li id="aKaraInKaraList">
                     <div><?= $kara->getString()?></div>
-                    <button type="button" onclick="sendKara(<?= $kara->getId()?>)">Add</button>
+                    <button type="button" onclick="addKara(<?= $kara->getId()?>)">Add</button>
                     <button type="button" onclick="toggleKaraInfo(<?= $kara->getId()?>)">Infos</button>
                     <div id=KaraInfo_<?= $kara->getId()?> style="display: none">
                         <h3>Infos</h3>
