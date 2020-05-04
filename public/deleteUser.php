@@ -7,13 +7,14 @@ include '../src/UserRepository.php';
 include '../src/Factory/DbAdaperFactory.php';
 
 $dbAdaper = (new DbAdaperFactory())->createService();
-
-$userId = $_POST['user_id'] ?? null;
-if ($userId) {
-    $userRepository = new UserRepository($dbAdaper);
-    $userRepository->delete($userId);
+$userRepository = new \User\UserRepository($dbAdaper);
+session_start();
+$userName = $_SESSION['username'] ?? null;
+if ($userName) {
+    $userRepository->delete($userName);
 }
-
-header('Location: /');
+//header('Location: /');
 
 ?>
+<h1>Votre compte a bien été supprimé </h1>
+<a class="nav-link" href="/index.php"> Home</a>

@@ -28,7 +28,7 @@ $users = $userRepository->fetchAll();
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="/index.php"><span>Home</span></a>
+                <a class="nav-link" href="/profil.php"><span>Home</span></a>
                 </li>
 		        <a href='userlist.php?deconnexion=true'><span>Déconnexion</span></a>	
                 <?php session_start();

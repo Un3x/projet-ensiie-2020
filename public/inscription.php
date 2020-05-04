@@ -34,7 +34,7 @@
     <body>
     <fieldset>
     <legend id="leg1" align="center" > Inscription à l'espace membre </legend> <br />
-    <form name="myForm" action="inscription.php" method="post" onsubmit="return validateForm()" >
+    <form name="myForm" action='newUser.php' method="post" onsubmit="return validateForm()" >
 
     Identifiant  <em id="em1">*</em> :
       <input type="text" name="id" value="" id ="id" >  <br />

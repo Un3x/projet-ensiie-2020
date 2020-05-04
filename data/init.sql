@@ -26,6 +26,10 @@ CREATE TABLE Reunion(
 );
 
 CREATE TABLE Appartenir(
+	Nom_Assoc VARCHAR,
+	username VARCHAR,
+	FOREIGN KEY (Nom_Assoc) REFERENCES Association(Nom_Assoc),
+	FOREIGN KEY (username) REFERENCES Membre(username)
 	Id_Assoc VARCHAR,
 	Id_Membre INTEGER,
 	FOREIGN KEY (Id_Assoc) REFERENCES Association(Id_Assoc),
