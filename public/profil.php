@@ -81,7 +81,7 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso")  };
 <ul>
   <li ><a href='deleteUser.php'> Suppression du compte </a></li>
   <li onclick = "swipe('formMDP');"><a href="#" >Changement de mot de passe</a></li>
-</ul>
+  <li>
   <div id="formMDP">
   <form action='modifMDP.php'  method="post">
     Nouveau mot de passe: </br>
@@ -89,7 +89,8 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso")  };
   <input type="submit" name="Valider" value="Valider" id ='bouton_envoi' align="center">
   </form>
   </div>
-
+  </li>
+</ul>
 <h2>Informations du profil</h2>
 <ul>
     <li onclick = "swipe('ListAsso');"><a href="#" >Voir mes associations</a></li>

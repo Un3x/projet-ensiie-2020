@@ -113,4 +113,25 @@ class Reunion
         $this->date_fin_reu = $date_fin_reu;
         return $this;
     }
+
+    /**
+     * @param void
+     * @return int[] fracs contenant les pourcentages de mise au bon format de la réunion
+     * ainsi que le prochain décalage
+     */
+    public function formatMeetingDate()
+    {
+        $date_debut = $this->date_debut_reu->format('H:i');
+        $date_fin = $this->date_fin_reu->format('H:i');
+        $liste_debut=explode(":",$date_debut);
+        $liste_fin=explode(":",$date_fin);
+        $hdebut= (int) $liste_debut[0];
+        $mdebut= (int) $liste_debut[1];
+        $hfin= (int) $liste_fin[0];
+        $mfin= (int) $liste_fin[1];
+        $start = (60*$hdebut+$mdebut-480);
+        $durée = (60*$hfin+$mfin) - (60*$hdebut+$mdebut);
+        
+        return array(100*$start/780, 100*$durée/780);
+    }
 }
