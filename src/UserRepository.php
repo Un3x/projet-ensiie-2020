@@ -137,4 +137,16 @@ class UserRepository
         } 
         $req->execute();
     }
+    public function modifyUsName($username,$newU)
+    {
+        $req=$this->dbAdapter->prepare('UPDATE Membre SET username = :newU WHERE username = :username');
+        $req->bindParam('newU',$newU);
+        $req->bindParam('username',$username);
+
+        if (!$req) {
+        echo "\nPDO::errorInfo():\n";
+        print_r($dbh->errorInfo());
+        } 
+        $req->execute();
+    }
 }

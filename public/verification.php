@@ -21,15 +21,18 @@ if(isset($_POST['username']) && isset($_POST['password']))
          $count2 = $userRepository->checkAdminAuthentification($username, $password);
          $count3 = $userRepository->checkSuperAdminAuthentification($username, $password);
          if($count2 != 0){
-            $_SESSION['username'] = $username;
+            $_SESSION['user'] = $userRepository->getUser($username);
+            $_SESSION['username'] = $_SESSION['user']->getUsername();
             header('Location: home_admin.php'); //si admin, cela renvoie vers la page d'admin
          }
          else if($count3!=0){
-            $_SESSION['username'] = $username;
+            $_SESSION['user'] = $userRepository->getUser($username);
+            $_SESSION['username'] = $_SESSION['user']->getUsername();
             header('Location: home_super_admin.php'); //si super_admin, cela renvoie vers la page du super admin
          }
          else{
-            $_SESSION['username'] = $username;
+            $_SESSION['user'] = $userRepository->getUser($username);
+            $_SESSION['username'] = $_SESSION['user']->getUsername();
             header('Location: userlist.php'); //si user normal, on est renvoyé vers userlist
          }
       }
