@@ -40,7 +40,7 @@ if ($userRepository->checkUser($username)==0 && $userRepository->checkEmail($use
 if ($password==''){
 	header("Location: ../login.php?errs=noPsw&username=$username");
 }
-if ($userRepository->checkUser($username)>0 || $userRepository->checkEmail($email)>0){
+if ($userRepository->checkUser($username) + $userRepository->checkEmail($username)>0){
 	$hash_password=password_hash($password,PASSWORD_DEFAULT);
 	$idUser=$dbAdaper->prepare('SELECT * FROM "user" WHERE username= :user OR email= :email;' );
 	$idUser->bindParam('user',$username);
