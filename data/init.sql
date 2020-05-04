@@ -67,12 +67,27 @@ INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (6,'Bakaclub');
 INSERT INTO Administrateur (Id_MembreA) VALUES (1); 
 INSERT INTO Administrateur (Id_MembreA) VALUES (5); 
 
-INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,1,'2008-01-01 00:00:01','2008-01-01 23:59:59', 1);
-INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,2,'2009-01-01 00:00:01','2009-01-01 23:59:59', 1);
-INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,3,'2010-01-01 00:00:01','2010-01-01 23:59:59', 1);
-INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,4,'2011-01-01 00:00:01','2011-01-01 23:59:59', 1);
-INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,5,'2011-01-01 00:00:01','2011-01-01 23:59:59', 1);
-INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,6,'2012-01-01 00:00:01','2012-01-01 23:59:59', 1);
-INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (4,7,'2020-04-26 14:30:00','2020-04-26 14:30:01', 5);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,1,'2008-01-01 08:00:01','2008-01-01 09:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,2,'2009-01-01 09:00:01','2009-01-01 13:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,3,'2009-01-01 16:00:01','2009-01-01 17:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,4,'2009-01-01 16:00:01','2009-01-01 19:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,5,'2009-01-01 16:30:01','2009-01-01 18:45:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,7,'2010-01-01 10:00:01','2010-01-01 14:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,8,'2011-01-01 09:00:01','2011-01-01 10:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,9,'2011-01-01 11:30:01','2011-01-01 14:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,10,'2011-01-01 10:00:01','2011-01-01 15:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,11,'2012-01-01 09:00:01','2012-01-01 16:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,12,'2011-01-01 14:30:01','2011-01-01 16:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,13,'2009-01-01 08:30:01','2009-01-01 16:00:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,14,'2009-01-01 08:30:01','2009-01-01 09:00:00', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,15,'2010-01-01 16:00:01','2010-01-01 18:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,16,'2011-01-01 16:30:01','2011-01-01 17:30:00', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,17,'2008-01-01 12:00:01','2008-01-01 15:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (6,18,'2008-01-01 12:00:01','2008-01-01 15:59:59', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (6,19,'2011-01-01 08:00:01','2008-01-01 11:59:59', 1);
+
 
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (1,2);
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,1);
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,4);
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,2);
