@@ -19,8 +19,9 @@ if(isset($_POST['username']) && isset($_POST['password']))
         $count = $userRepository->checkUserAuthentification($username, $password);
         if($count!=0) // nom d'utilisateur et mot de passe correctes
         {
-           $_SESSION['username'] = $username;
-           header('Location: userlist.php');
+         $_SESSION['user'] = $userRepository->getUser($username);
+         $_SESSION['username'] = $_SESSION['user']->getUsername();
+         header('Location: agenda.php');
         }
         else
         {
