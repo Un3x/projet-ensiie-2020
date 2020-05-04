@@ -119,7 +119,8 @@ function wait(i) {
   });
 }
 
-async function autoRefreshQueue(i) {
+async function autoRefreshQueue(i)
+{
     var x;
     loadQueue();
 
@@ -129,6 +130,27 @@ async function autoRefreshQueue(i) {
         loadQueue();
     }
 }
+
+function toggleAutoRefreshQueue(i)
+{
+    if ( timer_isOn === 0 )
+    {
+        timer_isOn = 1;
+        loadQueue();
+        window.timer = setTimeout(function tick(){
+                loadQueue();
+                timer = setTimeout(tick,i);},
+            i);
+    }
+    else
+    {
+        timer_isOn = 0;
+        clearTimeout(window.timer);
+    }
+}
+
+var timer_isOn = 0;
+
 
 
 function sendKara(i)
