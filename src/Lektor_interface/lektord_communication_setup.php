@@ -1,11 +1,13 @@
 <?php
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
+
 error_reporting(E_ALL);
 ob_implicit_flush();
 
 require_once 'sockets_utils.php';
-require_once '../src/Lector.php';
-require_once '../src/LectorRepository.php';
-include_once '../src/Factory/DbAdaperFactory.php';
+require_once 'Lectors/Lector.php';
+require_once 'Lectors/LectorRepository.php';
+include_once 'Factory/DbAdaperFactory.php';
 
 $dbAdaper = (new DbAdaperFactory())->createService();
 $lectorRepository = new \Lector\LectorRepository($dbAdaper);

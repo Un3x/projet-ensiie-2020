@@ -11,13 +11,14 @@
  * -newPasswordCheck
 /*******/
 session_start();
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 use User\UserRepository;
 
-include '../../src/User.php';
-include '../../src/UserRepository.php';
-include '../../src/Factory/DbAdaperFactory.php';
+include 'Users/User.php';
+include 'Users/UserRepository.php';
+include 'Factory/DbAdaperFactory.php';
 
-$dbAdaper = (new DbAdaperFactoryDepth())->createService();
+$dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new UserRepository($dbAdaper);
 
 $userID=htmlspecialchars($_POST['userID']);

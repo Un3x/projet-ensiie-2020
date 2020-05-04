@@ -67,6 +67,7 @@ a:active{
     text-align: left;
     background-color: #00FF00;
     border-radius: 15px;
+    display: block;
 }
 
 #aKaraInKaraList:hover

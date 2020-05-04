@@ -8,10 +8,10 @@ CREATE TABLE "user" (
 );
 
 INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('unex', 'patati@patata.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('caillou', 'caillou@rocher.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('viteira', 'vivi@taira.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('césar', 'jule@cesar.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
-INSERT INTO "user" (username, email, created_at, rights)  VALUES ('gengis', 'gengis@khan.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
+INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('caillou', 'caillou@rocher.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
+INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('viteira', 'vivi@taira.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
+INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('césar', 'jule@cesar.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
+INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('gengis', 'gengis@khan.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
 
 CREATE TABLE IF NOT EXISTS "karas" (
     id INTEGER PRIMARY KEY,
@@ -37,8 +37,9 @@ INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_numbe
 INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_number, language, is_new, author_name) VALUES (9,'Opening','Sailor Moon','OP','va',1,'fr',0,'Viieux');
 
 CREATE TABLE IF NOT EXISTS "queue" (
-    position INTEGER PRIMARY KEY,
-    id INTEGER NOT NULL REFERENCES karas
+    position SERIAL PRIMARY KEY,
+    id INTEGER NOT NULL REFERENCES karas,
+    added_by INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS "playlist" (
@@ -84,7 +85,7 @@ CREATE TABLE IF NOT EXISTS "title"(
 
 
 CREATE TABLE IF NOT EXISTS "lector"(
-    id INTEGER PRIMARY KEY REFERENCES karas,
+    id INTEGER PRIMARY KEY,
     ip VARCHAR,
     port INTEGER
 );

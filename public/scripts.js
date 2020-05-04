@@ -60,7 +60,7 @@ function dynamicSearch()
     for ( i = 0; i < kara.length; i++ )
     {
         hide = false;
-        a = kara[i].getElementsByTagName('button');
+        a = kara[i].getElementsByTagName('div');
         txtValue = a[0].textContent;
         search_loop:
         for (j=0; j<filter.length; j++)
@@ -88,4 +88,82 @@ function toggleKaraInfo(i)
         div.style.display = "block";
     else
         div.style.display = "none";
+}
+
+function loadQueue()
+{
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('GET', 'http://localhost:8080/Forms/getQueue.php?getQueue=42', true); // <--- FIXME : URL
+
+    xhr.addEventListener('readystatechange', function ()
+{
+    if (xhr.readyState === XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 )) { // <-- FIXME Delete the xhr.status === 0 when the site isn't on localhost
+        document.getElementById('karaQueue').innerHTML = '<span>' + xhr.responseText + '</span>';
+    }
+});
+
+    xhr.send(null);
+}
+
+function sayCoucou ()
+{
+    alert("coucou");
+}
+
+function wait(i) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, i);
+  });
+}
+
+async function autoRefreshQueue(i)
+{
+    var x;
+    loadQueue();
+
+    while ( true )
+    {
+        x = await wait(i);
+        loadQueue();
+    }
+}
+
+function toggleAutoRefreshQueue(i)
+{
+    if ( timer_isOn === 0 )
+    {
+        timer_isOn = 1;
+        loadQueue();
+        window.timer = setTimeout(function tick(){
+                loadQueue();
+                timer = setTimeout(tick,i);},
+            i);
+    }
+    else
+    {
+        timer_isOn = 0;
+        clearTimeout(window.timer);
+    }
+}
+
+var timer_isOn = 0;
+
+
+
+function sendKara(i)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:8080/Forms/addKara.php', true); // <--- FIXME : URL
+
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onreadystatechange = function() {//Call a function when the state changes.
+        if(xhr.readyState == XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 )) {
+            alert(xhr.responseText);
+        }
+    }
+    xhr.send('id=' + i);
 }

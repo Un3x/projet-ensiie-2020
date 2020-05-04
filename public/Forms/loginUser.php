@@ -4,14 +4,15 @@
 //what to add: rights, experience, (if we so desired)
 //
 //*****
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 session_start();
 use User\UserRepository;
 
-include '../../src/User.php';
-include '../../src/UserRepository.php';
-include '../../src/Factory/DbAdaperFactory.php';
+include 'Users/User.php';
+include 'Users/UserRepository.php';
+include 'Factory/DbAdaperFactory.php';
 
-$dbAdaper = (new DbAdaperFactoryDepth())->createService();
+$dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new UserRepository($dbAdaper);
 
 $token=$_POST['post.token'];
@@ -39,7 +40,7 @@ if ($userRepository->checkUser($username)==0 && $userRepository->checkEmail($use
 if ($password==''){
 	header("Location: ../login.php?errs=noPsw&username=$username");
 }
-if ($userRepository->checkUser($username)>0 || $userRepository->checkEmail($email)>0){
+if ($userRepository->checkUser($username) + $userRepository->checkEmail($username)>0){
 	$hash_password=password_hash($password,PASSWORD_DEFAULT);
 	$idUser=$dbAdaper->prepare('SELECT * FROM "user" WHERE username= :user OR email= :email;' );
 	$idUser->bindParam('user',$username);
@@ -56,6 +57,18 @@ if ($userRepository->checkUser($username)>0 || $userRepository->checkEmail($emai
 			$_SESSION['username']=$userFound['username'];
 			$_SESSION['email']=$userFound['email'];
 			$_SESSION['rights']=$userFound['rights'];
+			$sql='SELECT * FROM "userCosmetics" NATURAL JOIN "user" WHERE id= :userID;';
+			try {
+				$cosmetics=$dbAdaper->prepare($sql);
+				$cosmetics->bindParam('userID',$userFound['id']);
+				$cosmetics->execute();
+				$cosmetics=$cosmetics->fetch();
+				$_SESSION['image']=$userFound['image'];
+				$_SESSION['title']=$userFound['title'];
+			}
+			catch (PDOException $err){
+			header('Location: ../index.php?err=sqlError');
+			}
 			header('Location: ../index.php?login=success');
 		}
 		else { 
