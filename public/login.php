@@ -7,7 +7,7 @@ $_SESSION['post.token']=$token;
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
-<script type="text/javascript" src="scripts.js"></script>
+<script type="text/javascript" src="script/formulaire.js"></script>
 </head>
 <body>
 <!-- 

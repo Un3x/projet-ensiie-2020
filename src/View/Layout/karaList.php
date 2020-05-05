@@ -35,3 +35,4 @@ $karas = $karaRepository->fetchAll();
         <?php endforeach; ?>
     </ul>
 </div> 
+<script src="/scripts/karaList.js"></script>

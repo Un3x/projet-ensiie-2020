@@ -16,6 +16,6 @@ set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 
 <?php include_once "View/Layout/karaList.php" ?>
 
-<script src="scripts.js"></script>
+<script src="/scripts/scripts.js"></script>
 </body>
 </html>
