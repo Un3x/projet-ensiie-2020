@@ -44,22 +44,23 @@ CREATE TABLE IF NOT EXISTS queue (
 );
 
 CREATE TABLE IF NOT EXISTS playlist (
-    id INTEGER PRIMARY KEY,
-    nom TEXT NOT NULL,
-    createur SERIAL REFERENCES "user",
-    content id[] REFERENCES karas
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    creator INTEGER REFERENCES "user",
+    content INT[],
+    publik BOOLEAN
 );
 
 
 CREATE TABLE IF NOT EXISTS userCosmetics (
-    id SERIAL PRIMARY KEY,
-    IDimage INTEGER,
-        IDtitle INTEGER
+    id INTEGER PRIMARY KEY REFERENCES "user",
+    IDimage INTEGER REFERENCES image,
+    IDtitle INTEGER REFERENCES title
 );
 
 CREATE TABLE IF NOT EXISTS image (
     IDimage SERIAL PRIMARY KEY,
-    image VARCHAR 
+    image VARCHAR
 );
 
 INSERT INTO "image" (IDimage, image) VALUES (1,'waifu1.png');
@@ -81,7 +82,7 @@ INSERT INTO "image" (IDimage, image) VALUES (16,'waifu16.png');
 
 CREATE TABLE IF NOT EXISTS title (
     IDtitle SERIAL PRIMARY KEY,
-    title VARCHAR 
+    title VARCHAR
 );
 
 
