@@ -16,7 +16,9 @@ class UserRepository
 
     public function fetchAll()
     {
-        $usersData = $this->dbAdapter->query('SELECT * FROM "user"');
+        $usersData = $this->dbAdapter->query(
+            'SELECT * FROM "user"
+            ORDER BY rights DESC, id ASC');
         $users = [];
         foreach ($usersData as $usersDatum) {
             $user = new User();
@@ -35,24 +37,24 @@ class UserRepository
     //check if username is already used , returns 0 if the userName is free   
     public function checkUser ($userName)
     {
-	$users= $this->dbAdapter->prepare('SELECT COUNT(*) FROM "user" WHERE username= :userName');	    
-	$users->execute(['userName'=>$userName]);
-	return $users->fetchColumn();
+    $users= $this->dbAdapter->prepare('SELECT COUNT(*) FROM "user" WHERE username= :userName');     
+    $users->execute(['userName'=>$userName]);
+    return $users->fetchColumn();
     }
 
 
     //check if username is already used , returns 0 if the email is free
     public function checkEmail($email)
     {
-	$emails= $this->dbAdapter->prepare('SELECT COUNT(*) FROM "user" WHERE email= :Email');	    
-	$emails->execute(['Email'=>$email]);
-	return $emails->fetchColumn();
+    $emails= $this->dbAdapter->prepare('SELECT COUNT(*) FROM "user" WHERE email= :Email');      
+    $emails->execute(['Email'=>$email]);
+    return $emails->fetchColumn();
     }
     
     //add a new row to the table "user" and "userCosmetics"
     public function add ($username, $email, $password)
     {
-	$newUser=$this->dbAdapter->prepare('INSERT INTO "user" (username, email, password, rights, created_at) VALUES (:userName, :Email, :passWord, 0, NOW())');
+    $newUser=$this->dbAdapter->prepare('INSERT INTO "user" (username, email, password, rights, created_at) VALUES (:userName, :Email, :passWord, 0, NOW())');
         $newUser->bindParam('userName', $username);
         $newUser->bindParam('Email', $email);
 	$newUser->bindParam('passWord', $password);
@@ -71,12 +73,11 @@ class UserRepository
 	$stmt->execute();
     }
 
-
     public function delete ($userId)
     {
         $stmt = $this
             ->dbAdapter
-	    ->prepare('DELETE FROM "user" where id = :userId');
+        ->prepare('DELETE FROM "user" where id = :userId');
 
         $stmt->bindParam('userId', $userId);
         $stmt->execute();
@@ -87,4 +88,30 @@ class UserRepository
         $stmt2->bindParam('userId', $userId);
         $stmt2->execute();
     }
+
+
+    public function setRights ($userId, $rights)
+    {
+        $stmt = $this
+            ->dbAdapter
+            ->prepare(
+                'UPDATE "user" SET rights=:rights
+                WHERE id=:id');
+        $stmt->bindParam('rights', $rights);
+        $stmt->bindParam('id', $userId);
+        $stmt->execute();
+    }
+
+
+    public function getRights($id)
+    {
+        $rights = $this
+            ->dbAdapter
+            ->prepare(
+                'SELECT rights FROM "user"
+                WHERE id=:id');      
+    $rights->execute(['id'=>$id]);
+    return $rights->fetchColumn();
+    }
 }
+

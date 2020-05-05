@@ -33,19 +33,56 @@ $users = $userRepository->fetchAll();
                 <td><?= $user->getCreatedAt()->format(\DateTime::ATOM) ?></td>
                 <td><?php 
 $tmprights=$user->getRights();
+
 if ( $tmprights === 0 )
-echo "Peasant";
+{
+    echo "Peasant</td>\n<td>";
+    echo
+        '<form method="POST" action="Forms/modifyUserRights.php">
+            <input name="user_id" type="hidden" value="' . $user->getId() . '">
+            <input name="action" type="hidden" value="1">
+            <button onclick="return confirm(\'Are you sure ?\')" type="submit">Upgrade</button>
+        </form>';
+    echo
+        '<form method="POST" action="Forms/modifyUserRights.php">
+            <input name="user_id" type="hidden" value="' . $user->getId() . '">
+            <input name="action" type="hidden" value="-1">
+            <button onclick="return confirm(\'Are you sure ?\')" type="submit">Downgrade</button>
+        </form>';
+}
+
 elseif ( $tmprights === 1 )
-echo "Admin";
+{
+    echo "Admin</td>\n<td>";
+    echo
+        '<form method="POST" action="Forms/modifyUserRights.php">
+            <input name="user_id" type="hidden" value="' . $user->getId() . '">
+            <input name="action" type="hidden" value="-1">
+            <button onclick="return confirm(\'Are you sure ?\')" type="submit">Downgrade</button>
+        </form>';
+}
+
 elseif ( $tmprights === 2 )
-echo "Root";
+{
+    echo "Root</td>\n<td>";
+}
+
 elseif ( $tmprights === -1 )
-echo "Trash";
+{
+    echo "Trash</td>\n<td>";
+    echo
+        '<form method="POST" action="Forms/modifyUserRights.php">
+            <input name="user_id" type="hidden" value="' . $user->getId() . '">
+            <input name="action" type="hidden" value="1">
+            <button type="submit">Upgrade</button>
+        </form>';
+}
 else
-echo "UNKNOWN";
-                    ?></td>
-                <td>
-<?php if ( ($user->getId() !== $_SESSION['id']) && ($user->getRights() <= $_SESSION['rights']) )
+{
+    echo "UNKNOWN</td>\n<td>";
+}
+
+if ( ($user->getId() !== $_SESSION['id']) && ($user->getRights() <= $_SESSION['rights']) )
 echo 
 '<form method="POST" action="Forms/deleteUser.php">
     <input name="user_id" type="hidden" value="' . $user->getId() . '">

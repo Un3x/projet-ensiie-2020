@@ -8,7 +8,7 @@ $karaRepository = new \Kara\KaraRepository($dbAdaper);
 $karas = $karaRepository->fetchAll();
 ?>
 
-<input type="text" id="karaSearch" onkeydown="dynamicSearch()" placeholder="Search for karas">
+<input type="text" id="karaSearch" onkeyup="dynamicSearch()" placeholder="Search for karas">
 
 <div id="karaList">
     <ul>
