@@ -46,6 +46,23 @@ class Utilisateur
         return $this;
     }
 
+        /**
+     * @return int
+     */
+    public function getIp ()
+    {
+        return $this->ip;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setIp ($ip)
+    {
+        $this->ip = $ip;
+        return $this;
+    }
+
     /**
      * @return string
      */

@@ -1,4 +1,52 @@
 body{
     background-color: aqua;
+}
+
+#volet {
+    width: 250px;
+    padding: 10px;
+    background: #555; color: #fff;
+    position: relative;
+    left: -270px; top: 0px;
+    -webkit-transition: all .5s ease-in;
+    transition: all .5s ease-in;
+}
+#volet a.open,
+#volet a.close {
+    padding: 10px 25px;
+    background: #555;
+    color: #fff;
+    text-decoration: none;
+    position: absolute;
+    right: -88px;
+    top: 2px;
+    border-radius: 0 0 8px 8px;
+}
+#volet a.close {
+    display: none;
+}
+#volet_clos:target #volet {
+    left: -270px;
+}
+#volet:target{
+    left: 0;
+}
+#volet:target a.open {
+    display: none;
+}
+#volet:target a.close {
+    display: block;
+}
+
+#profile_settings {
     text-align: center;
+    color: #fff;
+}
+
+#connexion_info {
+    text-align: right;
+}
+
+playbutton{
+    color: black;
 }

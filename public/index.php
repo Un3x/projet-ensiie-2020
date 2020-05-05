@@ -1,19 +1,19 @@
 <?php
 
 include '../src/Map.php';
-include '../src/User.php';
 include '../src/Utilisateur.php';
+include '../src/PplOnline.php';
 include '../src/MapRepository.php';
-include '../src/UserRepository.php';
 include '../src/UtilisateurRepository.php';
+include '../src/PplOnlineRepository.php';
 include '../src/Factory/DbAdaperFactory.php';
 
 $dbAdaper = (new DbAdaperFactory())->createService();
 $mapRepository = new \Map\MapRepository($dbAdaper);
-$userRepository = new \User\UserRepository($dbAdaper);
+$pplonlineRepository = new PplOnline\PplOnlineRepository($dbAdaper);
 $utilisateurRepository = new \Utilisateur\UtilisateurRepository($dbAdaper);
-$users = $userRepository->fetchAll();
 $maps = $mapRepository->fetchAll();
+$pplonlines = $pplonlineRepository->fetchAll();
 $utilisateurs = $utilisateurRepository->fetchAll();
 
 ?>
@@ -48,9 +48,23 @@ $utilisateurs = $utilisateurRepository->fetchAll();
     else echo("You can log in by clicking the Play button");
 ?>
 
+<p>
+    <?php
+        echo("Online : ");
+        echo($pplonlineRepository->update());
+    ?>
+    </br>
+    <?php
+        echo("Connected : ");
+        foreach($pplonlines as $pplonline){
+            echo($pplonline->getIp());
+        }
+    ?>
+</p>
+
 </br>
 <button type="button" id="playbutton" onclick=" document.getElementById('hide').style.display='block';">Jouer</button> 
-<form method="POST" style="display:none" id="hide" action="/Login.php">
+<form method="POST" style="display:none" id="hide" action="/Login.php" onsubmit="return login_validation()" name="login">
   <label for="name">Pseudo:</label>
   <input type="text" id="name" name="nom_utilisateur">
   <br>
@@ -61,7 +75,7 @@ $utilisateurs = $utilisateurRepository->fetchAll();
   <p id="hide" style="display:none">No account ? Signup now ! </p>
   <button type="button" onclick=" document.getElementById('hide2').style.display='block';document.getElementById('hide').style.display='none';">Créer un  compte</button> 
 </form>
-<form method="POST" style="display:none" id="hide2" action="/createUtilisateur.php">
+<form method="POST" style="display:none" id="hide2" action="/createUtilisateur.php" onsubmit="return signin_validation()" name="signin">
   <label for="name">Pseudo:</label>
   <input type="text" id="name" name="nom_utilisateur">
   <br>
@@ -73,7 +87,7 @@ $utilisateurs = $utilisateurRepository->fetchAll();
   <br>
   <button type="submit"> S'inscrire</button>
 </form>
-
+<!--
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
@@ -148,7 +162,7 @@ $utilisateurs = $utilisateurRepository->fetchAll();
         </div>
     </div>
 </div>
-
+-->
 <script src="scripts.js"></script>
 </body>
 </html>
