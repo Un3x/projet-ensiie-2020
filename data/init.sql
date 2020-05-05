@@ -12,8 +12,9 @@ INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('cai
 INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('viteira', 'vivi@taira.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
 INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('césar', 'jule@cesar.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
 INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('gengis', 'gengis@khan.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
+INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('root', 'root@root.com', NOW(), '$2y$10$4FrKplWas8RGMlKL5fWzS.M2uBitwfyvshRY7VZ5Fp.xJnwv2iCQO', 2);
 
-CREATE TABLE IF NOT EXISTS "karas" (
+CREATE TABLE IF NOT EXISTS karas (
     id INTEGER PRIMARY KEY,
     song_name   TEXT    NOT NULL,
     source_name TEXT    NOT NULL,
@@ -36,13 +37,13 @@ INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_numbe
 INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_number, language, is_new, author_name) VALUES (8,'Pegasus Fantasy (VF)','Saint Seiya','OP','va',1,'fr',0,'Viieux');
 INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_number, language, is_new, author_name) VALUES (9,'Opening','Sailor Moon','OP','va',1,'fr',0,'Viieux');
 
-CREATE TABLE IF NOT EXISTS "queue" (
+CREATE TABLE IF NOT EXISTS queue (
     position SERIAL PRIMARY KEY,
     id INTEGER NOT NULL REFERENCES karas,
-    added_by INTEGER
+    added_by INTEGER REFERENCES "user"
 );
 
-CREATE TABLE IF NOT EXISTS "playlist" (
+CREATE TABLE IF NOT EXISTS playlist (
     id INTEGER PRIMARY KEY,
     nom TEXT NOT NULL,
     createur SERIAL REFERENCES "user",
@@ -50,15 +51,15 @@ CREATE TABLE IF NOT EXISTS "playlist" (
 );
 
 
-CREATE TABLE IF NOT EXISTS "userCosmetics"(
-	id SERIAL PRIMARY KEY,
-	IDimage INTEGER,
+CREATE TABLE IF NOT EXISTS userCosmetics (
+    id SERIAL PRIMARY KEY,
+    IDimage INTEGER,
         IDtitle INTEGER
 );
 
-CREATE TABLE IF NOT EXISTS "image"(
-	IDimage SERIAL PRIMARY KEY,
-	image VARCHAR 
+CREATE TABLE IF NOT EXISTS image (
+    IDimage SERIAL PRIMARY KEY,
+    image VARCHAR 
 );
 
 INSERT INTO "image" (IDimage, image) VALUES (1,'waifu1.png');
@@ -78,14 +79,14 @@ INSERT INTO "image" (IDimage, image) VALUES (14,'waifu14.png');
 INSERT INTO "image" (IDimage, image) VALUES (15,'waifu15.png');
 INSERT INTO "image" (IDimage, image) VALUES (16,'waifu16.png');
 
-CREATE TABLE IF NOT EXISTS "title"(
-	IDtitle SERIAL PRIMARY KEY,
-	title VARCHAR 
+CREATE TABLE IF NOT EXISTS title (
+    IDtitle SERIAL PRIMARY KEY,
+    title VARCHAR 
 );
 
 
-CREATE TABLE IF NOT EXISTS "lector"(
-    id INTEGER PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS lector (
+    id INTEGER PRIMARY KEY REFERENCES "user",
     ip VARCHAR,
     port INTEGER
 );
