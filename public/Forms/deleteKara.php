@@ -4,13 +4,13 @@ set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 require_once 'Factory/DbAdaperFactory.php';
 require_once 'Lektor_interface/sockets_utils.php';
 
-if (isset($_SESSION['id']) && $_SESSION['rights'] === 1)
+if (isset($_SESSION['id']) && $_SESSION['rights'] >= 1)
 {
     $dbAdapter = (new DbAdaperFactory())->createService();
     echo "Deleting kara at position " . $_POST['id'] . "...\n";
     $req =
         'DELETE FROM "queue"
-         WHERE id=:id;';  // <-- FIXME
+         WHERE id=:id;';
     $addition = $dbAdapter->prepare($req);
     $addition->bindParam('id', $_POST['id']);
     $addition->execute();

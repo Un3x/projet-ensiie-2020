@@ -1,5 +1,5 @@
 <?php
+session_start();
 
-echo $_SERVER['DOCUMENT_ROOT'];
-
+echo $_SESSION['rights'];
 ?>

@@ -9,7 +9,7 @@ if ( isset($_GET["getQueue"]) && isset($_SESSION["id"]) )
 
     $dbAdapter = (new DbAdaperFactory())->createService();
 
-    if ( $_SESSION['rights'] === 1 ) // User is an admine
+    if ( $_SESSION['rights'] >= 1 ) // User is an admin or root
     {
         $stmt =
             "SELECT karas.source_name, karas.category, karas.song_number, karas.song_name, karas.id
