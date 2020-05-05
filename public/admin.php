@@ -30,28 +30,12 @@ $lectors = $lectorRepository->fetchAll();
 ?>
 
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Projet web Ensiie</title>
-    <meta name="description" content="Projet web Ensiie">
-    <meta name="author" content="Thomas COMES">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css?v=1.0">
-</head>
+<?php include_once "View/Layout/head.php" ?>
 
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Projet Web Ensiie 2020</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
+<?php include_once "View/Layout/header.php" ?>
+
+
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
