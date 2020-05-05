@@ -21,7 +21,7 @@ $userID=htmlspecialchars($_POST['userID']);
 
 if (isset($_POST['newImage'])){
 	try {
-		$sql='UPDATE "userCosmetics" SET IDimage= :newImage WHERE id= :userID;';
+		$sql='UPDATE userCosmetics SET IDimage= :newImage WHERE id= :userID;';
 		$stmt=dbAdapter->prepare($sql))
 		$stmt->bindParam('newImage',$_POST['newImage']);
 		$stmt->bindParam('userID',$userID);
@@ -35,7 +35,7 @@ if (isset($_POST['newImage'])){
 
 if (isset($_POST['newTitle'])){
 	try {
-		$sql='UPDATE "userCosmetics" SET IDtitle= :newTitle WHERE id= :userID;';
+		$sql='UPDATE userCosmetics SET IDtitle= :newTitle WHERE id= :userID;';
 		$stmt=dbAdapter->prepare($sql))
 		$stmt->bindParam('newTitle',$_POST['newImage']);
 		$stmt->bindParam('userID',$userID);
