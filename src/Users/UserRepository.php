@@ -24,6 +24,7 @@ class UserRepository
                 ->setId($usersDatum['id'])
                 ->setUsername($usersDatum['username'])
                 ->setEmail($usersDatum['email'])
+                ->setRights($usersDatum['rights'])
                 ->setCreatedAt(new \DateTime($usersDatum['created_at']));
             $users[] = $user;
         }
