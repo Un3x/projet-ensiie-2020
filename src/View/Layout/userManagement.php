@@ -41,13 +41,13 @@ if ( $tmprights === 0 )
         '<form method="POST" action="Forms/modifyUserRights.php">
             <input name="user_id" type="hidden" value="' . $user->getId() . '">
             <input name="action" type="hidden" value="1">
-            <button type="submit">Upgrade</button>
+            <button onclick="return confirm(\'Are you sure ?\')" type="submit">Upgrade</button>
         </form>';
     echo
         '<form method="POST" action="Forms/modifyUserRights.php">
             <input name="user_id" type="hidden" value="' . $user->getId() . '">
             <input name="action" type="hidden" value="-1">
-            <button type="submit">Downgrade</button>
+            <button onclick="return confirm(\'Are you sure ?\')" type="submit">Downgrade</button>
         </form>';
 }
 
@@ -58,7 +58,7 @@ elseif ( $tmprights === 1 )
         '<form method="POST" action="Forms/modifyUserRights.php">
             <input name="user_id" type="hidden" value="' . $user->getId() . '">
             <input name="action" type="hidden" value="-1">
-            <button type="submit">Downgrade</button>
+            <button onclick="return confirm(\'Are you sure ?\')" type="submit">Downgrade</button>
         </form>';
 }
 
