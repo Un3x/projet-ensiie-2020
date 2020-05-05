@@ -5,7 +5,6 @@ set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 
 ?>
 
-<html lang="en">
 <?php include_once "View/Layout/head.php" ?>
 
 

@@ -19,7 +19,7 @@ session_start();
                         echo "You are logged in as $userSession, $idSession\n";
                     }
                     else {
-                        echo "You are logged out : <a class='nav-link' href='login.php'>\n";
+                        echo "You are logged out : <a class='nav-link' href='login.php'>Login</a>\n";
                     }
                     ?>
                 </li>
