@@ -65,7 +65,7 @@ class UserRepository
 	$UserRow=$newUserID->fetch();
 	$id=$UserRow['id'];
 
-	$newCosmetics='INSERT INTO "userCosmetics" (id, IDimage, IDtitle) VALUES (:ID, 1, 1)';
+	$newCosmetics='INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (:ID, 1, 1)';
 	$stmt=$this->dbAdapter->prepare($newCosmetics);
 	$stmt->bindParam('ID', $id);
 	$stmt->execute();
@@ -80,5 +80,11 @@ class UserRepository
 
         $stmt->bindParam('userId', $userId);
         $stmt->execute();
+        $stmt2 = $this
+            ->dbAdapter
+	    ->prepare('DELETE FROM userCosmetics where id = :userId');
+
+        $stmt2->bindParam('userId', $userId);
+        $stmt2->execute();
     }
 }
