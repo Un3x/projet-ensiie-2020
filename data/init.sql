@@ -99,6 +99,7 @@ INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA)
 
 
 INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_Assoc, username) VALUES (1,2, 'BDE','caillou');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_Assoc, username) VALUES (2,2, 'Cuisine','caillou');
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (1,2);
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,1);
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,4);

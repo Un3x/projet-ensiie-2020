@@ -149,4 +149,14 @@ class UserRepository
         } 
         $req->execute();
     }
+    public function IsAdmin($userid){
+        $sql="SELECT * FROM administrateur where id_membrea='$userid'";
+        $SuperUserOf=$this->dbAdapter->query($sql);
+        if(is_null($SuperUserOf)){ 
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }

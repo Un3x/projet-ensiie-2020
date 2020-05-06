@@ -38,6 +38,7 @@ $asso = $assoRepository->fetch_Assos($_SESSION['user']->getId());
                 <a class="nav-link" href="/userlist.php"><span>Home</span></a>
                 </li>
                     <a href='profil.php' class="nav-link"><span>Profil</span></a> 
+                    <a href='OrgaReu.php' class="nav-link"><span>Réunions</span></a> 
 		<a href='userlist.php?deconnexion=true' class="nav-link"><span>Déconnexion</span></a>	
                 <?php session_start();
 		    if(isset($_GET['deconnexion'])) { 
@@ -114,7 +115,7 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
                 </tr>
                 <?php foreach($asso as $Asso): ?>
                     <tr>
-                        <td><?= $asso->getNomAssoc() ?></td>
+                        <td><?= $Asso->getNomAssoc()?></td>
                     </tr>
                 <?php endforeach; ?>
             </table>
