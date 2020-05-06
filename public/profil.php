@@ -35,7 +35,7 @@ $asso = $assoRepository->fetch_Assos($_SESSION['user']->getId());
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="/userlist.php"><span>Home</span></a>
+                <a class="nav-link" href="/agenda.php"><span>Home</span></a>
                 </li>
                     <a href='profil.php' class="nav-link"><span>Profil</span></a> 
                     <a href='OrgaReu.php' class="nav-link"><span>Réunions</span></a> 

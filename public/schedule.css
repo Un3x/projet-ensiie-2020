@@ -2,6 +2,218 @@ body{
     background: rgb(53, 162, 170);
 }
 
+
+
+.Calendar{
+    background: rgb(149, 204, 255);
+    position: absolute;
+    top: 11%;
+    left: 74%;
+    width: 23%;
+    font-family: Verdana, sans-serif;
+}
+
+.Calendar ul {
+    list-style-type: none;
+
+}
+/* Month header */
+.ca-month {
+  padding: 2% 0%;
+  width: 100%;
+  background: rgb(15, 86, 128);
+  text-align: center;
+}
+
+/* Month list */
+.ca-month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.ca-month ul li {
+  color: white;
+  font-size: 120%;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Previous button inside month header */
+.ca-month .ca-prev {
+  float: left;
+  background: rgba(255,255,255,0);
+  color: white;
+  border: 0px;
+  font-size: 130%;
+  margin-top: 3.2%;
+  margin-left: 4%;
+}
+
+/* Next button */
+.ca-month .ca-next {
+  float: right;
+  background: rgba(255,255,255,0);
+  color: white;
+  border: 0px;
+  font-size: 130%;
+  margin-top: 3.2%;
+  margin-right: 4%;
+}
+
+/* Weekdays (Mon-Sun) */
+.ca-weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background: rgb(154, 173, 236);
+}
+
+.ca-weekdays li {
+  display: inline-block;
+  width: 13%;
+  color: black;
+  text-align: center;
+}
+
+/* Days (1-31) */
+.ca-days {
+  padding: 10px 0;
+  background: rgb(212, 231, 248); 
+  margin: 0;
+}
+
+.ca-days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 14.2%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+/* Highlight the "current" day */
+.ca-smol {
+    padding: 12% 8%;
+    background: rgb(15, 86, 128);
+}
+
+.ca-big {
+    padding: 12% 0%;
+    background: rgb(15, 86, 128);
+}
+
+.ca-day-button {
+    background: rgba(255,255,255,0);
+    color: white;
+    border: 0px;
+}
+
+.Infos {
+    background: rgb(212, 231, 248); 
+    position: absolute;
+    top: 50%;
+    left: 74%;
+    width: 23%;
+    height : 46%;
+    font-family: Verdana, sans-serif;
+    padding: 2% 1% 2% 0%;
+    overflow: scroll;
+    
+}
+
+.Infos li{
+    margin-left: 10%;
+}
+
+.info-ouinon-container{
+    position: relative;
+    border: 2px solid rgb(10, 59, 90);
+    padding: 2% 10%;
+    top: -5%;
+    margin-left: 4%;
+    margin-right: 4%;
+    width: 100%;
+}
+
+.info-ouinon{
+    position: absolute;
+    height: 80%;
+    width: 20%;
+    top: 16%;
+    left: 70%;
+}
+
+.info-oui{
+    position: relative;
+    background: rgb(15, 86, 128);
+    color: white;
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    top: 2%;
+    width: 100%;
+    border: none;
+}
+.info-oui:hover{
+    background: rgb(11, 64, 95);
+}
+
+.info-non{
+    position: relative;
+    background: rgb(15, 86, 128);
+    color: white;
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    top: 18%;
+    width: 100%;
+    border: none;
+}
+.info-non:hover{
+    background: rgb(11, 64, 95);
+}
+
+.info-change-container{
+    position: relative;
+    padding: 1% 10%;
+    top: -5%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.info-change-inter{
+    position: absolute;
+    height: 80%;
+    width: 22%;
+    top: 16%;
+    left: 74%;
+}
+
+.info-change{
+    position: relative;
+    background: rgb(15, 86, 128);
+    color: white;
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    width: 100%;
+    border: none;
+    font-size: 75%;
+    padding: 1%;
+}
+.info-change:hover{
+    background: rgb(11, 64, 95);
+}
+
+.Schedule{
+    margin-left: 1%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background: rgb(212, 231, 248); 
+    width: 70%;
+    height: 85%;
+    padding: 1% 1%;
+    position: relative;
+    font-family: Verdana, sans-serif;
+}
+
 .sc-toolBar{
     display: flex;
     justify-content: space-between;
@@ -12,7 +224,8 @@ body{
 
 .tb-right{
     float: right;
-    border: 1px solid;
+    position: relative;
+    top: -4px;
 }
 .tb-center{
     float: left;
@@ -20,23 +233,24 @@ body{
     left: 50%;
     transform: translate(0%, -25%);
     text-align: center;
-    font-size: 120%;
+    font-size: 125%;
+    color: black;
 }
 .tb-left{
     float: left;
-    border: 1px solid;
+    position: relative;
+    top: -4px;
 }
 
-.Schedule{
-    margin-left: 1%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    background: rgb(149, 204, 255);
-    width: 70%;
-    height: 85%;
-    padding: 1% 1%;
-    position: relative;
+.tb-button{
+    background: rgb(154, 173, 236);
+    border: 2px solid rgb(22, 20, 102);
+    color: black;
 }
+
+.tb-button:hover{
+    background: rgb(185, 195, 226);
+} 
 
 .sc-table{
     width: 100%;
@@ -99,14 +313,27 @@ body{
 }
 
 .sc-content{
-    background: rgb(192, 245, 255);
+    background:rgb(203, 226, 248);
     border: 2px solid rgb(22, 20, 102);
     position: absolute;
     text-align: center;
     overflow: hidden;
 }
 .sc-content:hover{
-    background: rgb(131, 234, 255);
+    background: rgb(186, 213, 238);
+    border: 3px solid rgb(22, 20, 102);
+    z-index: 300;
+}
+
+.sc-content-new{
+    background:rgb(248, 203, 224);
+    border: 2px solid rgb(22, 20, 102);
+    position: absolute;
+    text-align: center;
+    overflow: hidden;
+}
+.sc-content-new:hover{
+    background: rgb(229, 168, 197);
     border: 3px solid rgb(22, 20, 102);
     z-index: 300;
 }
