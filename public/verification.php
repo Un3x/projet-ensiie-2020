@@ -33,7 +33,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
          else{
             $_SESSION['user'] = $userRepository->getUser($username);
             $_SESSION['username'] = $_SESSION['user']->getUsername();
-            header('Location: userlist.php'); //si user normal, on est renvoyé vers userlist
+            header('Location: agenda.php'); //si user normal, on est renvoyé vers userlist
          }
       }
       else{
