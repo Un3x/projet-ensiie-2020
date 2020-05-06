@@ -10,7 +10,7 @@ private $dbAdapter;
     }
 public function fetch_Assos($userid)
 {
-        $usersAsso = $this->dbAdapter->query("SELECT Nom_Assoc FROM Appartenir where username=:userid");
+        $usersAsso = $this->dbAdapter->query("SELECT Nom_Assoc FROM Appartenir where id=:userid");
         $Asso = [];
         foreach ($usersAsso as $TteAsso) {
             $userA = new Asso();

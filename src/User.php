@@ -91,4 +91,22 @@ class User
         $this->createdAt = $createdAt;
         return $this;
     }
+
+    /**
+     * @param string $Nom_assoc
+     */
+    public function setNom_assoc ($Nom_assoc)
+    {
+        $this->Nom_assoc = $Nom_assoc;
+        return $this;
+    }
+
+        /**
+     * @return string
+     */
+    public function getNom_assoc()
+    {
+        return $this->Nom_assoc;
+    }
+
 }

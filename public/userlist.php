@@ -8,6 +8,10 @@ $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new \User\UserRepository($dbAdaper);
 $users = $userRepository->fetchAll();
 
+//test nb d'id pour pouvoir creer le prochain id du nouveau username qui s'inscrit
+/*$nb_id = $userRepository->nb_users();
+echo "nb d'identifiants = ".$nb_id;*/
+
 ?>
 
 <html lang="en">
@@ -28,28 +32,30 @@ $users = $userRepository->fetchAll();
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="/profil.php"><span>Home</span></a>
+                <a class="nav-link" href="/userlist.php"><span>Home</span></a>
                 </li>
-		        <a href='userlist.php?deconnexion=true'><span>Déconnexion</span></a>	
+                    <a href='profil.php' class="nav-link"><span>Profil</span></a> 
+        <a href='userlist.php?deconnexion=true' class="nav-link"><span>Déconnexion</span></a>   
                 <?php session_start();
-                if(isset($_GET['deconnexion'])) { 
-                    if($_GET['deconnexion']==true) {  
-                            session_unset();
-                            header("location:index.php");
+            if(isset($_GET['deconnexion'])) { 
+                       if($_GET['deconnexion']==true) {  
+                        session_unset();
+                        header("location:index.php");
+                       }
                     }
-                }
-                if($_SESSION['username'] !== ""){
-                    $user = $_SESSION['username'];
-                    // afficher un message
-                    echo "<div class='connection_id' id='idco'>";
-                    echo "$user";
-                    echo "</div>";
-               	}
+            if($_SESSION['username'] !== ""){
+                         $user = $_SESSION['username'];
+                     // afficher un message
+                     echo "<div class='connection_id nav-link' id='idco' >";
+                     echo "$user";
+                     echo "</div>";
+                    }
                 ?>
             </ul>
         </div>
     </nav>
 </header>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
@@ -82,6 +88,10 @@ $users = $userRepository->fetchAll();
         </div>
     </div>
 </div>
+
+
+
+<a class="nav-link" href="./Form_demande_admin.php">Formulaire de demande afin de devenir administrateur pour une association</a>
 <script src="js/scripts.js"></script>
 </body>
 </html>

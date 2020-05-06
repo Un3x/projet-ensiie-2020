@@ -8,6 +8,7 @@ CREATE TABLE Membre(
 
 CREATE TABLE Administrateur(
 	Id_MembreA INTEGER PRIMARY KEY,
+	Droit INTEGER, /* 0 = superAdmin, 1 = Admin*/
 	FOREIGN KEY (Id_MembreA) REFERENCES Membre(id)
 );
 
@@ -26,9 +27,17 @@ CREATE TABLE Reunion(
 	FOREIGN KEY (Id_MembreA) REFERENCES Administrateur(Id_MembreA)
 );
 
+
+CREATE TABLE Demandes_user_Superadmin(
+	username VARCHAR PRIMARY KEY,
+	Nom_assoc VARCHAR
+);
+
 CREATE TABLE Appartenir(
 	Id_Assoc VARCHAR,
 	Id_Membre INTEGER,
+	Nom_Assoc VARCHAR,
+	username VARCHAR,
 	FOREIGN KEY (Id_Assoc) REFERENCES Association(Id_Assoc),
 	FOREIGN KEY (Id_Membre) REFERENCES Membre(id)
 );
@@ -72,8 +81,10 @@ INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (4,'BDA');
 INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (5,'I-TV');
 INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (6,'Bakaclub');
 
-INSERT INTO Administrateur (Id_MembreA) VALUES (1); 
-INSERT INTO Administrateur (Id_MembreA) VALUES (5); 
+INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (1, 0); 
+INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (5, 1); 
+
+INSERT INTO Demandes_user_Superadmin (username, Nom_assoc) VALUES ('césar', 'Cuisine' ); 
 
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,1,'2020-05-04 08:00:00','2008-01-01 09:59:00', 1);
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,2,'2020-05-05 09:00:00','2009-01-01 13:59:00', 1);
@@ -94,6 +105,7 @@ INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA,
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA, Descriptif) VALUES (6,18,'2020-05-04 12:00:00','2008-01-01 15:59:00', 1, 'Turbo party entre bonnes gens et personnes cultivées âme-sensible-friendly');
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (6,19,'2020-05-07 08:00:00','2008-01-01 11:59:00', 1);
 
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_Assoc, username) VALUES (1,2, 'BDE','caillou');
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (1,2);
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,1);
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,2);

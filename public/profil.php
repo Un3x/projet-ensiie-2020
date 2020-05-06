@@ -11,7 +11,9 @@ $userRepository = new \User\UserRepository($dbAdaper);
 
 session_start();
 $assoRepository = new \Asso\AssoRepository($dbAdaper);
-$asso = $assoRepository->fetch_Assos($_SESSION['username']);
+//$asso = $assoRepository->fetch_Assos($_SESSION['username']);
+
+$asso = $assoRepository->fetch_Assos($_SESSION['user']->getId());
 ?>
 
 
@@ -33,9 +35,10 @@ $asso = $assoRepository->fetch_Assos($_SESSION['username']);
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="/profil.php"><span>Home</span></a>
+                <a class="nav-link" href="/userlist.php"><span>Home</span></a>
                 </li>
-		<a href='userlist.php?deconnexion=true'><span>Déconnexion</span></a>	
+                    <a href='profil.php' class="nav-link"><span>Profil</span></a> 
+		<a href='userlist.php?deconnexion=true' class="nav-link"><span>Déconnexion</span></a>	
                 <?php session_start();
 		    if(isset($_GET['deconnexion'])) { 
                        if($_GET['deconnexion']==true) {  
@@ -46,7 +49,7 @@ $asso = $assoRepository->fetch_Assos($_SESSION['username']);
 		    if($_SESSION['username'] !== ""){
                          $user = $_SESSION['username'];
                    	 // afficher un message
-                   	 echo "<div class='connection_id' id='idco'>";
+                   	 echo "<div class='connection_id nav-link' id='idco' >";
                   	 echo "$user";
                   	 echo "</div>";
                	    }
@@ -60,17 +63,20 @@ $asso = $assoRepository->fetch_Assos($_SESSION['username']);
 function Hide (addr) { document.getElementById(addr).style.visibility = "hidden"; }
 function Show (addr) { document.getElementById(addr).style.visibility = "visible";  }
 
-function swipe(Id)
+function swipe(Id,Id2)
 {
   if (document.getElementById(Id).style.visibility == "hidden") { 
     Show(Id); 
+    if (document.getElementById(Id).style.visibility == "visible") {
+      Hide(Id2)
+    }
   }
   else{ 
     Hide(Id); 
   }
 }
 
-window.onload = function () { Hide("formMDP");Hide("ListAsso")  };
+window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName");  };
 //window.onload = function () { Hide("ListAsso");  };
 
 </script>
@@ -80,16 +86,24 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso")  };
 <h2>Edition du profil</h2>
 <ul>
   <li ><a href='deleteUser.php'> Suppression du compte </a></li>
-  <li onclick = "swipe('formMDP');"><a href="#" >Changement de mot de passe</a></li>
+  <li onclick = "swipe('formMDP','formUsName');"><a href="#" >Changement de mot de passe</a></li>
+  <li onclick = "swipe('formUsName','formMDP');"><a href="#" >Changement de nom d'utilisateur</a></li>
 </ul>
-  <div id="formMDP">
+
+  <div id="formMDP" style= "position:absolute;top:22%;left:30%;">
   <form action='modifMDP.php'  method="post">
     Nouveau mot de passe: </br>
   <input type="text" name="newP">
   <input type="submit" name="Valider" value="Valider" id ='bouton_envoi' align="center">
   </form>
   </div>
-
+  <div id="formUsName" style= "position:absolute;top:26%;left:30%;">
+  <form action='modifUsName.php'  method="post">
+    Nouveau nom d'utilisateur: </br>
+  <input type="text" name="newU">
+  <input type="submit" name="Valider" value="Valider" id ='bouton_envoi' align="center">
+  </form>
+  </div>
 <h2>Informations du profil</h2>
 <ul>
     <li onclick = "swipe('ListAsso');"><a href="#" >Voir mes associations</a></li>
