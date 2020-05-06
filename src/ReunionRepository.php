@@ -38,11 +38,37 @@ class ReunionRepository
                 ->setIdReu($meeting_row['id_reu'])
                 ->setIdMembreA($meeting_row['id_membrea'])
                 ->setDateDebutReu(new \DateTime($meeting_row['date_debut_reu']))
-                ->setDateFinReu(new \DateTime($meeting_row['date_fin_reu']));
+                ->setDateFinReu(new \DateTime($meeting_row['date_fin_reu']))
+                ->setDescriptif($meeting_row['descriptif']);
             $meetings[] = $meeting;
         }
         return $meetings;     
     }
+
+    /**
+     * @param $meeting un id de réunion
+     * @return $reunion la reunion
+     */
+    public function getReunion($meeting)
+    {
+        $requete = "SELECT * FROM reunion";
+        $exec_requete = $this->dbAdapter->query($requete);
+        foreach ($exec_requete as $meeting_row) {
+            $reunion = new Reunion();
+            if ($meeting_row['id_reu'] == $meeting) {
+                $reunion
+                    ->setIdAssoc($meeting_row['id_assoc'])
+                    ->setIdReu($meeting_row['id_reu'])
+                    ->setIdMembreA($meeting_row['id_membrea'])
+                    ->setDateDebutReu(new \DateTime($meeting_row['date_debut_reu']))
+                    ->setDateFinReu(new \DateTime($meeting_row['date_fin_reu']))
+                    ->setDescriptif($meeting_row['descriptif']);
+                return $reunion;
+            }
+        }
+        return NULL;
+    }
+
 
     /**
      * @param $meeting une réunion
@@ -53,7 +79,7 @@ class ReunionRepository
         $requete = "SELECT * FROM reunion NATURAL JOIN association";
         $exec_requete = $this->dbAdapter->query($requete);
         foreach ($exec_requete as $meeting_row) {
-            if ($meeting_row['id_reu'] == $meeting->getIdReu()) return $meeting_row['nom_assoc'];
+            if ($meeting_row['id_reu'] == $meeting) return $meeting_row['nom_assoc'];
         }
         return "Void";
     }

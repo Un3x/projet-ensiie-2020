@@ -30,6 +30,12 @@ class Reunion
     private $date_fin_reu;
 
     /**
+     * @var string
+     */
+    private $descriptif;
+
+
+    /**
      * @return string
      */
     public function getIdAssoc ()
@@ -111,6 +117,23 @@ class Reunion
     public function setDateFinReu ($date_fin_reu)
     {
         $this->date_fin_reu = $date_fin_reu;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescriptif ()
+    {
+        return $this->descriptif;
+    }
+
+    /**
+     * @param string $date_fin_reu
+     */
+    public function setDescriptif ($descriptif)
+    {
+        $this->descriptif = $descriptif;
         return $this;
     }
 
