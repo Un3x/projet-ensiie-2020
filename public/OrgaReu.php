@@ -8,7 +8,7 @@ include '../src/AssoRepository.php';
 $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new \User\UserRepository($dbAdaper);
 
-//session_start();
+session_start();
 $userid=$_SESSION['user']->getId();
 echo "useer".$userid;
 
