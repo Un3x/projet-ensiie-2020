@@ -121,23 +121,23 @@ class UserRepository
     return $count;
     }
 
-    public function deleteUser ($userName)
+    public function deleteUser($userId)
     {
-        $stmt = $this->dbAdapter->prepare('DELETE FROM Membre where username = :userName');
-        $stmt->bindParam('userName', $userName);
-        if (!$stmt) {
-        echo "\nPDO::errorInfo():\n";
-        print_r($dbh->errorInfo());
-        }
+        $stmt = $this->dbAdapter->prepare('DELETE FROM Membre where id = :userId');
+        $stmt->bindParam('userId', $userId);
         $stmt->execute();
+        if (!$stmt) {
+            echo "\nPDO::errorInfo():\n";
+            print_r($dbh->errorInfo());
+            } 
+        echo "on passe dans la fonction delete";
+        echo "on supprime l'identifiant : ".$userId;
     }
-
-
+        
     public function nb_users(){
-        $usersData = $this->dbAdapter->query("SELECT * FROM membre");
-        $nb_id = 0;
+        $usersData = $this->dbAdapter->query("SELECT membre.id FROM membre");
         foreach ($usersData as $users) {
-            $nb_id = $nb_id +1;
+            $nb_id = max($users);
         }
         return $nb_id;
     }
@@ -191,15 +191,6 @@ class UserRepository
         echo "table Administrateur: \n";
         echo "je recupere l'id' : ".$id;
         echo "je recupere l'id : ".$droit;
-
-    /*     //------------
-        $sql7="SELECT Administrateur.droit FROM Administrateur where Administrateur.Id_MembreA = 4";
-        $result7 = $this->dbAdapter->query($sql);
-        $donnees7 = $result7->fetch();
-        $droit3 = $donnees7[droit];
-        echo "droit du user n".$id." = :".$droit3;
- */
-        //--------------------------
 
         //RECUPERER le nom de l'asso
         $sql6="SELECT Demandes_user_Superadmin.Nom_assoc from Demandes_user_Superadmin 

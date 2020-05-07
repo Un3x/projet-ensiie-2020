@@ -9,7 +9,7 @@ CREATE TABLE Membre(
 CREATE TABLE Administrateur(
 	Id_MembreA INTEGER PRIMARY KEY,
 	Droit INTEGER, /* 0 = superAdmin, 1 = Admin*/
-	FOREIGN KEY (Id_MembreA) REFERENCES Membre(id)
+	FOREIGN KEY (Id_MembreA) REFERENCES Membre(id) on delete cascade
 );
 
 CREATE TABLE Association(
@@ -24,7 +24,7 @@ CREATE TABLE Reunion(
 	Date_fin_reu TIMESTAMP,
 	Id_MembreA INTEGER,
 	Descriptif TEXT,
-	FOREIGN KEY (Id_MembreA) REFERENCES Administrateur(Id_MembreA)
+	FOREIGN KEY (Id_MembreA) REFERENCES Administrateur(Id_MembreA) on delete cascade
 );
 
 CREATE TABLE Demandes_user_Superadmin(
@@ -38,14 +38,14 @@ CREATE TABLE Appartenir(
 	Nom_Assoc VARCHAR,
 	username VARCHAR,
 	FOREIGN KEY (Id_Assoc) REFERENCES Association(Id_Assoc),
-	FOREIGN KEY (Id_Membre) REFERENCES Membre(id)
+	FOREIGN KEY (Id_Membre) REFERENCES Membre(id) on delete cascade
 );
 
 CREATE TABLE Administrer(
 	Id_Assoc VARCHAR,
 	Id_Membre INTEGER,
 	FOREIGN KEY (Id_Assoc) REFERENCES Association(Id_Assoc),
-	FOREIGN KEY (Id_Membre) REFERENCES Administrateur(Id_MembreA)
+	FOREIGN KEY (Id_Membre) REFERENCES Administrateur(Id_MembreA) on delete cascade
 );
 
 CREATE TABLE Participations(
@@ -54,7 +54,7 @@ CREATE TABLE Participations(
 	statut INTEGER NOT NULL, --statut = [ 0:Oui , 1:Non , 2:En_Attente , 3:A participé ]
 	retard TIMESTAMP, --représente la durée du retard
 	FOREIGN KEY (Id_reu) REFERENCES Reunion(Id_reu),
-	FOREIGN KEY (Id_Membre) REFERENCES Membre(id)
+	FOREIGN KEY (Id_Membre) REFERENCES Membre(id) on delete cascade
 );
 
 
@@ -84,7 +84,7 @@ INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (5, 1);
 INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (8, 1); 
 
 INSERT INTO Demandes_user_Superadmin (username, Nom_assoc) VALUES ('cesar', 'Cuisine' ); 
-INSERT INTO Demandes_user_Superadmin (username, Nom_assoc) VALUES ('cailou', 'Bakaclub'); 
+INSERT INTO Demandes_user_Superadmin (username, Nom_assoc) VALUES ('flavio', 'Bakaclub'); 
 
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,1,'2020-05-04 08:00:00','2008-01-01 09:59:00', 1);
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,2,'2020-05-05 09:00:00','2009-01-01 13:59:00', 1);

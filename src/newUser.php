@@ -16,4 +16,4 @@ if (isset($_POST['id']) && isset($_POST['username'])) {
 }
 ?> 
 
-<a class="nav-link" href="/userlist.php">Home</a>
+<a class="nav-link" href="/index.php">Home</a>

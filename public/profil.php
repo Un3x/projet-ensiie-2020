@@ -94,8 +94,10 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 
 <h2>Edition du profil</h2>
 <ul>
-  <li onclick = "swipe('formMDP');"><a href="#" >Changement de mot de passe</a></li>
-  <li ><a href='deleteUser.php'> Suppression du compte </a></li>
+  <li > Suppression du compte : <form method="POST" action="/deleteUser.php">
+                                  <button type="submit">Valider la suppression</button>
+                                </form>
+   </li>
   <li onclick = "swipe('formMDP','formUsName');"><a href="#" >Changement de mot de passe</a></li>
   <li onclick = "swipe('formUsName','formMDP');"><a href="#" >Changement de nom d'utilisateur</a></li>
 </ul>
