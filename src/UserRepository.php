@@ -121,13 +121,14 @@ class UserRepository
     return $count;
     }
 
-    public function delete ($userName)
+    public function deleteUser ($userName)
     {
-        $stmt = $this
-            ->dbAdapter
-            ->prepare('DELETE FROM Membre where username = :userName');
-
+        $stmt = $this->dbAdapter->prepare('DELETE FROM Membre where username = :userName');
         $stmt->bindParam('userName', $userName);
+        if (!$stmt) {
+        echo "\nPDO::errorInfo():\n";
+        print_r($dbh->errorInfo());
+        }
         $stmt->execute();
     }
 
@@ -180,5 +181,15 @@ class UserRepository
         print_r($dbh->errorInfo());
         } 
         $req->execute();
+    }
+    public function IsAdmin($userid){
+        $sql="SELECT * FROM administrateur where id_membrea='$userid'";
+        $SuperUserOf=$this->dbAdapter->query($sql);
+        if(is_null($SuperUserOf)){ 
+            return false;
+        }
+        else{
+            return true;
+        }
     }
 }
