@@ -32,7 +32,7 @@ echo "nb d'identifiants = ".$nb_id;*/
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="/profil.php"><span>Home</span></a>
+                <a class="nav-link" href="/profil.php"><span>Mon profil</span></a>
                 </li>
 		<a href='userlist.php?deconnexion=true'><span>Déconnexion</span></a>	
                 <?php session_start();
@@ -86,8 +86,6 @@ echo "nb d'identifiants = ".$nb_id;*/
         </div>
     </div>
 </div>
-
-
 
 <a class="nav-link" href="./Form_demande_admin.php">Formulaire de demande afin de devenir administrateur pour une association</a>
 <script src="js/scripts.js"></script>

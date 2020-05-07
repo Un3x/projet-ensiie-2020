@@ -10,6 +10,7 @@
       var email = document.forms["myForm"]["email"].value;
       var pass = document.forms["myForm"]["pass"].value;
       var confirm_pass = document.forms["myForm"]["confirm_pass"].value;
+      var verif_mail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
       if(username == ""){
         alert("Nom manquant");
@@ -32,6 +33,11 @@
           alert("Les mots de passes ne correspondent pas");
           return false;
       }
+      
+	    if (!email.match(verif_mail)){
+      	alert("Adresse mail non valide");
+        return false;
+	    }
 } 
 </script>
    </head>

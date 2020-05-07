@@ -11,9 +11,9 @@
     <legend id="leg1" align="center" > Formulaire </legend> <br />
     <form name="myForm" action="/NewDemande.php" method="post" onsubmit="return validateForm()" >
 
-    Nom <em id="em1">*</em> :
+<!--     Nom <em id="em1">*</em> :
       <input type="text" name="username" value="" id ="username" >  <br />
-
+ -->
     Je souhaite devenir administrateur de :      
       <select name="Nom_assoc" id ="Nom_assoc" size="1">
         <option>BDE </option>

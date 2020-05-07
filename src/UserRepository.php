@@ -115,4 +115,75 @@ class UserRepository
         } 
         $req->execute();
     }
+
+    public function accept_admin($username){
+
+        //a partir du username, on cherche à récupérer l'id qui vient de la table Membre
+        $sql="SELECT Membre.id FROM Membre where Membre.username = '$username'";
+        $result = $this->dbAdapter->query($sql);
+        $donnees = $result->fetch();
+        $id = $donnees['id'];
+        echo "je recupere l'id".$id."de l'utilisateur:".$username;
+        echo gettype($id);
+        
+        //AJOUT table ADMINISTRATEUR grâce à son id
+        $droit = 1;
+        $req = $this->dbAdapter->prepare("INSERT INTO  Administrateur(Id_MembreA, Droit) VALUES (:id, :droit)");
+        $req->bindParam('id',$id); //, PDO::PARAM_INT
+        $req->bindParam('droit', $droit); //, PDO::PARAM_INT
+        $req->execute();
+        echo "table Administrateur: \n";
+        echo "je recupere l'id' : ".$id;
+        echo "je recupere l'id : ".$droit;
+
+    /*     //------------
+        $sql7="SELECT Administrateur.droit FROM Administrateur where Administrateur.Id_MembreA = 4";
+        $result7 = $this->dbAdapter->query($sql);
+        $donnees7 = $result7->fetch();
+        $droit3 = $donnees7[droit];
+        echo "droit du user n".$id." = :".$droit3;
+ */
+        //--------------------------
+
+        //RECUPERER le nom de l'asso
+        $sql6="SELECT Demandes_user_Superadmin.Nom_assoc from Demandes_user_Superadmin 
+                                where Demandes_user_Superadmin.username = '$username'";
+        $result6 = $this->dbAdapter->query($sql6);
+        $donnees6 = $result6->fetch();
+        $Nom_assoc = $donnees6['nom_assoc'];
+        echo "je recupere le nom de l'asso : ".$Nom_assoc;
+
+        //RECUPERER l'id assoc grace au nom de l'asso
+        $sql2="SELECT Id_Assoc FROM Association where Nom_assoc = '$Nom_assoc'";
+        $result2 = $this->dbAdapter->query($sql2);
+        $donnees2 = $result2->fetch();
+        $id_assoc = $donnees2['id_assoc'];
+        echo "table administrer : \n";
+        echo "je recupere l'id' de l'asso : ".$id_assoc;
+        echo "je recupere l'id : ".$id;
+
+        //AJOUT table Administrer
+        $req3 = $this->dbAdapter->prepare("INSERT INTO Administrer(Id_Assoc, Id_Membre) VALUES (:id_assoc, :id)");
+        $req3->bindParam('id_assoc', $id_assoc);
+        $req3->bindParam('id', $id);
+        $req3->execute();
+
+        //retirer de la table Demandes_user_Superadmin
+        //maintenant que le user est un admin
+        $req2 = $this ->dbAdapter->prepare("DELETE FROM Demandes_user_Superadmin where username = :username");
+        $req2->bindParam(':username', $username);
+        $req2->execute();
+    }
+
+    public function refuse_admin($username){
+        //on peut le retirer de la table Demandes_user_Superadmin
+        $req = $this ->dbAdapter->prepare("DELETE FROM Demandes_user_Superadmin where username = :username");
+        $req->bindParam(':username', $username);
+        $req->execute();
+        if (!$req) {
+            echo "\nPDO::errorInfo():\n";
+            print_r($dbh->errorInfo());
+        } 
+    }
+    
 }
