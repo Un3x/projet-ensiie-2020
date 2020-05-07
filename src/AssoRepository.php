@@ -3,13 +3,15 @@ namespace Asso;
 
 class AssoRepository
 {
-private $dbAdapter;
+    private $dbAdapter;
+    
     public function __construct(\PDO $dbAdapter)
-    {
-        $this->dbAdapter = $dbAdapter;
-    }
-public function fetch_Assos($userid)
-{
+        {
+            $this->dbAdapter = $dbAdapter;
+        }
+    
+        public function fetch_Assos($userid)
+        {
         $usersAsso = $this->dbAdapter->query("SELECT Nom_Assoc FROM Appartenir where Id_Membre='$userid'");
         $Asso = [];
         foreach ($usersAsso as $TteAsso) {
@@ -18,7 +20,6 @@ public function fetch_Assos($userid)
             $Asso[] = $userA;
        }
        return $Asso;
-
-}
+        }
 
 }

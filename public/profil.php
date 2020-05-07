@@ -96,7 +96,6 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 
 <h2>Edition du profil</h2>
 <ul>
-<<<<<<< HEAD
   <li ><form method="POST" action="/deleteUser.php">Suppression du compte  
             <input name="user_id" type="hidden" value="<?= 2 ?>">
             <button type="submit">Delete</button>
