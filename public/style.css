@@ -8,6 +8,9 @@
 .navbar {
   padding: 0;
 }
+#brand {
+  color: #4da6ff;
+}
 
 /* Head of the page */
 #logo-header {
