@@ -3,8 +3,8 @@
 
 use User\UserRepository;
 
-include '../src/User.php';
-include '../src/UserRepository.php';
+include '../src/Entity/User.php';
+include '../src/Repository/UserRepository.php';
 include '../src/Factory/DbAdaperFactory.php';
 
 session_start();
@@ -16,7 +16,7 @@ $errors = array();
 
 // connect to the database (attention, db est un dbAdapter)
 $db = (new DbAdaperFactory())->createService();
-$urep = new \User\UserRepository($db);
+$urep = new UserRepository($db);
 
 
 // REGISTER USER
@@ -46,7 +46,8 @@ if (isset($_POST['reg_user'])) {
   // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
   	$urep->addUser($username, $email, $password_1);
-  	$_SESSION['username'] = $username;
+    $_SESSION['id'] = $urep->get_UserID($username);
+    $_SESSION['username'] = $username;
   	$_SESSION['success'] = "Vous êtes connectés !";
   	header('location: index.php');
   }
@@ -69,6 +70,7 @@ if (isset($_POST['log_user'])) {
         $result = $urep->fetchUserConnection($username, $password);
         $nbRow = $result->rowCount();
         if ($nbRow == 1) {
+          $_SESSION['id'] = $urep->get_UserID($username);
           $_SESSION['username'] = $username;
           if ($urep->isAdmin($username)){
             $_SESSION['admin'] = true;
@@ -91,19 +93,19 @@ if (isset($_POST['disconnect'])){
   header('location: index.php');
 }
 
-//DELETE ACCOUNT
-if (isset($_POST['delete_account'])){
-  $urep->delete($urep->get_UserID($_SESSION['username']));
-  unset($_SESSION['username']);
-  unset($_SESSION['admin']);
-  header('location: index.php');
-}
+// //DELETE ACCOUNT
+// if (isset($_POST['delete_account'])){
+//   $urep->delete($urep->get_UserID($_SESSION['username']));
+//   unset($_SESSION['username']);
+//   unset($_SESSION['admin']);
+//   header('location: index.php');
+// }
 
-//DELETE SOMEONE ELSE
-if (isset($_POST['del_as_admin'])){
-  $urep->delete($urep->get_UserID($_POST['user_id']));
-  header('location: admin_page.php');
-}
+// //DELETE SOMEONE ELSE
+// if (isset($_POST['del_as_admin'])){
+//   $urep->delete($urep->get_UserID($_POST['user_id']));
+//   header('location: admin_page.php');
+// }
 
 
   ?>

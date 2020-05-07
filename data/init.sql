@@ -46,10 +46,10 @@ CREATE TABLE rate (
     userId INT NOT NULL,
     storyId INT NOT NULL,
     FOREIGN KEY (storyId) REFERENCES story (storyId),
-    FOREIGN KEY (userId) REFERENCES users (userId),
-    CONSTRAINT ck_user_story UNIQUE (userId, storyId)
+    FOREIGN KEY (userId) REFERENCES users (userId)
 );
 
+INSERT INTO users (username, email, pwd, isAdmin) VALUES ('Deleted user', '', '', true);
 INSERT INTO users (username, email, pwd, isAdmin) VALUES ('gecko', 'gecko@ensiie.fr', 'stP8rjdy2aYD2', false); --mot de passe : gecko
 INSERT INTO users (username, email, pwd, isAdmin) VALUES ('hail', 'hail@ensiie.fr', 'stEmItvcPVouI', false); --mot de passe : hail
 INSERT INTO users (username, email, pwd, isAdmin) VALUES ('baboul', 'baboul@ensiie.fr', 'stPcMAc6VLOrg', false); --mot de passe : baboul
@@ -63,8 +63,8 @@ INSERT INTO page (storyId, txt, choiceInt1, choiceInt2, choiceText1, choiceText2
 INSERT INTO page (storyId, txt, choiceInt1, choiceInt2, choiceText1, choiceText2, firstPage, lastPage) VALUES (1, 'Rue principale', 53, 4, 'Parler au mendiant.', 'Aller vers la forteresse.', false, false);
 INSERT INTO page (storyId, txt, firstPage, lastPage) VALUES (1, 'Forteresse : Victoire !', false, true);
 
-INSERT INTO rate (rate, userId, storyId) VALUES (5, 1, 1);
-INSERT INTO rate (rate, userId, storyId) VALUES (1, 2, 1);
-INSERT INTO rate (rate, userId, storyId) VALUES (4, 1, 2);
-INSERT INTO rate (rate, userId, storyId) VALUES (2, 2, 2);
-INSERT INTO rate (rate, userId, storyId) VALUES (3, 4, 2);
+INSERT INTO rate (rate, userId, storyId) VALUES (5, 2, 1);
+INSERT INTO rate (rate, userId, storyId) VALUES (1, 3, 1);
+INSERT INTO rate (rate, userId, storyId) VALUES (4, 2, 2);
+INSERT INTO rate (rate, userId, storyId) VALUES (2, 3, 2);
+INSERT INTO rate (rate, userId, storyId) VALUES (3, 5, 2);
