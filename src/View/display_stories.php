@@ -1,7 +1,7 @@
 
 
 
-<p>Voici la liste des histoires auquelles vous pouvez jouer pour le moment, n'hésitez pas à y revenir régulièrement pour voir les nouvelles histoires disponibles</p>
+<p>Voici la liste des histoires auquelles vous pouvez jouer pour le moment !</p>
 
 
 <?php
