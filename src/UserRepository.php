@@ -30,15 +30,69 @@ class UserRepository
         return $users;
     }
 
+    /**
+     * @param str $username une chaîne de caractère
+     * @return User $user l'utilisateur de username $username
+     */
+    public function getUser($username)
+    {
+        $users =  $this->fetchAll();
+        foreach ($users as $u) {
+            $name=$u->getUsername();
+            if ($name == $username) {
+                return $u;
+            }
+        }
+        return NULL;
+    }
+
+    /**
+     * @param $id l'id d'un utilisateur
+     * @return User $user l'utilisateur d'id $id'
+     */
+    public function getUserById($id)
+    {
+        $users =  $this->fetchAll();
+        foreach ($users as $u) {
+            $uid=$u->getId();
+            if ($uid == $id) {
+                return $u;
+            }
+        }
+        return NULL;
+    }
+
+
+    public function getParticipants($meetingId)
+    {
+        $requete = "SELECT * 
+                    FROM reunion 
+                    NATURAL JOIN appartenir 
+                    JOIN membre 
+                    ON membre.id = appartenir.id_membre
+                    WHERE id_reu = '$meetingId'";
+        $exec_requete = $this->dbAdapter->query($requete);
+        $users = [];
+        foreach ($exec_requete as $row) {
+            $users[] = $row['username'];
+        }
+        return $users;
+    }
+
+    /**
+     * @param $username et $password des chaînes de caractères valides 
+     * @return $count le nombre d'entrées de la table Membre dont le nom d'utilisateur
+     * et le mot de passe correspondent à $username et $password
+     */
     public function checkUserAuthentification($username,$password)
     {
-	$requete = "SELECT * FROM membre where username = '$username' and passwd = '$password'";
-	$exec_requete = $this->dbAdapter->query($requete);
-	$count   =  0;
-	foreach ($exec_requete as $entry) {
-		$count=$count+1;
-	}
-	return $count;
+        $requete = "SELECT * FROM membre where username = '$username' and passwd = '$password'";
+        $exec_requete = $this->dbAdapter->query($requete);
+        $count   =  0;
+        foreach ($exec_requete as $entry) {
+            $count=$count+1;
+        }
+        return $count;
     }
 
    //fonction qui verifie si la personne qui se connecte est un admin
@@ -67,13 +121,14 @@ class UserRepository
     return $count;
     }
 
-    public function delete ($userName)
+    public function deleteUser ($userName)
     {
-        $stmt = $this
-            ->dbAdapter
-            ->prepare('DELETE FROM Membre where username = :userName');
-
+        $stmt = $this->dbAdapter->prepare('DELETE FROM Membre where username = :userName');
         $stmt->bindParam('userName', $userName);
+        if (!$stmt) {
+        echo "\nPDO::errorInfo():\n";
+        print_r($dbh->errorInfo());
+        }
         $stmt->execute();
     }
 
@@ -115,6 +170,7 @@ class UserRepository
         } 
         $req->execute();
     }
+
 
     public function accept_admin($username){
 
@@ -186,4 +242,26 @@ class UserRepository
         } 
     }
     
+    public function modifyUsName($username,$newU)
+    {
+        $req=$this->dbAdapter->prepare('UPDATE Membre SET username = :newU WHERE username = :username');
+        $req->bindParam('newU',$newU);
+        $req->bindParam('username',$username);
+
+        if (!$req) {
+        echo "\nPDO::errorInfo():\n";
+        print_r($dbh->errorInfo());
+        } 
+        $req->execute();
+    }
+    public function IsAdmin($userid){
+        $sql="SELECT * FROM administrateur where id_membrea='$userid'";
+        $SuperUserOf=$this->dbAdapter->query($sql);
+        if(is_null($SuperUserOf)){ 
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }

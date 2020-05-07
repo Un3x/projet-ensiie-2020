@@ -2,6 +2,11 @@ body{
     background: cornflowerblue;
 }
 
+#formMDP{
+    position:absolute;
+    top:10%;
+    left:70%;
+}
 #body1{
     background: white;
 }
