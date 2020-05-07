@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../src/Entity/User.php';
 include '../src/Repository/UserRepository.php';
 include '../src/Factory/DbAdaperFactory.php';
