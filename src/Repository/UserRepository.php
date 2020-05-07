@@ -16,16 +16,16 @@ class UserRepository
 
     public function fetchAll()
     {
-        $usersData = $this->dbAdapter->query('SELECT * FROM users');
+        $usersData = $this->dbAdapter->query('SELECT userId, username, email, isAdmin FROM users');
         $users = [];
         foreach ($usersData as $usersDatum) {
             $user = new User();
             $user
-                ->setId($usersDatum['userId'])
+                ->setId($usersDatum['userid'])
                 ->setUsername($usersDatum['username'])
                 ->setEmail($usersDatum['email'])
-                ->setCreatedAt(new \DateTime($usersDatum['created_at']))
-                ->setAdmin($userDatum['isAdmin']);
+                #->setCreatedAt(new \DateTime($usersDatum['created_at']))
+                ->setAdmin($userDatum['isadmin']);
             $users[] = $user;
         }
         return $users;

@@ -97,12 +97,12 @@ class User
         return $this;
     }
 
-    public function getAdmin()
+    public function getAdmin ()
     {
         return $this->isAdmin;
     }
 
-    public function setAdmin($bool)
+    public function setAdmin ($bool)
     {
         $this->isAdmin = $bool;
         return $this;
