@@ -40,15 +40,13 @@ $asso = $assoRepository->fetch_Assos($_SESSION['user']->getId());
         <a class="navbar-brand" href="#">Projet Web Ensiie 2020</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-
-                <a class="nav-link" href="/userlist.php"><span>Userlist</span></a>
-
+            <li class="nav-item active">
                 <a class="nav-link" href="/agenda.php"><span>Home</span></a>
                 </li>
                     <a href='profil.php' class="nav-link"><span>Profil</span></a> 
                     <a href='OrgaReu.php' class="nav-link"><span>Réunions</span></a> 
 		<a href='userlist.php?deconnexion=true' class="nav-link"><span>Déconnexion</span></a>	
+
 
                 <?php session_start();
 		    if(isset($_GET['deconnexion'])) { 
@@ -96,11 +94,6 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 
 <h2>Edition du profil</h2>
 <ul>
-  <li ><form method="POST" action="/deleteUser.php">Suppression du compte  
-            <input name="user_id" type="hidden" value="<?= 2 ?>">
-            <button type="submit">Delete</button>
-       </form>
-  </li>
   <li onclick = "swipe('formMDP');"><a href="#" >Changement de mot de passe</a></li>
   <li ><a href='deleteUser.php'> Suppression du compte </a></li>
   <li onclick = "swipe('formMDP','formUsName');"><a href="#" >Changement de mot de passe</a></li>
