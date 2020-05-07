@@ -31,7 +31,7 @@ class UserRepository
         return $users;
     }
 
-    public function delete (int $userId)
+    public function delete_user (int $userId)
     {
         $stmt = $this
             ->dbAdapter
