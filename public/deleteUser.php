@@ -4,7 +4,7 @@ use User\UserRepository;
 use Rating\RatingRepository;
 use Comment\CommentRepository;
 
-include '../src/User.php';
+include '../src/Entity/User.php';
 include '../src/Repository/UserRepository.php';
 include '../src/Repository/CommentRepository.php';
 include '../src/Repository/RatingRepository.php';
