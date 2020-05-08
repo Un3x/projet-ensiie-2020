@@ -1,14 +1,8 @@
 <div class="header">
-  <div id="logo-header" class="jumbotron jumbotron-fluid text-center" style="margin-bottom:0">
-    <div class="container">
-      <h1>Tales of Webseria</h1>
-      <p>Les histoires dont vous êtes le hêros</p>
-    </div>
-  </div>
   <nav id="menu" class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="index.php">Home</a>
+        <a id="brand" class="navbar-brand" href="index.php">Tales of Webseria</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#contact">Contact</a>
