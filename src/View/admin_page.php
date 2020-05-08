@@ -12,11 +12,11 @@
     $users = $urep->fetchall();
     ?>
     <table>
-    <th>Identifiant </th><th>Nom d'utilisateur</th><th>Email</th><th>Est tout puissant ?</th><th>Est-ce qu'on a été sage ?</th>
+    <th>Identifiant </th><th>Nom d'utilisateur</th><th>Email</th><th>Est-ce qu'on a été sage ?</th>
         <?php foreach($users as $user){ ?>
             <tr>
             <td><?php echo $user->getId() ?></td><td><?php echo $user->getUsername()?></td>
-            <td><?php echo $user->getEmail() ?></td><td><?php echo $user->getAdmin() ?></td>
+            <td><?php echo $user->getEmail() ?></td>
                     <?php if (! $user->getAdmin()) { ?>
                     <td><form method="post" action="deleteUser.php" onsubmit="return areYouSure()">
                         <input type="hidden" name="user_id" value=<?php echo $user->getID()?> />

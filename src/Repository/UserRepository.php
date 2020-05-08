@@ -25,7 +25,7 @@ class UserRepository
                 ->setUsername($usersDatum['username'])
                 ->setEmail($usersDatum['email'])
                 #->setCreatedAt(new \DateTime($usersDatum['created_at']))
-                ->setAdmin($userDatum['isadmin']);
+                ->setAdmin($usersDatum['isadmin']);
             $users[] = $user;
         }
         return $users;
