@@ -1,3 +1,54 @@
+head{
+	background-color:#2B3E50
+}
+body{
+	background-color:#2B3E50;
+	color:#df691a;
+	
+}
+p{
+	text-align:center;
+	size :10px
+	
+	
+}
+form{
+	text-align:center
+}
+img{
+
+}
+
+input[type=text]{
+	border: 2px solid #df691a ;
+	border-radius: 4px;
+	size 10px;
+}
+label{
+	color: #df691a;
+	size: 10px;
+}
+a:link{
+	color: #df691a;
+}
+a:hover{
+	color: orange;
+}
+a:active{
+	color:#df691a;
+}
+.funky{
+	position : absolute;
+	
+	
+	height : 50px;
+	width : 50px;
+	background-color : #df691a;
+	border-radius : 50%;
+}
+
+
+
 #karaSearch
 {
     width: 100%;

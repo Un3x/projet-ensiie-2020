@@ -4,9 +4,6 @@ function validationFormulaire(){
     alert("Veuillez rentrer un nom d'utilisateur");
     return false;
     }
-    //else{
-        //check in bd if the name is already here
-    //}
     if(frm.elements['email'].value==""){
         alert("adresse mail invalide");
         return false;
@@ -23,8 +20,6 @@ function validationFormulaire(){
         alert("erreur d'authentification, les mots de passes ne sont pas les mêmes");
         return false;
     }
-
-
     return true;
 }
 
@@ -41,6 +36,19 @@ function validationFormulaireLogin(){
     }
     if(frm.elements['password'].value.length < 8){
         alert("le mot de passe doit avoir au moins 8 caractères!");
+        return false;
+    }
+    return true;
+}
+
+function validationFormulaireChangeUser(){
+    frm=document.forms['formChangeUser'];
+    if(!(/\S+@\S+/.test(frm.elements['newEmail'].value))){
+        alert("nouvelle adresse mail invalide");
+            return false;
+    }
+    if(frm.elements['newPassword'].value.localeCompare(frm.elements['newPasswordCheck'].value)!=0){
+        alert("erreur d'authentification, les nouveaux mots de passes ne sont pas les mêmes");
         return false;
     }
     return true;

@@ -21,28 +21,34 @@ include 'Factory/DbAdaperFactory.php';
 $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new UserRepository($dbAdaper);
 
-$userID=htmlspecialchars($_POST['userID']);
+$userID=htmlspecialchars($_SESSION['id']);
+
+//check if the password is correct
+$sql='SELECT * FROM "user" WHERE id= :userID;';
+$getOldPassword=$dbAdaper->prepare($sql);
+$getOldPassword->bindParam('userID',$userID);
+$getOldPassword->execute();
+$trueOldPassword=$getOldPassword->fetch();
+if (!password_verify($_POST['currentPassword'],$trueOldPassword['password']))
+{
+	//the user has not given his old password
+	header('Location: ../modifyUser.php?password=wrongPsw');
+	exit();
+}
 
 //to change your username, you only need to give a new one (newUsername) (as long as it's not already used by someone)
-if (isset($_POST['newUsername']))
+if (isset($_POST['newUsername']) && $_POST['newUsername']!=$_SESSION['username'])
 {
-	if (isset($_POST['newEmail']) || isset($_POST['newPassword']))
-	{
-		//here the user tries to change more than 1 of his parameter, which is not allowed
-		header('Location: ../modifyAccount.php?modify=error');
-		exit();
-	}
-
 	$newUsername=$_POST['newUsername'];
 
 	if ($newUsername=='')
 	{
-		header('Location: ../modifyAccount.php?newUsername=notGiven');
+		header('Location: ../modifyUser.php?username=notGiven');
 		exit();
 	}
 	if ($userRepository->checkUser($newUsername)>0)
 	{
-		header('Location: ../modifyAccount.php?newUsername=alreadyUsed');
+		header("Location: ../modifyUser.php?username=alreadyUsed&newUsername=$newUsername");
 		exit();	
 	}
 	if ($userID!==null)
@@ -50,33 +56,29 @@ if (isset($_POST['newUsername']))
 		$sql='UPDATE "user" SET username= :newUsername WHERE id= :userID;';
 		$stmt=$dbAdaper->prepare($sql);
 		$stmt->execute(['newUsername'=>$newUsername, 'userID'=>$userID]);
-		header('Location: ../modifyAccount.php?newUsername=changed');
+		$_SESSION['username']=$newUsername;
+		header('Location: ../modifyUser.php?username=changed');
 		exit();
 	}
 	exit();
 }
 
 //to change your email, you only need to give a new one (newEmail) (as long as it's not already used by someone)
-elseif (isset($_POST['newEmail']))
+if (isset($_POST['newEmail']) && $_POST['newEmail']!=$_SESSION['email'])
 {
-	if (isset($_POST['newUsername']) || isset($_POST['newPassword']))
-	{
-		//here the user tries to change more than 1 of his parameter, which is not allowed
-		header('Location: ../modifyAccount.php?modify=error');
-	}
 
 	$newEmail=$_POST['newEmail'];
 	
 	if (!filter_var($newEmail, FILTER_VALIDATE_EMAIL))
 	{
-		header('Location: ../modifyAccount.php?newEmail=notGiven');
+		header('Location: ../modifyUser.php?email=invalid');
 		exit();
 	}
 
 	if ($userRepository->checkEmail($newEmail)>0)
 	{ 
 		//check if email is already taken
-		header('Location: ../modifyAccount.php?newEmail=alreadyUsed');
+		header('Location: ../modifyUser.php?email=alreadyUsed');
 		exit();
 	}
 	if ($userID!==null)
@@ -84,63 +86,48 @@ elseif (isset($_POST['newEmail']))
 		$sql='UPDATE "user" SET email= :newEmail WHERE id= :userID;';
 		$stmt=$dbAdaper->prepare($sql);
 		$stmt->execute(['newEmail'=>$newEmail, 'userID'=>$userID]);
-		header('Location: ../modifyAccount.php?newEmail=changed');
+		$_SESSION['email']=$newEmail;
+		header('Location: ../modifyUser.php?email=changed');
 		exit();
 	}
 }
 
 //to change your password:
-//give your old password (oldPassword)
+//give your old password (currentPassword)
 //give your new password, and double check it (newPassword and newPasswordCheck)
-elseif (isset($_POST['newPassword']))
+if (isset($_POST['newPassword']) && strlen($_POST['newPassword'])>7 )
 {
-	//dans le cas d'un nouveau mot de passe, on demande à l'utilisateur de donner son ancien mot de passe
-	if (isset($_POST['newEmail']) || isset($_POST['newUsername']))
-	{
-		//here the user tries to change more than 1 of his parameter, which is not allowed
-		header('Location: ../modifyAccount.php?modify=error');
-	}
 
 	$newPassword=$_POST['newPassword'];
 	$newPasswordCheck=$_POST['newPasswordCheck'];
-	$oldPassword=$_POST['oldPassword'];
+	$currentPassword=$_POST['currentPassword'];
 	
 	if (strcmp($newPassword,$newPasswordCheck)!=0)
 	{
-		header('Location: ../modifyAccount.php?newPassword=noMatch');
+		header('Location: ../modifyUser.php?password=noMatch');
 		exit();
 	}
 	
 	if (strlen($newPassword)<8)
 	{
-		header('Location: ../modifyAccount.php?newPassword=tooSmall');
+		header('Location: ../modifyUser.php?password=tooSmall');
 		exit();
 	}
 
 	if ($userID!==null)
 	{
 	try{
-		$sql='SELECT * FROM "user" WHERE id= :userID;';
-		$getOldPassword=dbAdaper->prepare($sql);
-		$getOldPassword->bindParam('userID',$userID);
-		$getOldPassword->execute();
-		$trueOldPassword=$getOldPassword->fetch();
-		if (password_verify($oldPassword,$trueOldPassword['password']))
-		{
-			//the user has not given his old password
-			header('Location: ../modifyAccount.php?newPassword=wrongPsw');
-			exit();
-		}
 
 		$newPasswordHash=password_hash($newPassword,PASSWORD_DEFAULT);
 		$sql='UPDATE "user" SET password= :newPassword WHERE id= :userID;';
 		$stmt=$dbAdaper->prepare($sql);
 		$stmt->execute(['newPassword'=>$newPasswordHash, 'userID'=>$userID]);
-		header('Location: ../modifyAccount.php?newPassword=changed');
+		header('Location: ../modifyUser.php?password=changed');
 		exit();
 	}
-	catch (PDOException $err) {
-		header('Location: ../modifyAccount.php?err=sqlerror');
+	catch (PDOException $err) 
+	{
+		header('Location: ../modifyUser.php?err=sqlerror');
 	}
 
 	}
@@ -148,7 +135,7 @@ elseif (isset($_POST['newPassword']))
 
 
 else {
-	header('Location: ../modifyAccount.php?newUsername=wtfIsThisNitorac');
+	header('Location: ../modifyUser.php');
 }
 
 
