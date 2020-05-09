@@ -1,17 +1,16 @@
 \section{utilisateurs}
 
 Lorsque qu'un client arrive pour la première fois sur le site, il n'aura pas accès aux différents services du site. Il devra d'abord se créer un compte sur la page registration.php, ici il entrera ses 
-identifiants comme son adresse email, son nom d'utilisateur, et son mot de passe. Un formulaire récupère et envoie ces informations à la page addUser.php qui va les inserer dns la table "user", 
-le mot de passe sera hashé pour éviter toute tentative de vol de mot de passe.
-\newline
-Ces informations peuvent être  ultérieurement modifiées sur la page modifyUser.php.\newline
+identifiants comme son adresse email, son nom d'utilisateur, et son mot de passe. Après vérification javascript d'un formulaire ,on récupère et envoie ces informations à la page addUser.php qui va les inserer dns la table "user", le mot de passe sera hashé pour éviter toute tentative de vol de mot de passe. \newline
+
+Ces informations peuvent être  ultérieurement modifiées sur la page modifyUser.php, puis via modifyUserAccount.php.\newline
 
 \subsection{personnaliser son compte}
 
-Aussi, après ajout d'un utilisateur dans "user" on insère une nouvelle ligne dans la table "UserCosmetics":  
+Aussi, après ajout d'un utilisateur dans "user" on insère une nouvelle ligne dans la table "UserCosmetics", cette table permet de savoir quel sont les cosmétiques choisi par l'utilisateur.  
 Chaque utilisateur aura accès à une liste d'images de profil et de titres qu'il pourra selectionner pour customiser son profil. Ces cosmétiques sont contenus dans les tables "Image" et "Titles". 
 \newline
-Pour pouvoir modifier son compte, l'utilisateur doit se rendre sur modifyUses.php pour modifier son image de profil et/ou son titre.\newline
+Pour pouvoir modifier son compte, l'utilisateur doit se rendre sur changePP.php, pour modifier son image de profil et/ou son titre. Un formulaire envoie les informations à modifyUserCosmetics.php\newline
 
 \subsection{les playlists}
 
@@ -24,4 +23,4 @@ Lorsqu'un utilisateur se register dans la base de donnée, on lui attribut un dr
 	\item 1 pour un admistrateur
 	\item 2 pour un super-administrateur
 \end{itemize}
-Un utilisateur a la possibilité de révoquer ou d'augmenter les droits d'un utilisateur ayant un droit inférieur. Ceci se fait sur la page admin.php, page seulement accessible par les admins. C'est en vérifiant les attributs de la session actuelle qu'on détermine si l'utilisateur est bien un admin.
+Un utilisateur a la possibilité de révoquer ou d'augmenter les droits d'un utilisateur ayant un droit inférieur. Ceci se fait sur la page admin.php, page seulement accessible par les admins. C'est en vérifiant les attributs de la session actuelle ($_SESSION) qu'on détermine si l'utilisateur est bien un admin.
