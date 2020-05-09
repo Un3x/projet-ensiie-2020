@@ -42,7 +42,7 @@ function toggleKaraInfo(i)
         div.style.display = "none";
 }
 
-function addKara(i)
+async function addKara(i)
 {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost:8080/Forms/addKara.php', true); // <--- FIXME : URL
@@ -55,4 +55,8 @@ function addKara(i)
         }
     }
     xhr.send('id=' + i);
+
+    if (typeof loadQueue == 'function')
+        await new Promise(r => setTimeout(r, 300));
+        loadQueue();
 }
