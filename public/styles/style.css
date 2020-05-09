@@ -37,16 +37,30 @@ a:hover{
 a:active{
 	color:#df691a;
 }
+.choice{
+	margin-bottom:10px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:10px;
+}
 .funky{
 	position : absolute;
+	cursor : pointer;
+	opacity : 0;	
 	
-	
-	height : 50px;
-	width : 50px;
+	height : 200px;
+	width : 200px;
 	background-color : #df691a;
-	border-radius : 50%;
+	border-radius : 0%;
 }
-
+.checkmark{
+	position: absolute;
+	height:200px;
+	width:200px;
+}
+.container input:checked ~ .checkmark {
+	border-radius: 50%;
+}
 
 
 #karaSearch
