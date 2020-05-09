@@ -1,12 +1,12 @@
 
 
 
-<p>Voici la liste des histoires auquelles vous pouvez jouer pour le moment !</p>
+<p>Voici la liste des histoires auxquelles vous pouvez jouer pour le moment !</p>
 
 
 <?php
 
-//connection � la db
+//connexion à la db
 $db = (new DbAdaperFactory())->createService();
 
 
@@ -21,29 +21,9 @@ foreach($title as $title_story) {
 	echo '<a href="../../cite_des_voleurs.php"><strong>ici</strong></a>'; 
 	echo "<br />";
 }
-
-
 ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<form method="get" action="story.php">
+	<input type="hidden" name="storyId" value="1"/>
+	<button type="submit" class="btn btn-link">La Cité des Voleurs</button>
+</form>
