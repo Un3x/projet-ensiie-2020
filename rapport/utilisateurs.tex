@@ -1,0 +1,27 @@
+\section{utilisateurs}
+
+Lorsque qu'un client arrive pour la première fois sur le site, il n'aura pas accès aux différents services du site. Il devra d'abord se créer un compte sur la page registration.php, ici il entrera ses 
+identifiants comme son adresse email, son nom d'utilisateur, et son mot de passe. Un formulaire récupère et envoie ces informations à la page addUser.php qui va les inserer dns la table "user", 
+le mot de passe sera hashé pour éviter toute tentative de vol de mot de passe.
+\newline
+Ces informations peuvent être  ultérieurement modifiées sur la page modifyUser.php.\newline
+
+\subsection{personnaliser son compte}
+
+Aussi, après ajout d'un utilisateur dans "user" on insère une nouvelle ligne dans la table "UserCosmetics":  
+Chaque utilisateur aura accès à une liste d'images de profil et de titres qu'il pourra selectionner pour customiser son profil. Ces cosmétiques sont contenus dans les tables "Image" et "Titles". 
+\newline
+Pour pouvoir modifier son compte, l'utilisateur doit se rendre sur modifyUses.php pour modifier son image de profil et/ou son titre.\newline
+
+\subsection{les playlists}
+
+Un utilisateur peut créer ses propre playlists de karas disponibles dans la table "Karas".  (à completer)
+
+\subsection{droits des utilisateurs}
+Lorsqu'un utilisateur se register dans la base de donnée, on lui attribut un droit 0. Les différents droits sont définis par des entiers:
+\begin{itemize}
+	\item 0 pour un utilisateur lambda
+	\item 1 pour un admistrateur
+	\item 2 pour un super-administrateur
+\end{itemize}
+Un utilisateur a la possibilité de révoquer ou d'augmenter les droits d'un utilisateur ayant un droit inférieur. Ceci se fait sur la page admin.php, page seulement accessible par les admins. C'est en vérifiant les attributs de la session actuelle qu'on détermine si l'utilisateur est bien un admin.

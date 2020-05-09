@@ -18,10 +18,10 @@
 }
 \date{May 2020}
 
-\usepackage{natbib}
-\usepackage{graphicx}
+\renewcommand*\contentsname{Sommaire}
 
 \begin{document}
+
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Projet Web 1A}
@@ -29,11 +29,11 @@
 \rfoot{Page \thepage}
 \maketitle
 \newpage
-
+\tableofcontents
 
 %Ici on input nos sections, comme les exemples ci dessous%
 \input{introduction.tex}
-\input{table_des_matieres.tex}
+\input{utilisateurs.tex}
 \input{conclusion.tex}
 
 \end{document}
