@@ -12,8 +12,8 @@ function choicePP($name,$height, $width, $border) {
 		
 	echo "<input type=\"radio\" class=\"funky\" id=\"".$name."\" name=\"newImage\" value=\"".$name."\">";
 	echo "<img class=\"choice\" style=\"border-radius:".$border."%;\" id=\"pp\" src=\"inc/Pictures/" .$name."\" alt=\"waifu\" height=".$height." width=".$width.">" ;
-
 }
+
 function choiceTitle(){
 	include 'Factory/DbAdaperFactory.php';
 	$dbAdaper = (new DbAdaperFactory())->createService();
@@ -32,5 +32,9 @@ function choiceTitleDummy(){
 
 		echo "<option value=\"".$title."\">".$title."</option>";
 	}
+}
+
+function viewPP($name,$height, $width, $border) {
+	echo "<img class=\"choice\" style=\"border-radius:".$border."%;\" id=\"pp\" src=\"inc/Pictures/" .$name."\" alt=\"waifu\" height=".$height." width=".$width.">" ;
 }
 ?>
