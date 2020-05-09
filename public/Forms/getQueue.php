@@ -12,17 +12,18 @@ if ( isset($_GET["getQueue"]) && isset($_SESSION["id"]) )
     if ( $_SESSION['rights'] >= 1 ) // User is an admin or root
     {
         $stmt =
-            "SELECT karas.source_name, karas.category, karas.song_number, karas.song_name, karas.id
+            'SELECT karas.source_name, karas.category, karas.song_number, karas.song_name, karas.id, "user".username
              FROM queue JOIN karas
                 ON karas.id=queue.id
-             ORDER BY queue.position ASC;";
+                JOIN "user" ON queue.added_by="user".id
+             ORDER BY queue.position ASC;';
         $results = $dbAdapter->query($stmt)->fetchAll(PDO::FETCH_NUM);
 
         echo "<ul>";
         foreach ($results as $result)
         {
             echo '<li><form method="POST">'
-                . $result[0] . " - " . $result[1] . $result[2] . " - " . $result[3] .
+                . $result[0] . " - " . $result[1] . $result[2] . " - " . $result[3] . " {" . $result[5] . "}" .
                 '<button type="button" onclick="deleteKara(' . $result[4] . ')">Delete</button>
                 </form></li>';
         }

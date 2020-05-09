@@ -3,6 +3,7 @@ session_start();
 set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 require_once 'Factory/DbAdaperFactory.php';
 require_once 'Lektor_interface/sockets_utils.php';
+require_once 'Lektor_interface/test.php';
 
 if (isset($_SESSION['id']))
 {
@@ -20,7 +21,12 @@ if (isset($_SESSION['id']))
     $msg = "add id://" . $_POST['id'] . "\n" ;
     error_log("SOCKETS : Starting sending to all lectors");
     send_to_all_lectors($msg);
-    error_log("SOCKETS : Finished sending to all lectors");
+    /*
+    if ( $success === true )
+        error_log("SOCKETS : Finished sending to all lectors successfully (at least successfull for one)");
+    else
+        error_log("SOCKETS : Finished sending to all lectors : all failed");
+     */
 }
 
 else

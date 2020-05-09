@@ -34,13 +34,32 @@ function correctIPDomain(&$ip)
     else 
     {
         echo "Bruh I don't know anymore. ";
-        echo "Can't decide between IPV4 and IPV6 adresses";
-        echo "Let's try IPV4\n";
-        return AF_INET;
+        echo "Can't decide between IPV4 and IPV6 adresses\n";
+        exit(1);
     }
     return -1;
 }
 
+/**
+ * @requires the IP address, the port and the protocol
+ * @assigns nothing
+ * @ensures equivalent to socket_create() + socket_connect() with error warning
+ */
+function socket_create_and_connect($address, $port, $domain)
+{
+    if ( ($sock = socket_create($domain, SOCK_STREAM, SOL_TCP)) === false )
+    {
+        echo "socket_create() failed: reason: " . socket_strerror(socket_last_error()) . "\n";
+        exit(1);
+    }
+
+    if ( ( socket_connect($sock, $address, $port)) === false )
+    {
+        echo "socket_connect() failed: reason: " . socket_strerror(socket_last_error()) . " : is lektord active on this lector ?\n";
+        exit(2);
+    }
+    return $sock;
+}
 
 /**
  * @requires a socket and a message
@@ -51,36 +70,34 @@ function socket_write_message($sock, $msg)
 {
     if ( socket_write($sock, $msg, strlen($msg)) === false ) {
         echo "socket_write() failed: reason: " . socket_strerror(socket_last_error($sock)) . "\n";
-        return 1;
+        exit(1);
     }
-    return 0;
+    exit(0);
 }
 
 function send_to_one_lector($msg, $address, $port, $domain)
 {
-    if ( ($sock = socket_create($domain, SOCK_STREAM, SOL_TCP)) === false )
+    $sock = socket_create_and_connect($address, $port, $domain);
+    if ( $sock == 1 )
     {
-        echo "socket_create() failed: reason: " . socket_strerror(socket_last_error()) . "\n";
-        return(1);
+        echo "Couldn't create socket " . $i . "\n";
+        exit(1);
     }
-
-    socket_set_option($sock, SOL_SOCKET, SO_RCVTIMEO, array('sec'=>4, 'usec'=>0));
-    socket_set_option($sock, SOL_SOCKET, SO_SNDTIMEO, array('sec'=>4, 'usec'=>0));
-    if ( ( socket_connect($sock, $address, $port)) === false )
+    if ( $sock == 2 )
     {
-        echo "socket_connect() failed: reason: " . socket_strerror(socket_last_error()) . " : is lektord active on this lector ?\n";
-        return(2);
+        echo "Couldn't connect to socket " . $i . " : timeout after " . $socket_timeout . " seconds.\n";
+        exit(2);
     }
 
     echo "Created socket to connect to lektord on IP " . $address . " at port " . $port . "\n";
     if ( socket_write_message($sock, $msg) === 1 )
     {
         echo "Writing to socket " . $i . " failed.\n";
-        return(3);
+        exit(3);
     }
     echo "Written to lektord on IP " . $address . " at port " . $port . "\n";
     socket_close($sock);
-    return(0);
+    exit(0);
 }
 
 /**
@@ -95,17 +112,16 @@ function send_to_all_lectors($msg)
     $lectors = $lectorRepository->fetchAll();
     $pids = array();
     $i = 0;
-    /*
     $socket_timeout = 1;
     ini_set("default_socket_timeout",$socket_timeout);
-     */
 
     foreach($lectors as $lector){
+        error_log("FORK I : $i");
         $pids[$i] = pcntl_fork();
 
         if ( $pids[$i] == -1 ) // On error
         {
-            error_log("Error forking one lector\n");
+            echo "Error forking one lector\n";
             exit(1);
         }
 
@@ -119,19 +135,22 @@ function send_to_all_lectors($msg)
             $address = $lector->getIP();
             $port = $lector->getPort();
             $domain = correctIPDomain($address);
-            send_to_one_lector($msg, $address, $port, $domain);
-            error_log("Finished sending to lektor number $i");
-            exit(0);
+            if ( $domain === -1 )
+            {
+                echo "Couldn't determine the IP domain : IP adress is probably incorrect\n";
+                exit(4);
+            }
+            return send_to_one_lector($msg, $address, $port, $domain);
         }
         $i = $i+1;
     }
 
-    /*
     $ret = false;
     for  ( $j=0; $j<$i; $j++ )
     {
+        
         error_log("FORK J : $j");
-        pcntl_waitpid($pids[$j], $status, WNOHANG);
+        pcntl_waitpid($pids[$j], $status);
         if ( pcntl_wifexited($status) !== true )
             echo "Unexpected error for lector $j\n";
         else
@@ -148,6 +167,5 @@ function send_to_all_lectors($msg)
         }
     }
     return $ret;
-     */
 }
 ?>
