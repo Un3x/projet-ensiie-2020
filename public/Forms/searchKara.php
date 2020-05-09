@@ -1,39 +1,44 @@
 <?php
-declare(strict_types=1);
 session_start();
 set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 
-require_once 'Factory/DbAdaperFactory.php';
+include_once 'Karas/searchKara.php';
 
-
-function searchKara(string $str)
+if ( isset($_GET["language"]) && isset($_SESSION["id"]) )
 {
-    $dbAdaper = (new DbAdaperFactory())->createService();
-    $words = explode(" ", $str);
-    $regex = "'.*";
-    foreach ($words as $word)
+
+    include_once "View/Layout/head.php" ?>
+    <body>
+    <?php include_once "View/Layout/header.php" ?>
+
+    <h3>Here are your results</h3>
+    <p>Want to make <a href=/search.php>another one</a>?</p>
+
+    <?php
+
+    $names = array();
+    $names[] = $_GET["song_name"];
+    $names[] = $_GET["source_name"];
+    $names[] = $_GET["author_name"];
+    $names[] = $_GET["language"];
+
+    $results = searchKaraByCriteria($names);
+
+    echo "<ul>";
+    foreach ($results as $result)
     {
-        $regex = $regex . $word . ".*|.*";
+        echo '<li>' . $result[0] . " - " . $result[1] . $result[2] . " - " . $result[3] . '</li>';
     }
-    $regex = substr($regex, 0, -3);
-    $regex = $regex . "'";
-
-    $req =
-        'SELECT DISTINCT song_name, song_type, song_number, source_name
-         FROM "karas" 
-         WHERE CONCAT_WS(\'||\', song_name, source_name, category) ~* ' . $regex . ';';
-    $ret = $dbAdapter->query($req)->fetchAll(PDO::FETCH_NUM);
-
-    return $ret;
+    echo "</ul>";
+?>
+    <script src="/scripts/scripts.js"></script>
+    </body>
+    </html>
+<?php
 }
 
-$results = searchKara("g");
-var_dump($results);
-foreach ( $results as $result )
+else
 {
-    /*
-    echo $result . " - ";
-     */
+    echo "見ないで、バカ";
 }
-
 ?>
