@@ -30,4 +30,13 @@ class PlaylistRepository
         }
         return $playlists;
     }
+
+    public function checkPlaylist ($name,$creator)
+    {
+    $playlists=$this->dbAdapter->prepare('SELECT COUNT(*) From "playlist" WHERE name= :Name AND creator= :Creator');
+    $playlists->bindParam('Name',$name);
+    $playlists->bindParam('Creator',$creator);
+    $playlists->execute();
+    return $playlist->fetchColumn();
+    }
 }
