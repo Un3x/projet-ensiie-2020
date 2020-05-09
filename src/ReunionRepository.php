@@ -84,4 +84,35 @@ class ReunionRepository
         return "Void";
     }
 
+    public function maxIdReu(){
+        $IdReu= $this->dbAdapter->query("SELECT id FROM reunion");
+        return max($IdReu);
+    }
+
+    public function MaxId(){
+        $usersData = $this->dbAdapter->query("SELECT Id_reu FROM reunion");
+        foreach ($usersData as $users) {
+            $nb_id = max($users);
+        }
+        return $nb_id;
+    }
+
+    public function newReunion($Nom_Assoc,$IdReu,$Date_debut_reu,$Date_fin_reu,$Id_MembreA,$Descriptif)
+    {
+        $requete = "SELECT Id_Assoc FROM Association where nom_assoc = $Nom_Assoc";
+        $Id_Asso = $this->dbAdapter->query($requete);
+        
+        $Id_Asso=(int)$Id_Assoc;
+
+        $req=$this->dbAdapter->prepare('INSERT INTO Reunion(Id_Assoc,Id_reu,Date_debut_reu,Date_fin_reu,Id_MembreA,Descriptif) VALUES(:Id_Assoc,:Id_reu,:Date_debut_reu,:Date_fin_reu,:Id_MembreA,:Descriptif)');
+
+        $req->bindParam('Id_Assoc', $Id_Assoc);    
+        $req->bindParam('Id_reu', $Id_reu);
+        $req->bindParam('Date_debut_reu', $Date_debut_reu);
+        $req->bindParam('Date_fin_reu', $Date_fin_reu);
+        $req->bindParam('Id_MembreA', $Id_MembreA);
+        $req->bindParam('Descriptif', $Descriptif);
+
+        $req->execute();
+    }
 }

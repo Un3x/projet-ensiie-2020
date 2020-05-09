@@ -24,7 +24,7 @@ class Asso
         return $this->NomAssoc;
     }
 
-    public function setNomMembre ($IdMembre)
+    public function setIdMembre ($IdMembre)
     {
         $this->IdMembre = $IdMembre;
         return $this;
