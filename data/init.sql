@@ -51,18 +51,11 @@ CREATE TABLE IF NOT EXISTS playlist (
     publik BOOLEAN
 );
 
-
-CREATE TABLE IF NOT EXISTS userCosmetics (
-    id INTEGER PRIMARY KEY REFERENCES "user",
-    IDimage INTEGER REFERENCES image,
-    IDtitle INTEGER REFERENCES title
-);
-
 CREATE TABLE IF NOT EXISTS image (
     IDimage SERIAL PRIMARY KEY,
     image VARCHAR
 );
-
+INSERT INTO "image" (IDimage, image) VALUES (0,'waifu0.png');
 INSERT INTO "image" (IDimage, image) VALUES (1,'waifu1.png');
 INSERT INTO "image" (IDimage, image) VALUES (2,'waifu2.png');
 INSERT INTO "image" (IDimage, image) VALUES (3,'waifu3.png');
@@ -80,20 +73,35 @@ INSERT INTO "image" (IDimage, image) VALUES (14,'waifu14.png');
 INSERT INTO "image" (IDimage, image) VALUES (15,'waifu15.png');
 INSERT INTO "image" (IDimage, image) VALUES (16,'waifu16.png');
 
-CREATE TABLE IF NOT EXISTS title (
+
+CREATE TABLE IF NOT EXISTS titles (
     IDtitle SERIAL PRIMARY KEY,
     title VARCHAR
 );
+INSERT INTO "titles" (IDtitle,title) VALUES (1,'Titre défectueux');
+INSERT INTO "titles" (IDtitle,title) VALUES (2,'Karamaker');
+INSERT INTO "titles" (IDtitle,title) VALUES (3,'Kara-pas-maker');
+INSERT INTO "titles" (IDtitle,title) VALUES (4,'DJ weeb');
+INSERT INTO "titles" (IDtitle,title) VALUES (5,'Weeb-Developer');
+INSERT INTO "titles" (IDtitle,title) VALUES (6,'JINBUN WO');
+INSERT INTO "titles" (IDtitle,title) VALUES (7,'Lolicon');
+INSERT INTO "titles" (IDtitle,title) VALUES (8,'Brocon');
+INSERT INTO "titles" (IDtitle,title) VALUES (9,'Siscon');
 
-INSERT INTO "title" (IDtitle,title) VALUES (1,'Titre défectueux');
-INSERT INTO "title" (IDtitle,title) VALUES (2,'Karamaker');
-INSERT INTO "title" (IDtitle,title) VALUES (3,'Kara-pas-maker');
-INSERT INTO "title" (IDtitle,title) VALUES (4,'DJ weeb');
-INSERT INTO "title" (IDtitle,title) VALUES (5,'Weeb-Developer');
-INSERT INTO "title" (IDtitle,title) VALUES (6,'JINBUN WO');
-INSERT INTO "title" (IDtitle,title) VALUES (7,'Lolicon');
-INSERT INTO "title" (IDtitle,title) VALUES (8,'Brocon');
-INSERT INTO "title" (IDtitle,title) VALUES (9,'Siscon');
+CREATE TABLE IF NOT EXISTS userCosmetics (
+    id INTEGER PRIMARY KEY REFERENCES "user",
+    IDimage INTEGER REFERENCES image,
+    IDtitle INTEGER REFERENCES titles
+);
+INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (1,1,1);
+INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (2,2,2);
+INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (3,3,3);
+INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (4,4,4);
+INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (5,5,5);
+INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (6,6,6);
+
+
+
 
 
 CREATE TABLE IF NOT EXISTS lector (
