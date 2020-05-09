@@ -85,6 +85,16 @@ CREATE TABLE IF NOT EXISTS title (
     title VARCHAR
 );
 
+INSERT INTO "title" (IDtitle,title) VALUES (1,'Titre défectueux');
+INSERT INTO "title" (IDtitle,title) VALUES (2,'Karamaker');
+INSERT INTO "title" (IDtitle,title) VALUES (3,'Kara-pas-maker');
+INSERT INTO "title" (IDtitle,title) VALUES (4,'DJ weeb');
+INSERT INTO "title" (IDtitle,title) VALUES (5,'Weeb-Developer');
+INSERT INTO "title" (IDtitle,title) VALUES (6,'JINBUN WO');
+INSERT INTO "title" (IDtitle,title) VALUES (7,'Lolicon');
+INSERT INTO "title" (IDtitle,title) VALUES (8,'Brocon');
+INSERT INTO "title" (IDtitle,title) VALUES (9,'Siscon');
+
 
 CREATE TABLE IF NOT EXISTS lector (
     id INTEGER PRIMARY KEY REFERENCES "user",

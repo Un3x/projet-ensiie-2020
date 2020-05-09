@@ -10,8 +10,18 @@ function pp($name, $height, $width,$border)
 
 function choicePP($name,$height, $width, $border) {
 		
-	echo "<input type=\"radio\" class=\"funky\" id=\"".$name."\" name=\"pp\" value=\"".$name."\">";
+	echo "<input type=\"radio\" class=\"funky\" id=\"".$name."\" name=\"newImage\" value=\"".$name."\">";
 	echo "<img class=\"choice\" style=\"border-radius:".$border."%;\" id=\"pp\" src=\"inc/Pictures/" .$name."\" alt=\"waifu\" height=".$height." width=".$width.">" ;
 
+}
+function choiceTitle(){
+	include 'Factory/DbAdaperFactory.php';
+	$dbAdaper = (new DbAdaperFactory())->createService();
+	$titles=$dbAdaper->prepare('SELECT title FROM "title"');
+	$titles=$dbAdaper->execute();
+	foreach($titles as $title){
+	       echo "<option value=\"".$title['title']."\">".$title['title']."<\option>";
+	}       
+	
 }
 ?>
