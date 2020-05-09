@@ -8,6 +8,25 @@ private $dbAdapter;
     {
         $this->dbAdapter = $dbAdapter;
     }
+
+    
+public function fetchAll()
+{
+    $requete = "SELECT * FROM association";
+    $exec_requete = $this->dbAdapter->query($requete);  
+    $assoces = [];
+    foreach ($exec_requete as $a) {
+        $assoc = new Asso();
+        $assoc
+            ->setNomAssoc($a['nom_assoc'])
+            ->setIdAssoc($a['id_assoc']);
+        $assoces[]= $assoc;
+    }
+    return $assoces;
+}
+
+
+
 public function fetch_Assos($userid)
 {
         $usersAsso = $this->dbAdapter->query("SELECT Nom_Assoc FROM Appartenir where Id_Membre='$userid'");
@@ -20,5 +39,7 @@ public function fetch_Assos($userid)
        return $Asso;
 
 }
+
+
 
 }

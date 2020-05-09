@@ -64,6 +64,7 @@ function printInfo(){
 				<a href='profil.php' class="nav-link"><span>Profil</span></a> 
 				<a href='/userlist.php' class="nav-link"><span>Userlist</span></a> 
 				<a href='userlist.php?deconnexion=true' class="nav-link"><span>Déconnexion</span></a>  
+				<a href='bet.php' class="nav-link"><span>Paris</span></a>  
                 <?php session_start();
 		    	if($_SESSION['username'] !== ""){
                     $user = $_SESSION['username'];
@@ -164,7 +165,7 @@ echo "<div class='Infos' id='idinfos' style='display:$display;'>";
 			echo "<div class ='info-ouinon-container'>
 					<div style = 'width: 60%; color: black; font-weight: bold;'>Souhaitez-vous participer à cette réunion? </div>
 					<div class ='info-ouinon'>
-						<button class ='info-oui' onclick='window.location.href = \"transition.php?participate=$infopackage\"'> Oui</button>
+						<button class ='info-oui' onclick='window.location.href = \"transition.php?checkparticipate=$infopackage\"'> Oui</button>
 						<button class ='info-non' onclick='window.location.href = \"transition.php?dontparticipate=$infopackage\"'> Non</button>
 					</div>
 				</div>";
@@ -190,7 +191,7 @@ echo "<div class='Infos' id='idinfos' style='display:$display;'>";
 		$reunion =  $reunionRepository->getReunion($_SESSION['sc-meeting']);
 		$nameAssoc = $reunionRepository->getNameAssoc($_SESSION['sc-meeting']);
 		echo "<ul>Association : $nameAssoc</ul>";
-		$duration = ($reunion->getDateFinReu()->getTimestamp() - $reunion->getDateDebutReu()->getTimestamp()) - 7200;
+		$duration = ($reunion->getDateFinReu()->getTimestamp() - $reunion->getDateDebutReu()->getTimestamp()) - 3600;
 		if (date('G',$duration) == "0") {
 			$duration = date('i',$duration);
 			echo "<ul> Durée : $duration min</ul>";
@@ -621,6 +622,32 @@ echo "</ul></div>";
     </tbody>
   </table>
 </div>
+
+<?php
+if (isset($_GET['overlapparticipate'])) {
+	echo "<div class='sc-alert'>";
+	echo "<div class='sc-alert-text'> Vous participez déjà aux réunions suivantes, 
+			êtes vous sûr de vouloir participer à cette réunion? 
+			(Vous serez automatiquement désincrit des autres réunions)</div>";
+	echo "<ul class='sc-alert-content'>";
+	$infopackage = explode(":",$_GET['overlapparticipate']);
+	$overlapingmeetings = array_slice($infopackage, 2);
+	foreach ($overlapingmeetings as $om) {
+		$omeeting = $reunionRepository->getReunion($om);
+		$start = date('H:i',$omeeting->getDateDebutReu()->getTimestamp());
+		$end = date('H:i',$omeeting->getDateFinReu()->getTimestamp());
+		$association = $reunionRepository->getNameAssoc($om);
+		echo "<li >Réunion $association $start-$end</li>";
+	}
+	$infopackage = $_GET['overlapparticipate'];
+	echo "</ul>";
+	echo "<div class ='sc-alert-button-container'>
+				<button class ='sc-alert-button-oui' onclick='window.location.href = \"transition.php?confirmparticipate=$infopackage\"'> Confirmer</button>
+				<button class ='sc-alert-button-non' onclick='window.location.href = \"transition.php?cancelalert=true\"'> Annuler</button>
+			</div>
+	</div>";
+}
+?>
 
 
 </body>
