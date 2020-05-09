@@ -45,13 +45,23 @@ function searchKaraByCriteria($names)
 
 
     $req =
-        "SELECT DISTINCT song_name, song_type, song_number, source_name
+        "SELECT DISTINCT song_name, song_type, song_number, source_name, id
          FROM \"karas\" 
          WHERE 
          song_name LIKE '%" . $names[0] . "%' AND
          source_name LIKE '%" . $names[1] . "%' AND
-         author_name LIKE '%" . $names[2] . "%' AND
-         language LIKE '%" . $names[3] . "%';";
+         author_name LIKE '%" . $names[2] . "%'";
+    if ( $names[3] !== "all" )
+         $req = $req . " AND language LIKE '%" . $names[3] . "%'";
+    if ( $names[4] !== "all" )
+         $req = $req . " AND song_type LIKE '%" . $names[4] . "%'";
+    if ( $names[5] !== "Indifferent" )
+    {
+        if ( $names[5] === "Yes" )
+            $req = $req . " AND is_new=1";
+        elseif ( $names[5] === "No" )
+            $req = $req . " AND is_new=0";
+    }
     $ret = $dbAdapter->query($req)->fetchAll(PDO::FETCH_NUM);
 
     return $ret;

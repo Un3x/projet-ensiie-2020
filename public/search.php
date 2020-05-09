@@ -13,6 +13,5 @@ set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 
 <?php include_once "View/Layout/karaSearch.php" ?>
 
-<script src="/scripts/scripts.js"></script>
 </body>
 </html>
