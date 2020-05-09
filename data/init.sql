@@ -78,6 +78,7 @@ CREATE TABLE IF NOT EXISTS titles (
     IDtitle SERIAL PRIMARY KEY,
     title VARCHAR
 );
+INSERT INTO "titles" (IDtitle,title) VALUES (0,'Weeblet');
 INSERT INTO "titles" (IDtitle,title) VALUES (1,'Titre défectueux');
 INSERT INTO "titles" (IDtitle,title) VALUES (2,'Karamaker');
 INSERT INTO "titles" (IDtitle,title) VALUES (3,'Kara-pas-maker');
