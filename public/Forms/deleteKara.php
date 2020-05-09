@@ -4,20 +4,19 @@ set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 require_once 'Factory/DbAdaperFactory.php';
 require_once 'Lektor_interface/sockets_utils.php';
 
-if (isset($_SESSION['id']))
+if (isset($_SESSION['id']) && $_SESSION['rights'] >= 1)
 {
     $dbAdapter = (new DbAdaperFactory())->createService();
-    echo "Adding kara n°" . $_POST['id'] . "...\n";
+    echo "Deleting kara at position " . $_POST['id'] . "...\n";
     $req =
-        'INSERT INTO "queue" (id, added_by)
-         VALUES(:id, :adder);';
+        'DELETE FROM "queue"
+         WHERE id=:id;';
     $addition = $dbAdapter->prepare($req);
     $addition->bindParam('id', $_POST['id']);
-    $addition->bindParam('adder', $_SESSION['id']);
     $addition->execute();
 
 
-    $msg = "add id://" . $_POST['id'] . "\n" ;
+    $msg = "deleteid " . $_POST['id'] . "\n" ;
     error_log("SOCKETS : Starting sending to all lectors");
     send_to_all_lectors($msg);
     error_log("SOCKETS : Finished sending to all lectors");
