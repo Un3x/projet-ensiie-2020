@@ -80,10 +80,20 @@ INSERT INTO "image" (IDimage, image) VALUES (14,'waifu14.png');
 INSERT INTO "image" (IDimage, image) VALUES (15,'waifu15.png');
 INSERT INTO "image" (IDimage, image) VALUES (16,'waifu16.png');
 
-CREATE TABLE IF NOT EXISTS title (
+CREATE TABLE IF NOT EXISTS titles (
     IDtitle SERIAL PRIMARY KEY,
     title VARCHAR
 );
+
+INSERT INTO "titles" (IDtitle,title) VALUES (1,'Titre défectueux');
+INSERT INTO "titles" (IDtitle,title) VALUES (2,'Karamaker');
+INSERT INTO "titles" (IDtitle,title) VALUES (3,'Kara-pas-maker');
+INSERT INTO "titles" (IDtitle,title) VALUES (4,'DJ weeb');
+INSERT INTO "titles" (IDtitle,title) VALUES (5,'Weeb-Developer');
+INSERT INTO "titles" (IDtitle,title) VALUES (6,'JINBUN WO');
+INSERT INTO "titles" (IDtitle,title) VALUES (7,'Lolicon');
+INSERT INTO "titles" (IDtitle,title) VALUES (8,'Brocon');
+INSERT INTO "titles" (IDtitle,title) VALUES (9,'Siscon');
 
 
 CREATE TABLE IF NOT EXISTS lector (
