@@ -11,7 +11,7 @@ set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');?>
 echo "<form action=\"Forms/modifyUserCosmetics.php\" method=\"post\">";
 echo "<label for=\"newTitle\">Titre : </label>";
 echo "<select id=\"newTitle\" name=\"cars\">";
-choiceTitleDummy();
+choiceTitle();
 echo "</select><br>";
  for ($i = 1; $i<=16; $i++){
 choicePP("waifu".$i.".png", 200,200,20);
