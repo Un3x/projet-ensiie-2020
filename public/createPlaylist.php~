@@ -1,0 +1,7 @@
+<?php include_once "View/Layout/header.php" ?>
+
+<body>
+<?php include_once "View/layout/createPlaylist.php" ?>
+
+</body>
+</html>

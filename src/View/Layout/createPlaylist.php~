@@ -1,0 +1,33 @@
+<!--Cette page permet de creer une playlist,
+une autre page sera utilisee pour les editer
+-->
+
+<h1>Veuillez nommer votre playlist</h1>
+<form name="formCreatePlaylist" action="" method="POST">
+  <label for="name">Nom de la playlist :</label></br>
+  <?php
+    if (isset($_GET['name']))
+    {
+      $name=$_GET['name'];
+      echo '<input type="text" name="name" palceholder="Nom" malength="32" value="'.$name.'"></br>
+    }
+    else
+    {
+      echo '<input type="text" name="name" palceholder="Nom" malength="32" value="'.$name.'">
+      $fullURL="https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"
+
+      if (strpos($fullURL, "errs=noName"))
+      {
+        echo "<p>ERROR, no name given</p></br>";
+      }
+    }
+  ?>
+  Playlist publique:
+  <input type="radio" name="publik"
+  <?php if (isset($publik) && $publik=="oui") echo "checked";?>
+  value="oui">Oui
+  <input type="radio" name="publik"
+  <?php if (isset($publik) && $publik=="non") echo "checked";?>
+  value="non">Non  
+  <input type="submit" value="OK">
+</form>
