@@ -21,17 +21,25 @@ if ( isset($_GET["language"]) && isset($_SESSION["id"]) )
     $names[] = $_GET["source_name"];
     $names[] = $_GET["author_name"];
     $names[] = $_GET["language"];
+    $names[] = $_GET["song_type"];
+    $names[] = $_GET["is_new"];
 
     $results = searchKaraByCriteria($names);
 
     echo "<ul>";
+    if ( count($results) === 0 )
+    {
+        echo "No matches for your search";
+    }
+    else
+    {
     foreach ($results as $result)
     {
         echo '<li>' . $result[0] . " - " . $result[1] . $result[2] . " - " . $result[3] . '</li>';
     }
     echo "</ul>";
+    }
 ?>
-    <script src="/scripts/scripts.js"></script>
     </body>
     </html>
 <?php
