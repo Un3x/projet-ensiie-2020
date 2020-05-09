@@ -50,8 +50,10 @@ async function addKara(i)
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     xhr.onreadystatechange = function() {//Call a function when the state changes.
-        if(xhr.readyState == XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 )) {
-            alert(xhr.responseText);
+        if(xhr.readyState == XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 ))
+        {
+            document.getElementById("lastAdd").innerHTML = "Added the kara " + i + " !";
+        //    alert(xhr.responseText);
         }
     }
     xhr.send('id=' + i);

@@ -7,7 +7,7 @@ function loadQueue()
     xhr.addEventListener('readystatechange', function ()
 {
     if (xhr.readyState === XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 )) { // <-- FIXME Delete the xhr.status === 0 when the site isn't on localhost
-        document.getElementById('karaQueue').innerHTML = '<span>' + xhr.responseText + '</span>';
+        document.getElementById('karaQueue').innerHTML = xhr.responseText;
     }
 });
 
