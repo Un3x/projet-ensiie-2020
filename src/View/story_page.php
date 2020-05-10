@@ -24,6 +24,15 @@
 <p> <?php echo $data['avg_rate'] ?> en moyenne, basé sur <?php echo $data['count'] ?> notes.</p>
 <hr style="border:3px solid #f1f1f1">
 
+<p>Notez cette histoire !</p>
+<form method="post" action="rate&comment.php">
+<input type="radio" value=1 name="rate"/>
+<input type="radio" value=2 name="rate"/>
+<input type="radio" value=3 name="rate"/>
+<input type="radio" value=4 name="rate"/>
+<input type="radio" value=5 name="rate"/>
+</form>
+
 <div class="row">
   <div class="side">
     <div>5 star</div>
