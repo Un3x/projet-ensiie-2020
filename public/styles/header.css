@@ -8,7 +8,7 @@
     overflow: hidden;
 }
 
-.topnav li
+.topnav .left-side
 {
     float: left;
     background-color: #DDDDDD;
@@ -20,7 +20,7 @@
     background-color: #DDDDDD;
 }
 
-.topnav a
+.topnav .left-side a
 {
     display: block;
     color: #000000;
@@ -35,6 +35,11 @@
     text-align: center;
     padding: 1em;
     text-decoration: none;
+}
+
+.topnav .login-feedback a
+{
+    display: inline;
 }
 
 
