@@ -20,7 +20,7 @@ class Participation
     private $statut;
 
     /**
-     * @var timestamp
+     * @var time
      */
     private $retard;
 
@@ -76,7 +76,7 @@ class Participation
     }
 
     /**
-     * @return timestamp
+     * @return time
      */
     public function getRetard ()
     {
@@ -84,7 +84,7 @@ class Participation
     }
 
     /**
-     * @param timestamp
+     * @param time
      */
     public function setRetard ($retard)
     {

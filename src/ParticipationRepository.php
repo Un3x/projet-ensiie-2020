@@ -128,5 +128,50 @@ class ParticipationRepository
         $req->execute();
     }
 
+
+    /** 
+     * @param $id_membre l'id d'un membre
+     * @retun $delay le retard moyen du membre d'id $id_membre
+     */
+    public function getAverageDelay($id_membre)
+    {
+        $allParticipations = $this->getParticipationsMembre($id_membre,3);
+        $delay = 0;
+        if (empty($allParticipations)) return "00:00";
+        $sumDelay = 0;
+        foreach ($allParticipations as $participation) {
+            $sumDelay += strtotime($participation->getRetard());
+        }
+        $delay = date('H:i',intdiv($sumDelay,count($allParticipations)));
+        return $delay;
+    }
+
+    /** 
+     * @param $id_membre l'id d'un membre et $id_asso l'id d'une asso
+     * @retun $delay le retard moyen du membre d'id $id_membre pour l'asso d'id $id_asso
+     */
+    public function getAverageDelayAsso($id_membre,$id_asso)
+    {
+        
+        $requete = "SELECT * 
+                    FROM participations
+                    NATURAL JOIN reunion
+                    WHERE id_membre = $id_membre
+                    AND statut = 3
+                    AND id_assoc = '$id_asso'";
+        $exec_requete = $this->dbAdapter->query($requete);  
+
+        $delay = 0;
+        if (empty($exec_requete)) return "00:00";
+        $nbEntries = 0;
+        $sumDelay = 0;
+        foreach ($exec_requete as $participation) {
+            $sumDelay += strtotime($participation['retard']);
+            $nbEntries++;
+        }
+        if ($nbEntries==0) return "00:00";
+        $delay = date('H:i',intdiv($sumDelay,$nbEntries));
+        return $delay;
+    }
 }
 ?>

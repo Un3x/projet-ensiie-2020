@@ -24,7 +24,8 @@ class UserRepository
                 ->setId($usersDatum['id'])
                 ->setUsername($usersDatum['username'])
                 ->setEmail($usersDatum['email'])
-                ->setCreatedAt(new \DateTime($usersDatum['created_at']));
+                ->setCreatedAt(new \DateTime($usersDatum['created_at']))
+                ->setPoints($usersDatum['points']);
             $users[] = $user;
         }
         return $users;
@@ -144,12 +145,13 @@ class UserRepository
 
     public function newUser($id, $username, $email, $password)
     {
-        $req = $this->dbAdapter->prepare('INSERT INTO Membre(id, username, email,  passwd) VALUES(:id, :username, :email, :password)');
+        $req = $this->dbAdapter->prepare('INSERT INTO Membre(id, username, email,  passwd, points) VALUES(:id, :username, :email, :password, :pointss)');
 
         $req->bindParam('id', $id);    
         $req->bindParam('username', $username);
         $req->bindParam('email', $email);
         $req->bindParam('password', $password);
+        $req->bindParam('pointss', 0);
 
         if (!$req) {
         echo "\nPDO::errorInfo():\n";
@@ -192,4 +194,26 @@ class UserRepository
             return true;
         }
     }
+
+    /**
+     * @param $mise la mise du joueur d'id $id_joueur
+     * 
+     * Met à jour les points du joueur (retranche la mise à ses points)
+     */
+    public function updateUserPoints($mise,$id_joueur) {
+        $req=$this->dbAdapter->prepare('UPDATE Membre 
+                                        SET points = :newpoints 
+                                        WHERE id = :id_joueur ');
+        $player = $this->getUserById($id_joueur);
+        $newpoints = $player->getPoints() - $mise;
+        $req->bindParam('newpoints',$newpoints);
+        $req->bindParam('id_joueur',$id_joueur);
+
+        if (!$req) {
+        echo "\nPDO::errorInfo():\n";
+        print_r($dbh->errorInfo());
+        } 
+        $req->execute();
+    }
+
 }
