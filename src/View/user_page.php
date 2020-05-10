@@ -4,25 +4,25 @@
 ?>
 
 <h1>Bienvenue sur votre page personnelle <?php echo $_SESSION['username']?> !</h1>
-<p>Bientôt, vous pourrez consulter vos Achievements !</p>
+<br/>
 
 <h3>Changer de nom d'utilisateur :</h3>
 <form method="post" action=server.php>
     <label for="new_name">Nouveau nom d'utilisateur :</label></br>
-    <input type="text" name="new_name"/></br>
+    <input type="text" name="new_name" required/></br>
     <label for="pwd">Entrez votre mot de passe pour confirmer le changement :</label></br>
-    <input type="password" name="pwd"/></br>
+    <input type="password" name="pwd" required/></br>
     <button type="submit" class="btn btn-primary" name="change_username">Changer !</button>
 </form>
 
 <h3>Changer de mot de passe :</h3>
 <form method="post" action=server.php>
     <label for="old">Ancien mot de passe</label></br>
-    <input type="password" name="old"/></br>
+    <input type="password" name="old" required/></br>
     <label for="new">Nouveau mot de passe</label></br>
-    <input type="password" name="new"/></br>
+    <input type="password" name="new" required/></br>
     <label for="conf">Confirmer le nouveau mot de passe</label></br>
-    <input type="password" name="conf"/></br>
+    <input type="password" name="conf" required/></br>
     <button type="submit" class="btn btn-primary" name="change_pwd">Changer !</button>
 </form>
 

@@ -37,7 +37,7 @@ class CommentRepository
 
     public function addComment(int $userId, int $storyId, string $text) {
         if (is_int($userId) && is_int($storyId) && is_string($text)) {
-            $query = "INSERT INTO comment (storyid, userid, txt) VALUES(:userId, :storyId, :text)";
+            $query = "INSERT INTO comment (storyid, userid, txt) VALUES(:storyId, :userId, :text)";
             $result = $this->dbAdapter->prepare($query);
             $result->bindParam(':userId', $userId);
             $result->bindParam(':storyId', $storyId);
@@ -53,6 +53,13 @@ class CommentRepository
         $query = "UPDATE comment SET userId = 1 WHERE userId =:userId";
         $result = $this->dbAdapter->prepare($query);
         $result->bindParam(':userId', $userId);
+        $result->execute();
+    }
+
+    public function remove_comments(int $commentId){
+        $query = "DELETE FROM comment WHERE commentid = :commentid";
+        $result = $this->dbAdapter->prepare($query);
+        $result->bindParam(':commentid', $commentId);
         $result->execute();
     }
 

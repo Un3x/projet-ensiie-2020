@@ -64,7 +64,7 @@ class RatingRepository
 	    $r=$r + $cur['rate'];
 	}
 	$moyenne=$r/$i;
-	return $moyenne;
+	return round($moyenne, 1);
 
     }
 
@@ -107,6 +107,31 @@ class RatingRepository
 	}
 	return $i;
 
+    }
+
+    public function addRate(int $userId, int $storyId, int $stars)
+    {
+        if (is_int($userId) && is_int($storyId) && is_int($stars)) {
+            $query = 'INSERT INTO rate (rate, userId, storyId) VALUES (:stars, :userid, :storyid)';
+            $result = $this->dbAdapter->prepare($query);
+            $result->bindParam(':stars', $stars);
+            $result->bindParam(':userid', $userId);
+            $result->bindParam(':storyid', $storyId);
+            $result->execute();
+        return $result;
+        }else{
+            return FALSE;
+        }
+    }
+
+    public function alreadyRated(int $userId, int $storyId)
+    {
+        $query = 'SELECT * FROM rate WHERE userId=:userid AND storyId=:storyid';
+        $result = $this->dbAdapter->prepare($query);
+        $result->bindParam(':userid', $userId);
+        $result->bindParam(':storyid', $storyId);
+        $result->execute();
+        return $result->rowCount() != 0;
     }
 
 
