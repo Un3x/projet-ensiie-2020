@@ -4,7 +4,7 @@ session_start();
 
 <header>
     <ul class="topnav">
-        <li class="left-side"><a class="site-name" href="#">Bakaraoke</a></li>
+        <li class="left-side"><a class="site-name" href="/">Bakaraoke</a></li>
         <li class="left-side"><a class="nav-link" href="search.php">Advanced Search</a></li>
     <?php if ( isset($_SESSION['rights']) && ( $_SESSION['rights']===1 || $_SESSION['rights']===2 ) ) { ?>
         <li class="left-side"><a class="nav-link" href="admin.php">Manage Users</a></li>

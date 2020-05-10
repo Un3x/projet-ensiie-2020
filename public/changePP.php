@@ -6,6 +6,7 @@ set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');?>
 <?php include_once "View/Layout/head.php" ?>
 </head>
 <?php include_once "View/Layout/header.php"?>
+<body>
 
 <?php if (isset($_SESSION['username'])){
 pp($_SESSION['image'],200,200,50);
@@ -31,4 +32,6 @@ echo "</form>";
 else { include_once "Forms/error.php";
 }
 ?>
+
+</body>
 
