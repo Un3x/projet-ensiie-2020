@@ -10,7 +10,7 @@
 foreach ($data['stories'] as $story) {
 	
 	echo'
-	<form method="get" action="story.php">
+	<form method="get" action="story_page.php">
 	<input type="hidden" name="storyId" value="'.$story->getId().'"/>
 	<button type="submit" class="btn btn-link">'.$story->getTitle().'</button>
 </form>';
