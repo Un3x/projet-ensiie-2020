@@ -86,7 +86,7 @@ public function getReunion($meeting)
 
 
     public function MaxId(){
-        $usersData = $this->dbAdapter->query("SELECT Id_reu FROM reunion");
+        $usersData = $this->dbAdapter->query("SELECT id_reu FROM reunion");
         foreach ($usersData as $users) {
             $nb_id = max($users);
         }
@@ -96,34 +96,24 @@ public function getReunion($meeting)
     public function newReunion($Nom_Assoc, $IdReu, $Date_debut_reu, $Date_fin_reu, $Id_MembreA, $Descriptif)
     {
 
+        //echo gettype($Date_debut_reu);
         //AJOUT de la reunion dans la table REUNION
         //on recupere l'id de l'asso grace a la table assocation
-        $sql = "SELECT Association.Id_Assoc FROM Association where Association.Nom_Assoc = '$Nom_Assoc'";
+        $sql = "SELECT association.id_assoc FROM association where association.nom_assoc = '$Nom_Assoc'";
         $result = $this->dbAdapter->query($sql);
         $donnees = $result->fetch();
         $Id_Assoc = $donnees['id_assoc'];
 
-        echo "insetion table Reunion";
-        echo "Nom_Assoc = ".$Nom_Assoc;
-        echo "</br>id_assoc = ".$Id_Assoc;
-        echo "</br>id_reu = ".$IdReu;
-        echo "</br>Date_debut_reu = ".$Date_debut_reu;
-        echo "</br>Date_fin_reu = ".$Date_fin_reu;
-        echo "</br>Id_MembreA = ".$Id_MembreA;
-        echo "</br>Descriptif = ".$Descriptif;
-        
+        $req=$this->dbAdapter->prepare("INSERT INTO Reunion(Id_Assoc,Id_reu, Date_debut_reu,Date_fin_reu, Id_MembreA, Descriptif) VALUES(:id_assoc,:id_reu, :date_debut_reu, :date_fin_reu, :id_membrea, :descriptif)");
 
-        $req=$this->dbAdapter->prepare('INSERT INTO Reunion(Id_Assoc,Id_reu,Date_debut_reu,Date_fin_reu,Id_MembreA,Descriptif) VALUES(:Id_Assoc,:Id_reu,:Date_debut_reu,:Date_fin_reu,:Id_MembreA,:Descriptif)');
-
-        $req->bindParam('Id_Assoc', $Id_Assoc);    
-        $req->bindParam('Id_reu', $Id_reu);
-        $req->bindParam('Date_debut_reu', $Date_debut_reu);
-        $req->bindParam('Date_fin_reu', $Date_fin_reu);
-        $req->bindParam('Id_MembreA', $Id_MembreA);
-        $req->bindParam('Descriptif', $Descriptif);
+        $req->bindParam(':id_assoc', $Id_Assoc);    
+        $req->bindParam(':id_reu', $IdReu);
+        $req->bindParam('date_debut_reu', $Date_debut_reu);
+        $req->bindParam('date_fin_reu',  $Date_fin_reu);
+        $req->bindParam('id_membrea', $Id_MembreA);
+        $req->bindParam('descriptif', $Descriptif);
 
         $req->execute();
-        echo " </br> on a bien ajoute la reu </br>";
 
         //On veut la liste de tous les id_membre de Apartenir pour une association donnée
         $statut = 2; //on met les status à 2 car statut en attente (pas encore de reponse du user)
@@ -134,14 +124,11 @@ public function getReunion($meeting)
 
         //une fois qu'on a la liste de tous les id_membre, on remplit la table PARTICIPATIONS
         foreach($usersData as $row){
-            echo "row = ".$row['id_membre'];
-            echo "</br>id reu = ".$IdReu;
-            echo "</br>statut = ".$statut;
-
+            $id = $row['id_membre'];
             $reqt = $this->dbAdapter->prepare('INSERT INTO Participations(Id_reu, Id_Membre, statut) VALUES(:Id_reu,:Id_Membre,:statut)');
             
             $reqt->bindParam('Id_reu', $IdReu);    
-            $reqt->bindParam('Id_Membre', $row['id_membre']);
+            $reqt->bindParam('Id_Membre', $id);
             $reqt->bindParam('statut', $statut);
             //$req->bindParam('retard', $Date_fin_reu);
             $reqt->execute();

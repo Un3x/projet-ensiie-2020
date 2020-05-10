@@ -20,7 +20,7 @@ CREATE TABLE Association(
 
 CREATE TABLE Reunion(
 	Id_Assoc INTEGER NOT NULL,
-	Id_reu  VARCHAR PRIMARY KEY,
+	Id_reu  INTEGER PRIMARY KEY,
 	Date_debut_reu TIMESTAMP,
 	Date_fin_reu TIMESTAMP,
 	Id_MembreA INTEGER,
@@ -50,7 +50,7 @@ CREATE TABLE Administrer(
 );
 
 CREATE TABLE Participations(
-	Id_reu VARCHAR,
+	Id_reu INTEGER,
 	Id_Membre INTEGER,
 	statut INTEGER NOT NULL, --statut = [ 0:Oui , 1:Non , 2:En_Attente , 3:A_participé ]
 	retard TIME, --représente la durée du retard
@@ -61,7 +61,7 @@ CREATE TABLE Participations(
 CREATE TABLE Paris(
 	id_paris INTEGER PRIMARY KEY,
 	player INTEGER,
-	id_reu VARCHAR,
+	id_reu INTEGER,
 	id_user INTEGER,
 	retard TIME,
 	mise INTEGER,
@@ -98,7 +98,6 @@ INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (12,'DeglingosClub');
 
 INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (1, 0); 
 INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (5, 1); 
-
 INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (8, 1); 
 
 INSERT INTO Demandes_user_Superadmin (username, Nom_assoc) VALUES ('cesar', 'Cuisine' ); 
@@ -148,6 +147,7 @@ INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA)
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (10,37,'2020-05-04 08:00:00','2020-05-08 11:59:00', 1);
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (11,38,'2020-05-04 08:00:00','2020-05-08 11:59:00', 1);
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (12,39,'2020-05-04 08:00:00','2020-05-08 11:59:00', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (12,50,'2020-05-04 08:00:00','2020-05-08 11:59:00', 1);
 
 
 

@@ -10,7 +10,10 @@ $userRepository = new \User\UserRepository($dbAdaper);
 $AssoRepository = new \Asso\AssoRepository($dbAdaper);
 
 session_start();
-$userid=$_SESSION['user']->getId();
+$_SESSION['user'] = $userRepository->getUser($_SESSION['username']);
+
+$userid = $_SESSION['user']->getId();
+
 $assoAll = $AssoRepository->fetch_all_Assos_for_Admin($userid);
 
 ?>
@@ -80,7 +83,7 @@ if($userRepository->IsAdmin($userid)){
    echo "<form name='FormReu' action='creaReu.php' method='post' >";
 
     echo "Nom de l'association :";
-    echo "<select name='nomAsso' id ='nomAsso' size='1'>";
+    echo "<select name='nom_asso' id ='nom_asso' size='1'>";
         foreach($assoAll as $element){
             echo '<option>'.$element->getNomAssoc();
         }
