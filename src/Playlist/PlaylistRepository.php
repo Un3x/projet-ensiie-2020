@@ -39,4 +39,12 @@ class PlaylistRepository
     $playlists->execute();
     return $playlist->fetchColumn();
     }
+
+    public function getPlaylist($creator)
+    {
+    $playlists=$this->dbAdapter->prepare('SELECT * FROM "playlist" WHERE creator= :Creator');
+    $playlists->bindParam('Creator',$creator);
+    $playlists->execute();
+    return $playlist;
+    }
 }
