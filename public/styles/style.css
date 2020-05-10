@@ -63,71 +63,8 @@ a:active{
 }
 
 
-#karaSearch
-{
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #000000;
-    background-color: #DDDDDD;
-    border-color: #000000;
-    border-radius: 5px;
-}
 
-#karaList
-{
-}
-
-#aKaraInKaraList
-{
-    width: 98%;
-    text-align: left;
-    color: #FFFFFF;
-    background-color: #5b6977;
-    padding: 10px 10px 10px 10px;
-    border-radius: 15px;
-    display: block;
-}
-
-#aKaraInKaraList button, #karaQueue button
-{
-    color: #000000;
-    background-color: #FFFFFF;
-    border-radius: 7px;
-    border: 0px solid;
-    transition-duration: 0.2s;
-}
-
-
-#aKaraInKaraList button:hover, #karaQueue button:hover
-{
-    border-radius: 7px;
-    color: #FFFFFF;
-    background-color: #000000;
-}
-
-#karaQueue button
-{
-    margin-right: 10px;
-}
-
-
-#karaQueue img
-{
-    margin: 5px 8px 5px 0px;
-}
-
-#karaQueue #queueAdder
+#login-feedback
 {
     float: right;
-    vertical-align: bottom;
-    line-height: 60px;
-    margin-right: 10px;
-}
-
-#karaList
-{
-    height: 800px; /* Prevent the page to go up when all karas are disables,
-                     so that the user is forced to scroll down to see karas
-                     after he cleared the search*/
 }
