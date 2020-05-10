@@ -19,17 +19,17 @@ class Asso
      */
     private $Id_Assoc;
 
-    public function getNomMembre ()
+    public function getNomMembre()
     {
         return $this->IdMembre;
     }
 
-    public function getNomAssoc ()
+    public function getNomAssoc()
     {
         return $this->NomAssoc;
     }
 
-    public function getIdAssoc ()
+    public function getIdAssoc()
     {
         return $this->Id_Assoc;
     }

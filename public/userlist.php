@@ -31,12 +31,12 @@ echo "nb d'identifiants = ".$nb_id;*/
         <a class="navbar-brand" href="#">Projet Web Ensiie 2020</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+            <li class="nav-item active">
                 <a class="nav-link" href="/agenda.php"><span>Home</span></a>
                 </li>
-                <a href='profil.php' class="nav-link"><span>Profil</span></a> 
-                <a href='/userlist.php' class="nav-link"><span>Userlist</span></a>  
-                <a href='userlist.php?deconnexion=true' class="nav-link"><span>Déconnexion</span></a>  
+                    <a href='profil.php' class="nav-link"><span>Profil</span></a> 
+                    <a href='OrgaReu.php' class="nav-link"><span>Réunions</span></a> 
+                    <a href='userlist.php?deconnexion=true' class="nav-link"><span>Déconnexion</span></a>	
                 <?php session_start();
             if(isset($_GET['deconnexion'])) { 
                        if($_GET['deconnexion']==true) {  
@@ -56,6 +56,7 @@ echo "nb d'identifiants = ".$nb_id;*/
         </div>
     </nav>
 </header>
+<a class="nav-link" href="./Form_demande_admin.php">Formulaire de demande afin de devenir administrateur pour une association</a>
 
 <div class="container">
     <div class="row">
@@ -89,10 +90,6 @@ echo "nb d'identifiants = ".$nb_id;*/
         </div>
     </div>
 </div>
-
-
-
-<a class="nav-link" href="./Form_demande_admin.php">Formulaire de demande afin de devenir administrateur pour une association</a>
 <script src="js/scripts.js"></script>
 </body>
 </html>

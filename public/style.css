@@ -15,6 +15,12 @@ body{
     border: 1px solid #333;
 }
 
+#h1css {
+    color : white;
+    font-size: 40px;
+    font-weight: bold;
+}
+
 #but1{
     box-shadow:1px 1px 1px;
     cursor:pointer;
@@ -27,6 +33,15 @@ body{
 #id1{
     background: white;
 }
+
+#header1 {
+    padding: 6px;
+text-align: center;
+background: #1abc9c;
+color: white;
+font-size: 20px;
+}
+
 /* Bordered form */
 form {
     width:100%;
@@ -82,6 +97,7 @@ fieldset {
     font-weight: bold;
     font-variant: small-caps;
     font-size: 160%;
+    color : white;
   }
 
 #bouton_envoi {
@@ -107,4 +123,18 @@ fieldset {
 #inscri {
     color:white; 
     text-align: center;
+}
+
+#bouton_demande_admin{
+    width: 220px;
+    padding: 10px;
+    background-color : white;
+    font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 3px;
+    box-shadow: 0 8px 16px 0 grey;
+    text-decoration: black;  
+    display: block;
+    margin : auto;
+    color : cornflowerblue;
 }

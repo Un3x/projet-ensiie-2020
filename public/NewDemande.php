@@ -7,9 +7,11 @@ include '../src/Factory/DbAdaperFactory.php';
 $dbAdaper = (new DbAdaperFactory())->createService();
 $demande_adminRepository = new \Demande\DemandeRepository($dbAdaper);
 session_start();
+
+$userName = $_SESSION['username'] ?? null;
 // on teste la déclaration de nos variables
-if (isset($_POST['username']) && isset($_POST['Nom_assoc'])) {
-    $demande_adminRepository->newDemande($_POST['username'],$_POST['Nom_assoc']); 
+if ($userName && isset($_POST['Nom_assoc'])) {
+    $demande_adminRepository->newDemande($userName,$_POST['Nom_assoc']); 
 }
 ?> 
 

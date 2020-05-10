@@ -12,8 +12,8 @@ $users = $userRepository->fetchAll();
 session_start();
 // on teste la déclaration de nos variables
 if (isset($_POST['id']) && isset($_POST['username'])) {
-	$userRepository->ajoutBDD($_POST['id'],$_POST['username'],$_POST['email'],$_POST['pass']); 
+	$userRepository->newMembre($_POST['id'],$_POST['username'],$_POST['email'],$_POST['pass']); 
 }
 ?> 
 
-<a class="nav-link" href="/userlist.php">Home</a>
+<a class="nav-link" href="/index.php">Home</a>

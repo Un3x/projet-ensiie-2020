@@ -1,18 +1,15 @@
-<!-- Si l'utilisateur est administrateur, il sera redigiré vers cette page-->
-
-<!-- seul un admin peut creer un autre admin-->
-
 <?php
-      // on initialise la session
-      session_start();
-      // on verifie si l'utilisateur est connecté, sinon redirigez-le vers la page de connexion
-      if(!isset($_SESSION["username"])){
-        header("Location: login.php");
-        exit(); 
-      }
-    ?>
+#phpinfo();
+include '../src/Admin.php';
+include '../src/AdminRepository.php';
+include '../src/Factory/DbAdaperFactory.php';
 
-<!DOCTYPE html>
+$dbAdaper = (new DbAdaperFactory())->createService();
+$adminRepository = new \Admin\AdminRepository($dbAdaper);
+$admins = $adminRepository->fetchAdmin2();
+
+?>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -30,13 +27,10 @@
         <a class="navbar-brand" href="#">Projet Web Ensiie 2020</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/agenda.php"><span>Home</span></a>
+                <li class="nav-item active">
+                <a class="nav-link" href="/profil.php"><span>Home</span></a>
                 </li>
-                    <a href='profil.php' class="nav-link"><span>Profil</span></a> 
-                    <a href='OrgaReu.php' class="nav-link"><span>Réunions</span></a> 
-		<a href='userlist.php?deconnexion=true' class="nav-link"><span>Déconnexion</span></a>	
-
+		<a href='userlist.php?deconnexion=true'><span>Déconnexion</span></a>	
                 <?php session_start();
 		    if(isset($_GET['deconnexion'])) { 
                        if($_GET['deconnexion']==true) {  
@@ -47,7 +41,7 @@
 		    if($_SESSION['username'] !== ""){
                          $user = $_SESSION['username'];
                    	 // afficher un message
-                   	 echo "<div class='connection_id nav-link' id='idco' >";
+                   	 echo "<div class='connection_id' id='idco'>";
                   	 echo "$user";
                   	 echo "</div>";
                	    }
@@ -56,9 +50,31 @@
         </div>
     </nav>
 </header>
-<h1>Bienvenue <?php echo $_SESSION['username']; ?>!</h1>
-<p>C'est votre espace admin.</p>
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Admin List</h1>
+        </div>
+        <div class="col-sm-12">
+            <table class="table">
+                <tr>
+                    <th>id</th>
+                    <th>username</th>
+                    <th>Id_assoc</th>
+                    <th>Nom_assoc</th>
+                </tr>
+                <?php foreach($admins as $admin): ?>
+                    <tr>
+                        <td><?= $admin->getId_MembreA() ?></td>
+                        <td><?= $admin->getUsername() ?></td>
+                        <td><?= $admin->getId_assoc() ?></td>
+                        <td><?= $admin->getNom_assoc() ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    </div>
+</div>
 <script src="js/scripts.js"></script>
 </body>
 </html>

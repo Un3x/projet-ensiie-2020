@@ -31,6 +31,7 @@ include '../src/Factory/DbAdaperFactory.php';
             </ul>
         </div>
     </nav>
+    <center> <h1 id ="h1css"> Agenda des associations </h1> </center>
 </header>
        <meta charset="utf-8">
         <!-- importer le fichier de style -->
@@ -40,7 +41,7 @@ include '../src/Factory/DbAdaperFactory.php';
             <!-- zone de connexion -->
             
             <form action="verification.php" method="POST">
-                <h1>Connexion</h1>
+               <h1 align = "center">Connexion</h1>
                 
                 <label><b>Nom d'utilisateur</b></label>
                 <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
