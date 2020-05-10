@@ -1,9 +1,10 @@
 \section{utilisateurs}
 
 Lorsque qu'un client arrive pour la première fois sur le site, il n'aura pas accès aux différents services du site. Il devra d'abord se créer un compte sur la page registration.php, ici il entrera ses 
-identifiants comme son adresse email, son nom d'utilisateur, et son mot de passe. Après vérification javascript d'un formulaire ,on récupère et envoie ces informations à la page addUser.php qui va les inserer dns la table "user", le mot de passe sera hashé pour éviter toute tentative de vol de mot de passe. \newline
+identifiants comme son adresse email, son nom d'utilisateur, et son mot de passe. Après vérification javascript d'un formulaire ,on récupère et envoie ces informations à la page addUser.php qui va les inserer dns la table "user", le mot de passe sera hashé pour éviter toute tentative de vol de mot de passe. Tout transfert d'information se fera via la méthode POST, afin de récupérer les données de manière sécurisée.
+\newline
 
-Ces informations peuvent être  ultérieurement modifiées sur la page modifyUser.php, puis via modifyUserAccount.php.\newline
+Ces informations peuvent être  ultérieurement modifiées sur la page modifyUser.php, qui enverra les modifications à modifyUserAccount.php.\newline
 
 \subsection{personnaliser son compte}
 
