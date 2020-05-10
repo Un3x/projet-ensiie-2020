@@ -91,6 +91,7 @@ if (isset($_POST['log_user'])) {
 
 //DISCONNECT
 if (isset($_POST['disconnect'])){
+  unset($_SESSION['id']);
   unset($_SESSION['username']);
   unset($_SESSION['admin']);
   $_SESSION['success'] = "Déconnexion réussie";

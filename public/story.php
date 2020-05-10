@@ -5,6 +5,11 @@
     $db = (new DbAdaperFactory())->createService();
     $storyRepo = new StoryRepository($db);
 
+    if (is_null($_GET['storyId'])){
+        $_SESSION['errors'] = "Veuillez choisir une histoire.";
+        header('location: display_stories.php');
+    }
+
     $story = $storyRepo->fetchStory($_GET['storyId']);
     $pages = $storyRepo->fetchPages($_GET['storyId']);
 
