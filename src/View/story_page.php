@@ -17,12 +17,57 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div id="rating">
-<span class="heading">User Rating</span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
+<!--affichage des etoiles -->
+<?php 
+if ($data['avg_rate']==0) {
+	echo '
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>';
+	}
+if ($data['avg_rate']==1) {
+	echo '
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>';
+	}
+if ($data['avg_rate']==2) {
+	echo '
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>';
+	}
+if ($data['avg_rate']==3) {
+	echo '
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>';
+	}
+if ($data['avg_rate']==4) {
+	echo '
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star"></span>';
+	}
+if ($data['avg_rate']==5) {
+	echo '
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>';
+	}
+?>
 <p> <?php echo $data['avg_rate'] ?> en moyenne, basé sur <?php echo $data['count'] ?> notes.</p>
 <hr style="border:3px solid #f1f1f1">
 
