@@ -1,10 +1,6 @@
 <?php session_start();
 set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');?>
-<?php $_SESSION["username"] = "poupou";
- $_SESSION["title"] = "Ultimate fighter 404";
- $_SESSION["image"] = "waifu4.png";
- $_SESSION["email"] = "jeanducu@gmail.fr";
-?>
+
 <?php include_once "../src/ViewPictures.php"?>
 
 <?php include_once "View/Layout/head.php" ?>
@@ -15,10 +11,11 @@ set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');?>
 pp($_SESSION['image'],200,200,50);
 echo "<h1 class=\"titre\">".$_SESSION['title']."</h1>";
 echo "<form action=\"Forms/modifyUserCosmetics.php\" method=\"post\">";
+echo '<div class="custom-select">';
 echo "<label for=\"newTitle\">Title : </label>";
 echo "<select id=\"newTitle\" name=\"cars\">";
-choiceTitleDummy();
-echo "</select><br>";
+choiceTitle();
+echo "</select></div><br>";
 for ($i = 1; $i<=16; $i++){
 	echo '<span class="container">';
 	choicePP("waifu".$i.".png", 200,200,20);
