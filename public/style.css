@@ -137,3 +137,8 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 .comments {
   margin-block-end: 2em;
 }
+
+textarea {
+  width: 100%;
+  height: 8em;
+}

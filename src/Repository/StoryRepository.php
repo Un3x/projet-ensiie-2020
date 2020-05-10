@@ -63,7 +63,7 @@ class StoryRepository
         $storyResult = $result->fetch();
         $story = new Story();
         $story
-          ->setId($storyResult['storyid'])
+          ->setId(intval($storyResult['storyid']))
           ->setTitle($storyResult['title'])
           ->setAuthor($storyResult['author'])
           ->setSummary($storyResult['summary']);

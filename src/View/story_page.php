@@ -17,6 +17,19 @@
 
 
 <h2>Comments</h2>
+
+<?php if (isset($_SESSION['id'])) { ?>
+<form method="post" action="commentManager.php">
+	<input type="hidden" name="storyId" value="<?php echo $data['story']->getId(); ?>"/>
+	<textarea name="text"></textarea><br/><br/>
+	<div class="text-right">
+	<button type="submit" class="btn btn-primary" name="newComment">Commenter</button>
+	</div>
+</form>
+<?php } else { ?>
+	<p>Vous devez être connecté pour commenter une histoire</p>
+<?php }?>
+
 <div class="comments">
 <?php
 foreach ($data['comments'] as $comment) {
