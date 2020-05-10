@@ -10,11 +10,12 @@ $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new \User\UserRepository($dbAdaper);
 
 session_start();
+$_SESSION['user']=$userRepository->getUser($_SESSION['username']);
+
 $assoRepository = new \Asso\AssoRepository($dbAdaper);
 $id = $_SESSION['user']->getId();
 
-
-$assoRepository->newMembre($id,$_POST['nomAsso'],$_SESSION['username']); 
+$assoRepository->newMembre($id,$_POST['nomasso'],$_SESSION['username']); 
 ?>
 <h1> Vous avez bien été ajouté a cette association </h1>
 <a class="nav-link" href="/profil.php">Retour a votre profil</a>
