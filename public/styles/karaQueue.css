@@ -6,7 +6,9 @@
 
 #karaQueue img
 {
+    line-height: 60px;
     margin: 5px 8px 5px 0px;
+    vertical-align: middle;
 }
 
 #karaQueue #queueAdder
