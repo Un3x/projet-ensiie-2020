@@ -112,6 +112,8 @@ if (isset($_POST['change_username'])){
 
     if ($urep->nameAlreadyUsed($newname)){
       array_push($errors, "Ce nom d'utilisateur est déjà utilisé");
+      $_SESSION['errors'] = "Ce nom d'utilisateur est déjà utilisé";
+      header('Location: user_page.php');
     }
   
     if (count($errors) == 0) {
@@ -146,6 +148,8 @@ if (isset($_POST['change_pwd'])){
 
     if ($new != $conf){
       array_push($errors, "Le mot de passe et sa confirmation ne sont pas identiques.");
+      $_SESSION['errors'] = "Le mot de passe et sa confirmation ne sont pas identiques.";
+      header('Location: user_page.php');
     }
 
     if (count($errors) == 0) {
@@ -162,7 +166,6 @@ if (isset($_POST['change_pwd'])){
           header('Location: user_page.php');
         }
       }
-      include 'errors.php';
 }
 
 

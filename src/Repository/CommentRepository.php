@@ -37,7 +37,7 @@ class CommentRepository
 
     public function addComment(int $userId, int $storyId, string $text) {
         if (is_int($userId) && is_int($storyId) && is_string($text)) {
-            $query = "INSERT INTO comment (storyid, userid, txt) VALUES(:userId, :storyId, :text)";
+            $query = "INSERT INTO comment (storyid, userid, txt) VALUES(:storyId, :userId, :text)";
             $result = $this->dbAdapter->prepare($query);
             $result->bindParam(':userId', $userId);
             $result->bindParam(':storyId', $storyId);
