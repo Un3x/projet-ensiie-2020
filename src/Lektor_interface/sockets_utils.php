@@ -99,7 +99,21 @@ function send_to_all_lectors($msg)
     $socket_timeout = 1;
     ini_set("default_socket_timeout",$socket_timeout);
      */
+    foreach($lectors as $lector){
+        error_log("Starting sending to lektor number $i");
+        $address = "";
+        $port = 0;
+        $domain = "";
 
+        $address = $lector->getIP();
+        $port = $lector->getPort();
+        $domain = correctIPDomain($address);
+        send_to_one_lector($msg, $address, $port, $domain);
+        error_log("Finished sending to lektor number $i");
+        $i = $i+1;
+    }
+
+    /*
     foreach($lectors as $lector){
         $pids[$i] = pcntl_fork();
 
@@ -126,7 +140,6 @@ function send_to_all_lectors($msg)
         $i = $i+1;
     }
 
-    /*
     $ret = false;
     for  ( $j=0; $j<$i; $j++ )
     {

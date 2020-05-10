@@ -15,9 +15,9 @@ $karas = $karaRepository->fetchAll();
         <?php foreach ($karas as $kara): ?>
             <form method="POST">
                 <li id="aKaraInKaraList">
-                    <div><?= $kara->getString()?></div>
                     <button type="button" onclick="addKara(<?= $kara->getId()?>)">Add</button>
                     <button type="button" onclick="toggleKaraInfo(<?= $kara->getId()?>)">Infos</button>
+                    <?= $kara->getString()?>
                     <div id=KaraInfo_<?= $kara->getId()?> style="display: none">
                         <h3>Infos</h3>
                         <ul>

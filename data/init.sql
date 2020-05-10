@@ -14,6 +14,7 @@ INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('cé
 INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('gengis', 'gengis@khan.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
 INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('root', 'root@root.com', NOW(), '$2y$10$4FrKplWas8RGMlKL5fWzS.M2uBitwfyvshRY7VZ5Fp.xJnwv2iCQO', 2);
 
+
 CREATE TABLE IF NOT EXISTS karas (
     id INTEGER PRIMARY KEY,
     song_name   TEXT    NOT NULL,
@@ -26,7 +27,6 @@ CREATE TABLE IF NOT EXISTS karas (
     author_name TEXT
 );
 
-
 INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_number, language, is_new, author_name) VALUES (1,'GUNDAM WING italian','Gundam Wing','OP','va',1,'it',0,'Viieux');
 INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_number, language, is_new, author_name) VALUES (2,'Something','Nadia il Mistero della Pietra Azzura','MV','va',1,'it',0,'Viieux');
 INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_number, language, is_new, author_name) VALUES (3,'version italienne','Maple Town Un Nido di Simpatia','OP','va',1,'it',0,'Viieux');
@@ -37,11 +37,22 @@ INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_numbe
 INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_number, language, is_new, author_name) VALUES (8,'Pegasus Fantasy (VF)','Saint Seiya','OP','va',1,'fr',0,'Viieux');
 INSERT INTO "karas" (id, song_name, source_name, category, song_type, song_number, language, is_new, author_name) VALUES (9,'Opening','Sailor Moon','OP','va',1,'fr',0,'Viieux');
 
+
+
 CREATE TABLE IF NOT EXISTS queue (
     position SERIAL PRIMARY KEY,
     id INTEGER NOT NULL REFERENCES karas,
     added_by INTEGER REFERENCES "user"
 );
+
+INSERT INTO queue (id, added_by) VALUES (1,1);
+INSERT INTO queue (id, added_by) VALUES (2,2);
+INSERT INTO queue (id, added_by) VALUES (3,3);
+INSERT INTO queue (id, added_by) VALUES (4,4);
+INSERT INTO queue (id, added_by) VALUES (5,5);
+INSERT INTO queue (id, added_by) VALUES (6,6);
+
+
 
 CREATE TABLE IF NOT EXISTS playlist (
     id SERIAL PRIMARY KEY,
@@ -52,17 +63,13 @@ CREATE TABLE IF NOT EXISTS playlist (
 );
 
 
-CREATE TABLE IF NOT EXISTS userCosmetics (
-    id INTEGER PRIMARY KEY REFERENCES "user",
-    IDimage INTEGER REFERENCES image,
-    IDtitle INTEGER REFERENCES title
-);
 
 CREATE TABLE IF NOT EXISTS image (
     IDimage SERIAL PRIMARY KEY,
     image VARCHAR
 );
 
+INSERT INTO "image" (IDimage, image) VALUES (0,'waifu0.png');
 INSERT INTO "image" (IDimage, image) VALUES (1,'waifu1.png');
 INSERT INTO "image" (IDimage, image) VALUES (2,'waifu2.png');
 INSERT INTO "image" (IDimage, image) VALUES (3,'waifu3.png');
@@ -80,10 +87,39 @@ INSERT INTO "image" (IDimage, image) VALUES (14,'waifu14.png');
 INSERT INTO "image" (IDimage, image) VALUES (15,'waifu15.png');
 INSERT INTO "image" (IDimage, image) VALUES (16,'waifu16.png');
 
-CREATE TABLE IF NOT EXISTS title (
+
+
+CREATE TABLE IF NOT EXISTS titles (
     IDtitle SERIAL PRIMARY KEY,
     title VARCHAR
 );
+
+INSERT INTO "titles" (IDtitle,title) VALUES (0,'Weeblet');
+INSERT INTO "titles" (IDtitle,title) VALUES (1,'Titre défectueux');
+INSERT INTO "titles" (IDtitle,title) VALUES (2,'Karamaker');
+INSERT INTO "titles" (IDtitle,title) VALUES (3,'Kara-pas-maker');
+INSERT INTO "titles" (IDtitle,title) VALUES (4,'DJ weeb');
+INSERT INTO "titles" (IDtitle,title) VALUES (5,'Weeb-Developer');
+INSERT INTO "titles" (IDtitle,title) VALUES (6,'JINBUN WO');
+INSERT INTO "titles" (IDtitle,title) VALUES (7,'Lolicon');
+INSERT INTO "titles" (IDtitle,title) VALUES (8,'Brocon');
+INSERT INTO "titles" (IDtitle,title) VALUES (9,'Siscon');
+
+
+
+CREATE TABLE IF NOT EXISTS userCosmetics (
+    id INTEGER PRIMARY KEY REFERENCES "user",
+    IDimage INTEGER REFERENCES image,
+    IDtitle INTEGER REFERENCES titles
+);
+
+INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (1,1,1);
+INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (2,2,2);
+INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (3,3,3);
+INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (4,4,4);
+INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (5,5,5);
+INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (6,6,6);
+
 
 
 CREATE TABLE IF NOT EXISTS lector (
@@ -94,5 +130,5 @@ CREATE TABLE IF NOT EXISTS lector (
 
 --INSERT INTO "lector" (id, ip, port)  VALUES (1, '127.0.0.1', 6600);
 INSERT INTO "lector" (id, ip, port)  VALUES (1, '::1', 6600);
-INSERT INTO "lector" (id, ip, port)  VALUES (2, '12.2.3.4', 1234);
+--INSERT INTO "lector" (id, ip, port)  VALUES (2, '12.2.3.4', 1234);
 

@@ -42,7 +42,7 @@ function toggleKaraInfo(i)
         div.style.display = "none";
 }
 
-function addKara(i)
+async function addKara(i)
 {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost:8080/Forms/addKara.php', true); // <--- FIXME : URL
@@ -50,9 +50,16 @@ function addKara(i)
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
     xhr.onreadystatechange = function() {//Call a function when the state changes.
-        if(xhr.readyState == XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 )) {
-            alert(xhr.responseText);
+        if(xhr.readyState == XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 ))
+        {
+            document.getElementById("lastAdd").innerHTML = "Added the kara " + i + " !";
         }
     }
     xhr.send('id=' + i);
+
+    if (typeof loadQueue == 'function')
+    {
+        await new Promise(r => setTimeout(r, 300));
+        loadQueue();
+    }
 }

@@ -4,8 +4,17 @@ head{
 body{
 	background-color:#2B3E50;
 	color:#df691a;
-	
+    margin: 0;
 }
+h1{
+	text-align:center;
+}
+
+.main-container
+{
+    margin: 10px;
+}
+
 p{
 	text-align:center;
 	size :10px
@@ -15,7 +24,13 @@ p{
 form{
 	text-align:center
 }
-img{
+.pp{ 
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:5px;
+	display:block;
+	border : 5px solid #df691a;
+	
 
 }
 
@@ -28,56 +43,41 @@ label{
 	color: #df691a;
 	size: 10px;
 }
-a:link{
+a:link, a:visited{
 	color: #df691a;
+	text-decoration:none;
+	font-size:20px;
 }
 a:hover{
-	color: orange;
+	color: #ef7a2b;
 }
 a:active{
-	color:#df691a;
+	color:#ef7a2b;
+}
+.choice{
+	margin-bottom:10px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:10px;
 }
 .funky{
 	position : absolute;
+	cursor : pointer;
+	opacity : 0;	
 	
-	
-	height : 50px;
-	width : 50px;
+	height : 200px;
+	width : 200px;
 	background-color : #df691a;
-	border-radius : 50%;
+	border-radius : 0%;
 }
-
-
-
-#karaSearch
-{
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #0000FF;
-    background-color: #FF0000;
-    border-color: #00FF00;
-    border-radius: 5px;
+.checkmark{
+	position: absolute;
+	height:200px;
+	width:200px;
 }
-
-#aKaraInKaraList
-{
-    width: 100%;
-    padding: 15px 32px;
-    text-align: left;
-    background-color: #00FF00;
-    border-radius: 15px;
-    display: block;
+.container input:checked ~ .checkmark {
+	border-radius: 50%;
 }
-
-#aKaraInKaraList:hover
-{
-    border-color: #FF0000;
-}
-
-#karaList
-{
-    height: 800px; /* Prevent the page to go up when all karas are disables,
-                     so that the user is forced to scroll down to see karas
-                     after he cleared the search*/
+.titre {
+	font-family:;
 }

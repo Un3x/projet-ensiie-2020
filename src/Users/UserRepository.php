@@ -67,8 +67,9 @@ class UserRepository
 	$UserRow=$newUserID->fetch();
 	$id=$UserRow['id'];
 
-	$newCosmetics='INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (:ID, 1, 1)';
+	$newCosmetics='INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (:ID, 0, 0)';
 	$stmt=$this->dbAdapter->prepare($newCosmetics);
+    error_log("ADDING GGGGG $id");
 	$stmt->bindParam('ID', $id);
 	$stmt->execute();
     }

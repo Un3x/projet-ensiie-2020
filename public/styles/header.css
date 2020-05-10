@@ -1,0 +1,110 @@
+header
+{
+    margin: 0 0 10px 0;
+}
+
+.topnav
+{
+    background-color: #DDDDDD;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.topnav .left-side
+{
+    float: left;
+    background-color: #DDDDDD;
+}
+
+.topnav .login-feedback
+{
+    float: right;
+    background-color: #DDDDDD;
+}
+
+.topnav .left-side a
+{
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 1em;
+    text-decoration: none;
+}
+
+.topnav .login-feedback
+{
+    display: block;
+    text-align: center;
+    padding: 1em;
+    text-decoration: none;
+}
+
+.topnav .login-feedback a
+{
+    display: inline;
+}
+
+
+/*
+.topnav
+{
+    background-color: #DDDDDD;
+    margin: 0;
+    height: 3em;
+    font-size: 17px;
+}
+
+.topnav .site-name
+{
+    font-size: 20px;
+}
+
+.topnav .topnav-element
+{
+}
+
+.topnav a {
+    display: flex;
+    color: #000000;
+    text-align: left;
+    padding: 1em;
+    text-decoration: none;
+    vertical-align: center;
+}
+
+
+.navbar
+{
+    margin: 0;
+    width: 120%;
+}
+
+header .nav-links
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+header .nav-links li
+{
+    list-style-type: none;
+}
+
+header
+{
+    background-color: #DDDDDD; 
+}
+
+header .nav-item
+{
+}
+
+header .filler
+{
+    flex-grow: 1;
+    text-align: center;
+}
+*/

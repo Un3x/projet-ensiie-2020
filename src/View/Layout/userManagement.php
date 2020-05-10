@@ -18,10 +18,10 @@ $users = $userRepository->fetchAll();
 <div class="col-sm-12">
     <table class="table">
         <tr>
-            <th>id</th>
-            <th>username</th>
-            <th>email</th>
-            <th>creation date</th>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Creation date</th>
             <th>Rights</th>
             <th>Action</th>
         </tr>

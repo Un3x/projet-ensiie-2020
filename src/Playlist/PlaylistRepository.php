@@ -23,8 +23,8 @@ class PlaylistRepository
             $playlist
                 ->setId($playlistDatum['id'])
                 ->setName($playlistDatum['name'])
-                ->setCreator($playlistDatum['creator']);
-                ->setContent($playlistDatum['content']);
+                ->setCreator($playlistDatum['creator'])
+                ->setContent($playlistDatum['content'])
                 ->setPublik($playlistDatum['publik']);
             $playlists[] = $playlist;
         }

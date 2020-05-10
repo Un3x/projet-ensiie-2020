@@ -7,7 +7,7 @@ function loadQueue()
     xhr.addEventListener('readystatechange', function ()
 {
     if (xhr.readyState === XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 )) { // <-- FIXME Delete the xhr.status === 0 when the site isn't on localhost
-        document.getElementById('karaQueue').innerHTML = '<span>' + xhr.responseText + '</span>';
+        document.getElementById('karaQueue').innerHTML = xhr.responseText;
     }
 });
 
@@ -39,7 +39,7 @@ var timer_isOn = 0;
 loadQueue(); // We load the queue at the start
 
 
-function deleteKara(i)
+async function deleteKara(i)
 {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://localhost:8080/Forms/deleteKara.php', true); // <--- FIXME : URL
@@ -48,8 +48,11 @@ function deleteKara(i)
 
     xhr.onreadystatechange = function() {//Call a function when the state changes.
         if(xhr.readyState == XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 )) {
-            alert(xhr.responseText);
+            document.getElementById("lastAdd").innerHTML = "Removed the kara " + i + " !";
         }
     }
     xhr.send('id=' + i);
+
+    await new Promise(r => setTimeout(r, 300));
+    loadQueue();
 }
