@@ -118,7 +118,7 @@ if (isset($_POST['change_username'])){
           $urep->changeUsername($username, $newname);
           $_SESSION['username'] = $newname;
           $_SESSION['success'] = "Nom d'utilisateur changé avec succès";
-          header('Location: admin_page.php');
+          header('Location: user_page.php');
         }else {
           array_push($errors, "Le mot de passe ne correspond pas à l'utilisateur.");
         }
@@ -150,7 +150,7 @@ if (isset($_POST['change_pwd'])){
         if ($nbRow == 1) {
           $urep->changePassword($username, $new);
           $_SESSION['success'] = "Mot de passe changé avec succès";
-          header('Location: admin_page.php');
+          header('Location: user_page.php');
         }
         else {
           array_push($errors, "Le mot de passe ne correspond pas à l'utilisateur.");
