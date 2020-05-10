@@ -93,19 +93,64 @@ if (isset($_POST['disconnect'])){
   header('location: index.php');
 }
 
-// //DELETE ACCOUNT
-// if (isset($_POST['delete_account'])){
-//   $urep->delete($urep->get_UserID($_SESSION['username']));
-//   unset($_SESSION['username']);
-//   unset($_SESSION['admin']);
-//   header('location: index.php');
-// }
+//CHANGE USERNAME
+if (isset($_POST['change_username'])){
+    $username = $_SESSION['username'];
+    $password = $_POST['pwd'];
+    $newname = $_POST['new_name'];
 
-// //DELETE SOMEONE ELSE
-// if (isset($_POST['del_as_admin'])){
-//   $urep->delete($urep->get_UserID($_POST['user_id']));
-//   header('location: admin_page.php');
-// }
+    if (empty($username)) {
+        array_push($errors, "Nom d'utilisateur requis (sinon on ne peut pas savoir qui vous êtes !)");
+    }
+    if (empty($password)) {
+        array_push($errors, "Mot de passe requis");
+    }
+  
+    if (count($errors) == 0) {
+      $result = $urep->fetchUserConnection($username, $password);
+        $nbRow = $result->rowCount();
+        if ($nbRow == 1) {
+          $urep->changeUsername($username, $newname);
+          $_SESSION['username'] = $newname;
+          header('Location: admin_page.php');
+        }else {
+          array_push($errors, "Le mot de passe ne correspond pas à l'utilisateur.");
+        }
+      }
+      include 'errors.php';
+}
+
+//CHANGE PASSWORD
+if (isset($_POST['change_pwd'])){
+  $username = $_SESSION['username'];
+  $old = $_POST['old'];
+  $new = $_POST['new'];
+  $conf = $_POST['conf'];
+
+    if (empty($username)) {
+      array_push($errors, "Nom d'utilisateur requis (sinon on ne peut pas savoir qui vous êtes !)");
+    }
+    if (empty($old)) {
+      array_push($errors, "Mot de passe requis");
+    }
+
+    if ($new != $conf){
+      array_push($errors, "Le mot de passe et sa confirmation ne sont pas identiques.");
+    }
+
+    if (count($errors) == 0) {
+      $result = $urep->fetchUserConnection($username, $old); //vérification que l'ancien mot de passe est bon.
+        $nbRow = $result->rowCount();
+        if ($nbRow == 1) {
+          $urep->changePassword($username, $new);
+          header('Location: admin_page.php');
+        }
+        else {
+          array_push($errors, "Le mot de passe ne correspond pas à l'utilisateur.");
+        }
+      }
+      include 'errors.php';
+}
 
 
   ?>

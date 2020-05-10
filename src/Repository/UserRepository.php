@@ -96,4 +96,21 @@ class UserRepository
         return $is[0];
     }
 
+    public function changeUsername(String $username, String $newName){
+        $query = "UPDATE users SET username=:newName WHERE username=:username";
+        $result = $this->dbAdapter->prepare($query);
+        $result->bindParam(':newName', $newName);
+        $result->bindParam(':username', $username);
+        $result->execute();
+    }
+
+    public function changePassword(String $username, String $newpwd){
+        $newpwd = crypt($newpwd, 'stupefaction');
+        $query = "UPDATE users SET pwd=:newpwd WHERE username=:username";
+        $result = $this->dbAdapter->prepare($query);
+        $result->bindParam(':newpwd', $newpwd);
+        $result->bindParam(':username', $username);
+        $result->execute();
+    }
+
 }
