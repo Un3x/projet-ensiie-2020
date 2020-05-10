@@ -17,10 +17,11 @@ $lectors = $lectorRepository->fetchAll();
 </div>
 <div class="col-sm-12">
     <table class="table">
-        <tr>
-            <th>id</th>
-            <th>ip</th>
-            <th>port</th>
+        <tr id="tab-legend">
+            <th>ID</th>
+            <th>IP</th>
+            <th>Port</th>
+            <th>Action</th>
         </tr>
         <?php foreach($lectors as $lector): ?>
             <tr>
