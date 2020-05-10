@@ -48,7 +48,7 @@ if (isset($_POST['reg_user'])) {
   	$urep->addUser($username, $email, $password_1);
     $_SESSION['id'] = $urep->get_UserID($username);
     $_SESSION['username'] = $username;
-  	$_SESSION['success'] = "Vous êtes connectés !";
+  	$_SESSION['success'] = "Compte créé avec succès !";
   	header('location: index.php');
   }
   include "errors.php";
@@ -90,6 +90,7 @@ if (isset($_POST['log_user'])) {
 if (isset($_POST['disconnect'])){
   unset($_SESSION['username']);
   unset($_SESSION['admin']);
+  $_SESSION['success'] = "Déconnexion réussie";
   header('location: index.php');
 }
 
@@ -105,6 +106,10 @@ if (isset($_POST['change_username'])){
     if (empty($password)) {
         array_push($errors, "Mot de passe requis");
     }
+
+    if ($urep->nameAlreadyUsed($newname)){
+      array_push($errors, "Ce nom d'utilisateur est déjà utilisé");
+    }
   
     if (count($errors) == 0) {
       $result = $urep->fetchUserConnection($username, $password);
@@ -112,6 +117,7 @@ if (isset($_POST['change_username'])){
         if ($nbRow == 1) {
           $urep->changeUsername($username, $newname);
           $_SESSION['username'] = $newname;
+          $_SESSION['success'] = "Nom d'utilisateur changé avec succès";
           header('Location: admin_page.php');
         }else {
           array_push($errors, "Le mot de passe ne correspond pas à l'utilisateur.");
@@ -143,6 +149,7 @@ if (isset($_POST['change_pwd'])){
         $nbRow = $result->rowCount();
         if ($nbRow == 1) {
           $urep->changePassword($username, $new);
+          $_SESSION['success'] = "Mot de passe changé avec succès";
           header('Location: admin_page.php');
         }
         else {

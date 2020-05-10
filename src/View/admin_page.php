@@ -3,17 +3,14 @@
         header('Location: user_page.php');
     }
 ?>
+
 <h1>Bienvenue chez vous, Ô tout puissant <?php echo $_SESSION['username'] ?>, administrateur de votre état.</h1>
 <h3>Voici la liste de vos fidèles disciples :</h3>
     </br>
-    <?php 
-    $db = (new DbAdaperFactory())->createService();
-    $urep = new \User\UserRepository($db);
-    $users = $urep->fetchall();
-    ?>
+
     <table>
     <th>Identifiant </th><th>Nom d'utilisateur</th><th>Email</th><th>Est-ce qu'on a été sage ?</th>
-        <?php foreach($users as $user){ ?>
+        <?php foreach($data['users'] as $user){ ?>
             <tr>
             <td><?php echo $user->getId() ?></td><td><?php echo $user->getUsername()?></td>
             <td><?php echo $user->getEmail() ?></td>
