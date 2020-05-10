@@ -16,7 +16,7 @@
 
 
 <!-- Title of the story -->
-<h1 id="story-title"><?php echo $data['title']; ?></h1>
+<h1><?php echo $data['title']; ?></h1>
 
 
 <!-- Page of the story -->

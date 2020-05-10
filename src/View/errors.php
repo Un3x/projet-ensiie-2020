@@ -4,5 +4,5 @@
   	  <p><?php echo $error ?></p>
   	<?php endforeach ?>
   </div>
-  <a href="/">Retour à l'accueil</a>
+  <button class="btn btn-primary" href="/">Retour à l'accueil</button>
 <?php  endif ?>
