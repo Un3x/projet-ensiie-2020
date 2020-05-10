@@ -128,3 +128,12 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   background-color: black;
   opacity: 90%;
 }
+
+/* Comments */
+.comments small {
+  font-size: small;
+}
+
+.comments {
+  margin-block-end: 2em;
+}

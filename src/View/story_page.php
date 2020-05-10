@@ -10,3 +10,22 @@
 	<input type="hidden" name="storyId" value="<?php echo $data['story']->getId(); ?>"/>
 	<button type="submit" class="btn btn-primary">Commencer</button>
 </form>
+
+
+
+
+
+
+<h2>Comments</h2>
+<div class="comments">
+<?php
+foreach ($data['comments'] as $comment) {
+	echo '
+	<div class="media border p-3">
+  		<div class="media-body">
+    		<h4>'.$comment->getUser().' <small><i>Aventurier débutant</i></small></h4>
+    		<p>'.$comment->getText().'</p>
+  		</div>
+	</div>';
+} ?>
+</div>
