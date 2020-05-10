@@ -68,25 +68,61 @@ a:active{
     width: 100%;
     margin-bottom: 20px;
     text-align: center;
-    color: #0000FF;
-    background-color: #FF0000;
-    border-color: #00FF00;
+    color: #000000;
+    background-color: #DDDDDD;
+    border-color: #000000;
     border-radius: 5px;
+}
+
+#karaList
+{
 }
 
 #aKaraInKaraList
 {
-    width: 100%;
-    padding: 15px 32px;
+    width: 98%;
     text-align: left;
-    background-color: #00FF00;
+    color: #FFFFFF;
+    background-color: #5b6977;
+    padding: 10px 10px 10px 10px;
     border-radius: 15px;
     display: block;
 }
 
-#aKaraInKaraList:hover
+#aKaraInKaraList button, #karaQueue button
 {
-    border-color: #FF0000;
+    color: #000000;
+    background-color: #FFFFFF;
+    border-radius: 7px;
+    border: 0px solid;
+    transition-duration: 0.2s;
+}
+
+
+#aKaraInKaraList button:hover, #karaQueue button:hover
+{
+    border-radius: 7px;
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+#karaQueue button
+{
+    margin-right: 10px;
+}
+
+
+#karaQueue img
+{
+    margin: 5px 8px 5px 0px;
+}
+
+#karaQueue #queueAdder
+{
+    float: right;
+    vertical-align: bottom;
+    line-height: 60px;
+    margin-right: 10px;
 }
 
 #karaList

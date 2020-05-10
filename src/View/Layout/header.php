@@ -23,6 +23,17 @@ session_start();
                     }
                     ?>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="search.php">Advanced Search</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="modifyUser.php">Edit your profile</a>
+                </li>
+                <?php if ( isset($_SESSION['rights']) && ( $_SESSION['rights']===1 || $_SESSION['rights']===2 ) ) { ?>
+                <li class="nav-item active">
+                    <a class="nav-link" href="admin.php">Manage Users</a>
+                </li>
+                <?php } ?>
             </ul>
         </div>
     </nav>

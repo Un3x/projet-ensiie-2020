@@ -84,7 +84,8 @@ envoie les informations à /public/Forms/modifyUserAccount.php
               echo "<p>ERROR: wrong password</p></br>";
 	  }
     ?>
-<button type="submit">modifier le compte</button>
+<button type="submit">Apply changes</button>
 </br>
+<a href="changePP.php">Modify Cosmetics</a>
 
 <script type="text/javascript" src="scripts/formulaire.js"></script>
