@@ -327,14 +327,17 @@ function printCote(avgDelayArray,avgDelayAssoArray,nbParisCoeff){
                 ?>
                 <div class = 'bi-retard'>
                     <label for="retard">Retard</label>
-                    <input type='time' id='bi-retard' name='betRetard' required
-                    onblur='<?php echo "printCote(\"$avgDelayArray\",\"$avgDelayAssoArray\",$nbParisCoeff)";?>'
-                    max ="<?php $idReu = $_SESSION['btMeeting'];
-                                $Reu = $reunionRepository->getReunion($idReu);
-                                $duration = ($Reu->getDateFinReu()->getTimestamp() - $Reu->getDateDebutReu()->getTimestamp()) - 3600;
-                                echo date("H:i",$duration);
-                        ?>"
-                    placeholder="10 min">
+                    <?php 
+                        $idReu = $_SESSION['btMeeting'];
+                        $Reu = $reunionRepository->getReunion($idReu);
+                        $duration = ($Reu->getDateFinReu()->getTimestamp() - $Reu->getDateDebutReu()->getTimestamp()) - 3600;
+
+                        echo "<input type='time' id='bi-retard' name='betRetard' required
+                        onblur='printCote(\"$avgDelayArray\",\"$avgDelayAssoArray\",$nbParisCoeff);'
+                        max =' date('H:i',$duration);'
+                            
+                        placeholder='10 min'>"
+                    ?>
                 </div>
                 <div class = 'bi-mise'>
                     <label for="mise">Mise</label>
