@@ -48,14 +48,14 @@ function searchKaraByCriteria($names)
         "SELECT DISTINCT song_name, song_type, song_number, source_name, id
          FROM \"karas\" 
          WHERE 
-         song_name LIKE :n0 AND
-         source_name LIKE :n1 AND
-         author_name LIKE :n2";
+         song_name ILIKE :n0 AND
+         source_name ILIKE :n1 AND
+         author_name ILIKE :n2";
     if ( $names[3] !== "all" )
-        $req = $req . " AND language LIKE :n3";
+        $req = $req . " AND language ILIKE :n3";
         $n3 = "%" . $names[3] . "%";
     if ( $names[4] !== "all" )
-        $req = $req . " AND song_type LIKE :n4";
+        $req = $req . " AND song_type ILIKE :n4";
         $n4 = "%" . $names[4] . "%";
     if ( $names[5] !== "Indifferent" )
     {
@@ -79,9 +79,7 @@ function searchKaraByCriteria($names)
         $ret->bindParam(':n4', $n4);
 
     $ret->execute();
-    //$ret->fetchAll(PDO::FETCH_NUM);
-
-    return $ret;
+    return $ret->fetchAll();
 }
 
 ?>

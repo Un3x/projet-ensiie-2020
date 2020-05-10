@@ -17,12 +17,12 @@ if ( isset($_GET["language"]) && isset($_SESSION["id"]) )
     <?php
 
     $names = array();
-    $names[] = $_GET["song_name"];
-    $names[] = $_GET["source_name"];
-    $names[] = $_GET["author_name"];
-    $names[] = $_GET["language"];
-    $names[] = $_GET["song_type"];
-    $names[] = $_GET["is_new"];
+    $names[] = htmlspecialchars($_GET["song_name"]);
+    $names[] = htmlspecialchars($_GET["source_name"]);
+    $names[] = htmlspecialchars($_GET["author_name"]);
+    $names[] = htmlspecialchars($_GET["language"]);
+    $names[] = htmlspecialchars($_GET["song_type"]);
+    $names[] = htmlspecialchars($_GET["is_new"]);
 
     $results = searchKaraByCriteria($names);
 
