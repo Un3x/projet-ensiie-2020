@@ -14,11 +14,10 @@ class PlaylistRepository
         $this->dbAdapter = $dbAdapter;
     }
 
-    public function fetchAll()
+    public function fromQueryToArray($query)
     {
-        $playlistsData = $this->dbAdapter->query('SELECT * FROM playlist');
         $playlists = [];
-        foreach ($playlistsData as $playlistDatum) {
+        foreach ($query as $playlistDatum) {
             $playlist = new Playlist();
             $playlist
                 ->setId($playlistDatum['id'])
@@ -31,20 +30,58 @@ class PlaylistRepository
         return $playlists;
     }
 
-    public function checkPlaylist ($name,$creator)
+    public function fetchAllPublik()
     {
-    $playlists=$this->dbAdapter->prepare('SELECT COUNT(*) From "playlist" WHERE name= :Name AND creator= :Creator');
-    $playlists->bindParam('Name',$name);
-    $playlists->bindParam('Creator',$creator);
-    $playlists->execute();
-    return $playlist->fetchColumn();
+        $playlistsData = $this->dbAdapter->query('SELECT * FROM playlist WHERE publik IS TRUE');
+        return fromQueryToArray($playlists);
     }
 
-    public function getPlaylist($creator)
+    public function fetchAllOf($userId)
     {
-    $playlists=$this->dbAdapter->prepare('SELECT * FROM "playlist" WHERE creator= :Creator');
-    $playlists->bindParam('Creator',$creator);
-    $playlists->execute();
-    return $playlist;
+        $req = 'SELECT * FROM playlist WHERE creator=:id';
+        $playlists = $this->dbAdapter->prepare($req);
+        $playlists->bindParam('id', $userId, PDO::PARAM_INT);
+        $playlists->execute();
+        return $playlists->fetchAll();
     }
+
+    public function fetchPlaylist($id)
+    {
+        $req = 'SELECT * FROM playlist WHERE id=:id';
+        $playlists = $this->dbAdapter->prepare($req);
+        $playlists->bindParam('id', $id, PDO::PARAM_INT);
+        $playlists->execute();
+        return $playlists->fetchColumn();
+    }
+
+    public function createPlaylist($name, $creator, $public)
+    {
+        $req =
+            'INSERT INTO playlist (name, creator, content, publik)
+             VALUES (:name, :creator, ARRAY[], :publik);';
+        $newPlaylist = $this
+            ->dbAdapter
+            ->prepare($req);
+        $newPlaylist->bindParam('name', $name, PDO::PARAM_STR);
+        $newPlaylist->bindParam('creator', $creator, PDO::PARAM_INT);
+        $newPlaylist->bindParam('publik', $public, PDO::PARAM_BOOL);
+        $newPlaylist->execute();
+    }
+
+    public function deletePlaylist($id)
+    {
+        $stmt = $this
+            ->dbAdapter
+            ->prepare('DELETE FROM playlist where id=:id');
+        $stmt->bindParam('id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    /*
+    public function addToPlaylist($kara, $playlist)
+    {
+        $req =
+            'UPDATE playlist';
+    }
+     */
 }
