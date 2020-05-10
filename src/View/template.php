@@ -23,6 +23,12 @@ function loadView($view,$data)
       <strong>".$_SESSION['success']."</strong>
     </div>";
       unset($_SESSION['success']);
+    }
+    if (isset($_SESSION['errors'])){
+      echo "<div class=\"alert alert-danger\">
+      <strong>".$_SESSION['errors']."</strong>
+    </div>";
+      unset($_SESSION['errors']);
     }?>
     <body>
       <div class="container main-container">
