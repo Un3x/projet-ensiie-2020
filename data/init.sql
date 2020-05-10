@@ -8,12 +8,12 @@ CREATE TABLE "user" (
     created_at TIMESTAMP WITH TIME ZONE
 );
 
-INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('unex', 'patati@patata.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
-INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('caillou', 'caillou@rocher.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
-INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('viteira', 'vivi@taira.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
-INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('césar', 'jule@cesar.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
-INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('gengis', 'gengis@khan.com', NOW(), '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
-INSERT INTO "user" (username, email, created_at, password, rights)  VALUES ('root', 'root@root.com', NOW(), '$2y$10$4FrKplWas8RGMlKL5fWzS.M2uBitwfyvshRY7VZ5Fp.xJnwv2iCQO', 2);
+INSERT INTO "user" (username, email, created_at, xp, password, rights)  VALUES ('unex', 'patati@patata.com', NOW(), 0, '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
+INSERT INTO "user" (username, email, created_at, xp, password, rights)  VALUES ('caillou', 'caillou@rocher.com', NOW(), 10, '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
+INSERT INTO "user" (username, email, created_at, xp, password, rights)  VALUES ('viteira', 'vivi@taira.com', NOW(), 15, '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
+INSERT INTO "user" (username, email, created_at, xp, password, rights)  VALUES ('césar', 'jule@cesar.com', NOW(), 35, '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 0);
+INSERT INTO "user" (username, email, created_at, xp, password, rights)  VALUES ('gengis', 'gengis@khan.com', NOW(), 45, '$2y$10$MT8Pw2OhUVnRw5bkOE/jXO00cSvbio5C9zmBUVlA4sCK6thkBUJlK', 1);
+INSERT INTO "user" (username, email, created_at, xp, password, rights)  VALUES ('root', 'root@root.com', NOW(), 1000, '$2y$10$4FrKplWas8RGMlKL5fWzS.M2uBitwfyvshRY7VZ5Fp.xJnwv2iCQO', 2);
 
 
 CREATE TABLE IF NOT EXISTS karas (
@@ -67,44 +67,46 @@ CREATE TABLE IF NOT EXISTS playlist (
 
 CREATE TABLE IF NOT EXISTS image (
     IDimage SERIAL PRIMARY KEY,
-    image VARCHAR
+    image VARCHAR,
+    xpNeeded INTEGER
 );
 
-INSERT INTO "image" (IDimage, image) VALUES (0,'waifu0.png');
-INSERT INTO "image" (IDimage, image) VALUES (1,'waifu1.png');
-INSERT INTO "image" (IDimage, image) VALUES (2,'waifu2.png');
-INSERT INTO "image" (IDimage, image) VALUES (3,'waifu3.png');
-INSERT INTO "image" (IDimage, image) VALUES (4,'waifu4.png');
-INSERT INTO "image" (IDimage, image) VALUES (5,'waifu5.png');
-INSERT INTO "image" (IDimage, image) VALUES (6,'waifu6.png');
-INSERT INTO "image" (IDimage, image) VALUES (7,'waifu7.png');
-INSERT INTO "image" (IDimage, image) VALUES (8,'waifu8.png');
-INSERT INTO "image" (IDimage, image) VALUES (9,'waifu9.png');
-INSERT INTO "image" (IDimage, image) VALUES (10,'waifu10.png');
-INSERT INTO "image" (IDimage, image) VALUES (11,'waifu11.png');
-INSERT INTO "image" (IDimage, image) VALUES (12,'waifu12.png');
-INSERT INTO "image" (IDimage, image) VALUES (13,'waifu13.png');
-INSERT INTO "image" (IDimage, image) VALUES (14,'waifu14.png');
-INSERT INTO "image" (IDimage, image) VALUES (15,'waifu15.png');
-INSERT INTO "image" (IDimage, image) VALUES (16,'waifu16.png');
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (0,'waifu0.png', 0);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (1,'waifu1.png', 0);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (2,'waifu2.png', 0);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (3,'waifu3.png', 0);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (4,'waifu4.png', 0);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (5,'waifu5.png', 10);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (6,'waifu6.png', 10);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (7,'waifu7.png', 15);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (8,'waifu8.png', 20);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (9,'waifu9.png', 30);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (10,'waifu10.png', 30);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (11,'waifu11.png', 50);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (12,'waifu12.png', 50);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (13,'waifu13.png', 50);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (14,'waifu14.png', 100);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (15,'waifu15.png', 300);
+INSERT INTO "image" (IDimage, image, xpNeeded) VALUES (16,'waifu16.png', 1000);
 
 
 
 CREATE TABLE IF NOT EXISTS titles (
     IDtitle SERIAL PRIMARY KEY,
-    title VARCHAR
+    title VARCHAR,
+    xpNeeded INTEGER
 );
 
-INSERT INTO "titles" (IDtitle,title) VALUES (0,'Weeblet');
-INSERT INTO "titles" (IDtitle,title) VALUES (1,'Titre défectueux');
-INSERT INTO "titles" (IDtitle,title) VALUES (2,'Karamaker');
-INSERT INTO "titles" (IDtitle,title) VALUES (3,'Kara-pas-maker');
-INSERT INTO "titles" (IDtitle,title) VALUES (4,'DJ weeb');
-INSERT INTO "titles" (IDtitle,title) VALUES (5,'Weeb-Developer');
-INSERT INTO "titles" (IDtitle,title) VALUES (6,'JINBUN WO');
-INSERT INTO "titles" (IDtitle,title) VALUES (7,'Lolicon');
-INSERT INTO "titles" (IDtitle,title) VALUES (8,'Brocon');
-INSERT INTO "titles" (IDtitle,title) VALUES (9,'Siscon');
+INSERT INTO "titles" (IDtitle,title, xpNeeded) VALUES (0,'Weeblet', 0);
+INSERT INTO "titles" (IDtitle,title, xpNeeded) VALUES (1,'Titre défectueux', 0);
+INSERT INTO "titles" (IDtitle,title, xpNeeded) VALUES (2,'Karamaker', 0);
+INSERT INTO "titles" (IDtitle,title, xpNeeded) VALUES (3,'Kara-pas-maker', 3);
+INSERT INTO "titles" (IDtitle,title, xpNeeded) VALUES (4,'DJ weeb', 5);
+INSERT INTO "titles" (IDtitle,title, xpNeeded) VALUES (5,'Weeb-Developer', 10);
+INSERT INTO "titles" (IDtitle,title, xpNeeded) VALUES (6,'JINBUN WO', 25);
+INSERT INTO "titles" (IDtitle,title, xpNeeded) VALUES (7,'Lolicon', 30);
+INSERT INTO "titles" (IDtitle,title, xpNeeded) VALUES (8,'Brocon', 60);
+INSERT INTO "titles" (IDtitle,title, xpNeeded) VALUES (9,'Siscon', 100);
 
 
 
