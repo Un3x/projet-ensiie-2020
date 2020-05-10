@@ -17,7 +17,7 @@ class StoryRepository
     /*
      * \brief Get all the stories in the database
      * \return \a stories a list of story objects containing the necessary
-     * informations on a story
+     * information on a story
      */
     public function fetchAll()
     {
@@ -37,7 +37,7 @@ class StoryRepository
     }
 
     /*
-     * \brief Delete the story given it's id
+     * \brief Delete the story given its id
      * \param \a storyId id of the story to delete from the database
      */
     public function delete_story (int $storyId)
@@ -50,6 +50,11 @@ class StoryRepository
         $stmt->execute();
     }
     
+    /*
+     * \brief Get a story given its id
+     * \return \a story a story object containing the necessary
+     * information about it
+     */
     public function fetchStory(int $storyId) {
         $query = 'SELECT storyid, title, author, summary FROM story WHERE storyid = :storyId';
         $result = $this->dbAdapter->prepare($query);
@@ -65,6 +70,11 @@ class StoryRepository
         return $story;
     }
 
+    /*
+     * \brief Get the pages of a story given its id
+     * \return \a pages a list of page objects, containing the necessary
+     * information about them
+     */
     public function fetchPages(int $storyId) {
         $query = 'SELECT pageid, txt, choiceint1, choiceint2, choiceint3, choicetext1,
                   choicetext2, choicetext3, firstpage, lastpage
@@ -73,8 +83,9 @@ class StoryRepository
         $result->bindParam(':storyId', $storyId);
         $result->execute();
         $pages = [];
+        
         foreach($result as $pagesDatum) {
-            // Create a page object and add it to the pages list
+            //Create a page object and add it to the list of pages
             $page = new Page();
             $page
             ->setId($pagesDatum['pageid'])

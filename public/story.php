@@ -8,20 +8,16 @@
     $story = $storyRepo->fetchStory($_GET['storyId']);
     $pages = $storyRepo->fetchPages($_GET['storyId']);
 
-    if (isset($_GET['pageId'])) {
+    if (isset($_GET['pageId']))
         foreach ($pages as $p) {
-            if ($p->getId() == $_GET['pageId']) {
+            if ($p->getId() == $_GET['pageId'])
                 $cur = $p;
-            }
         }
-    }
-    else {
+    else
         foreach($pages as $p) {
-            if ($p->getFirst()) {
+            if ($p->getFirst())
                 $cur = $p;
-            }
         }
-    }
 
     $data = [];
     $data['storyId'] = $_GET['storyId'];
