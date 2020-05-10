@@ -113,4 +113,12 @@ class UserRepository
         $result->execute();
     }
 
+    public function nameAlreadyUsed(String $username){
+        $query = "SELECT * FROM users WHERE username=:username";
+        $result = $this->dbAdapter->prepare($query);
+        $result->bindParam(':username', $username);
+        $result->execute();
+        return $result->rowCount() == 1;
+    }
+
 }

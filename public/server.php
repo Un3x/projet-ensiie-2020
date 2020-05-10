@@ -29,11 +29,12 @@ if (isset($_POST['reg_user'])) {
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
-  if (empty($username)) { array_push($errors, "Nom d'utilisateur nécessaire"); }
-  if (empty($email)) { array_push($errors, "Email requis"); }
-  if (empty($password_1)) { array_push($errors, "Mot de passe requis"); }
+  if (empty($username)) { array_push($errors, "Nom d'utilisateur nécessaire"); } //
+  if (empty($email)) { array_push($errors, "Email requis"); }                    //plus nécessaires grâce aux required dans le formulaire
+  if (empty($password_1)) { array_push($errors, "Mot de passe requis"); }        //
   if ($password_1 != $password_2) {
-	array_push($errors, "Les deux mots de passe ne concordent pas");
+  array_push($errors, "Les deux mots de passe ne concordent pas");
+  $_SESSION['errors'] = "Les deux mots de passe ne concordent pas.";
   }
 
   // first check the database to make sure 
@@ -41,6 +42,7 @@ if (isset($_POST['reg_user'])) {
   
   if ($urep->alreadyUser($username, $email)){
     array_push($errors, "Ce nom d'utilisateur ou cette adresse mail est déjà utilisé.e");
+    $_SESSION['errors'] = "Ce nom d'utilisateur ou cette adresse mail est déjà utilisé.e.";
   }
 
   // Finally, register user if there are no errors in the form
@@ -48,10 +50,10 @@ if (isset($_POST['reg_user'])) {
   	$urep->addUser($username, $email, $password_1);
     $_SESSION['id'] = $urep->get_UserID($username);
     $_SESSION['username'] = $username;
-  	$_SESSION['success'] = "Vous êtes connectés !";
+  	$_SESSION['success'] = "Compte créé avec succès !";
   	header('location: index.php');
   }
-  include "errors.php";
+  header('Location: register.php');
 }
 
 // LOGIN USER
@@ -79,17 +81,20 @@ if (isset($_POST['log_user'])) {
           header('location: index.php');
         }else {
             array_push($errors, "Le mot de passe ne correspond pas à l'utilisateur.");
+            $_SESSION['errors'] = "Le mot de passe et le nom d'utilisateur ne correspondent pas.";
         }
     }
-    include 'errors.php';
+    header('Location: login.php');
 
   }
 
 
 //DISCONNECT
 if (isset($_POST['disconnect'])){
+  unset($_SESSION['id']);
   unset($_SESSION['username']);
   unset($_SESSION['admin']);
+  $_SESSION['success'] = "Déconnexion réussie";
   header('location: index.php');
 }
 
@@ -105,6 +110,10 @@ if (isset($_POST['change_username'])){
     if (empty($password)) {
         array_push($errors, "Mot de passe requis");
     }
+
+    if ($urep->nameAlreadyUsed($newname)){
+      array_push($errors, "Ce nom d'utilisateur est déjà utilisé");
+    }
   
     if (count($errors) == 0) {
       $result = $urep->fetchUserConnection($username, $password);
@@ -112,7 +121,8 @@ if (isset($_POST['change_username'])){
         if ($nbRow == 1) {
           $urep->changeUsername($username, $newname);
           $_SESSION['username'] = $newname;
-          header('Location: admin_page.php');
+          $_SESSION['success'] = "Nom d'utilisateur changé avec succès";
+          header('Location: user_page.php');
         }else {
           array_push($errors, "Le mot de passe ne correspond pas à l'utilisateur.");
         }
@@ -143,7 +153,8 @@ if (isset($_POST['change_pwd'])){
         $nbRow = $result->rowCount();
         if ($nbRow == 1) {
           $urep->changePassword($username, $new);
-          header('Location: admin_page.php');
+          $_SESSION['success'] = "Mot de passe changé avec succès";
+          header('Location: user_page.php');
         }
         else {
           array_push($errors, "Le mot de passe ne correspond pas à l'utilisateur.");

@@ -34,11 +34,13 @@ if (isset($_POST['delete_account']))
     unset($_SESSION['id']);
     unset($_SESSION['username']);
     unset($_SESSION['admin']);
+    $_SESSION['success'] = "Compte supprimé avec succès";
 
     header('Location: index.php');
 }
 if (isset($_POST['del_as_admin']))
 {
+    $_SESSION['success'] = "Utilisateur supprimé avec succès";
     header('Location: admin_page.php');
 }
 

@@ -1,3 +1,8 @@
+<?php if (! isset($_SESSION['id'])){
+    header('location: login.php');
+}
+?>
+
 <h1>Bienvenue sur votre page personnelle <?php echo $_SESSION['username']?> !</h1>
 <p>Bientôt, vous pourrez consulter vos Achievements !</p>
 
