@@ -151,30 +151,30 @@ INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA)
 
 
 
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (1,2);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,1);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,2);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,3);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,4);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,5);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,6);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,7);
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (1,2,'BDE');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,1,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,2,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,3,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,4,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,5,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,6,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,7,'Bakaclub');
 
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (3,5);
 
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,8);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (1,9);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (2,9);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (3,9);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (4,9);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (5,9);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,9);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (7,9);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (8,9);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (9,9);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (10,9);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (11,9);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (12,9);
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,8,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (1,9,'BDE');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (2,9,'Cuisine');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (3,9,'BDS');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (4,9,'BDA');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (5,9,'I-TV');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,9,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (7,9,'DansIIE');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (8,9,'Riien');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (9,9,'LaTurboFiesta');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (10,9,'LesRamasseursDeMonaie');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (11,9,'LeCulteDeFayes');
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (12,9,'DeglingosClub');
 
 
 INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (1,2,0);

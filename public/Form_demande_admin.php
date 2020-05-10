@@ -8,13 +8,13 @@ include '../src/Asso.php';
 include '../src/AssoRepository.php';
 
 $dbAdaper = (new DbAdaperFactory())->createService();
-$AssoRepository = new \Asso\AssoRepository($dbAdaper);
+$assoRepository = new \Asso\AssoRepository($dbAdaper);
 
 session_start();
 
 $userid=$_SESSION['user']->getId();
-$assoAll = $AssoRepository->fetchAll();
 
+$assoAll=$assoRepository->fetch_all_Assos();
 ?>
 
     <!DOCTYPE html>
@@ -32,17 +32,22 @@ $assoAll = $AssoRepository->fetchAll();
 <!--     Nom <em id="em1">*</em> :
       <input type="text" name="username" value="" id ="username" >  <br />
  -->
-    Je souhaite devenir administrateur de :      
-      <select name="Nom_assoc" id ="Nom_assoc" size="1">
-  <?php    foreach($assoAll as $element){
-            echo '<option>'.$element->getNomAssoc();
-        } ?>
-    </option>
-    </select> </br>
+    Je souhaite devenir administrateur de : 
+    <?php
+  echo "<form >";
+  echo "<select name='nomasso' size='1'>";
+  foreach($assoAll as $element){
+    $val=$element->getNomAssoc();
+    if($assoRepository->appartient($val,$_SESSION['user']->getId())){
+      echo "<option value='$val'>".$val;
+      echo "</option>";
+    }
+  }
+  echo "</select>";
+  echo ' <input type="submit" name="demande_admin" value="Envoyer la demande" id ="bouton_demande_admin" align="center">';
+  echo "</form>";
+?>     
 
-    </fieldset>
-    <input type="submit" name="demande_admin" value="Envoyer la demande" id ='bouton_demande_admin' align="center">
-    </form>
 
     </body> 
     </html>

@@ -10,12 +10,15 @@ $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new \User\UserRepository($dbAdaper);
 
 session_start();
+$_SESSION['user']=$userRepository->getUser($_SESSION['username']);
+
 $assoRepository = new \Asso\AssoRepository($dbAdaper);
 $name=$_SESSION['username'];
-$asso = $assoRepository->fetch_Assos($_SESSION['user']->getId());
-$assoAll=$assoRepository->fetch_all_Assos();
-$_SESSION['user']=$userRepository->getUser($_SESSION['username']);
 $userid = $_SESSION['user']->getId();
+
+$asso = $assoRepository->fetch_Assos($userid);
+
+$assoAll=$assoRepository->fetch_all_Assos();
 ?>
 
 
@@ -31,7 +34,7 @@ $userid = $_SESSION['user']->getId();
 
 <body>
 <header>
-    <!-- <link rel="stylesheet" href="style.css" media="screen" type="text/css" /> -->
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Parions Retard</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -156,7 +159,7 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 
 <?php
   echo "<form action='assoInscription.php' method='post'>";
-  echo "<select name='nomAsso' size='1'>";
+  echo "<select name='nomasso' size='1'>";
   foreach($assoAll as $element){
     $val=$element->getNomAssoc();
     if(!$assoRepository->appartient($val,$_SESSION['user']->getId())){
@@ -175,15 +178,17 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 
 <h2>Informations du profil</h2>
 <ul>
-    <li onclick = "swipe('ListAsso');"><a href="#" >Voir mes associations</a></li>
-    <div class="col-sm-12" id="ListAsso">
+    <li onclick = "swipe('ListAsso');"> <a href="#" >Voir mes associations</a></li>
+    <div id="ListAsso">
             <table class="table">
                 <tr>
                     <th>Associations:</th>
                 </tr>
                 <?php foreach($asso as $Asso): ?>
                     <tr>
-                        <td><?php echo"".$Asso->getNomAssoc()?></td>
+                        <td><?php 
+                        $val= $Asso->getNomAssoc();
+                        echo $val; ?></td>
                     </tr>
                 <?php endforeach; ?>
             </table>
