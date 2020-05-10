@@ -22,6 +22,11 @@
   padding-top: 16px;
 }
 
+/* Forms in header */
+.header-form {
+  margin-block-end: 0px;
+}
+
 /*Tables*/
 table {
   border-collapse: collapse;
@@ -35,7 +40,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 /*Pages of a story */
 
-h1 {
+#story-title {
   text-align: center;
   font-weight: bold;
   color: darkslategray;

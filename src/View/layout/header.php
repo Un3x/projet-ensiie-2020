@@ -5,6 +5,9 @@
         <a id="brand" class="navbar-brand" href="index.php">Tales of Webseria</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="display_stories.php">Histoires</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="#contact">Contact</a>
       </li>
     </ul>
@@ -25,7 +28,7 @@
         <?php } ?>
       </li>
       <li class="nav-item">
-        <form name="disconnect" method="post" action="server.php">
+        <form class="header-form" name="disconnect" method="post" action="server.php">
           <button type="submit" class="btn btn-link nav-link" name="disconnect">Log out</button>
         </form>
       </li>
