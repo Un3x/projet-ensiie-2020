@@ -19,6 +19,7 @@ $lectors = $lectorRepository->fetchAll();
     <table class="table">
         <tr id="tab-legend">
             <th>ID</th>
+            <th>Username</th>
             <th>IP</th>
             <th>Port</th>
             <th>Action</th>
@@ -26,6 +27,7 @@ $lectors = $lectorRepository->fetchAll();
         <?php foreach($lectors as $lector): ?>
             <tr>
                 <td><?= $lector->getId() ?></td>
+                <td><?= $lector->getUsername() ?></td>
                 <td><?= $lector->getIP() ?></td>
                 <td><?= $lector->getPort() ?></td>
                 <td>

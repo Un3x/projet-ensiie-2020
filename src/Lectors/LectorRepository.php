@@ -16,14 +16,15 @@ class LectorRepository
 
     public function fetchAll()
     {
-        $lectorData = $this->dbAdapter->query('SELECT * FROM "lector"');
+        $lectorData = $this->dbAdapter->query('SELECT lector.id, ip, port, username FROM lector JOIN "user" on lector.id="user".id');
         $lectors = [];
         foreach ($lectorData as $lectorDatum) {
             $lector = new Lector();
             $lector
                 ->setId($lectorDatum['id'])
                 ->setIP($lectorDatum['ip'])
-                ->setPort($lectorDatum['port']);
+                ->setPort($lectorDatum['port'])
+                ->setUsername($lectorDatum['username']);
             $lectors[] = $lector;
         }
         return $lectors;
