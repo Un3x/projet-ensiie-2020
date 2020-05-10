@@ -27,7 +27,7 @@
         </li>
         <li>
             Is new<br>
-            <input type="radio" name="is_new" value="Indifferent">Indifferent</input>
+            <input type="radio" name="is_new" value="Indifferent" checked>Indifferent</input>
             <input type="radio" name="is_new" value="Yes">Yes</input>
             <input type="radio" name="is_new" value="No">No</input>
         </li>

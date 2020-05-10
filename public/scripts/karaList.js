@@ -12,7 +12,7 @@ function dynamicSearch()
     for ( i = 0; i < kara.length; i++ )
     {
         hide = false;
-        a = kara[i].getElementsByTagName('div');
+        a = kara[i].getElementsByTagName('span');
         txtValue = a[0].textContent;
         search_loop:
         for (j=0; j<filter.length; j++)
