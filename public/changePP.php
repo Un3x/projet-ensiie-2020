@@ -5,6 +5,7 @@ set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');?>
 <?php include_once "../src/ViewPictures.php"?>
 
 <?php include_once "View/Layout/head.php" ?>
+</head>
 <?php include_once "View/Layout/header.php"?>
 
 <?php if (isset($_SESSION['username'])){

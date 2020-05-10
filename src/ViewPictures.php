@@ -36,6 +36,6 @@ function choiceTitleDummy(){
 }
 
 function viewPP($name,$height, $width, $border) {
-	echo "<img class=\"choice\" style=\"border-radius:".$border."%;\" id=\"pp\" src=\"images/ProfilePictures/" .$name."\" alt=\"waifu\" height=".$height." width=".$width.">" ;
+	echo "<img style=\"border-radius:".$border."%;\" id=\"pp\" src=\"images/ProfilePictures/" .$name."\" alt=\"waifu\" height=".$height." width=".$width.">" ;
 }
 ?>
