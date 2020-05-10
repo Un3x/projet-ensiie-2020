@@ -13,12 +13,12 @@ CREATE TABLE Administrateur(
 );
 
 CREATE TABLE Association(
-	Id_Assoc VARCHAR PRIMARY KEY,
+	Id_Assoc INTEGER PRIMARY KEY,
 	Nom_assoc VARCHAR
 );
 
 CREATE TABLE Reunion(
-	Id_Assoc VARCHAR NOT NULL,
+	Id_Assoc INTEGER NOT NULL,
 	Id_reu  VARCHAR PRIMARY KEY,
 	Date_debut_reu TIMESTAMP,
 	Date_fin_reu TIMESTAMP,
@@ -33,7 +33,7 @@ CREATE TABLE Demandes_user_Superadmin(
 );
 
 CREATE TABLE Appartenir(
-	Id_Assoc VARCHAR,
+	Id_Assoc INTEGER,
 	Id_Membre INTEGER,
 	Nom_Assoc VARCHAR,
 	username VARCHAR,
@@ -42,7 +42,7 @@ CREATE TABLE Appartenir(
 );
 
 CREATE TABLE Administrer(
-	Id_Assoc VARCHAR,
+	Id_Assoc INTEGER,
 	Id_Membre INTEGER,
 	FOREIGN KEY (Id_Assoc) REFERENCES Association(Id_Assoc),
 	FOREIGN KEY (Id_Membre) REFERENCES Administrateur(Id_MembreA) on delete cascade
@@ -51,12 +51,20 @@ CREATE TABLE Administrer(
 CREATE TABLE Participations(
 	Id_reu VARCHAR,
 	Id_Membre INTEGER,
-	statut INTEGER NOT NULL, --statut = [ 0:Oui , 1:Non , 2:En_Attente , 3:A participé ]
+	statut INTEGER NOT NULL, --statut = [ 0:Oui , 1:Non , 2:En_Attente , 3:A_participé ]
 	retard TIMESTAMP, --représente la durée du retard
 	FOREIGN KEY (Id_reu) REFERENCES Reunion(Id_reu),
 	FOREIGN KEY (Id_Membre) REFERENCES Membre(id) on delete cascade
 );
 
+CREATE TABLE Paris(
+	id_paris INTEGER PRIMARY KEY,
+	player INTEGER,
+	id_reu VARCHAR,
+	id_user INTEGER,
+	mise INTEGER,
+	date_paris TIMESTAMP
+);
 
 create view Vue_admin as select(Administrateur.Id_MembreA) 
 	from Membre 
@@ -78,6 +86,12 @@ INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (3,'BDS');
 INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (4,'BDA');
 INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (5,'I-TV');
 INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (6,'Bakaclub');
+INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (12,'DansIIE');
+INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (8,'Riien');
+INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (9,'LaTurboFiesta');
+INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (10,'LesRamasseursDeMonaie');
+INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (11,'LeCulteDeFayes');
+INSERT INTO Association (Id_Assoc, Nom_assoc) VALUES (7,'DeglingosClub');
 
 INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (1, 0); 
 INSERT INTO Administrateur (Id_MembreA, Droit) VALUES (5, 1); 
@@ -105,12 +119,20 @@ INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA,
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA, Descriptif) VALUES (6,18,'2020-05-04 12:00:00','2008-01-01 15:59:00', 1, 'Turbo party entre bonnes gens et personnes cultivées âme-sensible-friendly');
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (6,19,'2020-05-07 08:00:00','2008-01-01 11:59:00', 1);
 
-INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_Assoc, username) VALUES (1,2, 'BDE','caillou');
-
 INSERT INTO Administrer (Id_Assoc, Id_Membre) VALUES (3, 5);
 INSERT INTO Administrer (Id_Assoc, Id_Membre) VALUES (4, 8);
 
-INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_Assoc, username) VALUES (2,2, 'Cuisine','caillou');
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (2,20,'2020-05-08 08:00:00','2020-05-08 11:59:00', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (3,21,'2020-05-08 08:00:00','2020-05-08 11:59:00', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (4,22,'2020-05-09 08:00:00','2020-05-08 11:59:00', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (5,23,'2020-05-08 08:00:00','2020-05-08 11:59:00', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (7,24,'2020-05-08 08:00:00','2020-05-08 11:59:00', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (8,25,'2020-05-08 08:00:00','2020-05-08 11:59:00', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (9,26,'2020-05-08 08:00:00','2020-05-08 11:59:00', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (10,27,'2020-05-08 08:00:00','2020-05-08 11:59:00', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (11,28,'2020-05-08 08:00:00','2020-05-08 11:59:00', 1);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (12,29,'2020-05-08 08:00:00','2020-05-08 11:59:00', 1);
+
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (1,2);
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,1);
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,2);
@@ -119,8 +141,8 @@ INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,4);
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,5);
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,6);
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,7);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,8);
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,9);
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (3,5);
 
 INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (1,2,0);
 INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (2,2,1);

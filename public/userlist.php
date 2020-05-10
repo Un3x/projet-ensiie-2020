@@ -56,7 +56,6 @@ echo "nb d'identifiants = ".$nb_id;*/
         </div>
     </nav>
 </header>
-<a class="nav-link" href="./Form_demande_admin.php">Formulaire de demande afin de devenir administrateur pour une association</a>
 
 <div class="container">
     <div class="row">

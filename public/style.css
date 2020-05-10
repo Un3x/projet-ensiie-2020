@@ -11,6 +11,11 @@ body{
     background: white;
 }
 
+#f1{
+    padding:0 20px 20px 20px;
+    margin-bottom:10px;
+    border:1px solid #DF3F3F;
+}
 #td1{
     border: 1px solid #333;
 }

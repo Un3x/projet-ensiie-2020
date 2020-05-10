@@ -45,6 +45,37 @@ class ReunionRepository
         return $meetings;     
     }
 
+     /**
+     * @param $id_asso un id d'asso et $date une date
+     * @return $meetings la liste des meetings pour l'asso $id_asso 
+     *         suivant la date $date trié par ordre chronologique
+     */
+    public function getMeetingForBetList($id_asso,$date)
+    {
+        $requete = "SELECT * 
+                    FROM reunion
+                    WHERE id_assoc = '$id_asso'
+                    AND Date_debut_reu > '$date'
+                    ORDER BY Date_debut_reu";  
+        $exec_requete = $this->dbAdapter->query($requete);
+        $meetings = [];
+        if (empty($exec_requete)) return [];
+        foreach ($exec_requete as $meeting_row) {
+            $meeting = new Reunion();
+            $meeting
+                ->setIdAssoc($meeting_row['id_assoc'])
+                ->setIdReu($meeting_row['id_reu'])
+                ->setIdMembreA($meeting_row['id_membrea'])
+                ->setDateDebutReu(new \DateTime($meeting_row['date_debut_reu']))
+                ->setDateFinReu(new \DateTime($meeting_row['date_fin_reu']))
+                ->setDescriptif($meeting_row['descriptif']);
+            $meetings[] = $meeting;
+        }
+        return $meetings;     
+    }
+
+
+
     /**
      * @param $meeting un id de réunion
      * @return $reunion la reunion
@@ -69,6 +100,43 @@ class ReunionRepository
         return NULL;
     }
 
+    /**
+     * @param $meeting un id de réunion et $id l'id d'un membre
+     * @return $meetings la liste des réunions auxquelles $id participe qui chevauchent la réunion $meeting
+     */
+    public function getOverlaping($id_reu,$id)
+    {
+        $requete = "SELECT * 
+                    FROM reunion 
+                    NATURAL JOIN appartenir 
+                    JOIN membre 
+                    ON membre.id = appartenir.id_membre
+                    WHERE id = $id";  
+        $exec_requete = $this->dbAdapter->query($requete);
+        $meetings = [];
+        foreach ($exec_requete as $meeting_row) {
+            $meeting = new Reunion();
+            $meeting
+                ->setIdAssoc($meeting_row['id_assoc'])
+                ->setIdReu($meeting_row['id_reu'])
+                ->setIdMembreA($meeting_row['id_membrea'])
+                ->setDateDebutReu(new \DateTime($meeting_row['date_debut_reu']))
+                ->setDateFinReu(new \DateTime($meeting_row['date_fin_reu']))
+                ->setDescriptif($meeting_row['descriptif']);
+            if ($meeting_row['id_reu'] !=$id_reu) $meetings[] = $meeting;
+            else $reu = $meeting;
+        }
+        $start = $reu->getDateDebutReu()->getTimestamp();
+        $end = $reu->getDateFinReu()->getTimestamp();
+        $overlapingmeetings = [];
+        foreach ($meetings as $fm) {
+            $fstart = $fm->getDateDebutReu()->getTimestamp();
+            $fend = $fm->getDateFinReu()->getTimestamp();
+            if (($fstart>=$start && $fstart<$end) or ($start>=$fstart && $start<$fend)) $overlapingmeetings[] = $fm;
+        }
+        return $overlapingmeetings;     
+    }
+
 
     /**
      * @param $meeting une réunion
@@ -84,4 +152,67 @@ class ReunionRepository
         return "Void";
     }
 
+
+    public function MaxId(){
+        $usersData = $this->dbAdapter->query("SELECT Id_reu FROM reunion");
+        foreach ($usersData as $users) {
+            $nb_id = max($users);
+        }
+        return $nb_id;
+    }
+
+    public function newReunion($Nom_Assoc, $IdReu, $Date_debut_reu, $Date_fin_reu, $Id_MembreA, $Descriptif)
+    {
+
+        //AJOUT de la reunion dans la table REUNION
+        //on recupere l'id de l'asso grace a la table assocation
+        $sql = "SELECT Association.Id_Assoc FROM Association where Association.Nom_Assoc = '$Nom_Assoc'";
+        $result = $this->dbAdapter->query($sql);
+        $donnees = $result->fetch();
+        $Id_Assoc = $donnees['id_assoc'];
+
+        echo "insetion table Reunion";
+        echo "Nom_Assoc = ".$Nom_Assoc;
+        echo "</br>id_assoc = ".$Id_Assoc;
+        echo "</br>id_reu = ".$IdReu;
+        echo "</br>Date_debut_reu = ".$Date_debut_reu;
+        echo "</br>Date_fin_reu = ".$Date_fin_reu;
+        echo "</br>Id_MembreA = ".$Id_MembreA;
+        echo "</br>Descriptif = ".$Descriptif;
+        
+
+        $req=$this->dbAdapter->prepare('INSERT INTO Reunion(Id_Assoc,Id_reu,Date_debut_reu,Date_fin_reu,Id_MembreA,Descriptif) VALUES(:Id_Assoc,:Id_reu,:Date_debut_reu,:Date_fin_reu,:Id_MembreA,:Descriptif)');
+
+        $req->bindParam('Id_Assoc', $Id_Assoc);    
+        $req->bindParam('Id_reu', $Id_reu);
+        $req->bindParam('Date_debut_reu', $Date_debut_reu);
+        $req->bindParam('Date_fin_reu', $Date_fin_reu);
+        $req->bindParam('Id_MembreA', $Id_MembreA);
+        $req->bindParam('Descriptif', $Descriptif);
+
+        $req->execute();
+        echo " </br> on a bien ajoute la reu </br>";
+
+        //On veut la liste de tous les id_membre de Apartenir pour une association donnée
+        $statut = 2; //on met les status à 2 car statut en attente (pas encore de reponse du user)
+        
+        $usersData = $this->dbAdapter->query("SELECT Appartenir.Id_Membre from Appartenir 
+                                    join Association on Appartenir.Id_Assoc = Association.Id_Assoc
+                                    where Association.Id_Assoc = '$Id_Assoc'");
+
+        //une fois qu'on a la liste de tous les id_membre, on remplit la table PARTICIPATIONS
+        foreach($usersData as $row){
+            echo "row = ".$row['id_membre'];
+            echo "</br>id reu = ".$IdReu;
+            echo "</br>statut = ".$statut;
+
+            $reqt = $this->dbAdapter->prepare('INSERT INTO Participations(Id_reu, Id_Membre, statut) VALUES(:Id_reu,:Id_Membre,:statut)');
+            
+            $reqt->bindParam('Id_reu', $IdReu);    
+            $reqt->bindParam('Id_Membre', $row['id_membre']);
+            $reqt->bindParam('statut', $statut);
+            //$req->bindParam('retard', $Date_fin_reu);
+            $reqt->execute();
+        }
+    }
 }

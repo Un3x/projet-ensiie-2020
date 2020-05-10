@@ -178,9 +178,7 @@ class UserRepository
         $sql="SELECT Membre.id FROM Membre where Membre.username = '$username'";
         $result = $this->dbAdapter->query($sql);
         $donnees = $result->fetch();
-        $id = $donnees['id'];
-        echo "je recupere l'id".$id."de l'utilisateur:".$username;
-        echo gettype($id);
+        $id = $donnees['id'];        
         
         //AJOUT table ADMINISTRATEUR grâce à son id
         $droit = 1;
@@ -188,9 +186,6 @@ class UserRepository
         $req->bindParam('id',$id); //, PDO::PARAM_INT
         $req->bindParam('droit', $droit); //, PDO::PARAM_INT
         $req->execute();
-        echo "table Administrateur: \n";
-        echo "je recupere l'id' : ".$id;
-        echo "je recupere l'id : ".$droit;
 
         //RECUPERER le nom de l'asso
         $sql6="SELECT Demandes_user_Superadmin.Nom_assoc from Demandes_user_Superadmin 
@@ -198,16 +193,12 @@ class UserRepository
         $result6 = $this->dbAdapter->query($sql6);
         $donnees6 = $result6->fetch();
         $Nom_assoc = $donnees6['nom_assoc'];
-        echo "je recupere le nom de l'asso : ".$Nom_assoc;
 
         //RECUPERER l'id assoc grace au nom de l'asso
         $sql2="SELECT Id_Assoc FROM Association where Nom_assoc = '$Nom_assoc'";
         $result2 = $this->dbAdapter->query($sql2);
         $donnees2 = $result2->fetch();
         $id_assoc = $donnees2['id_assoc'];
-        echo "table administrer : \n";
-        echo "je recupere l'id' de l'asso : ".$id_assoc;
-        echo "je recupere l'id : ".$id;
 
         //AJOUT table Administrer
         $req3 = $this->dbAdapter->prepare("INSERT INTO Administrer(Id_Assoc, Id_Membre) VALUES (:id_assoc, :id)");
@@ -245,14 +236,20 @@ class UserRepository
         } 
         $req->execute();
     }
+
     public function IsAdmin($userid){
-        $sql="SELECT * FROM administrateur where id_membrea='$userid'";
-        $SuperUserOf=$this->dbAdapter->query($sql);
-        if(is_null($SuperUserOf)){ 
-            return false;
+        $sql="SELECT * FROM Administrateur where Id_MembreA='$userid'";
+        $exec_requete = $this->dbAdapter->query($sql);
+        $count = 0;
+        foreach($exec_requete as $entry){
+            $count = $count + 1;
         }
-        else{
+        if($count != 0){ //si notre user est un admin
             return true;
         }
+        else{ //s'il n'est pas admin
+            return false;
+        }
     }
+
 }
