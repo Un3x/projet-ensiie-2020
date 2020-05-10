@@ -4,11 +4,11 @@ function validationFormulaire(){
     	alert("Veuillez rentrer un nom d'utilisateur");
     	return false;
     }
-	
+
     if(frm.elements['username'].value.includes(" ")){
    	 alert("Un nom d'utilisateur ne peut pas contenir d'espace!");
    	 return false;
-    } 
+    }
 
     if(frm.elements['email'].value==""){
         alert("adresse mail invalide");
@@ -36,12 +36,12 @@ function validationFormulaireLogin(){
         alert("Veuillez rentrer un nom d'utilisateur");
         return false;
     }
-    
+
     if(frm.elements['username'].value.includes(" ")){
    	 alert("Un nom d'utilisateur ne peut pas contenir d'espace!");
    	 return false;
-    } 
-    
+    }
+
     if(frm.elements['password'].value==""){
         alert("enter passWord");
         return false;
@@ -57,16 +57,16 @@ function validationFormulaireLogin(){
 
 function validationFormulaireChangeUser(){
     frm=document.forms['formChangeUser'];
-    
+
     if(frm.elements['newUsername'].value==""){
         alert("Veuillez rentrer un nom d'utilisateur");
         return false;
     }
-    
+
     if(frm.elements['newUsername'].value.includes(" ")){
    	 alert("Un nom d'utilisateur ne peut pas contenir d'espace!");
    	 return false;
-    } 
+    }
     if(!(/\S+@\S+/.test(frm.elements['newEmail'].value))){
         alert("nouvelle adresse mail invalide");
             return false;

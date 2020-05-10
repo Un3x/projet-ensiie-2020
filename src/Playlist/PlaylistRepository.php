@@ -62,10 +62,11 @@ class PlaylistRepository
         $newPlaylist = $this
             ->dbAdapter
             ->prepare($req);
+        var_dump($newPlaylist);
         $newPlaylist->bindParam('name', $name, PDO::PARAM_STR);
         $newPlaylist->bindParam('creator', $creator, PDO::PARAM_INT);
         $newPlaylist->bindParam('publik', $public, PDO::PARAM_BOOL);
-        $newPlaylist->execute();
+        return $newPlaylist->execute();
     }
 
     public function deletePlaylist($id)
@@ -74,7 +75,7 @@ class PlaylistRepository
             ->dbAdapter
             ->prepare('DELETE FROM playlist where id=:id');
         $stmt->bindParam('id', $id, PDO::PARAM_INT);
-        $stmt->execute();
+        return $stmt->execute();
     }
 
     /*
