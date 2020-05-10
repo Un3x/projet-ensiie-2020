@@ -55,7 +55,7 @@ class UserRepository
     //add a new row to the table "user" and "userCosmetics"
     public function add ($username, $email, $password)
     {
-    $newUser=$this->dbAdapter->prepare('INSERT INTO "user" (username, email, password, rights, created_at) VALUES (:userName, :Email, :passWord, 0, NOW())');
+    $newUser=$this->dbAdapter->prepare('INSERT INTO "user" (username, email, password, xp, rights, created_at) VALUES (:userName, :Email, :passWord, 0, 0, NOW())');
         $newUser->bindParam('userName', $username);
         $newUser->bindParam('Email', $email);
 	$newUser->bindParam('passWord', $password);
