@@ -1,6 +1,6 @@
 <?php 
 
-function loadView($view)
+function loadView($view,$data)
 {
 ?>
   <!DOCTYPE html>
