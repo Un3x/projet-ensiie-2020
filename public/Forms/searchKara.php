@@ -4,16 +4,19 @@ set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 
 include_once 'Karas/searchKara.php';
 
+
+include_once "View/Layout/head.php"; ?>
+</head>
+
+<body>
+<?php include_once "View/Layout/header.php";
+
+include_once "View/Layout/karaSearch.php";
+
 if ( isset($_GET["language"]) && isset($_SESSION["id"]) )
-{
 
-    include_once "View/Layout/head.php" ?>
-    <body>
-    <?php include_once "View/Layout/header.php" ?>
-
+{?>
     <h3>Here are your results</h3>
-    <p>Want to make <a href=/search.php>another one</a>?</p>
-
     <?php
 
     $names = array();
@@ -40,13 +43,8 @@ if ( isset($_GET["language"]) && isset($_SESSION["id"]) )
     echo "</ul>";
     }
 ?>
-    </body>
-    </html>
 <?php
-}
+}?>
 
-else
-{
-    echo "見ないで、バカ";
-}
-?>
+</body>
+</html>

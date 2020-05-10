@@ -26,10 +26,10 @@ if ( isset($_GET["getQueue"]) && isset($_SESSION["id"]) )
         {
             echo '<li>';
             echo '<button type="button" onclick="deleteKara(' . $result[4] . ')">Delete</button>';
-            viewPP("waifu$result[6].png", 50, 50, 5);
             echo $result[0] . " - " . $result[1] . $result[2] . " - " . $result[3];
             echo '<span id="queueAdder">';
-            echo '{' . $result[5] . "}";
+            echo $result[5];
+            viewPP("waifu$result[6].png", 50, 50, 5);
             echo '</span>';
             echo '</li>';
         }

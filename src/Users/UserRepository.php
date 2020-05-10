@@ -78,16 +78,33 @@ class UserRepository
     {
         $stmt = $this
             ->dbAdapter
-        ->prepare('DELETE FROM "user" where id = :userId');
-
+	          ->prepare('DELETE FROM userCosmetics where id = :userId');
         $stmt->bindParam('userId', $userId);
         $stmt->execute();
+
         $stmt2 = $this
             ->dbAdapter
-	    ->prepare('DELETE FROM userCosmetics where id = :userId');
-
+	          ->prepare('DELETE FROM queue where id = :userId');
         $stmt2->bindParam('userId', $userId);
         $stmt2->execute();
+
+        $stmt3 = $this
+            ->dbAdapter
+	          ->prepare('DELETE FROM lector where id = :userId');
+        $stmt3->bindParam('userId', $userId);
+        $stmt3->execute();
+
+        $stmt4 = $this
+            ->dbAdapter
+	          ->prepare('DELETE FROM playlist where id = :userId');
+        $stmt4->bindParam('userId', $userId);
+        $stmt4->execute();
+
+        $stmt5 = $this
+            ->dbAdapter
+            ->prepare('DELETE FROM "user" where id = :userId');
+        $stmt5->bindParam('userId', $userId);
+        $stmt5->execute();
     }
 
 

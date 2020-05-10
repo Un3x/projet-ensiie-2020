@@ -36,7 +36,7 @@ $tmprights=$user->getRights();
 
 if ( $tmprights === 0 )
 {
-    echo "Peasant</td>\n<td>";
+    echo "Peasant</td><td>";
     echo
         '<form method="POST" action="Forms/modifyUserRights.php">
             <input name="user_id" type="hidden" value="' . $user->getId() . '">
@@ -53,7 +53,7 @@ if ( $tmprights === 0 )
 
 elseif ( $tmprights === 1 )
 {
-    echo "Admin</td>\n<td>";
+    echo "Admin</td><td>";
     echo
         '<form method="POST" action="Forms/modifyUserRights.php">
             <input name="user_id" type="hidden" value="' . $user->getId() . '">
@@ -64,29 +64,29 @@ elseif ( $tmprights === 1 )
 
 elseif ( $tmprights === 2 )
 {
-    echo "Root</td>\n<td>";
+    echo "Root</td><td>";
 }
 
 elseif ( $tmprights === -1 )
 {
-    echo "Trash</td>\n<td>";
+    echo "Trash</td><td>";
     echo
         '<form method="POST" action="Forms/modifyUserRights.php">
             <input name="user_id" type="hidden" value="' . $user->getId() . '">
             <input name="action" type="hidden" value="1">
-            <button type="submit">Upgrade</button>
+            <button onclick="return confirm(\'Are you sure ?\')" type="submit">Upgrade</button>
         </form>';
 }
 else
 {
-    echo "UNKNOWN</td>\n<td>";
+    echo "UNKNOWN</td><td>";
 }
 
-if ( ($user->getId() !== $_SESSION['id']) && ($user->getRights() <= $_SESSION['rights']) )
+if ( ($user->getId() !== $_SESSION['id']) && ($user->getRights() <= $_SESSION['rights']) && ($user->getRights() != 2) )
 echo 
 '<form method="POST" action="Forms/deleteUser.php">
     <input name="user_id" type="hidden" value="' . $user->getId() . '">
-    <button type="submit">Delete</button>
+    <button onclick="return confirm(\'Are you sure ?\')" type="submit">Delete</button>
 </form>';
 ?>
                 </td>

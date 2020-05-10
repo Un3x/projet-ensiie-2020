@@ -4,7 +4,7 @@ set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 require_once 'Factory/DbAdaperFactory.php';
 require_once 'Lektor_interface/sockets_utils.php';
 
-if (isset($_SESSION['id']) && $_SESSION['rights'] >= 1)
+if ( isset($_SESSION['id']) && ( $_SESSION['rights'] === 1 || $_SESSION['rights'] === 2) )
 {
     $dbAdapter = (new DbAdaperFactory())->createService();
     echo "Deleting kara at position " . $_POST['id'] . "...\n";

@@ -15,6 +15,6 @@ if ($lectorId) {
     $lectorRepository->delete($lectorId);
 }
 
-header('Location: /');
+header("Location: /admin.php");
 
 ?>

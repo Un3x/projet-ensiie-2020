@@ -1,23 +1,28 @@
 <?php
-//****
-//allow to delete a user from de database
-//will be placed in the inc folder, will wait for my colleagues's approval :^)
-//obviously only admins have acces to this
-//****
-use User\UserRepository;
+session_start();
 
-include '../src/User.php';
-include '../src/UserRepository.php';
-include '../src/Factory/DbAdaperFactory.php';
-
-$dbAdaper = (new DbAdaperFactory())->createService();
-
-$userId = $_POST['user_id'] ?? null;
-if ($userId) {
-    $userRepository = new UserRepository($dbAdaper);
-    $userRepository->delete($userId);
+if ( !(isset($_SESSION['id']) && ( $_SESSION['rights'] === 1 || $_SESSION['rights'] === 2)) )
+{
+    echo "Please be nice and leave, OK ?";
+    exit();
 }
 
-header('Location: /');
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
+include 'Users/User.php';
+include 'Users/UserRepository.php';
+include 'Factory/DbAdaperFactory.php';
+
+$dbAdapter = (new DbAdaperFactory())->createService();
+$userRepository = new \User\UserRepository($dbAdapter);
+
+$deletedId = htmlspecialchars($_POST['user_id']);
+$deletedRights = $userRepository->getRights($deletedId);
+
+if ( ($deletedRights <= $_SESSION['rights']) && ($deletedRights !== 2) )
+{
+    $userRepository->delete($deletedId);
+}
+
+header("Location: /admin.php");
 
 ?>
