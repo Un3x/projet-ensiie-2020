@@ -1,4 +1,4 @@
-<h1>Il est l'heure de jouer aux héros !</h1>
+<h1>Il est l'heure de jouer au héros !</h1>
 </br>
 <p>Voici la liste des histoires auxquelles vous pouvez jouer pour le moment !</p>
 
