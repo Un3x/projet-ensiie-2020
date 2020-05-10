@@ -17,7 +17,7 @@ $karas = $karaRepository->fetchAll();
                 <li id="aKaraInKaraList">
                     <button type="button" onclick="addKara(<?= $kara->getId()?>)">Add</button>
                     <button type="button" onclick="toggleKaraInfo(<?= $kara->getId()?>)">Infos</button>
-                    <?= $kara->getString()?>
+                    <span><?= $kara->getString()?></span>
                     <div id=KaraInfo_<?= $kara->getId()?> style="display: none">
                         <h3>Infos</h3>
                         <ul>
