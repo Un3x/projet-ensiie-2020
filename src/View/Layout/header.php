@@ -3,38 +3,26 @@ session_start();
 ?>
 
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Bakaraoke</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="search.php">Advanced Search</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="modifyUser.php">Edit your profile</a>
-                </li>
-                <?php if ( isset($_SESSION['rights']) && ( $_SESSION['rights']===1 || $_SESSION['rights']===2 ) ) { ?>
-                <li class="nav-item active">
-                    <a class="nav-link" href="admin.php">Manage Users</a>
-                </li>
-                <li class="nav-item active" id="login-feedback">
-                    <?php
-                    if (isset($_SESSION['username'])){
-                        $idSession=$_SESSION['id'];
-                        $userSession=$_SESSION['username'];
-                        echo "You are logged in as $userSession, $idSession\n";
-                    }
-                    else {
-                        echo "You are logged out : <a class='nav-link' href='login.php'>Login</a>\n";
-                    }
-                    ?>
-                </li>
-                <?php } ?>
-            </ul>
-        </div>
-    </nav>
+    <ul class="topnav">
+        <li><a class="site-name" href="#">Bakaraoke</a></li>
+        <li><a class="nav-link" href="search.php">Advanced Search</a></li>
+    <?php if ( isset($_SESSION['rights']) && ( $_SESSION['rights']===1 || $_SESSION['rights']===2 ) ) { ?>
+        <li><a class="nav-link" href="admin.php">Manage Users</a></li>
+    <?php } ?>
+        <li><a class="nav-link" href="modifyUser.php">Edit your profile</a></li>
+        <li class="login-feedback">
+        <?php
+        if (isset($_SESSION['username']))
+        {
+            $idSession=$_SESSION['id'];
+            $userSession=$_SESSION['username'];
+            echo "You are logged in as $userSession, $idSession\n";
+        }
+        else
+        {
+            echo "You are logged out : <a class='nav-link' href='login.php'>Login</a>\n";
+        }
+        ?>
+        </li>
+    </ul>
 </header>

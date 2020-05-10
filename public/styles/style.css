@@ -4,8 +4,15 @@ head{
 body{
 	background-color:#2B3E50;
 	color:#df691a;
-	
+    margin: 0;
 }
+
+
+.main-container
+{
+    margin: 10px;
+}
+
 p{
 	text-align:center;
 	size :10px
@@ -60,11 +67,4 @@ a:active{
 }
 .container input:checked ~ .checkmark {
 	border-radius: 50%;
-}
-
-
-
-#login-feedback
-{
-    float: right;
 }
