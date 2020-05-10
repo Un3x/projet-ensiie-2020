@@ -84,10 +84,6 @@ class ReunionRepository
         return "Void";
     }
 
-    public function maxIdReu(){
-        $IdReu= $this->dbAdapter->query("SELECT id FROM reunion");
-        return max($IdReu);
-    }
 
     public function MaxId(){
         $usersData = $this->dbAdapter->query("SELECT Id_reu FROM reunion");
@@ -97,12 +93,25 @@ class ReunionRepository
         return $nb_id;
     }
 
-    public function newReunion($Nom_Assoc,$IdReu,$Date_debut_reu,$Date_fin_reu,$Id_MembreA,$Descriptif)
+    public function newReunion($Nom_Assoc, $IdReu, $Date_debut_reu, $Date_fin_reu, $Id_MembreA, $Descriptif)
     {
-        $requete = "SELECT Id_Assoc FROM Association where nom_assoc = $Nom_Assoc";
-        $Id_Asso = $this->dbAdapter->query($requete);
+
+        //AJOUT de la reunion dans la table REUNION
+        //on recupere l'id de l'asso grace a la table assocation
+        $sql = "SELECT Association.Id_Assoc FROM Association where Association.Nom_Assoc = '$Nom_Assoc'";
+        $result = $this->dbAdapter->query($sql);
+        $donnees = $result->fetch();
+        $Id_Assoc = $donnees['id_assoc'];
+
+        echo "insetion table Reunion";
+        echo "Nom_Assoc = ".$Nom_Assoc;
+        echo "</br>id_assoc = ".$Id_Assoc;
+        echo "</br>id_reu = ".$IdReu;
+        echo "</br>Date_debut_reu = ".$Date_debut_reu;
+        echo "</br>Date_fin_reu = ".$Date_fin_reu;
+        echo "</br>Id_MembreA = ".$Id_MembreA;
+        echo "</br>Descriptif = ".$Descriptif;
         
-        $Id_Asso=(int)$Id_Assoc;
 
         $req=$this->dbAdapter->prepare('INSERT INTO Reunion(Id_Assoc,Id_reu,Date_debut_reu,Date_fin_reu,Id_MembreA,Descriptif) VALUES(:Id_Assoc,:Id_reu,:Date_debut_reu,:Date_fin_reu,:Id_MembreA,:Descriptif)');
 
@@ -114,5 +123,28 @@ class ReunionRepository
         $req->bindParam('Descriptif', $Descriptif);
 
         $req->execute();
+        echo " </br> on a bien ajoute la reu </br>";
+
+        //On veut la liste de tous les id_membre de Apartenir pour une association donnée
+        $statut = 2; //on met les status à 2 car statut en attente (pas encore de reponse du user)
+        
+        $usersData = $this->dbAdapter->query("SELECT Appartenir.Id_Membre from Appartenir 
+                                    join Association on Appartenir.Id_Assoc = Association.Id_Assoc
+                                    where Association.Id_Assoc = '$Id_Assoc'");
+
+        //une fois qu'on a la liste de tous les id_membre, on remplit la table PARTICIPATIONS
+        foreach($usersData as $row){
+            echo "row = ".$row['id_membre'];
+            echo "</br>id reu = ".$IdReu;
+            echo "</br>statut = ".$statut;
+
+            $reqt = $this->dbAdapter->prepare('INSERT INTO Participations(Id_reu, Id_Membre, statut) VALUES(:Id_reu,:Id_Membre,:statut)');
+            
+            $reqt->bindParam('Id_reu', $IdReu);    
+            $reqt->bindParam('Id_Membre', $row['id_membre']);
+            $reqt->bindParam('statut', $statut);
+            //$req->bindParam('retard', $Date_fin_reu);
+            $reqt->execute();
+        }
     }
 }

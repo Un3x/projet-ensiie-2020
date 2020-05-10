@@ -17,6 +17,8 @@ $name=$_SESSION['username'];
 $asso = $assoRepository->fetch_Assos($_SESSION['user']->getId());
 $assoAll=$assoRepository->fetch_all_Assos();
 
+$userid = $_SESSION['user']->getId();
+
 ?>
 
 
@@ -159,6 +161,10 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
   echo "</form>";
 ?>
   
+
+<h2>Formulaire de demande afin de devenir administrateur pour une association</h2>
+<a class="nav-link" href="./Form_demande_admin.php">Cliquez ici pour le formulaire</a>
+
 <h2>Informations du profil</h2>
 <ul>
     <li onclick = "swipe('ListAsso');"><a href="#" >Voir mes associations</a></li>

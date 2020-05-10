@@ -10,6 +10,7 @@ class AssoRepository
         $this->dbAdapter = $dbAdapter;
     }
 
+
     
 public function fetchAll()
 {
@@ -29,16 +30,17 @@ public function fetchAll()
 
 
     
+
 public function fetch_Assos($userid)
-        {
-        $usersAsso = $this->dbAdapter->query("SELECT Nom_Assoc FROM Appartenir where Id_Membre='$userid'");
-        $Asso = [];
-        foreach ($usersAsso as $TteAsso) {
-            $userA = new Asso();
-            $userA->setNomAssoc($TteAsso['Nom_Assoc']);
-            $Asso[] = $userA;
+{
+    $usersAsso = $this->dbAdapter->query("SELECT Nom_Assoc FROM Appartenir where Id_Membre='$userid'");
+    $Asso = [];
+    foreach ($usersAsso as $TteAsso) {
+        $userA = new Asso();
+        $userA->setNomAssoc($TteAsso['Nom_Assoc']);
+        $Asso[] = $userA;
        }
-       return $Asso;
+    return $Asso;
 }
 
 public function fetch_all_Assos()
@@ -53,12 +55,15 @@ public function fetch_all_Assos()
        return $Asso;
 }
 
+/*
 public function fetch_all_Assos_Excep($username)
 {
         $preexistante= $this->dbAdapter->query("SELECT Nom_Assoc FROM Association where username='$username'");
         $ar= array();
         foreach($preexistante as $row){
             $ar[] = $row->getNomAssoc();
+        }
+         return $Asso;
         }
         $preexistante2=implode(",",$ar);
         $preexistante3=explode(",",$preexistante2);
@@ -79,7 +84,7 @@ public function fetch_all_Assos_Excep($username)
             $Asso[] = $userA;
        }
        return $Asso;
-}
+}*/
 
 public function newMembre($Id_Membre,$Nom_Assoc,$username)
 {       
@@ -115,6 +120,21 @@ public function appartient($asso,$id){
         else{
             return false;
         }
+    }
+
+public function fetch_all_Assos_for_Admin($userid)
+{
+    $usersAsso = $this->dbAdapter->query("SELECT Association.Nom_assoc FROM Association
+        join Administrer on Association.Id_Assoc = Administrer.Id_Assoc
+        join Membre on Membre.id = Administrer.Id_Membre
+        where Membre.id = '$userid'");
+    $Asso = [];
+    foreach ($usersAsso as $TteAsso) {
+        $userA = new Asso();
+        $userA->setNomAssoc($TteAsso['nom_assoc']);
+        $Asso[] = $userA;
+    }
+    return $Asso;
     }
 
 }
