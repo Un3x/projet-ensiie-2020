@@ -37,9 +37,18 @@ public function fetch_Assos($userid)
             $Asso[] = $userA;
        }
        return $Asso;
-
 }
 
-
+public function fetch_all_Assos()
+{
+        $usersAsso = $this->dbAdapter->query("SELECT Nom_Assoc FROM Association");
+        $Asso = [];
+        foreach ($usersAsso as $TteAsso) {
+            $userA = new Asso();
+            $userA->setNomAssoc($TteAsso['nom_assoc']);
+            $Asso[] = $userA;
+       }
+       return $Asso;
+}
 
 }

@@ -13,7 +13,7 @@ $userid=$_SESSION['user']->getId();
 
 $reuRepository = new \Reunion\ReunionRepository($dbAdaper);
 $IdR=$reuRepository->MaxId();
-$IdReu=(int)$IdR;
+$IdReu=(int)$IdR+1;
 
 $reuRepository->newReunion($_POST['nomAsso'],$IdReu,$_POST['debut'],$_POST['fin'],$userid,$_POST['descriptif']);
 ?>
