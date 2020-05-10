@@ -25,6 +25,11 @@ class User
     private $createdAt;
 
     /**
+     * @var int
+     */
+    private $points;
+
+    /**
      * @return int
      */
     public function getId ()
@@ -107,6 +112,23 @@ class User
     public function getNom_assoc()
     {
         return $this->Nom_assoc;
+    }
+
+    /**
+     * @param int $points
+     */
+    public function setPoints ($points)
+    {
+        $this->points = $points;
+        return $this;
+    }
+
+        /**
+     * @return int
+     */
+    public function getPoints()
+    {
+        return $this->points;
     }
 
 }

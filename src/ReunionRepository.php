@@ -71,7 +71,7 @@ class ReunionRepository
 
 
     /**
-     * @param $meeting une réunion
+     * @param $meeting l'id d'une réunion
      * @return str le nom de l'association pour le meeting $meeting
      */
     public function getNameAssoc($meeting)
