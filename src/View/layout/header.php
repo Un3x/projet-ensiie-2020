@@ -25,7 +25,7 @@
         <?php } ?>
       </li>
       <li class="nav-item">
-        <form name="disconnect" method="post" action="server.php">
+        <form class="header-form" name="disconnect" method="post" action="server.php">
           <button type="submit" class="btn btn-link nav-link" name="disconnect">Log out</button>
         </form>
       </li>
