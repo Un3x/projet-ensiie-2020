@@ -2,10 +2,7 @@
 
 function loadView($view,$data)
 {
-  if (isset($_SESSION['success'])){
-      echo "<script> alert(\"".$_SESSION['success']."\") </script>";
-      unset($_SESSION['success']);
-  }
+  
 ?>
   <!DOCTYPE html>
   <html>
@@ -20,7 +17,13 @@ function loadView($view,$data)
       
       <link rel='stylesheet' href='style.css'>
     </head>
-    <?php include_once '../src/View/layout/header.php'?>
+    <?php include_once '../src/View/layout/header.php';
+    if (isset($_SESSION['success'])){
+      echo "<div class=\"alert alert-info\">
+      <strong>".$_SESSION['success']."</strong>
+    </div>";
+      unset($_SESSION['success']);
+    }?>
     <body>
       <div class="container main-container">
         <?php include_once '../src/View/'.$view.'.php' ?>
