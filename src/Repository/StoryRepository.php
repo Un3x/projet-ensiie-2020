@@ -53,7 +53,7 @@ class StoryRepository
     /*
      * \brief Get a story given its id
      * \return \a story a story object containing the necessary
-     * information about it
+     * information about itself
      */
     public function fetchStory(int $storyId) {
         $query = 'SELECT storyid, title, author, summary FROM story WHERE storyid = :storyId';
@@ -70,6 +70,27 @@ class StoryRepository
         return $story;
     }
 
+    /*
+     * \brief Get a story given its title
+     * \return \a story a story object containing the necessary
+     * information about itself
+     */
+    public function fetchStoryByTitle(string $title) {
+        $query = 'SELECT storyid, title, author, summary FROM story
+        WHERE title = :title';
+        $result = $this->dbAdapter->prepare($query);
+        $result->bindParam(':title', $title);
+        $result->execute();
+        $storyResult = $result->fetch();
+        $story = new Story();
+        $story
+          ->setId(intval($storyResult['storyid']))
+          ->setTitle($storyResult['title'])
+          ->setAuthor($storyResult['author'])
+          ->setSummary($storyResult['summary']);
+        return $story;
+    }
+    
     /*
      * \brief Get the pages of a story given its id
      * \return \a pages a list of page objects, containing the necessary

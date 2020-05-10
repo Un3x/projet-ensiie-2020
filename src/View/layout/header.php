@@ -12,6 +12,12 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
+      <div class="search-container">
+        <form method="get" action="../search.php">
+          <input type="text" placeholder="Chercher une histoire..." name="request">
+          <button type="submit"><i class="fa fa-search">Chercher</i></button>
+        </form>
+      </div>
       <?php if (!isset($_SESSION['username'])) { ?>
       <li class="nav-item">
         <a class="nav-link" href="login.php">Login</a>

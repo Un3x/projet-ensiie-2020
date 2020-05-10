@@ -8,6 +8,18 @@
 .navbar {
   padding: 0;
 }
+.navbar .search-container {
+  margin-top: 5px;
+}
+.navbar .search-container button {
+  margin-top: 5px;
+  border: none;
+  padding: 3px 10px;
+  cursor: pointer;
+}
+.navbar .search-container button:hover {
+  background: #4da6ff;
+}
 #brand {
   color: #4da6ff;
 }
@@ -41,7 +53,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 /*Pages of a story */
 
 #story-title {
-  text-align: center;
+  font-size: 48px;
   font-weight: bold;
   color: darkslategray;
 }

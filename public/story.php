@@ -28,5 +28,6 @@
     $data['storyId'] = $_GET['storyId'];
     $data['title'] = $story->getTitle();
     $data['page'] = $cur;
+    
     loadView('story', $data);
 ?>

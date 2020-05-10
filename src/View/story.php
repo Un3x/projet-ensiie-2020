@@ -16,7 +16,7 @@
 
 
 <!-- Title of the story -->
-<h1><?php echo $data['title']; ?></h1>
+<element id="story-title"><center><?php echo $data['title']; ?></center></element>
 
 
 <!-- Page of the story -->
@@ -72,16 +72,18 @@
         if ($data['page']->getLast())
             echo
             '<div class="text-block">
-                <h4>Félicitations, vous avez terminé l\'histoire !</h4>
-                <p>Vous pouvez maintenant aller en découvrir d\'autres parmi nos 
-                propositions, ou bien rejouer celle-ci ! Après tout, il vous reste
+                <h4>Félicitations, vous avez terminé <strong>'.$data['title'].'
+                </strong>&thinsp;!</h4>
+                <p>Vous pouvez maintenant aller découvrir d\'autres histoires parmi
+                nos propositions, ou bien rejouer celle-ci ! Après tout, il vous reste
                 encore de nombreux choix à faire. Et qui dit que vous n\'obtiendrez
                 pas une fin différente ?</p>
             </div>
             
-            <form method="get" action="display_stories.php">
+            <form method="get" action="story_page.php">
+                <input type="hidden" name="storyId" value="'.$data['storyId'].'"/>
                 <button type="submit" class="btn btn-primary bot-btn">
-                    Retourner à la liste des histoires.
+                    Retourner au sommaire de <strong>'.$data['title'].'</strong>.
                 </button>
             </form>';
     ?>
