@@ -82,10 +82,9 @@ if (isset($_POST['log_user'])) {
         }else {
             array_push($errors, "Le mot de passe ne correspond pas à l'utilisateur.");
             $_SESSION['errors'] = "Le mot de passe et le nom d'utilisateur ne correspondent pas.";
+            header('Location: login.php');
         }
     }
-    header('Location: login.php');
-
   }
 
 
@@ -125,9 +124,10 @@ if (isset($_POST['change_username'])){
           header('Location: user_page.php');
         }else {
           array_push($errors, "Le mot de passe ne correspond pas à l'utilisateur.");
+          $_SESSION['errors'] = "Le mot de passe et le nom d'utilisateur ne correspondent pas.";
+          header('Location: user_page.php');
         }
       }
-      include 'errors.php';
 }
 
 //CHANGE PASSWORD
@@ -158,6 +158,8 @@ if (isset($_POST['change_pwd'])){
         }
         else {
           array_push($errors, "Le mot de passe ne correspond pas à l'utilisateur.");
+          $_SESSION['errors'] = "Le mot de passe et le nom d'utilisateur ne correspondent pas.";
+          header('Location: user_page.php');
         }
       }
       include 'errors.php';

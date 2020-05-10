@@ -4,7 +4,7 @@
 ?>
 
 <h1>Bienvenue sur votre page personnelle <?php echo $_SESSION['username']?> !</h1>
-<p>Bientôt, vous pourrez consulter vos Achievements !</p>
+<br/>
 
 <h3>Changer de nom d'utilisateur :</h3>
 <form method="post" action=server.php>
