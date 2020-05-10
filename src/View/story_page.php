@@ -177,8 +177,15 @@ foreach ($data['comments'] as $comment) {
   		<div class="media-body">
     		<h4>'.$comment->getUser().' <small><i>Aventurier débutant</i></small></h4>
     		<p>'.$comment->getText().'</p>
-  		</div>
-	</div>';
+		</div>';
+		if (isset($_SESSION['admin'])){
+			echo '
+			<form method="post" action="commentManager.php" onsubmit="return areYouSure()">
+			<input type="hidden" name="commentId" value='.$comment->getId().' />
+			<button type="submit" name="delCom" class="btn btn-danger">Supprimer</button>
+			</form>';
+		}
+	echo '</div>';
 } ?>
 </div>
 

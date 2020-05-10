@@ -17,8 +17,10 @@ if (isset($_POST['newComment'])) {
         $_SESSION['errors'] = "Impossible de commenter, réessayez plus tard.";
         header('Location: display_stories.php');
     }
-}else{
-    $_SESSION['errors'] = "Un problème est survenu, réessayez plus tard";
-    header('Location: display_stories.php');
-    }
+}
+if (isset($_POST['delCom'])){
+    $comRepo->remove_comments($_POST['commentId']);
+    $_SESSION['success'] = "Commentaire supprimé avec succès";
+    header('Location: story_page.php?storyId='.$_POST['storyId'].'');
+}
 ?>

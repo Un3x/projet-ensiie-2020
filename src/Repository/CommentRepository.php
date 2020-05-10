@@ -56,4 +56,11 @@ class CommentRepository
         $result->execute();
     }
 
+    public function remove_comments(int $commentId){
+        $query = "DELETE FROM comment WHERE commentid = :commentid";
+        $result = $this->dbAdapter->prepare($query);
+        $result->bindParam(':commentid', $commentId);
+        $result->execute();
+    }
+
 }
