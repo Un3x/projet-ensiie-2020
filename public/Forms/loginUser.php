@@ -12,6 +12,12 @@ include 'Users/User.php';
 include 'Users/UserRepository.php';
 include 'Factory/DbAdaperFactory.php';
 
+include_once "ddosPrevention.php";
+if ($_SESSION['sleepState']==1){
+	header("Location: ../login.php?errs=tooManyRequests");
+	exit();
+}
+
 $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new UserRepository($dbAdaper);
 
@@ -29,6 +35,14 @@ if ($token!==$trueToken){
 if ($username==''){
 	header("Location: ../login.php?errs=noUsername");
 	exit();
+}
+if (strlen($username)>60){
+	header("Location: ../login.php?errs=longUsername");
+	exit();
+}
+if (strpos($username," "))
+{
+	header("Location: ../login.php?errs=userUnknown");
 }
 
 //check if the user is known

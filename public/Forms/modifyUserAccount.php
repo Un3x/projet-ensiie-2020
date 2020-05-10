@@ -18,6 +18,14 @@ include 'Users/User.php';
 include 'Users/UserRepository.php';
 include 'Factory/DbAdaperFactory.php';
 
+include_once "ddosPrevention.php";
+if ($_SESSION['sleepState']==1){
+	$username=$_SESSION['username'];
+	$email=$_SESSION['email'];
+	header("Location: ../modifyUser.php?errs=tooManyRequest&newUsername=$username&newEmail=$email");
+	exit();
+}
+
 $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new UserRepository($dbAdaper);
 
@@ -46,6 +54,18 @@ if (isset($_POST['newUsername']) && $_POST['newUsername']!=$_SESSION['username']
 		header('Location: ../modifyUser.php?username=notGiven');
 		exit();
 	}
+	if (strlen($newUsername)>20){
+		header('Location: ../modifyUser.php?username=tooLong');
+		exit();
+	}
+
+	
+	if (strpos($newUsername,' '))
+	{
+		header("Location: ../modifyUser.php?username=spaceFound");
+		exit();
+	}
+
 	if ($userRepository->checkUser($newUsername)>0)
 	{
 		header("Location: ../modifyUser.php?username=alreadyUsed&newUsername=$newUsername");

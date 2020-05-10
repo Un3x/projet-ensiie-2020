@@ -10,7 +10,18 @@ envoie les informations à /public/Forms/modifyUserAccount.php
 
 <!--modifier le compte -->
 
-<form name= "formChangeUser" action="Forms/modifyUserAccount.php" onsubmit="return validationFormulaireiChangeUser();" method="POST">
+<?php
+  $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+  if (strpos($fullUrl,"changed")){
+    echo '<p>Compte modifié avec succés!</p></br>';
+  }
+  if (strpos($fullUrl,"errs=tooManyRequest")){
+    $timeLeft=$_SESSION['first_request']-$_SERVER['REQUEST_TIME']+30;
+    echo '<p>Vous vous êtes trompé trop de fois! Retrouvez vos esprits puis dans '.$timeLeft.' secondes réessayez</p></br>';
+  }
+?>
+
+<form name="formChangeUser" action="Forms/modifyUserAccount.php" onsubmit="return validationFormulaireChangeUser();" method="POST">
   <label for="newUsername"> votre nom de compte :</label></br>
     <?php
       if (isset($_GET['newUsername']))
@@ -21,7 +32,14 @@ envoie les informations à /public/Forms/modifyUserAccount.php
           if (strpos($fullUrl, "username=alreadyUsed"))
           {
               echo "<p>ERROR, this username is already taken</p></br>";
-          } 
+	  }
+
+          if (strpos($fullUrl, "username=tooLong"))
+          {
+              echo "<p>ERROR, that's a long one partner</p></br>";
+	  } 
+
+
       }
 
       else 
@@ -32,7 +50,12 @@ envoie les informations à /public/Forms/modifyUserAccount.php
           if (strpos($fullUrl, "username=notGiven"))
           {
               echo "<p>ERROR, no new username given</p></br>";
-          }
+	  }
+
+	  if (strpos($fullUrl, "username=spaceFound"))
+          {
+              echo "<p>ERROR, a username cannot have space in it</p></br>";
+	  }
 
       }
     ?>

@@ -42,6 +42,29 @@ if ($username=='')
     }
     exit();
 }
+if (strlen($username)>20){
+    if (filter_var($email, FILTER_VALIDATE_EMAIL))
+    {
+        header("Location: ../registration.php?errs=longUsername&email=$email");
+    }
+    else 
+    {
+        header("Location: ../registration.php?errs=longUsername");
+    }
+}
+if (strpos($username,' '))
+{
+    if (filter_var($email, FILTER_VALIDATE_EMAIL))
+    {
+        header("Location: ../registration.php?errs=usernameSpace&email=$email");
+    }
+    else 
+    {
+        header("Location: ../registration.php?errs=usernameSpace");
+    }
+    exit();
+}
+
 elseif ($userRepository->checkUser($username)>0){ //check if user already exist
     if (filter_var($email, FILTER_VALIDATE_EMAIL)){
         header("Location: ../registration.php?errs=usedUsername&email=$email");

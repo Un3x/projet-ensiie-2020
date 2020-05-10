@@ -31,7 +31,18 @@ envoie les informations à Forms/addUser
           elseif (strpos($fullUrl, "errs=usedUsername"))
           {
               echo "<p>ERROR, username already taken</p></br>";
-          } 
+	  }
+
+          elseif (strpos($fullUrl, "errs=longUsername"))
+          {
+              echo "<p>ERROR, username too long (how the hell were you able to do that?)</p></br>";
+	  }
+
+          elseif (strpos($fullUrl, "errs=usernameSpace"))
+          {
+              echo "<p>ERROR, username cannot have space in it</p></br>";
+	  }
+	   
       }
     ?>
   <label for="email">votre adresse mail:</label></br>
@@ -39,11 +50,11 @@ envoie les informations à Forms/addUser
       if (isset($_GET['email']))
       {
           $email=$_GET['email'];
-          echo '<input type="text" name="email" placeholder="email adress" maxlength="50" value="'.$email.'"></br>';
+          echo '<input type="text" name="email" placeholder="email adress" maxlength="60" value="'.$email.'"></br>';
       }
       else {
           $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-          echo '<input type="text" name="email" placeholder="email adress" maxlength="50" ></br>';
+          echo '<input type="text" name="email" placeholder="email adress" maxlength="60" ></br>';
           if (strpos($fullUrl, "errs=invalidEmail")){
               echo "<p>ERROR, invalid email adress</p></br>";
           }

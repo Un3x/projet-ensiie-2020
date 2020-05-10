@@ -17,6 +17,10 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
   if (strpos($fullUrl,"signup=success")){
     echo '<p>Compte créé avec succés!</p></br>';
   }
+  if (strpos($fullUrl,"errs=tooManyRequest")){
+    $timeLeft=$_SESSION['first_request']-$_SERVER['REQUEST_TIME']+30;
+    echo '<p>Vous vous êtes trompé trop de fois! Retrouvez vos esprits puis dans '.$timeLeft.' secondes réessayez</p></br>';
+  }
 ?>
 <p> Inserez vos identifiants: </p>
 <form name= "formLoginUser" action="Forms/loginUser.php" onsubmit="return validationFormulaireLogin();" method="POST">
@@ -25,11 +29,14 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
       if (isset($_GET['username']))
       {
           $username=$_GET['username'];
-          echo '<input type="text" name="username" placeholder="username or email adress" maxlength="20"  value="'.$username.'"></br>';
+	  echo '<input type="text" name="username" placeholder="username or email adress" maxlength="60"  value="'.$username.'"></br>';
+	  if (strlen($username)>60){
+	  	echo "<p>Jeez that's a long one pal</p>";
+	  }
       }
       else 
       {
-          echo '<input type="text" name="username" placeholder="username or email adress" maxlength="20" ></br>';
+          echo '<input type="text" name="username" placeholder="username or email adress" maxlength="60" ></br>';
           $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
           if (strpos($fullUrl, "errs=noUsername"))
@@ -41,6 +48,7 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
               echo "<p>ERROR, username is unknown</p></br>";
           } 
       }
+      
     ?>
 <!--
 <label for="email">votre adresse mail:</label></br>
