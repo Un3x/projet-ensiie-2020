@@ -18,11 +18,13 @@ if (isset($_SESSION['id']) && $_SESSION['rights'] >= 1)
 
     $msg = "deleteid " . $_POST['id'] . "\n" ;
     error_log("SOCKETS : Starting sending to all lectors");
-    $success = send_to_all_lectors($msg);
+    send_to_all_lectors($msg);
+    /*
     if ( $success === true )
         error_log("SOCKETS : Finished sending to all lectors successfully (at least successfull for one)");
     else
         error_log("SOCKETS : Finished sending to all lectors : all failed");
+     */
 }
 
 else

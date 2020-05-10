@@ -53,12 +53,13 @@ async function addKara(i)
         if(xhr.readyState == XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 ))
         {
             document.getElementById("lastAdd").innerHTML = "Added the kara " + i + " !";
-        //    alert(xhr.responseText);
         }
     }
     xhr.send('id=' + i);
 
     if (typeof loadQueue == 'function')
+    {
         await new Promise(r => setTimeout(r, 300));
         loadQueue();
+    }
 }
