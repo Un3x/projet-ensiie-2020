@@ -24,6 +24,7 @@ class UserRepository
             $user = new User();
             $user
                 ->setId($usersDatum['id'])
+                ->setXp($usersDatum['xp'])
                 ->setUsername($usersDatum['username'])
                 ->setEmail($usersDatum['email'])
                 ->setRights($usersDatum['rights'])

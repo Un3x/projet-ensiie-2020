@@ -19,6 +19,10 @@ class User
      */
     private $username;
 
+    /**
+     * @var string, not constant
+     */
+    private $xp;
 
     /**
      * @var \DateTime
@@ -45,6 +49,23 @@ class User
     public function setId ($id)
     {
         $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getXp ()
+    {
+        return $this->xp;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setXp ($xp)
+    {
+        $this->xp = $xp;
         return $this;
     }
 

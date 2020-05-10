@@ -2,6 +2,7 @@ CREATE TABLE "user" (
     id SERIAL PRIMARY KEY,
     username VARCHAR NOT NULL,
     email VARCHAR NOT NULL,
+    xp INTEGER,
     password VARCHAR NOT NULL,
     rights INTEGER,
     created_at TIMESTAMP WITH TIME ZONE
