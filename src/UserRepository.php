@@ -239,21 +239,6 @@ class UserRepository
         $req->execute();
     }
 
-    public function IsAdmin($userid){
-        $sql="SELECT * FROM Administrateur where Id_MembreA='$userid'";
-        $exec_requete = $this->dbAdapter->query($sql);
-        $count = 0;
-        foreach($exec_requete as $entry){
-            $count = $count + 1;
-        }
-        if($count != 0){ //si notre user est un admin
-            return true;
-        }
-        else{ //s'il n'est pas admin
-            return false;
-        }
-    }
-
     /**
      * @param $mise la mise du joueur d'id $id_joueur
      * 
@@ -273,6 +258,36 @@ public function updateUserPoints($mise,$id_joueur) {
         print_r($dbh->errorInfo());
     } 
     $req->execute();
+    }
+
+    public function IsAdmin($userid){
+        $sql="SELECT * FROM Administrateur where Id_MembreA='$userid' and Administrateur.droit = 1";
+        $exec_requete = $this->dbAdapter->query($sql);
+        $count = 0;
+        foreach($exec_requete as $entry){
+            $count = $count + 1;
+        }
+        if($count != 0){ //si notre user est un admin
+            return true;
+        }
+        else{ //s'il n'est pas admin
+            return false;
+        }
+    }
+
+    public function IsSuperAdmin($userid){
+        $sql="SELECT * FROM Administrateur where Id_MembreA='$userid' and Administrateur.droit = 0";
+        $exec_requete = $this->dbAdapter->query($sql);
+        $count = 0;
+        foreach($exec_requete as $entry){
+            $count = $count + 1;
+        }
+        if($count != 0){ //si notre user est un admin
+            return true;
+        }
+        else{ //s'il n'est pas admin
+            return false;
+        }
     }
 
 }

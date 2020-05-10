@@ -24,4 +24,4 @@ if ($username) {
 ?>
 
 <h1>Vous avez bien accepté la demande de cet utilisateur </h1>
-<a class="nav-link" href="/index.php"> Home </a>
+<a class="nav-link" href="/home_super_admin.php"> Home </a>

@@ -55,30 +55,44 @@ function printInfo(){
 <header>
     <link rel="stylesheet" href="schedule.css" media="screen" type="text/css" />
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Projet Web Ensiie 2020</a>
+        <a class="navbar-brand" href="#">Parions retard</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                <a class="nav-link" href="/agenda.php"><span>Home</span></a>
+                           <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
                 </li>
-				<a href='profil.php' class="nav-link"><span>Profil</span></a> 
-				<a href='/userlist.php' class="nav-link"><span>Userlist</span></a> 
-				<a href='userlist.php?deconnexion=true' class="nav-link"><span>Déconnexion</span></a>  
-				<a href='bet.php' class="nav-link"><span>Paris</span></a>  
+                    <a href='agenda.php' class="nav-link"><span>Agenda</span></a> 
+                    <a href='profil.php' class="nav-link"><span>Profil</span></a> 
+                    <a href='OrgaReu.php' class="nav-link"><span>Réunions</span></a>
+                    <a href='bet.php' class="nav-link"><span>Paris</span></a>
+                    <?php session_start();
+                    if($_SESSION['username'] !== ""){
+                    $points = $_SESSION['user']->getPoints();
+                    echo "<div class='nav-link'>$points \$ </div>";
+                    }
+                    ?>
+                    <?php if($userRepository->IsSuperAdmin($_SESSION['user']->getId()))
+                      echo "<a href='home_super_admin.php' class='nav-link'><span>Gestion</span></a>";
+                      ?>
+
                 <?php session_start();
-		    	if($_SESSION['username'] !== ""){
-                    $user = $_SESSION['username'];
-                   	// afficher un message
-                   	echo "<div class='connection_id nav-link' id='idco'>";
-                  	echo "$user";
-                  	echo "</div>";
-				   }
-				if(isset($_GET['deconnexion'])) { 
-                    if($_GET['deconnexion']==true) {  
+                        if($_SESSION['username'] !== ""){
+                         $user = $_SESSION['username'];
+                     // afficher un message
+                     echo "<div class='connection_id nav-link' id='idco' >";
+                     echo "$user";
+                     echo "</div>";
+		                  if(isset($_GET['deconnexion'])) { 
+                       if($_GET['deconnexion']==true) {  
                   	    session_unset();
                   	    header("location:index.php");
-                    }
-				 }  
+                       }
+             	    }
+
+               	    }
+                ?>
+                    <a href='userlist.php?deconnexion=true' class="nav-link" style="align-text:right;"><span>Déconnexion</span></a> 
+                 <?php 
 
 				if (!isset($_GET['transition']))  $_SESSION['week'] = get_week(time());
 				if (!isset($_GET['transition']))  $_SESSION['monthcal'] = time();

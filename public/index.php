@@ -11,7 +11,7 @@ include '../src/Factory/DbAdaperFactory.php';
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Projet web Ensiie</title>
+    <title>Parions retard</title>
     <meta name="description" content="Projet web Ensiie">
     <meta name="author" content="Thomas COMES">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -22,11 +22,10 @@ include '../src/Factory/DbAdaperFactory.php';
 <body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Projet Web Ensiie 2020</a>
+        <a class="navbar-brand" href="#">Parions retard</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="./index.php">Home</a>
                 </li>
             </ul>
         </div>

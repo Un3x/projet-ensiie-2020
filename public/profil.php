@@ -11,14 +11,11 @@ $userRepository = new \User\UserRepository($dbAdaper);
 
 session_start();
 $assoRepository = new \Asso\AssoRepository($dbAdaper);
-//$asso = $assoRepository->fetch_Assos($_SESSION['username']);
 $name=$_SESSION['username'];
-//$bad = implode("', '", $name);
 $asso = $assoRepository->fetch_Assos($_SESSION['user']->getId());
 $assoAll=$assoRepository->fetch_all_Assos();
-
+$_SESSION['user']=$userRepository->getUser($_SESSION['username']);
 $userid = $_SESSION['user']->getId();
-
 ?>
 
 
@@ -36,32 +33,43 @@ $userid = $_SESSION['user']->getId();
 <header>
     <!-- <link rel="stylesheet" href="style.css" media="screen" type="text/css" /> -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Projet Web Ensiie 2020</a>
+        <a class="navbar-brand" href="#">Parions Retard</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/agenda.php"><span>Home</span></a>
                 </li>
+                    <a href='agenda.php' class="nav-link"><span>Agenda</span></a> 
                     <a href='profil.php' class="nav-link"><span>Profil</span></a> 
-                    <a href='OrgaReu.php' class="nav-link"><span>Réunions</span></a> 
-		<a href='userlist.php?deconnexion=true' class="nav-link"><span>Déconnexion</span></a>	
-
+                    <a href='OrgaReu.php' class="nav-link"><span>Réunions</span></a>
+                    <a href='bet.php' class="nav-link"><span>Paris</span></a>
+                    <?php session_start();
+                    if($_SESSION['username'] !== ""){
+                    $points = $_SESSION['user']->getPoints();
+                    echo "<div class='nav-link'>$points \$ </div>";
+                    }
+                    ?>
+                    <?php if($userRepository->IsSuperAdmin($_SESSION['user']->getId()))
+                      echo "<a href='home_super_admin.php' class='nav-link'><span>Gestion</span></a>";
+                      ?>
 
                 <?php session_start();
-		    if(isset($_GET['deconnexion'])) { 
+                        if($_SESSION['username'] !== ""){
+                         $user = $_SESSION['username'];
+                     // afficher un message
+                     echo "<div class='connection_id nav-link' id='idco' >";
+                     echo "$user";
+                     echo "</div>";
+		                  if(isset($_GET['deconnexion'])) { 
                        if($_GET['deconnexion']==true) {  
                   	    session_unset();
                   	    header("location:index.php");
                        }
              	    }
-		    if($_SESSION['username'] !== ""){
-                         $user = $_SESSION['username'];
-                   	 // afficher un message
-                   	 echo "<div class='connection_id nav-link' id='idco' >";
-                  	 echo "$user";
-                  	 echo "</div>";
+
                	    }
                 ?>
+                    <a href='userlist.php?deconnexion=true' class="nav-link" style="align-text:right;"><span>Déconnexion</span></a> 
+
             </ul>
         </div>
     </nav>
