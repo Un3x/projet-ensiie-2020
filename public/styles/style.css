@@ -24,17 +24,6 @@ p{
 form{
 	text-align:center
 }
-.pp{ 
-	margin-left:auto;
-	margin-right:auto;
-	margin-top:5px;
-	display:block;
-	border : 5px solid #df691a;
-	border-radius:0%;
-	
-
-}
-
 input[type=text]{
 	border: 2px solid #df691a ;
 	border-radius: 4px;
@@ -65,6 +54,7 @@ a:active{
 	
 	
 	
+	
 }
 .funky{
 	position : absolute;
@@ -90,10 +80,38 @@ a:active{
 	background-color: #df691a;
 		
 }
-
-.titre {
-	font-family:;
+#newTitle {
+	width:20%;
+	height:40px;
+	font-size:20px;
 }
 
+.pp{ 
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:5px;
+	display:block;
+	border : 5px solid #df691a;
+	border-radius:0%;
+	
+
+}
+label{
+	font-size:30px;
+	font-family: cursive;
+}
+.titre {
+	font-family:cursive;
+	text-align:center;
+	font-size:40px;
+	
+}
+.custom-select select{
+
+	border : 2px solid #df691a;
+	border-radius:10px;
+	background-color:#df691a;
+	
+}
 
 
