@@ -72,8 +72,8 @@
         if ($data['page']->getLast())
             echo
             '<div class="text-block">
-                <h4>Félicitations, vous avez terminé <strong>'.$data['title'].'
-                </strong>&thinsp;!</h4>
+                <h4>Félicitations, vous avez terminé &thinsp;<strong>'.$data['title'].'
+                </strong> !</h4>
                 <p>Vous pouvez maintenant aller découvrir d\'autres histoires parmi
                 nos propositions, ou bien rejouer celle-ci ! Après tout, il vous reste
                 encore de nombreux choix à faire. Et qui dit que vous n\'obtiendrez

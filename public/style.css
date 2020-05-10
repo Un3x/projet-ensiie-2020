@@ -80,7 +80,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 .text-block {
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 10%;
   right: 10%;
   text-align: center;
