@@ -11,10 +11,12 @@
 	<button type="submit" class="btn btn-primary">Commencer</button>
 </form>
 
+<br/><br/>
 
- <!-- Add icon library -->
+<!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<div id="rating">
 <span class="heading">User Rating</span>
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star checked"></span>
@@ -89,4 +91,35 @@
   <div class="side right">
     <div><?php echo $data['star1'] ?></div>
   </div>
-</div> 
+</div>
+</div>
+
+<br/><br/>
+
+<h2>Comments</h2>
+
+<?php if (isset($_SESSION['id'])) { ?>
+<form method="post" action="commentManager.php">
+	<input type="hidden" name="storyId" value="<?php echo $data['story']->getId(); ?>"/>
+	<textarea name="text"></textarea><br/><br/>
+	<div class="text-right">
+	<button type="submit" class="btn btn-primary" name="newComment">Commenter</button>
+	</div>
+</form>
+<?php } else { ?>
+	<p>Vous devez être connecté pour commenter une histoire</p>
+<?php }?>
+
+<div class="comments">
+<?php
+foreach ($data['comments'] as $comment) {
+	echo '
+	<div class="media border p-3">
+  		<div class="media-body">
+    		<h4>'.$comment->getUser().' <small><i>Aventurier débutant</i></small></h4>
+    		<p>'.$comment->getText().'</p>
+  		</div>
+	</div>';
+} ?>
+</div>
+

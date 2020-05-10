@@ -68,3 +68,10 @@ INSERT INTO rate (rate, userId, storyId) VALUES (1, 3, 1);
 INSERT INTO rate (rate, userId, storyId) VALUES (4, 2, 2);
 INSERT INTO rate (rate, userId, storyId) VALUES (2, 3, 2);
 INSERT INTO rate (rate, userId, storyId) VALUES (3, 5, 2);
+
+INSERT INTO comment (storyId, userId, txt) VALUES (1,2,'Nuuuuuul !');
+INSERT INTO comment (storyId, userId, txt) VALUES (1,3,'Aventure sympatique pour les débutants.');
+INSERT INTO comment (storyId, userId, txt) VALUES (2,1,'Un peu facile.');
+INSERT INTO comment (storyId, userId, txt) VALUES (2,4,'3 fois que je la fait 3 fois que je perd... :''(');
+INSERT INTO comment (storyId, userId, txt) VALUES (2,3,'Alors après La cité des voleurs la pente est un peu raide, mais l''histoire est très prennante');
+INSERT INTO comment (storyId, userId, txt) VALUES (2,2,'Géniale !');

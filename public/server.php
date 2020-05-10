@@ -72,7 +72,7 @@ if (isset($_POST['log_user'])) {
         $result = $urep->fetchUserConnection($username, $password);
         $nbRow = $result->rowCount();
         if ($nbRow == 1) {
-          $_SESSION['id'] = $urep->get_UserID($username);
+          $_SESSION['id'] = intval($urep->get_UserID($username));
           $_SESSION['username'] = $username;
           if ($urep->isAdmin($username)){
             $_SESSION['admin'] = true;

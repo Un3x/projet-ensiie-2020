@@ -2,12 +2,13 @@
 include_once '../src/utils/autoloader.php';
 
 use Story\StoryRepository;
+use Comment\CommentRepository;
 use Rating\RatingRepository;
 
 $dbAdaper = (new DbAdaperFactory())->createService();
 $storyRepo = new Story\StoryRepository($dbAdaper);
-$db = (new DbAdaperFactory())->createService();
-$ratingRepo = new Rating\RatingRepository($db);
+$comRepo = new CommentRepository($dbAdaper);
+$ratingRepo = new Rating\RatingRepository($dbAdaper);
 $data =[];
 
 
@@ -35,7 +36,9 @@ if (isset($_GET['storyId'])) {
   $data['star5']=$star5;
 
 
-  // Get comment data ... XD lol
+  // Get comment data
+  $comments = $comRepo->fetchStoryCom($_GET['storyId']);
+  $data['comments'] = $comments;
 
   // Load the view
   loadView('story_page',$data);
