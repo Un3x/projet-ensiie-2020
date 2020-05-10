@@ -5,7 +5,7 @@ set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');?>
 function pp($name, $height, $width,$border)
 {
 	
-	echo "<a href=\"ChangePP.php\"><img style=\"border-radius:".$border."%;\" id=\"pp\" src=\"./Pictures/" .$name."\" alt=\"waifu\" height=".$height." width=".$width."> </a>" ;
+	echo "<a href=\"changePP.php\"><img style=\"border-radius:".$border."%;\" class=\"pp\" src=\"/images/ProfilePictures/" .$name."\" alt=\"waifu\" height=".$height." width=".$width."> </a>" ;
 }
 
 function choicePP($name,$height, $width, $border) {
