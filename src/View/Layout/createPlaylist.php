@@ -7,14 +7,14 @@ if ( isset($_GET['errs']) && $_GET['errs'] === "wrongName" )
 
 <form name= "formAddPlaylist" action="/Forms/addPlaylist.php" onsubmit="return validCreatePlaylist();" method="POST">
     <ul>
-        <li><label for="name">Playlist name: </label>
+        <li><label for="name">Playlist name : </label>
         <input type="text" name="name" placeholder="name" maxlength="32"
         <?php
             if ( isset($_GET['name']) )
                 echo ' value=' . $_GET['name'];
         ?>
         ></li>
-        <li>Public:
+        <li>Public :
         <input type="radio" name="publik" value="TRUE"
         <?php
             if ( isset($_GET['publik']) )
@@ -35,7 +35,7 @@ if ( isset($_GET['errs']) && $_GET['errs'] === "wrongName" )
                 echo ' checked';
         ?>
         >No</input></li>
-        <li><button type="submit">Create playlist</button></li>
+        <li><button class = "lebutton" type="submit">Create playlist</button></li>
     </ul>
 </form>
 

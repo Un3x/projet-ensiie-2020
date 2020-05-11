@@ -5,7 +5,7 @@
         <li>Author name<input type="text" name="author_name"></input></li>
         <li>
             Language
-            <select name="language">
+            <select class="custom-select" name="language">
                 <option value = "all">All</option>
                 <option value = "jp">Japanese</option>
                 <option value = "fr">French</option>
@@ -15,7 +15,7 @@
         </li>
         <li>
             Song Type
-            <select name="song_type">
+            <select class="custom-select" name="song_type">
                 <option value = "all">All</option>
                 <option value = "va">VA</option>
                 <option value = "vo">VO</option>
@@ -32,7 +32,7 @@
             <input type="radio" name="is_new" value="No">No</input>
         </li>
     </ul>
-    <button type="submit">Search !</button>
+    <button class="lebutton" type="submit">Search !</button>
 </form>
 
 <div id="resultList">

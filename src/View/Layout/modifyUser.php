@@ -13,16 +13,16 @@ envoie les informations à /public/Forms/modifyUserAccount.php
 <?php
   $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   if (strpos($fullUrl,"changed")){
-    echo '<p>Compte modifié avec succés!</p></br>';
+    echo '<p>Account succesfully modified</p></br>';
   }
   if (strpos($fullUrl,"errs=tooManyRequest")){
     $timeLeft=$_SESSION['first_request']-$_SERVER['REQUEST_TIME']+30;
-    echo '<p>Vous vous êtes trompé trop de fois! Retrouvez vos esprits puis dans '.$timeLeft.' secondes réessayez</p></br>';
+    echo '<p>Too many wrong password ! Clear your mind and try again in '.$timeLeft.' seconds</p></br>';
   }
 ?>
-
+<div class = "enter">
 <form name="formChangeUser" action="Forms/modifyUserAccount.php" onsubmit="return validationFormulaireChangeUser();" method="POST">
-  <label for="newUsername"> votre nom de compte :</label></br>
+  <label for="newUsername"> Your account name </label></br>
     <?php
       if (isset($_GET['newUsername']))
       {
@@ -61,7 +61,7 @@ envoie les informations à /public/Forms/modifyUserAccount.php
     ?>
  
 
- <label for="newEmail">votre adresse mail:</label></br>
+ <label for="newEmail">Your email adress </label></br>
     <?php
       if (isset($_GET['newEmail']))
       {
@@ -84,7 +84,7 @@ envoie les informations à /public/Forms/modifyUserAccount.php
       ?>
 
 
-  <label for="newPassword"> change password: </label></br>
+  <label for="newPassword"> Change password </label></br>
     <input type="password" name="newPassword" placeholder="Enter newPassword" minlength="8" ></br>
     <?php
           $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -102,7 +102,7 @@ envoie les informations à /public/Forms/modifyUserAccount.php
     <input type="password" name="newPasswordCheck" placeholder="confirm new password" minlength="8" ></br>
 
 
-    <label for="newPort">port on which lektor will listen:</label></br>
+    <label for="newPort">Port on which lektor will listen</label></br>
 	<?php
 	echo '<input type="text" name="newPort" placeholder="your port" value="'.$_SESSION['port'].'"></br>'
 	?>
@@ -126,8 +126,8 @@ envoie les informations à /public/Forms/modifyUserAccount.php
 
 
 
-<button type="submit">Apply changes</button>
+<button class="lebutton" type="submit">Apply changes</button>
 </br>
-<a href="changePP.php">Modify Cosmetics</a>
+<a href="changePP.php">Modify Cosmetics</a></div>
 
 <script type="text/javascript" src="scripts/formulaire.js"></script>

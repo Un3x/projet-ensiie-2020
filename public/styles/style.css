@@ -22,23 +22,79 @@ h1{
     margin: 10px;
 }
 
-p{
+body p{
     /*text-align:center;*/
     size :10px
     
     
 }
-form{
+body form{
     text-align:center
 }
-input[type=text]{
-    border: 2px solid #df691a ;
-    border-radius: 4px;
-    size 10px;
+.head {
+	text-align:center;
+	font-size:40px;
+	font-family:cursive;
+	
 }
-label{
+body input[type=text]{
+    border: 3px solid #df691a ;
+    border-radius: 10px;
+    width:400px;
+    height:50px;
+    font-size:100%;
+    margin-bottom:1%;
+}
+body input[type=password]{
+	border: 3px solid #df691a;
+	border-radius: 10px;
+	width : 400px;
+	height : 50px;
+	font-size : 100%;
+	margin-bottom: 1%;
+}
+body input[type=password]:hover{ 
+	border: 5px groove #ef792a;
+}
+
+body input[type=password]:focus{ 
+	border: 5px groove #ef792a;
+}
+body input[type=text]:hover{
+	border: 5px groove #ef792a;
+}
+
+body input[type=text]:focus{ 
+	border: 5px groove #ef792a;
+}
+body label{
     color: #df691a;
     size: 10px;
+}
+
+body input[type=radio]{
+	width:50px;
+	font-size:30px;
+	size:50px;
+	
+	border : 1px solid #df691a;
+}
+
+.lebutton{
+	height : 50px;
+	width : 200px;
+	font-size:100%;
+	border-radius: 10px;
+	margin-bottom:10px;
+	
+
+}
+.lebutton:hover{
+	height:60px;
+	width: 210px;
+	border:5px outset #df692a;
+	cursor: pointer;
+	margin-bottom:0px;
 }
 
 a:link, a:visited{
@@ -104,7 +160,7 @@ a:active{
     
 
 }
-label{
+body label{
     font-size:30px;
     font-family: cursive;
 }
@@ -121,3 +177,10 @@ label{
     background-color:#df691a;
     
 }
+
+.enter {
+	margin-top : 50px;
+	margin-bottom : auto;
+}
+
+

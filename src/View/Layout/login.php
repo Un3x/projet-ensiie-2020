@@ -22,9 +22,9 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
     echo '<p>Vous vous êtes trompé trop de fois! Retrouvez vos esprits puis dans '.$timeLeft.' secondes réessayez</p></br>';
   }
 ?>
-<p> Inserez vos identifiants: </p>
+<p class = "head"> Insert username and password to login </p>
 <form name= "formLoginUser" action="Forms/loginUser.php" onsubmit="return validationFormulaireLogin();" method="POST">
-<label for="username"> Nom du compte ou email :</label></br>
+<label for="username"> Username or email </label></br>
     <?php
       if (isset($_GET['username']))
       {
@@ -72,7 +72,7 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
     */
     ?> 
 
-<label for="password">votre mot de passe:</label></br>
+<label for="password">Your password</label></br>
     <input type="password" name="password" placeholder="your password" minlength="8"></br>
     <?php
       $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -82,7 +82,7 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
     ?>
 
 <input type="hidden" id="post.token" name="post.token" value="{$token}" /> 
-<button type="submit">Se connecter</button>
+<button class ="lebutton" type="submit">Connect</button>
 
 <?php
   $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -97,6 +97,6 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
   }
 ?>
 </br>
-<a href="registration.php">Se créer un compte</a>
+<a href="registration.php">Create an account</a>
 
 <script type="text/javascript" src="scripts/formulaire.js"></script>

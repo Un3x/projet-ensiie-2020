@@ -45,8 +45,8 @@ catch ( PDOException $err )
                 <li id="aKaraInKaraList">
                     <input name="playlist_id" value="<?= $playlist->getId()?>" hidden>
                     <input name="kara_id" value="<?= $kara->getId()?>" hidden>
-                    <button type="submit">Delete</button>
-                    <button type="button" onclick="toggleKaraInfo(<?= $kara->getId()?>)">Infos</button>
+                    <button class="lebutton" type="submit">Delete</button>
+                    <button class="lebutton" type="button" onclick="toggleKaraInfo(<?= $kara->getId()?>)">Infos</button>
                     <span><?= $kara->getString()?></span>
                     <div id=KaraInfo_<?= $kara->getId()?> style="display: none">
                         <h3>Infos</h3>
