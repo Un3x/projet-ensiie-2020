@@ -17,15 +17,16 @@ class SaveRepository
 
     public function existSave(int $userId, int $storyId)
     {
-        $query = "SELECT storyid FROM saves NATURAL JOIN page WHERE userid=:userid AND storyid=:storyid";
+        $query = "SELECT saveId FROM saves NATURAL JOIN page WHERE userid=:userid AND storyid=:storyid";
         $result = $this->dbAdapter->prepare($query);
         $result->bindParam(':userid', $userId);
         $result->bindParam(':storyid', $storyId);
         $result->execute();
-        if ($result->rowCount >= 1) {
-            return $result[0]['saveid'];
+        $saveId = $result->fetch()[0];
+        if (! is_null($saveId) ) {
+            return $saveId;
         }
-        return 0;
+        return FALSE;
     }
 
     public function fetchAll(int $userId)
@@ -52,7 +53,7 @@ class SaveRepository
 
     public function updateSave(int $saveId, int $pageId, int $skill, int $stamina, int $luck)
     {
-        $query = "UPDATE saves SET pageId=:pageid skill=:skill stamina=:stamina luck=:luck WHERE saveId = :saveid";
+        $query = "UPDATE saves SET pageId=:pageid, skill=:skill, stamina=:stamina, luck=:luck WHERE saveId = :saveid";
         $result = $this->dbAdapter->prepare($query);
         $result->bindParam(':pageid', $pageId);
         $result->bindParam(':skill', $skill);
