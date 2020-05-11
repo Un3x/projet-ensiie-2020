@@ -1,0 +1,178 @@
+<?php
+
+namespace Ingame;
+
+class IngameRepository
+{
+     /**
+     * @var \PDO
+     */
+    private $dbAdapter;
+
+    public function __construct(\PDO $dbAdapter)
+    {
+        $this->dbAdapter = $dbAdapter;
+    }
+
+    public function fetchpplgame($game)
+    {
+        $pplingame = $this->dbAdapter->query(' SELECT * FROM "in_game" ORDER BY team ');
+        $ppltoreturn = [];
+        foreach ($pplingame as $pplgame){
+            if ($pplgame['id_game'] == $game){
+                $ppl = new Ingame();
+                $ppl
+                    ->setId($pplgame['id_game'])
+                    ->setTeam($pplgame['team'])
+                    ->setPseudo($pplgame['pseudo'])
+                    ->setMdj($pplgame['mdj']);
+                $ppltoreturn[]=$ppl;
+            }
+        }
+        return $ppltoreturn;
+    }
+
+    public function votemap($id)
+    {
+        $maps = $this->dbAdapter->query('SELECT * FROM "map" ORDER BY id_map');
+        foreach($maps as $map){
+            if($map['id_map'] == $id){
+                $vote = $map['vote'];
+                $newvote = $vote+1;
+                $stmt = $this
+                ->dbAdapter
+                ->prepare('UPDATE "map" SET vote=:newvote where id_map=:id');
+                $stmt->bindParam('newvote', $newvote);
+                $stmt->bindParam('id', $id);
+                $stmt->execute();
+            }
+        }
+    }
+
+    public function voteautre($id){
+        $games = $this->dbAdapter->query('SELECT * FROM "in_game" ');
+        foreach($games as $game){
+            if($game['id_game'] == $id){
+                $vote = $game['voteautre'];
+                $newvote = $vote + 1;
+                $stmt = $this
+                ->dbAdapter
+                ->prepare('UPDATE "in_game" SET voteautre=:newvote where id_game=:id');
+                $stmt->bindParam('newvote', $newvote);
+                $stmt->bindParam('id', $id);
+                $stmt->execute();
+            }
+        }
+    }
+
+    public function getVote($id){
+        $games = $this->dbAdapter->query('SELECT * FROM "in_game" ');
+        foreach($games as $game){
+            if($game['id_game'] == $id){
+                $vote = $game['voteautre'];
+            break;
+            }
+        }
+        return $vote;
+    }
+
+    public function countTeam($mdj, $team)
+    {
+        $sql = $this->dbAdapter->query('SELECT * FROM in_game');
+        $players = [];
+        foreach($sql as $s){
+            $player = new InGame();
+            $player->setPseudo($s['pseudo']);
+            if(isset($s['team'])) $player->setTeam($s['team']);
+            if(isset($s['id_game'])) $player->setId($s['id_game']);
+            $player->setMdj($s['mdj']);
+            $players[] = $player;
+        }
+        $count = 0;
+        foreach($players as $player){
+            if($player->getTeam() == $team && $player->getMdj() == $mdj){
+                $count++;
+            }
+        }
+        return $count;
+    }
+
+    public function matchmaking($game_type)
+    {
+        $mdj = strval($game_type) . "v" . strval($game_type);
+        session_start();
+        $stmt = $this
+            ->dbAdapter
+            ->prepare('INSERT INTO "in_game" (pseudo, mdj) VALUES (:pseudo, :mdj)');
+        $stmt->bindParam('pseudo', $_SESSION['username']);
+        $stmt->bindParam('mdj', $mdj);
+        $stmt->execute();
+        $players = $this->dbAdapter->query('SELECT * FROM "in_game"');
+        $players_tab = [];
+        foreach($players as $player){
+            $joueur = new InGame();
+            $joueur->setPseudo($player['pseudo']);
+            $players_tab[] = $joueur;
+        }
+        $players_copy = $players_tab;
+        $games = $this->dbAdapter-> query('SELECT id_partie FROM partie');
+        $last_id = 0;
+        foreach($games as $game){
+            $last_id = $game['id_partie'];
+        }
+        $last_id += 1;
+        $found_match = False;
+        if($game_type == '1'){
+            foreach($players_tab as $player){
+                if(empty($player->getId())){
+                    foreach($players_copy as $mate){
+                        if(empty($mate->getId()) && $player->getMdj() == $mate->getMdj() && $player->getPseudo() != $mate->getPseudo()){
+                            //GAME FOUND
+                            $game_date = "00:00:00";
+                            $stmt2 = $this  
+                                ->dbAdapter
+                                ->prepare('UPDATE "in_game" SET id_game=:id_partie where mdj=:mdj and id_game IS NULL');
+                            $stmt2->bindParam('id_partie', $last_id);
+                            $stmt2->bindParam('mdj', $mdj);
+                            $stmt2->execute();
+                            $stmt3 = $this
+                                ->dbAdapter
+                                ->prepare('INSERT INTO "partie" (duree) VALUES (:duree)');
+                            $stmt3->bindParam('duree', $game_date);
+                            $stmt3->execute();
+                            $found_match = True;
+                            break;
+                        }
+                    }
+                    if($found_match == True) break;
+                }
+            }
+        }else {
+            foreach($players_tab as $player){
+                if(empty($player->getId())){
+                    //FILL TEAM
+                    $pseudo = $player->getPseudo();
+                    if($this->countTeam($mdj, 1) < (int)$game_type){
+                        $team_number = 1;
+                    } else {
+                        $team_number = 2;
+                    }
+                    $update = $this
+                        ->dbAdapter
+                        ->prepare('UPDATE "in_game" SET team=:team where pseudo=:pseudo');
+                    $update->bindParam('team', $team_number);
+                    $update->bindParam('pseudo', $pseudo);
+                    $update->execute();
+                }
+            }
+            if($this->countTeam($mdj, 1) == (int)$game_type && $this->countTeam($mdj, 2) == (int)$game_type){
+                $find_team = $this
+                    ->dbAdapter
+                    ->prepare('UPDATE "in_game" SET id_game=:id_game where mdj=:mdj');
+                $find_team->bindParam('id_game', $last_id);
+                $find_team->bindParam('mdj', $mdj);
+                $find_team->execute();
+            }
+        }
+    }
+}

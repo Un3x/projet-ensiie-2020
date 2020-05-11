@@ -1,16 +1,20 @@
 <?php
 
 include '../src/Map.php';
-include '../src/User.php';
+include '../src/Utilisateur.php';
+include '../src/PplOnline.php';
 include '../src/MapRepository.php';
-include '../src/UserRepository.php';
+include '../src/UtilisateurRepository.php';
+include '../src/PplOnlineRepository.php';
 include '../src/Factory/DbAdaperFactory.php';
 
 $dbAdaper = (new DbAdaperFactory())->createService();
 $mapRepository = new \Map\MapRepository($dbAdaper);
-$userRepository = new \User\UserRepository($dbAdaper);
-$users = $userRepository->fetchAll();
+$pplonlineRepository = new PplOnline\PplOnlineRepository($dbAdaper);
+$utilisateurRepository = new \Utilisateur\UtilisateurRepository($dbAdaper);
 $maps = $mapRepository->fetchAll();
+$pplonlines = $pplonlineRepository->fetchAll();
+$utilisateurs = $utilisateurRepository->fetchAll();
 
 ?>
 
@@ -44,9 +48,23 @@ $maps = $mapRepository->fetchAll();
     else echo("You can log in by clicking the Play button");
 ?>
 
+<p>
+    <?php
+        echo("Online : ");
+        echo($pplonlineRepository->update());
+    ?>
+    </br>
+    <?php
+        echo("Connected : ");
+        foreach($pplonlines as $pplonline){
+            echo($pplonline->getIp());
+        }
+    ?>
+</p>
+
 </br>
 <button type="button" id="playbutton" onclick=" document.getElementById('hide').style.display='block';">Jouer</button> 
-<form method="POST" style="display:none" id="hide" action="/Login.php">
+<form method="POST" style="display:none" id="hide" action="/Login.php" onsubmit="return login_validation()" name="login">
   <label for="name">Pseudo:</label>
   <input type="text" id="name" name="nom_utilisateur">
   <br>
@@ -57,7 +75,7 @@ $maps = $mapRepository->fetchAll();
   <p id="hide" style="display:none">No account ? Signup now ! </p>
   <button type="button" onclick=" document.getElementById('hide2').style.display='block';document.getElementById('hide').style.display='none';">Créer un  compte</button> 
 </form>
-<form method="POST" style="display:none" id="hide2" action="/Signup.php">
+<form method="POST" style="display:none" id="hide2" action="/createUtilisateur.php" onsubmit="return signin_validation()" name="signin">
   <label for="name">Pseudo:</label>
   <input type="text" id="name" name="nom_utilisateur">
   <br>
@@ -69,7 +87,7 @@ $maps = $mapRepository->fetchAll();
   <br>
   <button type="submit"> S'inscrire</button>
 </form>
-
+<!--
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
@@ -88,12 +106,10 @@ $maps = $mapRepository->fetchAll();
                         <td><?= $map->getId() ?></td>
                         <td><?= $map->getMeteo() ?></td>
                         <td><?= $map->getTerrain() ?></td>
-                        <td><?= $map->getMdj() ?></td>
                         <td>
                             <form method="POST" action="createMap.php">
                                 <input name="mapMeteo" type="hidden" value="<?= $map->getMeteo() ?>">
                                 <input name="mapTerrain" type="hidden" value="<?= $map->getTerrain() ?>">
-                                <input name="mapMdj" type="hidden" value="<?= $map->getMdj() ?>">
                                 <button type="submit">Create</button>
                             </form>
                         </td>
@@ -118,23 +134,23 @@ $maps = $mapRepository->fetchAll();
                     <th>password</th>
                     <th>created_at</th>
                 </tr>
-                <?php foreach($users as $user): ?>
+                <?php foreach($utilisateurs as $utilisateur): ?>
                     <tr>
-                        <td><?= $user->getId() ?></td>
-                        <td><?= $user->getUsername() ?></td>
-                        <td><?= $user->getEmail() ?></td>
-                        <td><?= $user->getCreatedAt()->format(\DateTime::ATOM) ?></td>
+                        <td><?= $utilisateur->getId() ?></td>
+                        <td><?= $utilisateur->getPseudo() ?></td>
+                        <td><?= $utilisateur->getMdp() ?></td>
+                        <td><?= $utilisateur->getMail() ?></td>
                         <td>
-                            <form method="POST" action="createUser.php">
-                                <input name="user_username" type="hidden" value="<?= $user->getUsername() ?>">
-                                <input name="user_pwd" type="hidden" value="<?= $user->getEmail() ?>">
-                                <input name="user_created_at" type="hidden" value="<?= $user->getCreatedAt()->format(\DateTime::ATOM) ?>">
+                            <form method="POST" action="createUtilisateur.php">
+                                <input name="nom_utilisateur" type="hidden" value="<?= $utilisateur->getPseudo() ?>">
+                                <input name="mdp_utilisateur" type="hidden" value="<?= $utilisateur->getMdp() ?>">
+                                <input name="mail_utilisateur" type="hidden" value="<?= $utilisateur->getMail() ?>">
                                 <button type="submit">Create</button>
                             </form>
                         </td>
                         <td>
-                            <form method="POST" action="deleteUser.php">
-                                <input name="user_id" type="hidden" value="<?= $user->getId() ?>">
+                            <form method="POST" action="deleteUtilisateur.php">
+                                <input name="utilisateur_id" type="hidden" value="<?= $utilisateur->getId() ?>">
                                 <button type="submit">Delete</button>
                             </form>
                         </td>
@@ -144,6 +160,7 @@ $maps = $mapRepository->fetchAll();
         </div>
     </div>
 </div>
+-->
 <script src="scripts.js"></script>
 </body>
 </html>

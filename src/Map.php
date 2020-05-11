@@ -7,7 +7,7 @@ class Map
     /**
      * @var int
      */
-    private $id;
+    private $id_map;
 
     /**
      * @var string
@@ -19,17 +19,18 @@ class Map
      */
     private $terrain;
 
+
     /**
-     * @var \DateTime
+     * @var int
      */
-    private $mdj;
+    private $vote;
 
     /**
      * @return int
      */
     public function getId ()
     {
-        return $this->id_carte;
+        return $this->id_map;
     }
 
     /**
@@ -37,7 +38,7 @@ class Map
      */
     public function setId ($id)
     {
-        $this->id_carte = $id;
+        $this->id_map = $id;
         return $this;
     }
 
@@ -75,20 +76,20 @@ class Map
         return $this;
     }
 
-    /**
-     * @return string
+     /**
+     * @return int
      */
-    public function getMdj ()
+    public function getVote ()
     {
-        return $this->mdj;
+        return $this->vote;
     }
 
     /**
-     * @param \DateTime $mdj
+     * @param int $mdj
      */
-    public function setMdj ($mdj)
+    public function setVote ($vote)
     {
-        $this->mdj = $mdj;
+        $this->vote = $vote;
         return $this;
     }
 }
