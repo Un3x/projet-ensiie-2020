@@ -81,7 +81,8 @@ pour faire ça: check si les attributs de SESSION sont défini (fonction isset()
       }
     ?>
 
-<input type="hidden" id="post.token" name="post.token" value="{$token}" /> 
+<?php echo '<input type="hidden" id="post.token" name="post.token" value="'.$token.'" /> '?>
+
 <button class ="lebutton" type="submit">Connect</button>
 
 <?php

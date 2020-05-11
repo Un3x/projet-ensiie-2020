@@ -16,7 +16,7 @@ try
 {
     $playlistId = htmlspecialchars($_POST['playlist_id']);
     $karaId = htmlspecialchars($_POST['kara_id']);
-    $playlistRepository->deleteKaraFromPlaylist($playlistId, $karaId, $_SESSION['id']);
+    var_dump($playlistRepository->addKaraToPlaylist($playlistId, $karaId, $_SESSION['id']));
 }
 catch ( Exception $e )
 {

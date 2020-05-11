@@ -96,6 +96,10 @@ body input[type=radio]{
 	cursor: pointer;
 	margin-bottom:0px;
 }
+a{
+    color: #8888FF;
+    text-decoration:none;
+}
 
 a:link, a:visited{
     color: #8888FF;
