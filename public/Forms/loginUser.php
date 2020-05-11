@@ -81,8 +81,8 @@ if ($userRepository->checkUser($username) + $userRepository->checkEmail($usernam
 				$cosmetics->bindParam('userID',$userFound['id']);
 				$cosmetics->execute();
 				$cosmetics=$cosmetics->fetch();
-				$_SESSION['image']=$userFound['image'];
-				$_SESSION['title']=$userFound['title'];
+				$_SESSION['image']=$cosmetics['idimage'];
+				$_SESSION['title']=$cosmetics['idtitle'];
 			}
 			catch (PDOException $err){
 			header('Location: ../index.php?err=sqlError');
