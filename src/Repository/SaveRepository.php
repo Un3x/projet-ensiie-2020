@@ -27,7 +27,7 @@ class SaveRepository
 
     public function fetchAll(int $userId)
     {
-        $savesData = $this->dbAdapter->prepare('SELECT saveId, userId, title, storyId, pageId, saves.skill, saves.stamina, saves.luck FROM saves NATURAL JOIN story WHERE userId=:userid');
+        $savesData = $this->dbAdapter->prepare('SELECT saveId, userId, title, storyId, pageId, saves.skill, saves.stamina, saves.luck FROM saves JOIN story ON title == storyName');
         $savesData->bindParam(':userid', $userId);
         $savesData->execute();
         $saves = [];
