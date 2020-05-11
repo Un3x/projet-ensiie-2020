@@ -35,7 +35,7 @@
         <a class="dropdown-item" href="admin_page.php">Admin</a>
         <?php } ?>
         <a class="dropdown-item" href="user_page.php">Profil</a>
-        <a class="dropdown-item" href="#">Parties</a>
+        <a class="dropdown-item" href="saved_stories.php">Parties</a>
       </div>
       </li>
       <li class="nav-item">

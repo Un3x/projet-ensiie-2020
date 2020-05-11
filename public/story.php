@@ -29,5 +29,10 @@
     $data['title'] = $story->getTitle();
     $data['page'] = $cur;
     
+    $_SESSION['page'] = $cur;
+    $_SESSION['skill'] = $story->getSkill();
+    $_SESSION['stamina'] = $story->getStamina();
+    $_SESSION['luck'] = $story->getLuck();
+    
     loadView('story', $data);
 ?>

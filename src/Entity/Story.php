@@ -25,6 +25,21 @@ class Story
     private $summary;
 
     /**
+     * @var int
+     */
+    private $skill;
+
+    /**
+     * @var int
+     */
+    private $stamina;
+
+    /**
+     * @var int
+     */
+    private $luck;
+
+    /**
      * @return int
      */
     public function getId ()
@@ -89,6 +104,57 @@ class Story
     public function setSummary ($summary)
     {
         $this->summary = $summary;
+        return $this;
+    }
+    
+    /**
+     * @return int
+     */
+    public function getSkill ()
+    {
+        return $this->skill;
+    }
+
+    /**
+     * @param int $skill
+     */
+    public function setSkill ($skill)
+    {
+        $this->skill = $skill;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStamina ()
+    {
+        return $this->stamina;
+    }
+
+    /**
+     * @param int $stamina
+     */
+    public function setStamina ($stamina)
+    {
+        $this->stamina = $stamina;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLuck ()
+    {
+        return $this->luck;
+    }
+
+    /**
+     * @param int $luck
+     */
+    public function setLuck ($luck)
+    {
+        $this->luck = $luck;
         return $this;
     }
 }

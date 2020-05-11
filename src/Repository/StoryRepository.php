@@ -56,7 +56,7 @@ class StoryRepository
      * information about itself
      */
     public function fetchStory(int $storyId) {
-        $query = 'SELECT storyid, title, author, summary FROM story WHERE storyid = :storyId';
+        $query = 'SELECT * FROM story WHERE storyid = :storyId';
         $result = $this->dbAdapter->prepare($query);
         $result->bindParam(':storyId', $storyId);
         $result->execute();
@@ -66,7 +66,10 @@ class StoryRepository
           ->setId(intval($storyResult['storyid']))
           ->setTitle($storyResult['title'])
           ->setAuthor($storyResult['author'])
-          ->setSummary($storyResult['summary']);
+          ->setSummary($storyResult['summary'])
+          ->setSkill($storyResult['heroskill'])
+          ->setStamina($storyResult['herostamina'])
+          ->setLuck($storyResult['heroluck']);
         return $story;
     }
 
