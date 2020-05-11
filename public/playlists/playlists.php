@@ -10,6 +10,13 @@ set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 <?php include_once "View/Layout/header.php" ?>
 
 <body>
+<?php
+if ( !isset($_SESSION['id']) )
+{
+    connect_yourself();
+    exit();
+}
+?>
 
 <?php
 if ( isset($_GET['create']) && $_GET['create'] === "success" )
