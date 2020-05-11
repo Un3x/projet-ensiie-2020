@@ -29,3 +29,27 @@ function signin_validation(){
 function update_online_members(){
     var nbr_online = document.getElementById("nbr_online");
 }
+
+var modal = document.getElementById("RoleModal");
+var btn = document.getElementById("Roles_button");
+var span = document.getElementsByClassName("close_pan")[0];
+
+function is_queueing(){
+    var circle = document.getElementById("queue");
+    var confirm_circle = document.getElementById("queueing");
+    if(queueing == 3 || queueing == '3'){
+        circle.style.display = "block";
+    }
+}
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+span.onclick = function() {
+    modal.style.display = "none";
+}
+window.onclick = function(event) {
+    if(event.target == modal) {
+        modal.style.display = "none";
+    }
+}

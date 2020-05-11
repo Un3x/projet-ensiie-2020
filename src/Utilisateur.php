@@ -2,6 +2,47 @@
 
 namespace Utilisateur;
 
+class InGame
+{
+
+    private $id_game;
+    private $pseudo;
+    private $mdj;
+    private $team;
+
+    public function setId($id){
+        $this->id_game = $id;
+    }
+
+    public function setPseudo($pseudo){
+        $this->pseudo = $pseudo;
+    }
+
+    public function setMdj($mdj){
+        $this->mdj = $mdj;
+    }
+
+    public function setTeam($team){
+        $this->team = $team;
+    }
+
+    public function getTeam(){
+        return $this->team;
+    }
+
+    public function getId(){
+        return $this->id_game;
+    }
+
+    public function getMdj(){
+        return $this->mdj;
+    }
+
+    public function getPseudo(){
+        return $this->pseudo;
+    }
+}
+
 class Utilisateur
 {
     /**
