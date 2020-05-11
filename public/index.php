@@ -106,12 +106,10 @@ $utilisateurs = $utilisateurRepository->fetchAll();
                         <td><?= $map->getId() ?></td>
                         <td><?= $map->getMeteo() ?></td>
                         <td><?= $map->getTerrain() ?></td>
-                        <td><?= $map->getMdj() ?></td>
                         <td>
                             <form method="POST" action="createMap.php">
                                 <input name="mapMeteo" type="hidden" value="<?= $map->getMeteo() ?>">
                                 <input name="mapTerrain" type="hidden" value="<?= $map->getTerrain() ?>">
-                                <input name="mapMdj" type="hidden" value="<?= $map->getMdj() ?>">
                                 <button type="submit">Create</button>
                             </form>
                         </td>

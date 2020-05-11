@@ -8,7 +8,6 @@ CREATE TABLE "in_game" (
     pseudo VARCHAR NOT NULL,
     mdj VARCHAR,
     team INT,
-    id_game INT,
     voteautre INT
 );
 
