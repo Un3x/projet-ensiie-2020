@@ -41,7 +41,7 @@ class UtilisateurRepository
         }
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == True){
             if($isAdmin == True) header("Location: /admin.php");            
-            else header("Location: /client.php");
+            else header("Location: /index2.php");
             return 1;
             exit;
         }
@@ -57,7 +57,7 @@ class UtilisateurRepository
                     echo("Log in successfull");
                     $success = True;
                     if($isAdmin == True) header("Location: /admin.php");            
-                    else header("Location: /client.php");
+                    else header("Location: /index2.php");
                     return 1;
                 }
             }
