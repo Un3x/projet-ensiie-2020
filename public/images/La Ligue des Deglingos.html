@@ -1,59 +1,31 @@
-<?php
-    include '../src/PplOnline.php';
-    include '../src/Utilisateur.php';
-    include '../src/PplOnlineRepository.php';
-    include '../src/UtilisateurRepository.php';
-    include '../src/Factory/DbAdaperFactory.php';
-
-    $dbAdaper = (new DbAdaperFactory())->createService();
-    $pplonlineRepository = new PplOnline\PplOnlineRepository($dbAdaper);
-    $utilisateurRepository = new Utilisateur\UtilisateurRepository($dbAdaper);
-    $pplonlines = $pplonlineRepository->fetchAll();
-    $utilisateurs = $utilisateurRepository->fetchAll();
-?>
-
-<html>
-    <head>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="utf-8">
         <title>La Ligue des Deglingos</title>
         <meta name="description" content="Projet web Ensiie">
         <meta name="author" content="Theau FERNANDEZ / Quentin JURY / Gabriel Meziere">
-        <link rel="stylesheet" href="style.css?v=1.0">
+        <link rel="stylesheet" href="La%20Ligue%20des%20Deglingos_fichiers/style.css">
     </head>
     <body>
         <div id="menu">
             <ul>
                 <li><a href="#volet" class="open" aria-hidden="true">Profil</a>
-                <li><a href="#" id="Roles_button">Roles</a></li>
+                </li><li><a href="#" id="Roles_button">Roles</a></li>
                 <li><a href="#">Modes de jeu</a></li>
             </ul>
         </div>
         <div id="connexion_info">
-            <?php
-                session_start();
-                if(!isset($_SESSION["loggedin"]) or $_SESSION["loggedin"] == False){
-                    header("Location: /not_logged.php");
-                 }
-                 if(isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)){
-                    header("Location: /Logout.php");
-                 }
-                 $_SESSION['LAST_ACTIVITY'] = time();
-            ?>
-            <input type="hidden" id=nbr_online value=<?php echo($pplonlineRepository->update()); ?> />
-            <?php echo("Bonjour " .$_SESSION["username"]); ?>
-            <?php echo("/ Online : "); echo($pplonlineRepository->update()); $refreshAfter = 910 ?>
-            <form method="POST" action="/Logout.php">
+                        <input type="hidden" id="nbr_online" value="3">
+            Bonjour corrianIV            / Online : 3            <form method="POST" action="/Logout.php">
                 <button type="submit">Logout</button>
             </form>
         </div>
-        <?php if(isset($_GET['retour'])) $refreshAfter = $_GET['retour']; header('Refresh: ' . $refreshAfter) ?>
-        <?php if($utilisateurRepository->isGameReady() != -1) header('Location: index2.php') ?>
-        <div id="volet_clos">
+                        <div id="volet_clos">
             <div id="volet">
                 <form method="POST" action="/updateUtilisateur.php" name="profile_changes">
                 <div id="profile_settings">
                     <ul style="list-syle-type:none;">
-                        <form method="POST" action="/updateUtilisateur.php">
+                        
                             <label for="nom_utilisateur">Nouveau Pseudo</label>
                             <input style="block" name="nom_utilisateur" type="text">
                             <label for="mail_utilisateur">Nouveau Mail</label>
@@ -61,9 +33,9 @@
                             <label for="mdp_utilisateur">Nouveau Mot de Passe</label>
                             <input style="block" name="mdp_utilisateur" type="password">
                             <button type="submit">Appliquer changements</button>
-                        </form>
+                        
                     </ul>
-                </div>
+                </div></form>
                 <a href="#volet_clos" class="close" aria-hidden="true"></a>
             </div>
         </div>
@@ -75,15 +47,15 @@
                 <div class="modal-roles-body">
                     <div class="box">
                         <div class="imgBox">
-                            <a href="changeRole.php?role=support"><img src="images/support.png"><a>
-                        </div>
+                            <a href="http://localhost:8080/changeRole.php?role=support"><img src="La%20Ligue%20des%20Deglingos_fichiers/support.png"></a><a>
+                        </a></div><a>
                         <div class="content">
                             <h2>Support</h2>
                         </div>
-                    </div>
-                    <div class="box">
-                        <div class="imgBox">
-                        <a href="changeRole.php?role=mage"><img src="images/mage.png"></a>
+                    </a></div><a>
+                    </a><div class="box"><a>
+                        </a><div class="imgBox"><a>
+                        </a><a href="http://localhost:8080/changeRole.php?role=mage"><img src="La%20Ligue%20des%20Deglingos_fichiers/mage.png"></a>
                         </div>
                         <div class="content">
                             <h2>Mage</h2>
@@ -91,7 +63,7 @@
                     </div>
                     <div class="box">
                         <div class="imgBox">
-                        <a href="changeRole.php?role=marksman"><img src="images/marksman.jpg"></a>
+                        <a href="http://localhost:8080/changeRole.php?role=marksman"><img src="La%20Ligue%20des%20Deglingos_fichiers/marksman.jpg"></a>
                         </div>
                         <div class="content">
                             <h2>Tireur</h2>
@@ -99,7 +71,7 @@
                     </div>
                     <div class="box">
                         <div class="imgBox">
-                        <a href="changeRole.php?role=assassin"><img src="images/assassin.png"></a>
+                        <a href="http://localhost:8080/changeRole.php?role=assassin"><img src="La%20Ligue%20des%20Deglingos_fichiers/assassin.png"></a>
                         </div>
                         <div class="content">
                             <h2>Assassin</h2>
@@ -108,8 +80,7 @@
                 </div>
             </div>
         </div>
-        <?php if(isset($_GET['retour'])) $display="display:block"; else $display="display:none"; ?>
-        <div class="queue" id="queue" style=<?= $display ?>>
+                <div class="queue" id="queue" style="display:block">
         <div class="loader"></div>
         <div class="queue-content">Dans la file</div>
         </div>
@@ -138,10 +109,10 @@
                 <input name="mdj" type="radio" id="5v5" value="5">
                     <span class="cinqvcinq">5v5</span>
                 </label>
-                </br>
-                <button type="submit" id='send' name='send' value='send'>JOUER</button>
+                <br>
+                <button type="submit" id="send" name="send" value="send">JOUER</button>
             </form>
         </div>
-    <script src="scripts.js"></script>
-</body>
-</html>
+    <script src="La%20Ligue%20des%20Deglingos_fichiers/scripts.js"></script>
+
+</body></html>

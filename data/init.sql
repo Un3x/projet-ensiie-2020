@@ -57,6 +57,7 @@ INSERT INTO "map" (meteo, terrain, vote) VALUES (3, 'beach', 0);
 INSERT INTO "map" (meteo, terrain, vote) VALUES (2, 'plains', 0);
 INSERT INTO "map" (meteo, terrain, vote) VALUES (2, 'city', 0);
 INSERT INTO "map" (meteo, terrain, vote) VALUES (3, 'desert', 0);
+/*
 INSERT INTO "in_game" (id_game,pseudo, team, mdj, voteautre) VALUES (1,'tata',1,'3v3',0);
 INSERT INTO "in_game" (id_game,pseudo, team, mdj, voteautre) VALUES (1,'toto',1,'3v3',0);
 INSERT INTO "in_game" (id_game,pseudo, team, mdj, voteautre) VALUES (1,'titi',1,'3v3',0);
@@ -65,3 +66,4 @@ INSERT INTO "in_game" (id_game,pseudo, team, mdj, voteautre) VALUES (1,'tyty',2,
 INSERT INTO "in_game" (id_game,pseudo, team, mdj, voteautre) VALUES (1,'tbtb',2,'3v3',0);
 INSERT INTO "in_game" (id_game,pseudo, team, mdj, voteautre) VALUES (1,'tctc',2,'3v3',0);
 INSERT INTO "in_game" (id_game,pseudo, team, mdj, voteautre) VALUES (2,'tdtd',1,'5v5',0);
+*/

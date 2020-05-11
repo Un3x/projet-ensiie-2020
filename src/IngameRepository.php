@@ -90,7 +90,7 @@ class IngameRepository
         }
         $count = 0;
         foreach($players as $player){
-            if($player->getTeam() == $team && $player->getMdj() == $mdj){
+            if($player->getTeam() == $team && $player->getMdj() == $mdj && $player->getId() == null){
                 $count++;
             }
         }
@@ -122,48 +122,21 @@ class IngameRepository
         }
         $last_id += 1;
         $found_match = False;
-        if($game_type == '1'){
-            foreach($players_tab as $player){
-                if(empty($player->getId())){
-                    foreach($players_copy as $mate){
-                        if(empty($mate->getId()) && $player->getMdj() == $mate->getMdj() && $player->getPseudo() != $mate->getPseudo()){
-                            //GAME FOUND
-                            $game_date = "00:00:00";
-                            $stmt2 = $this  
-                                ->dbAdapter
-                                ->prepare('UPDATE "in_game" SET id_game=:id_partie where mdj=:mdj and id_game IS NULL');
-                            $stmt2->bindParam('id_partie', $last_id);
-                            $stmt2->bindParam('mdj', $mdj);
-                            $stmt2->execute();
-                            $stmt3 = $this
-                                ->dbAdapter
-                                ->prepare('INSERT INTO "partie" (duree) VALUES (:duree)');
-                            $stmt3->bindParam('duree', $game_date);
-                            $stmt3->execute();
-                            $found_match = True;
-                            break;
-                        }
-                    }
-                    if($found_match == True) break;
+        foreach($players_tab as $player){
+            if(empty($player->getId())){
+                //FILL TEAM
+                $pseudo = $player->getPseudo();
+                if($this->countTeam($mdj, 1) < (int)$game_type){
+                    $team_number = 1;
+                } else {
+                    $team_number = 2;
                 }
-            }
-        }else {
-            foreach($players_tab as $player){
-                if(empty($player->getId())){
-                    //FILL TEAM
-                    $pseudo = $player->getPseudo();
-                    if($this->countTeam($mdj, 1) < (int)$game_type){
-                        $team_number = 1;
-                    } else {
-                        $team_number = 2;
-                    }
-                    $update = $this
-                        ->dbAdapter
-                        ->prepare('UPDATE "in_game" SET team=:team where pseudo=:pseudo');
-                    $update->bindParam('team', $team_number);
-                    $update->bindParam('pseudo', $pseudo);
-                    $update->execute();
-                }
+                $update = $this
+                    ->dbAdapter
+                    ->prepare('UPDATE "in_game" SET team=:team where pseudo=:pseudo');
+                $update->bindParam('team', $team_number);
+                $update->bindParam('pseudo', $pseudo);
+                $update->execute();
             }
             if($this->countTeam($mdj, 1) == (int)$game_type && $this->countTeam($mdj, 2) == (int)$game_type){
                 $find_team = $this
