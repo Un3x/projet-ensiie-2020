@@ -15,19 +15,18 @@ class SaveRepository
     }
 
 
-    public function existSave(int $userId, int $storyName)
+    public function existSave(int $saveId)
     {
-        $query = "SELECT * FROM saves WHERE userId=:userid AND storyName=:storyName";
+        $query = "SELECT * FROM saves WHERE saveId=:saveid";
         $result = $this->dbAdapter->prepare($query);
-        $result->bindParam(':userid', $userId);
-        $result->bondParam(':storyName', $storyName);
+        $result->bindParam(':saveid', $saveId);
         $result->execute();
         return $result->rowCount >= 1;
     }
 
     public function fetchAll(int $userId)
     {
-        $savesData = $this->dbAdapter->prepare('SELECT saveId, userId, title, storyId, pageId, saves.skill, saves.stamina, saves.luck FROM saves JOIN story ON title == storyName');
+        $savesData = $this->dbAdapter->prepare('SELECT saveId, userId, title, story.storyId, page.pageId, saves.skill, saves.stamina, saves.luck FROM saves NATURAL JOIN page NATURAL JOIN story');
         $savesData->bindParam(':userid', $userId);
         $savesData->execute();
         $saves = [];
@@ -60,12 +59,11 @@ class SaveRepository
         return TRUE;
     }
 
-    public function addSave(int $userId, int $storyName, int $pageId, int $skill, int $stamina, int $luck)
+    public function addSave(int $userId, int $pageId, int $skill, int $stamina, int $luck)
     {
-        $query = "INSERT INTO saves (userId, storyName, pageId, skill, stamina, luck) VALUES (:userid, :storyname, :pageid, :skill, :stamina, :luck";
+        $query = "INSERT INTO saves (userId, pageId, skill, stamina, luck) VALUES (:userid, :pageid, :skill, :stamina, :luck";
         $result = $this->dbAdapter->prepare($query);
         $result->bindParam(':userid', $userId);
-        $result->bindParam(':storyname', $storyName);
         $result->bindParam(':pageid', $pageId);
         $result->bindParam(':skill', $skill);
         $result->bindParam(':stamina', $stamina);

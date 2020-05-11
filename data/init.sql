@@ -56,7 +56,8 @@ CREATE TABLE saves (
     skill INT NOT NULL,
     stamina INT NOT NULL,
     luck INT NOT NULL,
-    FOREIGN KEY (userId) REFERENCES users (userId)
+    FOREIGN KEY (userId) REFERENCES users (userId),
+    FOREIGN KEY (pageId) REFERENCES page (pageId)
 );
 
 INSERT INTO users (username, email, pwd, isAdmin) VALUES ('Deleted user', '', '', true);
