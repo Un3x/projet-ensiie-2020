@@ -12,20 +12,22 @@ if ( !isset($dbAdapter) )
 if ( !isset($playlistRepository) )
     $playlistRepository = new \Playlist\PlaylistRepository($dbAdapter);
 
+
 try
 {
-    $playlist = $playlistRepository->fetchPlaylist($id, $userId);
+    $playlist_id = htmlspecialchars($_POST['playlist_id']);
+    $playlist = $playlistRepository->fetchPlaylist($playlist_id, $_SESSION['id']);
 }
 catch (PDOException $err)
 {
     header('Location /error.php?error=sqlerror');
     exit();
 }
-
-
 ?>
 
 <h1>Gestion de vos playlists :</h1></br>
+
+<h3>Playlist : <?= $playlist->getName()?></h3>
 <?php
 
 

@@ -27,7 +27,7 @@ $allplaylists = $playlistRepository->fetchAllPublik();
                 <li id="aPlaylistInPublikList">
                     <button type="button" onclick="togglePlaylistInfo(<?= $playlist->getId()?>">See</button>
                     <button type="button" onclick="addPlaylistToQueue(<?= $playlist->getId()?>">Add to queue</button>
-                    <span><?= $playlist->getName()?></span>
+                    <span>[<?= $playlist->getCreatorUsername()?>] : <?= $playlist->getName()?></span>
                     <div id=PlaylistInfo_<?= $playlist->getId()?> style="display: none">
                     </div>
                 </li>

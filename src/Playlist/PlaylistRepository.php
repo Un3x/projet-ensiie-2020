@@ -19,8 +19,10 @@ class PlaylistRepository
         $playlists = [];
         foreach ($query as $playlistDatum) {
             $playlist = new Playlist();
+            $playlist->setId($playlistDatum['id']);
+            if ( isset($playlistDatum['username']) )
+                $playlist->setCreatorUsername($playlistDatum['username']);
             $playlist
-                ->setId($playlistDatum['id'])
                 ->setName($playlistDatum['name'])
                 ->setCreator($playlistDatum['creator'])
                 ->setContent($playlistDatum['content'])
@@ -39,12 +41,13 @@ class PlaylistRepository
             ->setName($query['name'])
             ->setCreator($query['creator'])
             ->setContent($query['content'])
-            ->setPublik($query['publik'])
+            ->setPublik($query['publik']);
+        return $playlist;
     }
 
     public function fetchAllPublik()
     {
-        $playlists = $this->dbAdapter->query('SELECT playlist.id, name, creator, content, publi FROM playlist WHERE publik IS TRUE');
+        $playlists = $this->dbAdapter->query('SELECT playlist.id, name, creator, content, publik, username FROM playlist JOIN "user" ON "user".id=creator WHERE publik IS TRUE');
         return $this->fromQueryToArray($playlists);
     }
 
@@ -54,22 +57,22 @@ class PlaylistRepository
         $playlists = $this->dbAdapter->prepare($req);
         $playlists->bindParam('id', $userId, \PDO::PARAM_INT);
         $playlists->execute();
-        return $this->fromQueryToArray($playlists);
+        return $this->fromQueryToArray($playlists->fetch());
     }
 
     public function fetchPlaylist($id, $userId)
     {
         $public = $this->dbAdapter->prepare('SELECT creator, publik FROM playlist WHERE id=:id');
-        $public->bindParam('id', $id);
+        $public->bindParam('id', $id, \PDO::PARAM_INT);
         $public->execute();
         $public->fetch();
-        if ( $public['publik'] === false && $public['creator']2
+        //if ( $public['publik'] === false && $public['creator']2
 
         $req = 'SELECT * FROM playlist WHERE id=:id';
         $playlists = $this->dbAdapter->prepare($req);
         $playlists->bindParam('id', $id, \PDO::PARAM_INT);
         $playlists->execute();
-        return $playlists->fetchColumn();
+        return $this->fromPlaylistToArray($playlists->fetch(\PDO::FETCH_ASSOC));
     }
 
     public function createPlaylist($name, $creator, $public)
