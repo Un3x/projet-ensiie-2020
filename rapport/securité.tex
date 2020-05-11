@@ -1,4 +1,4 @@
-\section{sécurité}
+\section{Sécurité}
     Un minimun de sécurité a été implanté pour éviter des attaques récurrentes comme ddos ou injections SQL:\newline
 Chaque variable obtenu d'un formulaire via la méthode POST sera d'abord filtré avec la commande htmlspecialchars() pour eviter que des caractères spéciaux apparaissent. Ensuite, ces variables seront rentré en parametres dans les commandes sql via la méthode bindParam du PDO.\newline
 Lors d'une création, d'un login, ou d'un changement d'un compte, on vérifie bien que les champs remplis sont bien valide (email au bon format, pas d'espace dans le username), ainsi nous n'aurons pas de risque concernant l'utilisateur qui rentre une commande de type 'DROP TABLE'.\newline
