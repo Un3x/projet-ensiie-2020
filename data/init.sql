@@ -164,9 +164,9 @@ INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,5,'Bakaclub');
 INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,6,'Bakaclub');
 INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,7,'Bakaclub');
 
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (3,5);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (3,2);
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (3,3);
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (3,5,'BDS');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (3,2,'Cuisine');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (3,3,'BDS');
 
 INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,8,'Bakaclub');
 INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (1,9,'BDE');
@@ -203,7 +203,7 @@ INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (17,2,0);
 INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (51,2,0);
 INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (51,3,0);
 
-INSERT INTO Participations (Id_reu, Id_membre, statut, retard) VALUES (18,1,3,'00:15:00');
+INSERT INTO Participations (Id_reu, Id_membre, statut, retard) VALUES (18,1,0,'00:15:00');
 INSERT INTO Participations (Id_reu, Id_membre, statut, retard) VALUES (18,2,3,'00:15:00');
 INSERT INTO Participations (Id_reu, Id_membre, statut, retard) VALUES (18,3,3,'00:15:00');
 INSERT INTO Participations (Id_reu, Id_membre, statut, retard) VALUES (18,4,3,'00:15:00');

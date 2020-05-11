@@ -27,15 +27,14 @@ $assoAll=$assoRepository->fetch_all_Assos();
     <body>
     <fieldset>
     <legend id="leg1" align="center" > Formulaire </legend> <br />
-    <form name="myForm" action="/NewDemande.php" method="post" onsubmit="return validateForm()" >
 
 <!--     Nom <em id="em1">*</em> :
       <input type="text" name="username" value="" id ="username" >  <br />
  -->
-    Je souhaite devenir administrateur de : 
     <?php
-  echo "<form >";
-  echo "<select name='nomasso' size='1'>";
+  echo "<form name='myForm' action='/NewDemande.php' method='post' onsubmit='return validateForm()'>";
+  echo"Je souhaite devenir administrateur de :";
+  echo "<select name='Nom_assoc' id ='Nom_assoc' size='1'>";
   foreach($assoAll as $element){
     $val=$element->getNomAssoc();
     if($assoRepository->appartient($val,$_SESSION['user']->getId())){
@@ -44,7 +43,7 @@ $assoAll=$assoRepository->fetch_all_Assos();
     }
   }
   echo "</select>";
-  echo ' <input type="submit" name="demande_admin" value="Envoyer la demande" id ="bouton_demande_admin" align="center">';
+  echo "<input type='submit' name='demande_admin' value='Envoyer la demande' id ='bouton_demande_admin' align='center'>";
   echo "</form>";
 ?>     
     Vous ne pouvez demander a etre administrateur que des associations dont vous faites parti.
@@ -52,7 +51,6 @@ $assoAll=$assoRepository->fetch_all_Assos();
     Si vous souhaitez vous inscrire dans d'autres associations cliquez ici:
     <a class="nav-link" href="/profil.php"> Retour au profil</a>
 </form>
-    </fieldset>
 
-    </body> 
-    </html>
+
+    </fieldset>

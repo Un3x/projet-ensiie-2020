@@ -6,6 +6,7 @@ include '../src/UserRepository.php';
 include '../src/Factory/DbAdaperFactory.php';
 include '../src/Asso.php';
 include '../src/AssoRepository.php';
+include '../src/Reunion.php';
 include '../src/ReunionRepository.php';
 include '../src/ParticipationRepository.php';
 
@@ -23,7 +24,7 @@ $name=$_SESSION['username'];
 $userid = $_SESSION['user']->getId();
 
 $asso = $assoRepository->fetch_Assos($userid);
-
+$assoAdmin = $assoRepository->fetch_all_Assos_for_Admin($userid);
 $assoAll=$assoRepository->fetch_all_Assos();
 
 ?>
@@ -177,7 +178,7 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
     }
   }
   echo "</select>";
-  echo '<input type="submit" name="Valider" value="Valider" id ="bouton_envoi" align="center">';
+  echo '<input type="submit" name="demande_admin" value="Envoyer la demande" id ="bouton_demande_admin" align="center">';
   echo "</form>";
 ?>
   
@@ -212,24 +213,42 @@ use \Datetime as dt;
 
 $today = new DateTime();
 $today3 = $today->getTimestamp();
-echo $today3;
+//echo $today3;
 
 if ($userRepository->IsAdmin($userid)){
   echo "<h2> Rentrer le retard des participants des réunions passées </h2>";
-  echo "<div id='ListAsso'>"
-  echo "<table class='table'>"
-  echo "<tr>"
-      echo "<th>Réunions :</th>"
-      echo "</tr>"
-      <?php foreach($asso as $Asso): ?>
-          echo "</tr>"
-              <td><?php 
-              $val= $Asso->getNomAssoc();
-              echo $val; ?></td>
-          </tr>
-      <?php endforeach; ?>
-  </table>
-</div>
-  $participationRepository->fetch_Reu_passees($userid,$today3);
+  echo "<div id='ListAsso'>";
+  echo "<table class='table'>";
+  echo "<tr>";
+      echo "<th>Réunions :</th>";
+      echo "</tr>";
+
+  foreach($asso as $element){
+    $val=$element->getNomAssoc();
+    echo "<tr>";
+    echo "<td>".$val;
+    echo "</td>";
+    $idAsso=$element->getIdAssoc();
+    $reu = $reuRepository->reuAsso($idAsso);
+
+    foreach ($reu as $r) {
+      $horaire=$r->getDateDebutReu();
+      $horaireT=strtotime($horaire);
+      $idreu=$r->getIdReu();
+      //$horaireT2= date("Y-m-d H:i:s", $horaireT);
+      if($horaireT<$today3 && $participationRepository->haveOne($idreu)){
+        echo "<td>";
+        echo "<a href='ajoutRetard.php?idreu=$idreu'> ";
+        echo $horaire;
+        echo "</a>";
+        echo "</td>";
+      }
+    }
+    echo "</tr>";
+
+  }
+        echo"</table>";
+echo"</div>";
+ // $participationRepository->fetch_Reu_passees($userid,$today3);
 }
 ?>
