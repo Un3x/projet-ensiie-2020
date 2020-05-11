@@ -6,6 +6,7 @@ include '../src/UserRepository.php';
 include '../src/Factory/DbAdaperFactory.php';
 include '../src/Asso.php';
 include '../src/AssoRepository.php';
+include '../src/Reunion.php';
 include '../src/ReunionRepository.php';
 include '../src/ParticipationRepository.php';
 
@@ -23,7 +24,7 @@ $name=$_SESSION['username'];
 $userid = $_SESSION['user']->getId();
 
 $asso = $assoRepository->fetch_Assos($userid);
-
+$assoAdmin = $assoRepository->fetch_all_Assos_for_Admin($userid);
 $assoAll=$assoRepository->fetch_all_Assos();
 
 ?>
@@ -40,7 +41,11 @@ $assoAll=$assoRepository->fetch_all_Assos();
     <link rel="stylesheet" href="../styleProfil.css" />
 </head>
 
+<<<<<<< HEAD
 <body id="body1">
+=======
+
+>>>>>>> 12eb37760313d2f6e4f8aa7d048d2e9d0f5a6666
 <header>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -61,28 +66,31 @@ $assoAll=$assoRepository->fetch_all_Assos();
                     ?>
                     <?php if($userRepository->IsSuperAdmin($_SESSION['user']->getId()))
                       echo "<a href='home_super_admin.php' class='nav-link'><span>Gestion</span></a>";
-                      ?>
-
-                <?php session_start();
-                        if($_SESSION['username'] !== ""){
-                         $user = $_SESSION['username'];
-                     // afficher un message
-                     echo "<div class='connection_id nav-link' >";
-                     echo "$user";
-                     echo "</div>";
-		                  if(isset($_GET['deconnexion'])) { 
-                       if($_GET['deconnexion']==true) {  
-                  	    session_unset();
-                  	    header("location:index.php");
-                       }
-             	    }
-
-               	    }
-                ?>
-                    <a href='userlist.php?deconnexion=true' class="nav-link" style="align-text:right;"><span>Déconnexion</span></a> 
+                      ?>              
 
             </ul>
         </div>
+                        <?php session_start();
+                        if($_SESSION['username'] !== ""){
+                         $user = $_SESSION['username'];
+                     // afficher un message
+<<<<<<< HEAD
+                     echo "<div class='connection_id nav-link' >";
+=======
+                     echo "<div class='connection_id nav-link' style='float:right;'' >";
+>>>>>>> 12eb37760313d2f6e4f8aa7d048d2e9d0f5a6666
+                     echo "$user";
+                     echo "</div>";
+                      if(isset($_GET['deconnexion'])) { 
+                       if($_GET['deconnexion']==true) {  
+                        session_unset();
+                        header("location:index.php");
+                       }
+                  }
+
+                    }
+                ?>
+         <div style="float:right;"><a href='userlist.php?deconnexion=true' ><span><FONT color="black">Déconnexion </FONT></span></div></a> 
     </nav>
 </header>
 
@@ -132,8 +140,14 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 //window.onload = function () { Hide("ListAsso");  };
 
 </script>
+<<<<<<< HEAD
 
 <h1 id="id2">Mon profil</h1>
+=======
+<body>
+<a id="leg1">
+<h1>Mon profil</h1>
+>>>>>>> 12eb37760313d2f6e4f8aa7d048d2e9d0f5a6666
 
 <h2>Edition du profil</h2>
 <ul>
@@ -149,7 +163,7 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 </ul>
 
   <div id="formMDP" style= "position:absolute;top:22%;left:30%;">
-  <form action='modifMDP.php'  method="post">
+  <form action='modifMDP.php' id="mdp" method="post">
     Nouveau mot de passe: </br>
   <input type="text" name="newP">
   <input type="submit" name="Valider" value="Valider" id ='bouton_envoi' align="center">
@@ -162,6 +176,8 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
   <input type="submit" name="Valider" value="Valider" id ='bouton_envoi' align="center">
   </form>
   </div>
+</br>
+        <link rel="stylesheet" href="styleProfil.css"/>
 
 <h2>Demande d'adhésion à une association</h2>
 
@@ -176,12 +192,13 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
     }
   }
   echo "</select>";
-  echo '<input type="submit" name="Valider" value="Valider" id ="bouton_envoi" align="center">';
+  echo '<input type="submit" name="demande_admin" value="Envoyer la demande" id ="bouton_demande_admin" align="center">';
   echo "</form>";
 ?>
   
+</br>
 
-<h2>Demande afin de devenir administrateur pour une association</h2>
+<h2>Formulaire de demande afin de devenir administrateur d'une association</h2>
 <a class="nav-link" href="./Form_demande_admin.php">Cliquez ici pour le formulaire</a>
 
 <h2>Informations du profil</h2>
@@ -202,16 +219,57 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
             </table>
     </div>
 </ul>
+</a>
+</body>
 
 <?php 
 use \Datetime as dt;
 
 $today = new DateTime();
 $today3 = $today->getTimestamp();
+<<<<<<< HEAD
 
 if ($userRepository->IsAdmin($userid)){
   $participationRepository->fetch_Reu_passees($userid,$today3);
 }
+=======
+//echo $today3;
 
+if ($userRepository->IsAdmin($userid)){
+  echo "<h2> Rentrer le retard des participants des réunions passées </h2>";
+  echo "<div id='ListAsso'>";
+  echo "<table class='table'>";
+  echo "<tr>";
+      echo "<th>Réunions :</th>";
+      echo "</tr>";
+>>>>>>> 12eb37760313d2f6e4f8aa7d048d2e9d0f5a6666
 
+  foreach($asso as $element){
+    $val=$element->getNomAssoc();
+    echo "<tr>";
+    echo "<td>".$val;
+    echo "</td>";
+    $idAsso=$element->getIdAssoc();
+    $reu = $reuRepository->reuAsso($idAsso);
+
+    foreach ($reu as $r) {
+      $horaire=$r->getDateDebutReu();
+      $horaireT=strtotime($horaire);
+      $idreu=$r->getIdReu();
+      //$horaireT2= date("Y-m-d H:i:s", $horaireT);
+      if($horaireT<$today3 && $participationRepository->haveOne($idreu)){
+        echo "<td>";
+        echo "<a href='ajoutRetard.php?idreu=$idreu'> ";
+        echo $horaire;
+        echo "</a>";
+        echo "</td>";
+      }
+    }
+    echo "</tr>";
+
+  }
+        echo"</table>";
+echo"</div>";
+ // $participationRepository->fetch_Reu_passees($userid,$today3);
+}
 ?>

@@ -33,12 +33,24 @@ public function fetchAll()
 
 public function fetch_Assos($userid)
 {
-    $usersAsso = $this->dbAdapter->query("SELECT nom_assoc FROM appartenir where id_membre='$userid'");
+    $usersAsso = $this->dbAdapter->query("SELECT nom_assoc,id_assoc FROM appartenir where id_membre='$userid'");
     $Asso = [];
     foreach ($usersAsso as $TteAsso) {
         $userA = new Asso();
-        echo "bal".$TteAsso['nom_assoc'];
         $userA->setNomAssoc($TteAsso['nom_assoc']);
+        $userA->setIdAssoc($TteAsso['id_assoc']);
+        $Asso[] = $userA;
+       }
+    return $Asso;
+}
+public function fetch_Assos_A($userid)
+{
+    $usersAsso = $this->dbAdapter->query("SELECT nom_assoc,id_assoc FROM appartenir where id_membre='$userid'");
+    $Asso = [];
+    foreach ($usersAsso as $TteAsso) {
+        $userA = new Asso();
+        $userA->setNomAssoc($TteAsso['nom_assoc']);
+        $userA->setIdAssoc($TteAsso['id_assoc']);
         $Asso[] = $userA;
        }
     return $Asso;
@@ -110,6 +122,22 @@ public function newMembre($Id_Membre,$Nom_Assoc,$username)
 
 public function appartient($asso,$id){
         $sql="SELECT * FROM Appartenir where Id_Membre='$id' AND Nom_Assoc='$asso'";
+        $exec_requete = $this->dbAdapter->query($sql);
+        $count = 0;
+        foreach($exec_requete as $entry){
+            $count = $count + 1;
+        }
+        if($count != 0){ //si notre user appartient a l'asso
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+public function appartientAdmin($asso,$id){
+        $Id_Assoc=$this->dbAdapter->query("SELECT Id_Assoc from association where Nom_assoc='$asso'");
+
+        $sql="SELECT * FROM Administrer where Id_Membre='$id' AND Id_Assoc='$Id_Assoc'";
         $exec_requete = $this->dbAdapter->query($sql);
         $count = 0;
         foreach($exec_requete as $entry){

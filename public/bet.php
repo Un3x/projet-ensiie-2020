@@ -135,32 +135,31 @@ function printCote(avgDelayArray,avgDelayAssoArray,nbParisCoeff){
                     <?php if($userRepository->IsSuperAdmin($_SESSION['user']->getId()))
                       echo "<a href='home_super_admin.php' class='nav-link'><span>Gestion</span></a>";
                       ?>
-
-                <?php session_start();
-                        if($_SESSION['username'] !== ""){
-                         $user = $_SESSION['username'];
-                     // afficher un message
-                     echo "<div class='connection_id nav-link' id='idco' >";
-                     echo "$user";
-                     echo "</div>";
-                          if(isset($_GET['deconnexion'])) { 
-                       if($_GET['deconnexion']==true) {  
-                        session_unset();
-                        header("location:index.php");
-                       }
-                    }
-
-                    
-                ?>
-                    <a href='userlist.php?deconnexion=true' class="nav-link" style="align-text:right;"><span>Déconnexion</span></a> 
                <?php 
                 if (!isset($_GET['transition'])) {
                     $_SESSION['btMeeting'] = NULL;
                 }  
-				}  
+				
                 ?>
             </ul>
         </div>
+                    <?php session_start();
+                        if($_SESSION['username'] !== ""){
+                         $user = $_SESSION['username'];
+                     // afficher un message
+                     echo "<div class='connection_id nav-link' style='float:right;'' >";
+                     echo "$user";
+                     echo "</div>";
+                      if(isset($_GET['deconnexion'])) { 
+                       if($_GET['deconnexion']==true) {  
+                        session_unset();
+                        header("location:index.php");
+                       }
+                  }
+
+                    }
+                ?>
+         <div style="float:right;"><a href='userlist.php?deconnexion=true' ><span><FONT color="black">Déconnexion </FONT></span></div></a> 
     </nav>
 </header>
 

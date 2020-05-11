@@ -236,10 +236,20 @@ class ParticipationRepository
             }
 
     }
+    public function getParticipant($id_reu){
+        $req=$this->dbAdapter->query("SELECT * FROM participations where id_reu='$id_reu'");
+        $Asso = [];
+    foreach ($usersAsso as $TteAsso) {
+        $userA = new Asso();
+        $userA->setIdMembre($TteAsso['id_membre']);
+        $Asso[] = $userA;
+       }
+    return $Asso;
+    }
 
     public function ajout_retard($idReu, $id_membre, $retard){
         $req=$this->dbAdapter->prepare("UPDATE Participations 
-                                        set retard = '$retard' where id_reu = '$idReu' and id_membre = '$id_membre'");
+            set retard=:retard where id_reu=:id_reu and id_membre=:id_membre");
         
         $req->bindParam('id_reu', $idReu);
         $req->bindParam('id_membre', $id_membre);
@@ -247,13 +257,13 @@ class ParticipationRepository
         $req->execute();
     }
 
-
-    foreach($){
-        $sql = $this->dbAdapter->query("SELECT * from Participations where id_reu = '$idReu' and statut = 2 ");
-    
+    public function haveOne($id_reu){
+        $sql = $this->dbAdapter->query("SELECT * from Participations where id_reu = '$id_reu' and statut = 0 ");
+        $count   =  0;
+        foreach ($sql as $entry) {
+            $count=$count+1;
+        }
+        return($count>0);
     }
-
-
-
 }
 ?>

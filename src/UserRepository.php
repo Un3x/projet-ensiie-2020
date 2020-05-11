@@ -289,5 +289,16 @@ public function updateUserPoints($mise,$id_joueur) {
             return false;
         }
     }
-
+    public function IdPartiToName($Id_Membre){
+        $req=$this->dbAdapter->query("SELECT username FROM Membre where id='$Id_Membre'");
+        $donnees = $req->fetch();
+        $username = $donnees['username'];
+        return $username;
+    }
+    public function NameToId($username){
+        $req=$this->dbAdapter->query("SELECT id FROM Membre where username='$username'");
+        $donnees = $req->fetch();
+        $id = $donnees['id'];
+        return $id;
+    }
 }

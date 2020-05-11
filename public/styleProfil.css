@@ -1,4 +1,5 @@
 
+
 #body1{
     background: #ecf3f6;
 }
@@ -35,3 +36,21 @@ input[type=submit]:hover {
     margin : auto;
     color : cornflowerblue;
 }*/
+body{
+    background: cornflowerblue;
+}
+
+#body1{
+    background: white;
+}
+
+#leg1 {
+
+    background : white;
+  }
+input[type=submit]:hover {
+    background-color: white;
+    color:cornflowerblue;
+    border: 1px solid cornflowerblue;
+}
+
