@@ -24,6 +24,9 @@ if (isset($_POST['save'])) {
         $_SESSION['success'] = "Votre partie a été sauvegardée avec succès !";
         header("Location: story.php?storyId=".$_POST['storyId']."&pageId=".$_POST['pageId']."");
     }
+    else{
+        $_SESSION['errors'] = "Vous devez être connecté pour sauvegarder. Une fois connecté, cliquez sur \"Reprendre\" pour continuer";
+        header("Location: login.php");
+    }
 }
-
 ?>

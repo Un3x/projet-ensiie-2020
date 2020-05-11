@@ -98,59 +98,50 @@ if ($data['avg_rate']==5) {
 
 <div class="row">
   <div class="side">
-    <div>5 stars</div>
-  </div>
-  <div class="middle">
-
-      <div class="bar-5"></div>
-
-  </div>
-  <div class="side right">
-    <div><?php echo $data['star5'] ?></div>
-  </div>
-  <div class="side">
-    <div>4 stars</div>
-  </div>
-  <div class="middle">
-
-      <div class="bar-4"></div>
-
-  </div>
-  <div class="side right">
-    <div><?php echo $data['star4'] ?></div>
+    <div>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	</div>
+    <div class="under_star"><?php echo $data['star5'] ?></div>
   </div>
   <div class="side">
-    <div>3 stars</div>
-  </div>
-  <div class="middle">
-
-      <div class="bar-3"></div>
-
-  </div>
-  <div class="side right">
-    <div><?php echo $data['star3'] ?></div>
+    <div>	
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star"></span></div>
+    <div class="under_star"><?php echo $data['star4'] ?></div>
   </div>
   <div class="side">
-    <div>2 stars</div>
-  </div>
-  <div class="middle">
-
-      <div class="bar-2"></div>
-
-  </div>
-  <div class="side right">
-    <div><?php echo $data['star2'] ?></div>
+    <div>	
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span></div>
+    <div class="under_star"><?php echo $data['star3'] ?></div>
   </div>
   <div class="side">
-    <div>1 star</div>
+    <div>	
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span></div>
+    <div class="under_star"><?php echo $data['star2'] ?></div>
   </div>
-  <div class="middle">
-
-      <div class="bar-1"></div>
-
-  </div>
-  <div class="side right">
-    <div><?php echo $data['star1'] ?></div>
+  <div class="side">
+    <div>	
+	<span class="fa fa-star checked"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span>
+	<span class="fa fa-star"></span></div>
+    <div class="under_star"><?php echo $data['star1'] ?></div>
   </div>
 </div>
 </div>
