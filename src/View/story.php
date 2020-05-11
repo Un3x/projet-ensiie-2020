@@ -93,5 +93,5 @@
 <form method="post" action="saveManager.php">
     <input type="hidden" name="storyId" value="<?php echo $data['storyId']; ?>"/>
     <input type="hidden" name="pageId" value="<?php echo $data['page']->getId(); ?>"/>
-    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+    <button type="submit" class="btn btn-primary" name="save">Sauvegarder</button>
 </body>

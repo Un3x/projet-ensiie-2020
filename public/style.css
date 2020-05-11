@@ -155,6 +155,12 @@ textarea {
   height: 8em;
 }
 
+/* Saving */
+.save-form {
+  width: 50%;
+  margin: 0px;
+}
+
 /* Rating */
 
 #rating {
@@ -213,8 +219,6 @@ textarea {
   text-align: center;
   color: white;
 }
-
-
 
 /* Responsive layout - make the columns stack on top of each other instead of next to each other */
 @media (max-width: 400px) {

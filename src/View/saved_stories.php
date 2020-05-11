@@ -7,11 +7,21 @@ foreach ($data['saves'] as $save) {
     <img class="card-img-top" src="'.$save->getStoryId().'.jpg" style="width:100%">
     <div class="card-body">
       <h4 class="card-title">'.$save->getStoryTitle().'</h4>
-      <form method="get" action="story.php">
+      <div class="row">
+      <div class="col-sm-8">
+      <form style="margin: 0px; width: 50%;" method="get" action="story.php">
 	    <input type="hidden" name="storyId" value="'.$save->getStoryId().'"/>
 	    <input type="hidden" name="pageId" value="'.$save->getPageId().'"/>
 	    <button type="submit" class="btn btn-primary">Reprendre</button>
       </form>
+      </div>
+      <div class="col-sm-4">
+      <form style="margin: 0px; width: 50%;" method="post" action="saveManager.php" onsubmit="return areYourSure()">
+      <input type="hidden" name="saveId" value="'.$save->getId().'"/>
+      <button type="submit" class="btn btn-danger" name="deleteSave">Supprimer</button>
+      </form>
+      </div>
+      </div>
     </div>
   </div>';
 }
