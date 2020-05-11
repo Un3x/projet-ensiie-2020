@@ -2,10 +2,10 @@
 set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');?>
 
 <?php
-function pp($name, $height, $width,$border)
+function pp($i, $height, $width,$border)
 {
 	
-	echo "<img style=\"border-radius:".$border."%;\" class=\"pp\" src=\"/images/ProfilePictures/" .$name."\" alt=\"waifu\" height=".$height." width=".$width.">"  ;
+	echo "<img style=\"border-radius:".$border."%;\" class=\"pp\" src=\"/images/ProfilePictures/waifu" .$i.".png\" alt=\"waifu\" height=".$height." width=".$width.">"  ;
 }
 
 function choicePP($i, $name, $height, $width, $border) {

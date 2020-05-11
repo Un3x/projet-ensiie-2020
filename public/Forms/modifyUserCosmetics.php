@@ -20,12 +20,13 @@ $userID=htmlspecialchars($_SESSION['id']);
 
 if (isset($_POST['newImage'])){
 	try {
+        $newImage = htmlspecialchars($_POST['newImage']);
 		$sql='UPDATE userCosmetics SET IDimage=:newImage WHERE id=:userID;';
 		$stmt=$dbAdapter->prepare($sql);
-		$stmt->bindParam('newImage',$_POST['newImage']);
-		$stmt->bindParam('userID',$userID);
+		$stmt->bindParam('newImage', $newImage);
+		$stmt->bindParam('userID', $userID);
 		$stmt->execute();
-		$_SESSION['image']=$_POST['newImage'];
+		$_SESSION['image'] = $_POST['newImage'];
 	}
 	catch (PDOException $err){
 		header('Location: ../index.php?error=sqlerror');
@@ -35,12 +36,13 @@ if (isset($_POST['newImage'])){
 
 if (isset($_POST['newTitle'])){
 	try {
+        $newTitle = htmlspecialchars($_POST['newTitle']);
 		$sql='UPDATE userCosmetics SET IDtitle= :newTitle WHERE id= :userID;';
 		$stmt=$dbAdapter->prepare($sql);
-		$stmt->bindParam('newTitle',$_POST['newImage']);
+		$stmt->bindParam('newTitle', $newTitle);
 		$stmt->bindParam('userID',$userID);
 		$stmt->execute();
-		$_SESSION['title']=$_POST['newTitle'];
+		$_SESSION['title'] = $newTitle;
 	}
 	catch (PDOException $err){
 		header('Location: ../index.php?error=sqlerror');
