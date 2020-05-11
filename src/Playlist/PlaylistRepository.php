@@ -58,14 +58,13 @@ class PlaylistRepository
     {
         $req =
             'INSERT INTO playlist (name, creator, content, publik)
-             VALUES (:name, :creator, ARRAY[], :publik);';
+             VALUES (:name, :creator, ARRAY[]::integer[], :publik);';
         $newPlaylist = $this
             ->dbAdapter
             ->prepare($req);
-        var_dump($newPlaylist);
-        $newPlaylist->bindParam('name', $name, PDO::PARAM_STR);
-        $newPlaylist->bindParam('creator', $creator, PDO::PARAM_INT);
-        $newPlaylist->bindParam('publik', $public, PDO::PARAM_BOOL);
+        $newPlaylist->bindParam('name', $name, \PDO::PARAM_STR);
+        $newPlaylist->bindParam('creator', $creator, \PDO::PARAM_INT);
+        $newPlaylist->bindParam('publik', $public, \PDO::PARAM_BOOL);
         return $newPlaylist->execute();
     }
 
