@@ -35,7 +35,13 @@ if (isset($_GET['storyId'])) {
   $star5=$ratingRepo->fetchStarCount($data['story']->getId(),5);
   $data['star5']=$star5;
 
-  $data['alreadyRated'] = $ratingRepo->alreadyRated($_SESSION['id'], $_GET['storyId']);
+  if (isset($_SESSION['id'])) {
+    $data['alreadyRated'] = $ratingRepo->alreadyRated($_SESSION['id'], $_GET['storyId']);
+    $data['canRate'] = !$data['alreadyRated'];
+  } else {
+    $data['aleadyRated'] = false;
+    $data['canRate'] = false;
+  }
 
   // Get comment data
   $comments = $comRepo->fetchStoryCom($_GET['storyId']);

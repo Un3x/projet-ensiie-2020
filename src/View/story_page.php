@@ -16,7 +16,7 @@
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<?php if (! $data['alreadyRated'])
+<?php if ($data['canRate'])
 { ?>
 <p>Notez cette histoire !</p>
 
@@ -35,8 +35,10 @@
 <button type="submit" name="rate_story" class="btn btn-primary">Noter !</button>
 </form>
 
-<?php }else{ ?>
-<p>Vous avez déjà voté !</p>
+<?php } elseif ($data['alreadyRated']) { ?>
+	<p>Vous avez déjà voté !</p>
+<?php } else { ?>
+	<p>Vous devez vous connecter pour voter.</p>
 <?php } ?>
 
 <div id="rating">
