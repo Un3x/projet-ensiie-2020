@@ -15,7 +15,7 @@
       <div class="search-container">
         <form method="get" action="../search.php">
           <input type="text" placeholder="Chercher une histoire..." name="request">
-          <button type="submit"><i class="fa fa-search">Chercher</i></button>
+          <button type="submit">C'est parti !</button>
         </form>
       </div>
       <?php if (!isset($_SESSION['username'])) { ?>
