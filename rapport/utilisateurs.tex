@@ -1,28 +1,28 @@
-\section{utilisateurs}
+\section{Utilisateurs}
 
 Lorsque qu'un client arrive pour la première fois sur le site, il n'aura pas accès aux différents services du site. Il devra d'abord se créer un compte sur la page registration.php, ici il entrera ses 
 identifiants comme son adresse email, son nom d'utilisateur, et son mot de passe.\newline
 Il est à noter qu'un utilisateur ne peut pas avoir d'espace dans son nom, ce qui permet d'avoir une sécurité supplémentaire contre les injections SQL.\newline
-Après vérification javascript d'un formulaire ,on récupère et envoie ces informations à la page addUser.php qui va les inserer dns la table "user", le mot de passe sera hashé pour éviter toute tentative de vol de mot de passe. Tout transfert d'information se fera via la méthode POST, afin de transférer les données de manière sécurisée.
+Après vérification javascript d'un formulaire, on récupère et envoie ces informations à la page addUser.php qui va les insérer dans la table "user", le mot de passe sera hashé pour éviter toute tentative de vol de mot de passe. Tout transfert d'information se fera via la méthode POST, afin de transférer les données de manière sécurisée.
 \newline
 
 Ces informations peuvent être  ultérieurement modifiées sur la page modifyUser.php, qui enverra les modifications à modifyUserAccount.php.\newline
 
-Lorsqu'un utilisateur se register, il peut se connecter sur login.php. Si il le fait, on démarre une session et on initialise les attributs de la variable de session, ces avec ces attributs 
+Une fois qu'un utilisateur s'est créé un compte, il peut se connecter via login.php. Si il le fait, on démarre une session et on initialise les attributs de la variable de session, c'est avec ces attributs qu'on déterminera si la session est ouverte, et qu'on affichera les cosmétiques de l'utilisateur.
 
-\subsection{personnaliser son compte}
+\subsection{Personnaliser son compte}
 
-Aussi, après ajout d'un utilisateur dans "user" on insère une nouvelle ligne dans la table "UserCosmetics", cette table permet de savoir quel sont les cosmétiques choisi par l'utilisateur.  
-Chaque utilisateur aura accès à une liste d'images de profil et de titres qu'il pourra selectionner pour customiser son profil. Ces cosmétiques sont contenus dans les tables "Image" et "Titles". 
+Aussi, après ajout d'un utilisateur dans "user", on insère une nouvelle ligne dans la table "UserCosmetics", cette table permet de savoir quel sont les cosmétiques choisis par l'utilisateur.  
+Chaque utilisateur aura accès à une liste d'images de profil et de titres qu'il pourra sélectionner pour customiser son profil. Ces cosmétiques sont contenus dans les tables "Image" et "Titles".
 \newline
-Ces images ne sont pas toutes disponibles dès le départ, en effet chaque utilisateur possède des points d'expérience, initialisés à 0 à la création du compte, qui peuvent être gagné lorsqu'un kara est rajouté à une playlist. Les images se débloquent au fur et à mesure que l'utilisateur passe du temps sur le site. Sur ChangePP.php seules les images et titres dont xpNeeded<SESSION['xp'] sont affichés.\newline
-Pour pouvoir modifier son compte, l'utilisateur doit se rendre sur changePP.php, pour modifier son image de profil et/ou son titre. Un formulaire envoie les informations à modifyUserCosmetics.php. L'utilsateur a le choix entre les différentes images contenu dans la table "Images" et les différents titres dans "Titles". \newline
+Ces images ne sont pas toutes disponibles dès le départ. En effet chaque utilisateur possède des points d'expérience, initialisés à 0 à la création du compte, qui peuvent être gagné lorsqu'un kara est rajouté à une playlist. Les images se débloquent au fur et à mesure que l'utilisateur passe du temps sur le site. Sur ChangePP.php seules les images et titres dont xpNeeded<SESSION['xp'] sont affichés.\newline
+Pour pouvoir modifier son compte, l'utilisateur doit se rendre sur changePP.php, pour modifier son image de profil et/ou son titre. Un formulaire envoie les informations à modifyUserCosmetics.php. L'utilisateur a le choix entre les différentes images contenues dans la table "Images" et les différents titres dans "Titles". \newline
 
-\subsection{les playlists}
+\subsection{Les playlists}
 
-Un utilisateur peut créer ses propre playlists de karas disponibles dans la table "Karas".  d'ici il pourra ajouter cette playlist dans la Queue du lecteur, ou simplement retrouver les karas qu'il préfère afin de les ajouter. Toute ces informations sont contenues dans la table Playlist, les utilisateurs peuvent regarder les playlists des autres utilisateurs. 
+Un utilisateur peut créer ses propres playlists de karas disponibles dans la table "Karas". D'ici il pourra ajouter cette playlist dans la Queue du lecteur, ou simplement retrouver les karas qu'il préfère afin de les ajouter. Toutes ces informations sont contenues dans la table Playlist, les utilisateurs peuvent regarder les playlists des autres utilisateurs si elles sont paramétrées comme étant publique.\newline
 
-\subsection{droits des utilisateurs}
+\subsection{Droits des utilisateurs}
 Lorsqu'un utilisateur se register dans la base de donnée, on lui attribut un droit 0. Les différents droits sont définis par des entiers:
 \begin{itemize}
 	\item 0 pour un utilisateur lambda
