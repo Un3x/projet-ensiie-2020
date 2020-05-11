@@ -27,6 +27,6 @@ if ($data['saves']){
     </div>';
   }
 }else{
-  echo "<br/><h4>Vous n'avez pas de partie sauvegardée pour le moment</h4>";
+  echo "<br/><h4>Vous n'avez pas de partie sauvegardée pour le moment.</h4>";
 }
 ?>
