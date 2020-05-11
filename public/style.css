@@ -187,46 +187,13 @@ textarea {
   color: orange;
 }
 
-/* Three column layout */
+/* Stars layout */
 #rating .side {
   float: left;
   width: 15%;
   margin-top:10px;
 }
 
-#rating .middle {
-  margin-top:10px;
-  float: left;
-  width: 70%;
+#rating .under_star {
+  margin-left: 62px;
 }
-
-/* Place text to the right */
-#rating .right {
-  text-align: right;
-}
-
-/* Clear floats after the columns */
-#rating .row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* The bar container */
-#rating .bar-container {
-  width: 100%;
-  background-color: #f1f1f1;
-  text-align: center;
-  color: white;
-}
-
-/* Responsive layout - make the columns stack on top of each other instead of next to each other */
-@media (max-width: 400px) {
-  #rating .side, .middle {
-    width: 100%;
-  }
-  #rating .right {
-    display: none;
-  }
-}
-  
