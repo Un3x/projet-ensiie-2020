@@ -42,7 +42,7 @@ class UtilisateurRepository
         echo($isAdmin);
         if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == True){
             if($isAdmin == True) header("Location: /admin.php");            
-            else header("Location: /client.php");
+            else header("Location: /index2.php");
             return 1;
             exit;
         }
@@ -58,7 +58,7 @@ class UtilisateurRepository
                     echo("Log in successfull");
                     $success = True;
                     if($isAdmin == True) header("Location: /admin.php");            
-                    else header("Location: /client.php");
+                    else header("Location: /index2.php");
                     return 1;
                 }
             }
@@ -126,7 +126,7 @@ class UtilisateurRepository
     public function update_password($newPass)
     {
         $stmt = $this
-            ->dbAdaper
+            ->dbAdapter
             ->prepare('UPDATE "utilisateurs" SET mdp=:newmdp where num_id=:id');
         $stmt->bindParam('newmdp', $newPass);
         $stmt->bindParam('id', $_SESSION["id"]);

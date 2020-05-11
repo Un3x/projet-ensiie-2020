@@ -1,5 +1,5 @@
 body{
-    background-color: aqua;
+    background-color: lightslategray;
 }
 
 #volet {
@@ -47,6 +47,86 @@ body{
     text-align: right;
 }
 
-playbutton{
+.playbutton{
     color: black;
+}
+
+table{
+    color: whitesmoke;
+    left: 100px;
+    border-width:3px; 
+    border-style:solid; 
+    border-color:black;
+    width:50%;
+    right: 100px;
+    text-align: center;
+    border-collapse:collapse;
+    margin-left: 250px;
+}
+
+td { 
+    border-width:2px;
+    border-style:solid; 
+    border-color: black;
+    width:50%;
+    vertical-align:middle;
+}
+
+.team1{
+    background-color: darkred;
+}
+
+.team2{
+    background-color: mediumblue;
+}
+
+.submitbutton{
+    color: goldenrod;
+    background-color: black;
+    display: flexbox;
+    vertical-align: middle;
+    text-align: center;
+    width: 255px;
+    font: bold 13px Arial;
+    border-radius: 50%;
+    border: none;
+    font-size: 50px;
+    height: 255px;
+    background-image: linear-gradient();
+    margin-left: 800px;
+}
+
+.text{
+    size: 100px;
+    color: burlywood;
+    text-align: center;
+}
+
+.toremove{
+    display: none;
+}
+
+.vote label{
+    padding-left: 100px;
+    opacity: 0.3;
+}
+.vote .map1:hover{
+    opacity: 0.7;
+}
+.vote .map2:hover{
+    opacity: 0.7;
+}
+.vote .map3:hover{
+    opacity: 0.7;
+}
+
+
+.vote input[type='radio']:checked + label{
+    opacity: 1;
+}
+.vote .map2:focus{
+    opacity: 1;
+}
+.vote .map3:active{
+    opacity: 1;
 }
