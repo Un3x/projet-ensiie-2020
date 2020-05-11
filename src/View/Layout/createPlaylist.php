@@ -14,7 +14,7 @@ if ( isset($_GET['errs']) && $_GET['errs'] === "wrongName" )
                 echo ' value=' . $_GET['name'];
         ?>
         ></li>
-        <li>Public :
+        <li class ="label">Public :
         <input type="radio" name="publik" value="TRUE"
         <?php
             if ( isset($_GET['publik']) )
