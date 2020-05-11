@@ -7,9 +7,9 @@ if ( !(isset($_SESSION['id'])) )
     exit();
 }
 
-include_once 'Playlist/Playlist.php';
-include_once 'Playlist/PlaylistRepository.php';
-include_once 'Factory/DbAdaperFactory.php';
+require_once 'Playlist/Playlist.php';
+require_once 'Playlist/PlaylistRepository.php';
+require_once 'Factory/DbAdaperFactory.php';
 
 if ( !isset($dbAdapter) )
     $dbAdapter = (new DbAdaperFactory())->createService();
@@ -24,11 +24,14 @@ $ownplaylists = $playlistRepository->fetchAllOf($_SESSION['id']);
     <ul>
         <?php foreach ($ownplaylists as $playlist): ?>
                 <li id="aPlaylistInPublikList">
-                    <form action="/playlists/modifyPlaylist.php" method="POST">
+                    <form action="/playlists/modifyPlaylist.php" method="GET">
                     <input name="playlist_id" value="<?= $playlist->getId()?>" hidden>
                     <button type="submit">Modify</button>
                     </form>
-                    <button type="button" onclick="togglePlaylistInfo(<?= $playlist->getId()?>)">Details</button>
+                    <form action="/playlists/deletePlaylist.php" method="POST">
+                    <input name="playlist_id" value="<?= $playlist->getId()?>" hidden>
+                    <button type="submit">Delete</button>
+                    </form>
                     <form action="/playlists/playlistToQueue.php" method="POST">
                     <input name="playlist_id" value="<?= $playlist->getId()?>" hidden>
                     <button type="submit">Add to queue</button>

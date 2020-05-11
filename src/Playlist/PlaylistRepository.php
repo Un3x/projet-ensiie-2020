@@ -1,5 +1,4 @@
-<?php
-namespace Playlist;
+<?php namespace Playlist;
 set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 require_once 'Karas/Kara.php';
 
@@ -52,13 +51,26 @@ class PlaylistRepository
         return $this->fromQueryToArray($playlists);
     }
 
+    public function getOwner($playlistId)
+    {
+        $public = $this->dbAdapter->prepare('SELECT creator FROM playlist WHERE id=:id');
+        $public->bindParam('id', $playlistId, \PDO::PARAM_INT);
+        $public->execute();
+        return $public->fetch(\PDO::FETCH_COLUMN);
+    }
+
+    public function isOwner($playlistId, $userId)
+    {
+        return  ( $this->getOwner($playlistId) === $userId );
+    }
+
     public function fetchAllOf($userId)
     {
         $req = 'SELECT * FROM playlist WHERE creator=:id';
         $playlists = $this->dbAdapter->prepare($req);
         $playlists->bindParam('id', $userId, \PDO::PARAM_INT);
         $playlists->execute();
-        return $this->fromQueryToArray($playlists->fetch());
+        return $this->fromQueryToArray($playlists->fetchAll(\PDO::FETCH_ASSOC));
     }
 
     public function fetchPlaylist($id, $userId)
@@ -68,9 +80,8 @@ class PlaylistRepository
         $public->execute();
         $test = $public->fetch(\PDO::FETCH_ASSOC);
         if ( $test['publik'] === false && $test['creator']!==$userId )
-            throw new Exception("You don't have the rights to see this playlist");
+            throw new \Exception("You don't have the rights to see this playlist");
 
-        //$req = 'SELECT * FROM playlist WHERE id=:id';
         $req = 'SELECT playlist.id, name, creator, publik, username FROM playlist JOIN "user" ON "user".id=creator WHERE playlist.id=:id';
         $playlist_info = $this->dbAdapter->prepare($req);
         $playlist_info->bindParam('id', $id, \PDO::PARAM_INT);
@@ -124,13 +135,35 @@ class PlaylistRepository
         return $newPlaylist->execute();
     }
 
-    public function deletePlaylist($id)
+    public function deletePlaylist($id, $idAsker)
     {
+        if ( !$this->isOwner($id, $idAsker) )
+            throw new \Exception("You don't have the rights to delete this playlist");
+
         $stmt = $this
             ->dbAdapter
             ->prepare('DELETE FROM playlist where id=:id');
         $stmt->bindParam('id', $id, \PDO::PARAM_INT);
         return $stmt->execute();
+    }
+
+    public function deleteKaraFromPlaylist($idPlaylist, $idKara, $idAsker)
+    {
+        if ( !$this->isOwner($idPlaylist, $idAsker) )
+            throw new \Exception("You don't have the rights to delete from this playlist");
+
+        $yeet = $this
+            ->dbAdapter
+            ->prepare(
+                'UPDATE playlist
+                    SET content=(SELECT array(SELECT unnest(content) 
+                        FROM playlist 
+                        WHERE id=:idPlaylist 
+                        EXCEPT SELECT :idKara))
+                 WHERE id=:idPlaylist;');
+        $yeet->bindParam('idPlaylist', $idPlaylist, \PDO::PARAM_INT);
+        $yeet->bindParam('idKara', $idKara, \PDO::PARAM_INT);
+        return $yeet->execute();
     }
 
     /*

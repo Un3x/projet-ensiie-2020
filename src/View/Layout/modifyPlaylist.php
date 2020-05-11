@@ -15,18 +15,18 @@ if ( !isset($playlistRepository) )
 
 try
 {
-    $playlist_id = htmlspecialchars($_POST['playlist_id']);
+    $playlist_id = htmlspecialchars($_GET['playlist_id']);
     $playlist_all = $playlistRepository->fetchPlaylist($playlist_id, $_SESSION['id']);
     $playlist = $playlist_all[0];
     $karas = $playlist_all[1];
 }
 
-catch (Exception $e)
+catch ( Exception $e )
 {
     echo "Error : " . $e->getMessage();
 }
 
-catch (PDOException $err)
+catch ( PDOException $err )
 {
     header('Location /error.php?error=sqlerror');
     exit();
@@ -41,9 +41,11 @@ catch (PDOException $err)
 <div id="karaList">
     <ul>
         <?php foreach ($karas as $kara): ?>
-            <form method="POST">
+            <form method="POST" action="/playlists/deleteKara.php">
                 <li id="aKaraInKaraList">
-                    <button type="button" onclick="addKara(<?= $kara->getId()?>)">Add</button>
+                    <input name="playlist_id" value="<?= $playlist->getId()?>" hidden>
+                    <input name="kara_id" value="<?= $kara->getId()?>" hidden>
+                    <button type="submit">Delete</button>
                     <button type="button" onclick="toggleKaraInfo(<?= $kara->getId()?>)">Infos</button>
                     <span><?= $kara->getString()?></span>
                     <div id=KaraInfo_<?= $kara->getId()?> style="display: none">
@@ -63,4 +65,4 @@ catch (PDOException $err)
         <?php endforeach; ?>
     </ul>
 </div> 
-<?php
+<script src="/scripts/karaList.js"></script>
