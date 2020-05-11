@@ -1,4 +1,4 @@
-<h1>Parties sauvegadées</h1>
+<h1>Parties sauvegardées</h1>
 
 <?php
 foreach ($data['saves'] as $save) {
