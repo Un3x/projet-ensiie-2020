@@ -41,6 +41,11 @@ label{
     size: 10px;
 }
 
+a{
+    color: #8888FF;
+    text-decoration:none;
+}
+
 a:link, a:visited{
     color: #8888FF;
     text-decoration:none;

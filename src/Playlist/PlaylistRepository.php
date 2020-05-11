@@ -190,10 +190,11 @@ class PlaylistRepository
 
         $stmt = $this
             ->dbAdapter
-            ->prepare("SELECT '{:idKara}' && (SELECT content FROM playlist WHERE id=:idPlaylist);");
-        $stmt->bindParam('idKara', $idKara, \PDO::PARAM_INT);
+            ->prepare("SELECT '{:idKara}'::int[] && (SELECT content FROM playlist WHERE id=:idPlaylist);");
+        $stmt->bindParam(':idKara', $idKara, \PDO::PARAM_INT);
         $stmt->bindParam('idPlaylist', $idPlaylist, \PDO::PARAM_INT);
         $stmt->execute();
+        var_dump($stmt->fetch(\PDO::FETCH_COLUMN));
         return $stmt->fetch(\PDO::FETCH_COLUMN);
     }
 
@@ -202,14 +203,16 @@ class PlaylistRepository
         if ( !$this->isOwner($idPlaylist, $idAsker) )
             throw new \Exception("You don't have the rights to delete from this playlist");
 
+        /*
         elseif ( $this->isInPlaylist($idPlaylist, $idKara, $idAsker) )
             throw new \Exception("This kara is already in the playlist");
+         */
 
         $add = $this
             ->dbAdapter
             ->prepare(
                 'UPDATE playlist
-                    SET content=content||:idKara 
+                    SET content=array_append(content, :idKara)
                  WHERE id=:idPlaylist;');
         $add->bindParam('idPlaylist', $idPlaylist, \PDO::PARAM_INT);
         $add->bindParam('idKara', $idKara, \PDO::PARAM_INT);
