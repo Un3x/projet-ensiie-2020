@@ -30,23 +30,37 @@ class LectorRepository
         return $lectors;
     }
 
+    public function isLektor ($lectorId)
+    {
+        $stmt = $this
+            ->dbAdapter
+            ->prepare(
+                'SELECT COUNT(*) 
+                    FROM lector
+                    WHERE id=:id;');
+        $stmt->bindParam('id', $lectorId, \PDO::PARAM_INT);
+        $stmt->execute();
+        var_dump($stmt);
+    }
+
     public function delete ($lectorId)
     {
         $stmt = $this
             ->dbAdapter
             ->prepare('DELETE FROM "lector" where id = :lectorId');
 
-        $stmt->bindParam('lectorId', $lectorId);
+        $stmt->bindParam('lectorId', $lectorId, \PDO::PARAM_INT);
         $stmt->execute();
     }
+
     public function add ($id, $ip, $port)
     {
-	    $stmt=$this
-		    ->dbAdapter
-	    		->prepare('INSERT INTO "lector" (id, ip, port) VALUES (:id, :ip, :port)');
-	    $stmt->bindParam('id', $id);
-	    $stmt->bindParam('ip', $ip);
-	    $stmt->bindParam('port', $port);
-	    $stmt->execute();
+        $stmt=$this
+            ->dbAdapter
+                ->prepare('INSERT INTO "lector" (id, ip, port) VALUES (:id, :ip, :port)');
+        $stmt->bindParam('id', $id);
+        $stmt->bindParam('ip', $ip);
+        $stmt->bindParam('port', $port);
+        $stmt->execute();
     }
 }

@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-if ( !(isset($_SESSION['id']) && ( $_SESSION['rights'] === 1 || $_SESSION['rights'] === 2)) )
+$toDelete = intval(htmlspecialchars($_POST['lector_id']));
+
+
+if ( !(isset($_SESSION['id']) && (( $_SESSION['rights'] === 1 || $_SESSION['rights'] === 2) || ( $_SESSION['id'] === $toDelete )) ) )
 {
     echo "Please be nice and leave, OK ?";
     exit();
@@ -16,8 +19,9 @@ include 'Factory/DbAdaperFactory.php';
 $dbAdapter = (new DbAdaperFactory())->createService();
 $lectorRepository = new \Lector\LectorRepository($dbAdapter);
 
-$lectorRepository->delete(htmlspecialchars($_POST['lector_id']));
+$lectorRepository->delete($toDelete);
+$_SESSION['is_lector'] = false;
 
-header("Location: /admin.php");
+header("Location: /index.php");
 
 ?>

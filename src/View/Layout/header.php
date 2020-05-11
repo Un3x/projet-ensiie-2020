@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 ?>
 
 <header>
@@ -11,7 +13,10 @@ session_start();
         <li class="left-side"><a class="nav-link" href="/admin.php">Manage Users</a></li>
     <?php } ?>
 	<li class="left-side"><a class="nav-link" href="/modifyUser.php">Edit your profile</a></li>
-	<li class="left-side"><a classe="nav-link" href="/Forms/addLector.php">I want to read the playlist!</a></li>
+<?php if ( isset($_SESSION['id']) && ( $_SESSION['is_lector'] === false ) )
+    echo '<li class="left-side"><a classe="nav-link" href="/Forms/addLector.php">I want to read the queue!</a></li>';
+elseif ( isset($_SESSION['id']) && ( $_SESSION['is_lector'] === true ) )
+    echo '<li class="left-side"><a classe="nav-link" href="/modifyUser.php">I don\'t want to read the queue anymore</a></li>';?>
 	<li class="login-feedback">
         <?php
         if (isset($_SESSION['username']))

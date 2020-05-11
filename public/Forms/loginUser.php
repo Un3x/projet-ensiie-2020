@@ -74,6 +74,7 @@ if ($userRepository->checkUser($username) + $userRepository->checkEmail($usernam
 			$_SESSION['rights']=$userFound['rights'];
 			$_SESSION['xp']=$userFound['xp'];
 			$_SESSION['port']=$userFound['port'];
+            $_SESSION['is_lector'] = false;
 			$sql='SELECT * FROM userCosmetics NATURAL JOIN "user" WHERE id= :userID;';
 			try {
 				$cosmetics=$dbAdaper->prepare($sql);

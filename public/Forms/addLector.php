@@ -30,6 +30,7 @@ if (isset($_SESSION['port'])){
 	}
 
 	$LectorRepository->add($_SESSION['id'],$ip,$_SESSION['port']);
+    $_SESSION['is_lector'] = true;
 	header('Location: ../index.php');
 }
 

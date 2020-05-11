@@ -21,6 +21,12 @@ envoie les informations à /public/Forms/modifyUserAccount.php
   }
 ?>
 <div class = "enter">
+
+<form action="/Forms/deleteLector.php" method="POST">
+    <input name="lector_id" value="<?= $_SESSION['id'] ?>" hidden>
+    <button class="lebutton" type"submit">I don't want to read the queue anymore</button>
+</form>
+
 <form name="formChangeUser" action="Forms/modifyUserAccount.php" onsubmit="return validationFormulaireChangeUser();" method="POST">
   <label for="newUsername"> Your account name </label></br>
     <?php
@@ -129,5 +135,7 @@ envoie les informations à /public/Forms/modifyUserAccount.php
 <button class="lebutton" type="submit">Apply changes</button>
 </br>
 <a href="changePP.php">Modify Cosmetics</a></div>
+</form>
+
 
 <script type="text/javascript" src="scripts/formulaire.js"></script>
