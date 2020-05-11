@@ -49,6 +49,18 @@ CREATE TABLE rate (
     FOREIGN KEY (userId) REFERENCES users (userId)
 );
 
+CREATE TABLE saves (
+    saveId SERIAL PRIMARY KEY,
+    userId INT NOT NULL,
+    pageId INT NOT NULL,
+    storyName VARCHAR(50) NOT NULL,
+    skill INT NOT NULL,
+    stamina INT NOT NULL,
+    luck INT NOT NULL,
+    FOREIGN KEY (userId) REFERENCES users (userId),
+    FOREIGN KEY (storyName) REFERENCES story (title)
+);
+
 INSERT INTO users (username, email, pwd, isAdmin) VALUES ('Deleted user', '', '', true);
 INSERT INTO users (username, email, pwd, isAdmin) VALUES ('gecko', 'gecko@ensiie.fr', 'stP8rjdy2aYD2', false); --mot de passe : gecko
 INSERT INTO users (username, email, pwd, isAdmin) VALUES ('hail', 'hail@ensiie.fr', 'stEmItvcPVouI', false); --mot de passe : hail
