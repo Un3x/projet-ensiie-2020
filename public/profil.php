@@ -37,9 +37,10 @@ $assoAll=$assoRepository->fetch_all_Assos();
     <meta name="author" content="Thomas COMES">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="../styleProfil.css" />
 </head>
 
-<body>
+<body id="body1">
 <header>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -66,7 +67,7 @@ $assoAll=$assoRepository->fetch_all_Assos();
                         if($_SESSION['username'] !== ""){
                          $user = $_SESSION['username'];
                      // afficher un message
-                     echo "<div class='connection_id nav-link' id='idco' >";
+                     echo "<div class='connection_id nav-link' >";
                      echo "$user";
                      echo "</div>";
 		                  if(isset($_GET['deconnexion'])) { 
@@ -132,19 +133,19 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 
 </script>
 
-<h1>Mon profil</h1>
+<h1 id="id2">Mon profil</h1>
 
 <h2>Edition du profil</h2>
 <ul>
-  <li onclick = "swipe2('formDelete','formMDP','formUsName');"><a href="#" > Suppression du compte :</a> </li>
+  <li  onclick = "swipe2('formDelete','formMDP','formUsName');"><a href="#" > Suppression du compte :</a> </li>
 
     <div id="formDelete" style= "position:absolute;top:22%;left:30%;">
     <form method="POST" action="/deleteUser.php">
-        <button type="submit">Valider la suppression</button>
+        <button  type="submit">Valider la suppression</button>
     </form>
    </div>
   <li onclick = "swipe('formMDP','formUsName','formDelete');"><a href="#" >Changement de mot de passe</a></li>
-  <li onclick = "swipe('formUsName','formMDP','formDelete');"><a href="#" >Changement de nom d'utilisateur</a></li>
+  <li  onclick = "swipe('formUsName','formMDP','formDelete');"><a href="#" >Changement de nom d'utilisateur</a></li>
 </ul>
 
   <div id="formMDP" style= "position:absolute;top:22%;left:30%;">
@@ -154,7 +155,7 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
   <input type="submit" name="Valider" value="Valider" id ='bouton_envoi' align="center">
   </form>
   </div>
-  <div id="formUsName" style= "position:absolute;top:26%;left:30%;">
+  <div id="formUsName" style= "position:absolute;top:26%;left:30%; ">
   <form action='modifUsName.php'  method="post">
     Nouveau nom d'utilisateur: </br>
   <input type="text" name="newU">
@@ -162,7 +163,7 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
   </form>
   </div>
 
-<h2>Demande d'adhesion a une association</h2>
+<h2>Demande d'adhésion à une association</h2>
 
 <?php
   echo "<form action='assoInscription.php' method='post'>";
@@ -180,7 +181,7 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 ?>
   
 
-<h2>Formulaire de demande afin de devenir administrateur pour une association</h2>
+<h2>Demande afin de devenir administrateur pour une association</h2>
 <a class="nav-link" href="./Form_demande_admin.php">Cliquez ici pour le formulaire</a>
 
 <h2>Informations du profil</h2>
@@ -207,10 +208,8 @@ use \Datetime as dt;
 
 $today = new DateTime();
 $today3 = $today->getTimestamp();
-echo $today3;
 
 if ($userRepository->IsAdmin($userid)){
-  echo "<h2> Rentrer le retard des participants des réunions passées </h2>";
   $participationRepository->fetch_Reu_passees($userid,$today3);
 }
 

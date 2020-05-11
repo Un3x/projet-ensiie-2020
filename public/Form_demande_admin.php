@@ -11,7 +11,7 @@ $dbAdaper = (new DbAdaperFactory())->createService();
 $assoRepository = new \Asso\AssoRepository($dbAdaper);
 
 session_start();
-
+//$_SESSION['user'] = $userRepository->getUser($_SESSION['username']);
 $userid=$_SESSION['user']->getId();
 
 $assoAll=$assoRepository->fetch_all_Assos();
@@ -35,7 +35,7 @@ $assoAll=$assoRepository->fetch_all_Assos();
     Je souhaite devenir administrateur de : 
     <?php
   echo "<form >";
-  echo "<select name='nomasso' size='1'>";
+  echo "<select name='Nom_assoc' size='1'>";
   foreach($assoAll as $element){
     $val=$element->getNomAssoc();
     if($assoRepository->appartient($val,$_SESSION['user']->getId())){
