@@ -1,5 +1,5 @@
 <h1>Se connecter</h1>
-<form method="post" action="server.php" onsubmit="return checkLoginForm();">
+<form autocomplete="off" method="post" action="server.php" onsubmit="return checkLoginForm();">
 <div>
   <label for="username">Nom d'utilisateur</label>
   <input type="username" name="username" required/>

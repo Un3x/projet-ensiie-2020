@@ -4,7 +4,7 @@ Tales of Webseria, comme sauvegarder ou commenter, vous devez créer
 un compte. Vous pouvez tout de même jouer sans créer de compte.
 Promis on ne vendra pas vos informations à d'autres entreprises.
 </p>
-<form method="post" action="server.php" onsubmit="return checkRegisterForm();">
+<form autocomplete="off" method="post" action="server.php" onsubmit="return checkRegisterForm();">
     <div>
       <label for="username">Nom d'utilisateur</label>
       <input type="text" name="username" size="20" required/>

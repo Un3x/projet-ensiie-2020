@@ -7,7 +7,7 @@
 <br/>
 
 <h3>Changer de nom d'utilisateur :</h3>
-<form method="post" action=server.php>
+<form autocomplete="off" method="post" action=server.php>
     <label for="new_name">Nouveau nom d'utilisateur :</label></br>
     <input type="text" name="new_name" required/></br>
     <label for="pwd">Entrez votre mot de passe pour confirmer le changement :</label></br>

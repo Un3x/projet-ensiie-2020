@@ -5,14 +5,8 @@ use Rating\RatingRepository;
 use Comment\CommentRepository;
 use Save\SaveRepository;
 
-include '../src/Entity/User.php';
-include '../src/Repository/UserRepository.php';
-include '../src/Repository/CommentRepository.php';
-include '../src/Repository/RatingRepository.php';
-include '../src/Repository/SaveRepository.php';
-include '../src/Factory/DbAdaperFactory.php';
-
-session_start();
+ob_start();
+include_once '../src/utils/autoloader.php';
 
 $dbAdaperUser = (new DbAdaperFactory())->createService();
 $dbAdaperRate = (new DbAdaperFactory())->createService();
