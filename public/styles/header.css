@@ -4,7 +4,7 @@ header
     margin: 0 0 10px 0;
 }
 
-header a, header a:visited, header a:hover
+header a, header a:visited, header a:hover, a:link
 {
     color: #0000FF;
 }

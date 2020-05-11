@@ -18,7 +18,7 @@ session_start();
             $idSession=$_SESSION['id'];
             $userSession=$_SESSION['username'];
             echo "You are logged in as $userSession. ";
-            echo '<a href="Forms/logout.php">Logout</a> / <a href="/modifyUser.php">Settings</a>';
+            echo '<a href="/Forms/logout.php">Logout</a> / <a href="/modifyUser.php">Settings</a>';
         }
         else
         {
