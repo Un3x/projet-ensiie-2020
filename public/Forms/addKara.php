@@ -7,6 +7,15 @@ require_once 'Lektor_interface/test.php';
 
 if (isset($_SESSION['id']))
 {
+    if ( !($_SESSION['rights'] === 1 || $_SESSION['rights'] === 2 ) ) 
+        {
+        include_once "ddosPrevention.php";
+        if ($_SESSION['sleepState']==1){
+            echo "Bro just stop\n";
+            exit();
+        }
+    }
+
     $dbAdapter = (new DbAdaperFactory())->createService();
     echo "Adding kara n°" . $_POST['id'] . "...\n";
     $req =

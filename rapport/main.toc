@@ -1,8 +1,10 @@
 \babel@toc {english}{}
-\contentsline {section}{\numberline {1}introduction}{2}% 
-\contentsline {section}{\numberline {2}sécurité}{2}% 
-\contentsline {section}{\numberline {3}utilisateurs}{3}% 
-\contentsline {subsection}{\numberline {3.1}personnaliser son compte}{3}% 
-\contentsline {subsection}{\numberline {3.2}les playlists}{3}% 
-\contentsline {subsection}{\numberline {3.3}droits des utilisateurs}{4}% 
-\contentsline {section}{\numberline {4}conclusion}{4}% 
+\contentsline {section}{\numberline {1}Introduction}{2}% 
+\contentsline {section}{\numberline {2}Sécurité}{2}% 
+\contentsline {section}{\numberline {3}Lektor}{3}% 
+\contentsline {section}{\numberline {4}La queue}{3}% 
+\contentsline {section}{\numberline {5}Utilisateurs}{3}% 
+\contentsline {subsection}{\numberline {5.1}Personnaliser son compte}{3}% 
+\contentsline {subsection}{\numberline {5.2}Les playlists}{4}% 
+\contentsline {subsection}{\numberline {5.3}Droits des utilisateurs}{4}% 
+\contentsline {section}{\numberline {6}Conclusion}{4}% 

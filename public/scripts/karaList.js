@@ -52,7 +52,11 @@ async function addKara(i)
     xhr.onreadystatechange = function() {//Call a function when the state changes.
         if(xhr.readyState == XMLHttpRequest.DONE && ( xhr.status === 200 || xhr.status === 0 ))
         {
-            document.getElementById("lastAdd").innerHTML = "Added the kara " + i + " !";
+            if ( xhr.responseText.search("Bro just stop") <= -1 )
+                document.getElementById("lastAdd").innerHTML = "Added the kara " + i + " !";
+            else
+                document.getElementById("lastAdd").innerHTML = "Yamete kudasai ! Please calm down a little bit...";
+
         }
     }
     xhr.send('id=' + i);
