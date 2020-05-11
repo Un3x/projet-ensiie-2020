@@ -48,6 +48,7 @@ class CommentRepository
         return false;
     }
 
+    //Fait en sorte que les commentaires deviennent ceux d'un Deleted user
     public function delete_comments(int $userId)
     {
         $query = "UPDATE comment SET userId = 1 WHERE userId =:userId";
@@ -56,6 +57,7 @@ class CommentRepository
         $result->execute();
     }
 
+    //Supprime le commentaire de la bd
     public function remove_comments(int $commentId){
         $query = "DELETE FROM comment WHERE commentid = :commentid";
         $result = $this->dbAdapter->prepare($query);

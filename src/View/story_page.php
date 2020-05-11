@@ -184,6 +184,7 @@ foreach ($data['comments'] as $comment) {
 			echo '
 			<form method="post" action="commentManager.php" onsubmit="return areYouSure()">
 			<input type="hidden" name="commentId" value='.$comment->getId().' />
+			<input type="hidden" name="storyId" value='.$data['story']->getId().' />
 			<button type="submit" name="delCom" class="btn btn-danger">Supprimer</button>
 			</form>';
 		}
