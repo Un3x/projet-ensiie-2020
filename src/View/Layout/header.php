@@ -10,8 +10,9 @@ session_start();
     <?php if ( isset($_SESSION['rights']) && ( $_SESSION['rights']===1 || $_SESSION['rights']===2 ) ) { ?>
         <li class="left-side"><a class="nav-link" href="/admin.php">Manage Users</a></li>
     <?php } ?>
-        <li class="left-side"><a class="nav-link" href="/modifyUser.php">Edit your profile</a></li>
-        <li class="login-feedback">
+	<li class="left-side"><a class="nav-link" href="/modifyUser.php">Edit your profile</a></li>
+	<li class="left-side"><a classe="nav-link" href="/Forms/addLector.php">I want to read the playlist!</a></li>
+	<li class="login-feedback">
         <?php
         if (isset($_SESSION['username']))
         {
