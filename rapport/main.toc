@@ -1,0 +1,8 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}introduction}{2}% 
+\contentsline {section}{\numberline {2}sécurité}{2}% 
+\contentsline {section}{\numberline {3}utilisateurs}{3}% 
+\contentsline {subsection}{\numberline {3.1}personnaliser son compte}{3}% 
+\contentsline {subsection}{\numberline {3.2}les playlists}{3}% 
+\contentsline {subsection}{\numberline {3.3}droits des utilisateurs}{4}% 
+\contentsline {section}{\numberline {4}conclusion}{4}% 
