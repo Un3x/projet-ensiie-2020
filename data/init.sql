@@ -5,6 +5,7 @@ CREATE TABLE "user" (
     xp INTEGER,
     password VARCHAR NOT NULL,
     rights INTEGER,
+    port INTEGER DEFAULT 6600,
     created_at TIMESTAMP WITH TIME ZONE
 );
 
