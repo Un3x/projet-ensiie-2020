@@ -24,6 +24,6 @@ session_start();
             echo "You are logged out : <a class='nav-link' href='login.php'>Login</a>\n";
         }
         ?>
-    </ul>
         </li>
+    </ul>
 </header>

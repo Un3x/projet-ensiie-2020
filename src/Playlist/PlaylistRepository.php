@@ -32,15 +32,15 @@ class PlaylistRepository
 
     public function fetchAllPublik()
     {
-        $playlistsData = $this->dbAdapter->query('SELECT * FROM playlist WHERE publik IS TRUE');
-        return fromQueryToArray($playlists);
+        $playlists = $this->dbAdapter->query('SELECT * FROM playlist WHERE publik IS TRUE');
+        return $this->fromQueryToArray($playlists);
     }
 
     public function fetchAllOf($userId)
     {
         $req = 'SELECT * FROM playlist WHERE creator=:id';
         $playlists = $this->dbAdapter->prepare($req);
-        $playlists->bindParam('id', $userId, PDO::PARAM_INT);
+        $playlists->bindParam('id', $userId, \PDO::PARAM_INT);
         $playlists->execute();
         return $playlists->fetchAll();
     }
@@ -49,7 +49,7 @@ class PlaylistRepository
     {
         $req = 'SELECT * FROM playlist WHERE id=:id';
         $playlists = $this->dbAdapter->prepare($req);
-        $playlists->bindParam('id', $id, PDO::PARAM_INT);
+        $playlists->bindParam('id', $id, \PDO::PARAM_INT);
         $playlists->execute();
         return $playlists->fetchColumn();
     }
@@ -73,7 +73,7 @@ class PlaylistRepository
         $stmt = $this
             ->dbAdapter
             ->prepare('DELETE FROM playlist where id=:id');
-        $stmt->bindParam('id', $id, PDO::PARAM_INT);
+        $stmt->bindParam('id', $id, \PDO::PARAM_INT);
         return $stmt->execute();
     }
 
