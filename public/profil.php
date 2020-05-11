@@ -1,18 +1,24 @@
 <?php
 #phpinfo();
+
 include '../src/User.php';
 include '../src/UserRepository.php';
 include '../src/Factory/DbAdaperFactory.php';
 include '../src/Asso.php';
 include '../src/AssoRepository.php';
+include '../src/ReunionRepository.php';
+include '../src/ParticipationRepository.php';
 
 $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new \User\UserRepository($dbAdaper);
+$assoRepository = new \Asso\AssoRepository($dbAdaper);
+$reuRepository = new \Reunion\ReunionRepository($dbAdaper);
+$participationRepository = new \Participation\ParticipationRepository($dbAdaper);
+
 
 session_start();
 $_SESSION['user']=$userRepository->getUser($_SESSION['username']);
 
-$assoRepository = new \Asso\AssoRepository($dbAdaper);
 $name=$_SESSION['username'];
 $userid = $_SESSION['user']->getId();
 
@@ -200,3 +206,30 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 </ul>
 </a>
 </body>
+
+<?php 
+use \Datetime as dt;
+
+$today = new DateTime();
+$today3 = $today->getTimestamp();
+echo $today3;
+
+if ($userRepository->IsAdmin($userid)){
+  echo "<h2> Rentrer le retard des participants des réunions passées </h2>";
+  echo "<div id='ListAsso'>"
+  echo "<table class='table'>"
+  echo "<tr>"
+      echo "<th>Réunions :</th>"
+      echo "</tr>"
+      <?php foreach($asso as $Asso): ?>
+          echo "</tr>"
+              <td><?php 
+              $val= $Asso->getNomAssoc();
+              echo $val; ?></td>
+          </tr>
+      <?php endforeach; ?>
+  </table>
+</div>
+  $participationRepository->fetch_Reu_passees($userid,$today3);
+}
+?>

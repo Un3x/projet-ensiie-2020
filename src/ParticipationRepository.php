@@ -173,5 +173,69 @@ class ParticipationRepository
         $delay = date('H:i',intdiv($sumDelay,$nbEntries));
         return $delay;
     }
+
+    public function fetch_Reu_passees($userid, $today){
+
+        //on selectionne la liste des date_fin_reu  et id_reu d'un adminsitrateur donné pour pouvoir voir si elle est passée ou non
+        $req = $this->dbAdapter->query("SELECT Reunion.id_reu, Reunion.Date_fin_reu from Reunion where Reunion.Id_MembreA = '$userid'");
+                                           
+        foreach($req as $row){
+                $date_fin_reu = $row['date_fin_reu'];
+                if($today > $date_fin_reu){
+                    //on recupere la liste des participants par id_reu
+                    $id_reu = $row['id_reu'];
+                   // echo "id_reu = ".$id_reu;
+                    $req2 = $this->dbAdapter->query("SELECT Id_Membre from Participations where id_reu = '$id_reu'");
+
+                    //on met à jour la table des participations (statut = 3) afin de pouvoir rentrer le retard
+                    foreach($req2 as $row2){
+                        $id_membre = $row2['id_membre'];
+                       // echo "</br>id_membre = ".$id_membre;
+                        $statut = 3;
+                        $this->updateStatus($id_reu,$id_membre,$statut);
+                }
+            }
+        }
+        
+        //On veut
+        //Asso 1 
+        //Reunion passée numero 1
+        // Participant 1 : retard -> ... 
+        // Participant 2 : retard -> ... 
+
+        //Reunion passée numero 2
+        // Participant 1 : retard -> ... 
+        // Participant 2 : retard -> ... 
+
+        //Asso 2 
+        //..
+
+        //afficher reunion passees avec liste des participants pour un administrateur donné
+        $data = $this->dbAdapter->query("SELECT * 
+                                        from Reunion    
+                                        where Id_MembreA = '$userid' 
+                                        group by id_assoc");
+
+        $meetings = [];                           
+        foreach($data as $row){
+                $date_fin_reu = $row['date_fin_reu'];
+
+                if($today > $date_fin_reu){
+                    $id_reu = $row['id_reu'];
+                    $statut = 3;
+                    $meeting = new Reunion();
+                    $meeting
+                        ->setIdAssoc($row['id_assoc'])
+                        ->setIdReu($row['id_reu'])
+                        ->setDateDebutReu(new \DateTime($row['date_debut_reu']))
+                        ->setDateFinReu(new \DateTime($row['date_fin_reu']));
+                    $meetings[] = $meeting;
+                }
+                //on veut la liste des participants pour l'id reu donnée
+                $this->getParticipationsReu($id_reu,$statut);
+            }
+
+    }
+
 }
 ?>
