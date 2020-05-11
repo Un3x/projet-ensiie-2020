@@ -24,13 +24,13 @@ $ownplaylists = $playlistRepository->fetchAllOf($_SESSION['id']);
     <ul>
         <?php foreach ($ownplaylists as $playlist): ?>
                 <li id="aPlaylistInPublikList">
-                    <form action="/playlists/modifyPlaylist.php">
-                    <input name"playlist_id" value="<?= $playlist->getId()?>" hidden>
+                    <form action="/playlists/modifyPlaylist.php" method="POST">
+                    <input name="playlist_id" value="<?= $playlist->getId()?>" hidden>
                     <button type="submit">Modify</button>
                     </form>
                     <button type="button" onclick="togglePlaylistInfo(<?= $playlist->getId()?>)">Details</button>
-                    <form action="/playlists/playlistToQueue.php">
-                    <input name"playlist_id" value="<?= $playlist->getId()?>" hidden>
+                    <form action="/playlists/playlistToQueue.php" method="POST">
+                    <input name="playlist_id" value="<?= $playlist->getId()?>" hidden>
                     <button type="submit">Add to queue</button>
                     </form>
                     <span><?= $playlist->getName()?></span>
