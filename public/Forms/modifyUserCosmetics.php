@@ -15,13 +15,12 @@ include 'Users/UserRepository.php';
 include 'Factory/DbAdaperFactory.php';
 
 $dbAdapter = (new DbAdaperFactory())->createService();
-$userRepository = new UserRepository($dbAdapter);
 
 $userID=htmlspecialchars($_SESSION['id']);
 
 if (isset($_POST['newImage'])){
 	try {
-		$sql='UPDATE userCosmetics SET IDimage= :newImage WHERE id= :userID;';
+		$sql='UPDATE userCosmetics SET IDimage=:newImage WHERE id=:userID;';
 		$stmt=$dbAdapter->prepare($sql);
 		$stmt->bindParam('newImage',$_POST['newImage']);
 		$stmt->bindParam('userID',$userID);
@@ -48,5 +47,5 @@ if (isset($_POST['newTitle'])){
 		exit();		
 	}	
 }
-header('Location: ../index.php');
+header('Location: /index.php');
 ?>

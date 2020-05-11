@@ -17,7 +17,7 @@ if ( isset($_GET["getQueue"]) && isset($_SESSION["id"]) )
             JOIN "user" ON queue.added_by="user".id
             JOIN userCosmetics ON userCosmetics.id="user".id
          ORDER BY queue.position ASC;';
-    $results = $dbAdapter->query($stmt)->fetchAll(PDO::FETCH_NUM);
+    $results = $dbAdapter->query($stmt)->fetchAll(\PDO::FETCH_NUM);
 
     if ( $_SESSION['rights'] >= 1 ) // User is an admin or root
     {

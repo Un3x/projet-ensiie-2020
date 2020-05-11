@@ -10,6 +10,14 @@ set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 
 <body>
 
+<?php
+if ( isset($_GET['create']) && $_GET['create'] === "success" )
+{
+    echo '<p class="feedback">New playlist successfully created!</p>';
+}
+?>
+
+<?php include_once "View/Layout/ownPlaylistList.php" ?>
 
 <?php include_once "View/Layout/publikPlaylistList.php" ?>
 

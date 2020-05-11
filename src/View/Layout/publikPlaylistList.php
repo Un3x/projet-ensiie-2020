@@ -12,8 +12,7 @@ include_once 'Playlist/PlaylistRepository.php';
 include_once 'Factory/DbAdaperFactory.php';
 
 $dbAdapter = (new DbAdaperFactory())->createService();
-$playlistRepository = new \Playlist\PlaylistRepository($dbAdapter, $_SESSION['id']);
-$ownplaylists = $playlistRepository->fetchAllOf($_SESSION['id']);
+$playlistRepository = new \Playlist\PlaylistRepository($dbAdapter);
 $allplaylists = $playlistRepository->fetchAllPublik();
 
 ?>

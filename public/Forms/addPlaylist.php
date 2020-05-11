@@ -30,7 +30,7 @@ else
 $creator = $_SESSION['id'];
 
 if ( $playlistRepository->createPlaylist($name, $creator, $publik) === true )
-    header("Location: /playlists/showPlaylists.php?create=success");
+    header("Location: /playlists/playlists.php?create=success");
 else
     header("Location: /playlists/createPlaylist.php?errs=fail&name=" . $_POST['name'] . "&publik=" . $_POST['publik']);
 ?>

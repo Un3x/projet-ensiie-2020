@@ -11,17 +11,18 @@ include_once 'Playlist/Playlist.php';
 include_once 'Playlist/PlaylistRepository.php';
 include_once 'Factory/DbAdaperFactory.php';
 
-$dbAdapter = (new DbAdaperFactory())->createService();
-$playlistRepository = new \Playlist\PlaylistRepository($dbAdapter, $_SESSION['id']);
+if ( !isset($dbAdapter) )
+    $dbAdapter = (new DbAdaperFactory())->createService();
+if ( !isset($playlistRepository) )
+    $playlistRepository = new \Playlist\PlaylistRepository($dbAdapter);
 $ownplaylists = $playlistRepository->fetchAllOf($_SESSION['id']);
-$allplaylists = $playlistRepository->fetchAllPublik();
 
 ?>
 
-<h2>All public playlists:</h2>
-<div id="publikPlaylists">
+<h2>Your playlists:</h2>
+<div id="ownPlaylists">
     <ul>
-        <?php foreach ($allplaylists as $playlist): ?>
+        <?php foreach ($ownplaylists as $playlist): ?>
             <form method="GET">
                 <li id="aPlaylistInPublikList">
                     <button type="button" onclick="togglePlaylistInfo(<?= $playlist->getId()?>">Details</button>

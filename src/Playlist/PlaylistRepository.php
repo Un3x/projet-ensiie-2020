@@ -42,7 +42,7 @@ class PlaylistRepository
         $playlists = $this->dbAdapter->prepare($req);
         $playlists->bindParam('id', $userId, \PDO::PARAM_INT);
         $playlists->execute();
-        return $playlists->fetchAll();
+        return $this->fromQueryToArray($playlists);
     }
 
     public function fetchPlaylist($id)

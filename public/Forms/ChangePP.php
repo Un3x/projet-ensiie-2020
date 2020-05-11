@@ -1,5 +1,8 @@
-<?php session_start() ?>
-<?php include_once "../../src/ViewPictures.php"?>
+<?php session_start()
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
+
+include_once "ViewPictures.php"?>
+
 <html>
 		
 	<head>
