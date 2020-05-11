@@ -1,6 +1,8 @@
 <?php
-
 namespace Playlist;
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
+require_once 'Karas/Kara.php';
+
 
 class PlaylistRepository
 {
@@ -40,7 +42,6 @@ class PlaylistRepository
             ->setCreatorUsername($query['username'])
             ->setName($query['name'])
             ->setCreator($query['creator'])
-            ->setContent($query['content'])
             ->setPublik($query['publik']);
         return $playlist;
     }
@@ -65,14 +66,48 @@ class PlaylistRepository
         $public = $this->dbAdapter->prepare('SELECT creator, publik FROM playlist WHERE id=:id');
         $public->bindParam('id', $id, \PDO::PARAM_INT);
         $public->execute();
-        $public->fetch();
-        //if ( $public['publik'] === false && $public['creator']2
+        $test = $public->fetch(\PDO::FETCH_ASSOC);
+        if ( $test['publik'] === false && $test['creator']!==$userId )
+            throw new Exception("You don't have the rights to see this playlist");
 
-        $req = 'SELECT * FROM playlist WHERE id=:id';
-        $playlists = $this->dbAdapter->prepare($req);
-        $playlists->bindParam('id', $id, \PDO::PARAM_INT);
-        $playlists->execute();
-        return $this->fromPlaylistToArray($playlists->fetch(\PDO::FETCH_ASSOC));
+        //$req = 'SELECT * FROM playlist WHERE id=:id';
+        $req = 'SELECT playlist.id, name, creator, publik, username FROM playlist JOIN "user" ON "user".id=creator WHERE playlist.id=:id';
+        $playlist_info = $this->dbAdapter->prepare($req);
+        $playlist_info->bindParam('id', $id, \PDO::PARAM_INT);
+        $playlist_info->execute();
+        $arrPlaylistInfo = $this->fromPlaylistToArray($playlist_info->fetch(\PDO::FETCH_ASSOC));
+
+        $req =
+            'SELECT karas.id, karas.song_name, karas.source_name, karas.category, karas.author_name, karas.song_number, karas.language
+             FROM playlist 
+                JOIN karas 
+                ON karas.id = ANY (content)
+             WHERE playlist.id=:id;';
+        $karas = $this->dbAdapter->prepare($req);
+        $karas->bindParam('id', $id, \PDO::PARAM_INT);
+        $karas->execute();
+        $karasData = $karas->fetchAll(\PDO::FETCH_ASSOC);
+        $arrKaras = [];
+        foreach ($karasData as $karaDatum) {
+            $kara = new \Kara\Kara();
+            $string = $karaDatum['source_name'] . " - " . $karaDatum['category'] . $karaDatum['song_number'] . " - " . $karaDatum['song_name'];
+            $kara
+                ->setId($karaDatum['id'])
+                ->setString($string)
+                ->setSourceName($karaDatum['source_name'])
+                ->setSongName($karaDatum['song_name'])
+                ->setCategory($karaDatum['category'])
+                ->setAuthorName($karaDatum['author_name'])
+                ->setSongNumber($karaDatum['song_number'])
+                ->setLanguage($karaDatum['language']);
+            $arrKaras[] = $kara;
+        }
+
+        $ret = [];
+        array_push($ret, $arrPlaylistInfo);
+        array_push($ret, $arrKaras);
+
+        return $ret;
     }
 
     public function createPlaylist($name, $creator, $public)

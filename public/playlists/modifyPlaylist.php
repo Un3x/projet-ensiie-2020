@@ -7,6 +7,7 @@ include_once "errors.php";
 
 <?php
 include_once "View/Layout/head.php" ?>
+<link rel="stylesheet" type="text/css" href="/styles/karaList.css?v=1.0">
 </head>
 
 <?php include_once "View/Layout/header.php";?>
