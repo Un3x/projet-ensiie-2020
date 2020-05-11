@@ -30,9 +30,21 @@ class PlaylistRepository
         return $playlists;
     }
 
+    public function fromPlaylistToArray($query)
+    {
+        $playlist = new Playlist();
+        $playlist
+            ->setId($query['id'])
+            ->setCreatorUsername($query['username'])
+            ->setName($query['name'])
+            ->setCreator($query['creator'])
+            ->setContent($query['content'])
+            ->setPublik($query['publik'])
+    }
+
     public function fetchAllPublik()
     {
-        $playlists = $this->dbAdapter->query('SELECT * FROM playlist WHERE publik IS TRUE');
+        $playlists = $this->dbAdapter->query('SELECT playlist.id, name, creator, content, publi FROM playlist WHERE publik IS TRUE');
         return $this->fromQueryToArray($playlists);
     }
 
@@ -45,8 +57,14 @@ class PlaylistRepository
         return $this->fromQueryToArray($playlists);
     }
 
-    public function fetchPlaylist($id)
+    public function fetchPlaylist($id, $userId)
     {
+        $public = $this->dbAdapter->prepare('SELECT creator, publik FROM playlist WHERE id=:id');
+        $public->bindParam('id', $id);
+        $public->execute();
+        $public->fetch();
+        if ( $public['publik'] === false && $public['creator']2
+
         $req = 'SELECT * FROM playlist WHERE id=:id';
         $playlists = $this->dbAdapter->prepare($req);
         $playlists->bindParam('id', $id, \PDO::PARAM_INT);

@@ -2,17 +2,14 @@
 session_start();
 set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 include_once "errors.php";
-
-
-include_once "Playlist/Playlist.php";
-include_once "Playlist/PlaylistRepository.php";
-
 ?>
 
 
 <?php
 include_once "View/Layout/head.php" ?>
 </head>
+
+<?php include_once "View/Layout/header.php";?>
 
 <body>
 <?php
@@ -23,7 +20,7 @@ if ( !isset($_SESSION['id']) )
 }
 ?>
 
-<?php include_once "View/Layout/gestionPlaylist.php" ?>
+<?php include_once "View/Layout/modifyPlaylist.php" ?>
 
 </body>
 </html>

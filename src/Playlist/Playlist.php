@@ -15,6 +15,11 @@ class Playlist
     private $name;
 
     /**
+     * @var string
+     */
+    private $creatorUsername;
+
+    /**
      * @var int
      */
     private $creator;
@@ -80,6 +85,23 @@ class Playlist
     public function setCreator ($creator)
     {
         $this->creator = $creator;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCreatorUsername ()
+    {
+        return $this->creatorUsername;
+    }
+
+    /**
+     * @param
+     */
+    public function setCreatorUsername ($creator)
+    {
+        $this->creatorUsername = $creator;
         return $this;
     }
 
