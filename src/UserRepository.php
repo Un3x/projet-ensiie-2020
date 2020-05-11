@@ -147,11 +147,12 @@ class UserRepository
     {
         $req = $this->dbAdapter->prepare('INSERT INTO Membre(id, username, email,  passwd, points) VALUES(:id, :username, :email, :password, :pointss)');
 
+        $pointss = 0;
         $req->bindParam('id', $id);    
         $req->bindParam('username', $username);
         $req->bindParam('email', $email);
         $req->bindParam('password', $password);
-        $req->bindParam('pointss', 0);
+        $req->bindParam('pointss', $pointss);
 
         if (!$req) {
         echo "\nPDO::errorInfo():\n";

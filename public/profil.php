@@ -41,11 +41,7 @@ $assoAll=$assoRepository->fetch_all_Assos();
     <link rel="stylesheet" href="../styleProfil.css" />
 </head>
 
-<<<<<<< HEAD
 <body id="body1">
-=======
-
->>>>>>> 12eb37760313d2f6e4f8aa7d048d2e9d0f5a6666
 <header>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -74,11 +70,7 @@ $assoAll=$assoRepository->fetch_all_Assos();
                         if($_SESSION['username'] !== ""){
                          $user = $_SESSION['username'];
                      // afficher un message
-<<<<<<< HEAD
-                     echo "<div class='connection_id nav-link' >";
-=======
                      echo "<div class='connection_id nav-link' style='float:right;'' >";
->>>>>>> 12eb37760313d2f6e4f8aa7d048d2e9d0f5a6666
                      echo "$user";
                      echo "</div>";
                       if(isset($_GET['deconnexion'])) { 
@@ -140,14 +132,8 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 //window.onload = function () { Hide("ListAsso");  };
 
 </script>
-<<<<<<< HEAD
 
 <h1 id="id2">Mon profil</h1>
-=======
-<body>
-<a id="leg1">
-<h1>Mon profil</h1>
->>>>>>> 12eb37760313d2f6e4f8aa7d048d2e9d0f5a6666
 
 <h2>Edition du profil</h2>
 <ul>
@@ -227,12 +213,6 @@ use \Datetime as dt;
 
 $today = new DateTime();
 $today3 = $today->getTimestamp();
-<<<<<<< HEAD
-
-if ($userRepository->IsAdmin($userid)){
-  $participationRepository->fetch_Reu_passees($userid,$today3);
-}
-=======
 //echo $today3;
 
 if ($userRepository->IsAdmin($userid)){
@@ -242,7 +222,6 @@ if ($userRepository->IsAdmin($userid)){
   echo "<tr>";
       echo "<th>Réunions :</th>";
       echo "</tr>";
->>>>>>> 12eb37760313d2f6e4f8aa7d048d2e9d0f5a6666
 
   foreach($asso as $element){
     $val=$element->getNomAssoc();
