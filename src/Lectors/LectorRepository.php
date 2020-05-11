@@ -16,7 +16,7 @@ class LectorRepository
 
     public function fetchAll()
     {
-        $lectorData = $this->dbAdapter->query('SELECT lector.id, ip, port, username FROM lector JOIN "user" on lector.id="user".id');
+        $lectorData = $this->dbAdapter->query('SELECT lector.id, ip, lector.port, username FROM lector JOIN "user" on lector.id="user".id');
         $lectors = [];
         foreach ($lectorData as $lectorDatum) {
             $lector = new Lector();
