@@ -1,6 +1,7 @@
 <?php
 session_start();
 set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
+include_once "errors.php";
 ?>
 
 <?php include_once "View/Layout/head.php" ?>
