@@ -16,7 +16,7 @@ Aussi, après ajout d'un utilisateur dans "user" on insère une nouvelle ligne d
 Chaque utilisateur aura accès à une liste d'images de profil et de titres qu'il pourra selectionner pour customiser son profil. Ces cosmétiques sont contenus dans les tables "Image" et "Titles". 
 \newline
 Ces images ne sont pas toutes disponibles dès le départ, en effet chaque utilisateur possède des points d'expérience, initialisés à 0 à la création du compte, qui peuvent être gagné lorsqu'un kara est rajouté à une playlist. Les images se débloquent au fur et à mesure que l'utilisateur passe du temps sur le site. Sur ChangePP.php seules les images et titres dont xpNeeded<SESSION['xp'] sont affichés.\newline
-Pour pouvoir modifier son compte, l'utilisateur doit se rendre sur changePP.php, pour modifier son image de profil et/ou son titre. Un formulaire envoie les informations à modifyUserCosmetics.php. L'utilsateur a le choix entre les ifferentes images contenu dans la table "Images" et les différents titres dans "Titles". \newline
+Pour pouvoir modifier son compte, l'utilisateur doit se rendre sur changePP.php, pour modifier son image de profil et/ou son titre. Un formulaire envoie les informations à modifyUserCosmetics.php. L'utilsateur a le choix entre les différentes images contenu dans la table "Images" et les différents titres dans "Titles". \newline
 
 \subsection{les playlists}
 
@@ -29,4 +29,4 @@ Lorsqu'un utilisateur se register dans la base de donnée, on lui attribut un dr
 	\item 1 pour un admistrateur
 	\item 2 pour un super-administrateur
 \end{itemize}
-Un utilisateur a la possibilité de révoquer ou d'augmenter les droits d'un utilisateur ayant un droit inférieur. Ceci se fait sur la page admin.php, page seulement accessible par les admins. C'est en vérifiant les attributs de la session actuelle ($SESSION) qu'on détermine si l'utilisateur est bien un admin.
+Un utilisateur a la possibilité de révoquer ou d'augmenter les droits d'un utilisateur ayant un droit inférieur. Ceci se fait sur la page admin.php, page seulement accessible par les admins. C'est en vérifiant les attributs de la session actuelle (SESSION) qu'on détermine si l'utilisateur est bien un admin.
