@@ -11,8 +11,10 @@ include_once 'Playlist/Playlist.php';
 include_once 'Playlist/PlaylistRepository.php';
 include_once 'Factory/DbAdaperFactory.php';
 
-$dbAdapter = (new DbAdaperFactory())->createService();
-$playlistRepository = new \Playlist\PlaylistRepository($dbAdapter);
+if ( !isset($dbAdapter) )
+    $dbAdapter = (new DbAdaperFactory())->createService();
+if ( !isset($playlistRepository) )
+    $playlistRepository = new \Playlist\PlaylistRepository($dbAdapter);
 $allplaylists = $playlistRepository->fetchAllPublik();
 
 ?>

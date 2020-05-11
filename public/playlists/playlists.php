@@ -17,6 +17,8 @@ if ( isset($_GET['create']) && $_GET['create'] === "success" )
 }
 ?>
 
+<p>To create a playlist, it's <a href="/playlists/createPlaylist.php">this way</a></p>
+
 <?php include_once "View/Layout/ownPlaylistList.php" ?>
 
 <?php include_once "View/Layout/publikPlaylistList.php" ?>
