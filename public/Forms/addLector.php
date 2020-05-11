@@ -1,9 +1,4 @@
 <?php
-//******
-//This page is used for adding a new user to the database, after checking if the infos are correct.
-//File called by registration.php
-//what to add: rights, experience, also maybe a password (if we so desired)
-//*****
 set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 session_start();
 use User\UserRepository;
@@ -31,7 +26,7 @@ if (isset($_SESSION['port'])){
 		$ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
 	}
 	else {
-		$ip=$_SERVER['REMOTE_ADRESS'];
+		$ip=$_SERVER['REMOTE_ADDR'];
 	}
 
 	$LectorRepository->add($_SESSION['id'],$ip,$_SESSION['port']);

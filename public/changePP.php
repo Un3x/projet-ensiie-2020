@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');
 include_once "errors.php";
 ?>
@@ -26,7 +27,7 @@ $images->execute();
 $i=0;
 foreach ($images as $image){
 	echo '<span class="container">';
-	choicePP($image['IDimage'], $image['image'], 200, 200, 20);
+	choicePP($image['idimage'], $image['image'], 200, 200, 20);
 	echo '<span class="checkmark"></span>';
 	echo "</span>";	
 	if($i%4 == 0){echo "<br>";}
