@@ -1,3 +1,9 @@
+body
+{
+background-color:#2B3E50;
+color:#df691a;
+margin: 0;
+}
 
 head{
 	background-color:#2B3E50
@@ -17,7 +23,7 @@ h1{
 }
 
 p{
-    text-align:center;
+    /*text-align:center;*/
     size :10px
     
     
@@ -34,17 +40,18 @@ label{
     color: #df691a;
     size: 10px;
 }
+
 a:link, a:visited{
-    color: #df691a;
+    color: #8888FF;
     text-decoration:none;
-    font-size:20px;
 }
 a:hover{
-    color: #ef7a2b;
+    color: #8888FF;
 }
 a:active{
-    color:#ef7a2b;
+    color:#FF0000;
 }
+
 .choice{
     margin-bottom:12px;
     margin-left:12px;

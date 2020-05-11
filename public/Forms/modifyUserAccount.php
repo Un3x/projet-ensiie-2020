@@ -103,12 +103,17 @@ if (isset($_POST['newEmail']) && $_POST['newEmail']!=$_SESSION['email'])
 	}
 	if ($userID!==null)
 	{
-		$sql='UPDATE "user" SET email= :newEmail WHERE id= :userID;';
-		$stmt=$dbAdaper->prepare($sql);
-		$stmt->execute(['newEmail'=>$newEmail, 'userID'=>$userID]);
-		$_SESSION['email']=$newEmail;
-		header('Location: ../modifyUser.php?email=changed');
-		exit();
+		try{
+			$sql='UPDATE "user" SET email= :newEmail WHERE id= :userID;';
+			$stmt=$dbAdaper->prepare($sql);
+			$stmt->execute(['newEmail'=>$newEmail, 'userID'=>$userID]);
+			$_SESSION['email']=$newEmail;
+			header('Location: ../modifyUser.php?email=changed');
+			exit();
+		}
+		catch (PDOException $err){
+			header('Location: ../modifyUser.php?err=sqlerror');
+		}
 	}
 }
 
@@ -152,6 +157,30 @@ if (isset($_POST['newPassword']) && strlen($_POST['newPassword'])>7 )
 
 	}
 }
+
+if (isset($_POST['newPort']) && $_POST['newPort']!=$_SESSION['port'])
+{
+	if (!is_numeric($_POST['newPort'])){
+		header('Location: ../modifyUser.php?port=invalidPort');
+		exit();
+	}
+	else {
+		try{
+			$newPort=$_POST['newPort'];
+			$sql='UPDATE "user" SET port= :newPort WHERE id= :userID;';
+			$stmt=$dbAdaper->prepare($sql);
+			$stmt->execute(['newPort'=>$newPort, 'userID'=>$userID]);
+			$_SESSION['port']=$newPort;
+			header('Location: ../modifyUser.php?port=changed');
+			exit();
+		}
+		catch (PDOException $err) {
+			header('Location: ../modifyUser.php?err=sqlError');
+			exit();
+		}
+	}
+}
+
 
 
 else {

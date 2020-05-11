@@ -1,4 +1,4 @@
-<form method="GET" action="Forms/searchKara.php">
+<form method="GET" action="/Forms/searchKara.php">
     <ul>
         <li>Song name<input type="text" name="song_name"></input></li>
         <li>Source name<input type="text" name="source_name"></input></li>

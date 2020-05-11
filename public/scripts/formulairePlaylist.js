@@ -1,0 +1,4 @@
+function validationCreatePlaylist()
+{
+    return true;
+}

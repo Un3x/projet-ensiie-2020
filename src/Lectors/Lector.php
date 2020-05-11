@@ -10,6 +10,11 @@ class Lector
     private $id;
 
     /**
+     * @var int
+     */
+    private $username;
+
+    /**
      * @var string
      */
     private $ip;
@@ -33,6 +38,23 @@ class Lector
     public function setId ($id)
     {
         $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUsername ()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setUsername ($username)
+    {
+        $this->username = $username;
         return $this;
     }
 

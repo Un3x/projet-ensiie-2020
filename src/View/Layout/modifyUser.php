@@ -28,7 +28,7 @@ envoie les informations à /public/Forms/modifyUserAccount.php
       {
           $newUsername=$_GET['newUsername'];
 	  echo '<input type="text" name="newUsername" placeholder="newUsername" maxlength="20" value="'.$newUsername.'"></br>';
-
+	  //username error messages:
           if (strpos($fullUrl, "username=alreadyUsed"))
           {
               echo "<p>ERROR, this username is already taken</p></br>";
@@ -59,7 +59,9 @@ envoie les informations à /public/Forms/modifyUserAccount.php
 
       }
     ?>
-  <label for="newEmail">votre adresse mail:</label></br>
+ 
+
+ <label for="newEmail">votre adresse mail:</label></br>
     <?php
       if (isset($_GET['newEmail']))
       {
@@ -70,6 +72,8 @@ envoie les informations à /public/Forms/modifyUserAccount.php
           $fullUrl= "http;//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	  echo '<input type="text" name="newEmail" placeholder="newEmail adress" maxlength="50"  value="'.$_SESSION['email'].'"></br>';
       }
+
+      //email error messages:
       if (strpos($fullUrl, "email=invalid")){
           echo "<p>ERROR, invalid newEmail adress</p></br>";
       }
@@ -77,7 +81,9 @@ envoie les informations à /public/Forms/modifyUserAccount.php
           echo "<p>ERROR, this email is already taken</p></br>";
       }
       
-    ?>
+      ?>
+
+
   <label for="newPassword"> change password: </label></br>
     <input type="password" name="newPassword" placeholder="Enter newPassword" minlength="8" ></br>
     <?php
@@ -94,8 +100,17 @@ envoie les informations à /public/Forms/modifyUserAccount.php
     ?>
  <br/>
     <input type="password" name="newPasswordCheck" placeholder="confirm new password" minlength="8" ></br>
-  
+
+
+    <label for="newPort">port on which lektor will listen:</label></br>
+	<?php
+	echo '<input type="text" name="newPort" placeholder="your port" value="'.$_SESSION['port'].'"></br>'
+	?>
+
+  <!-- check validity of the session -->
   <input type="hidden" id="post.token" name="post.token" value="{$token}" />
+
+
   <label for="currentPassword">Confirm current password </label></br>
     <input type="password" name="currentPassword" placeholder="confirm current pasword" minlength="8"></br>
 
@@ -107,6 +122,10 @@ envoie les informations à /public/Forms/modifyUserAccount.php
               echo "<p>ERROR: wrong password</p></br>";
 	  }
     ?>
+
+
+
+
 <button type="submit">Apply changes</button>
 </br>
 <a href="changePP.php">Modify Cosmetics</a>

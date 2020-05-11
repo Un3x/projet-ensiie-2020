@@ -17,7 +17,7 @@ if ( isset($_GET["getQueue"]) && isset($_SESSION["id"]) )
             JOIN "user" ON queue.added_by="user".id
             JOIN userCosmetics ON userCosmetics.id="user".id
          ORDER BY queue.position ASC;';
-    $results = $dbAdapter->query($stmt)->fetchAll(PDO::FETCH_NUM);
+    $results = $dbAdapter->query($stmt)->fetchAll(\PDO::FETCH_NUM);
 
     if ( $_SESSION['rights'] >= 1 ) // User is an admin or root
     {
@@ -26,10 +26,10 @@ if ( isset($_GET["getQueue"]) && isset($_SESSION["id"]) )
         {
             echo '<li>';
             echo '<button type="button" onclick="deleteKara(' . $result[4] . ')">Delete</button>';
-            viewPP("waifu$result[6].png", 50, 50, 5);
             echo $result[0] . " - " . $result[1] . $result[2] . " - " . $result[3];
             echo '<span id="queueAdder">';
-            echo '{' . $result[5] . "}";
+            echo $result[5];
+            viewPP("waifu$result[6].png", 50, 50, 5);
             echo '</span>';
             echo '</li>';
         }

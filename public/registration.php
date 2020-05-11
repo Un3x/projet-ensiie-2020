@@ -7,6 +7,8 @@ set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 </head>
 <?php include_once "View/Layout/header.php"?>
 
+<?php include_once "View/Layout/header.php" ?>
+
 <body>
 <?php include_once "View/Layout/registration.php" ?>
 

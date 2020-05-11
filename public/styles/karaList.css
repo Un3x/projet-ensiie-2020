@@ -44,7 +44,7 @@
 
 #karaList
 {
-    height: 800px; /* Prevent the page to go up when all karas are disables,
+    min-height: 500px; /* Prevent the page to go up when all karas are disables,
                      so that the user is forced to scroll down to see karas
                      after he cleared the search*/
 }

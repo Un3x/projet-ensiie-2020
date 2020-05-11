@@ -1,7 +1,9 @@
 <?php session_start();
-set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');?>
+set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');
+include_once "errors.php";
+?>
 
-<?php include_once "../src/ViewPictures.php"?>
+<?php include_once "ViewPictures.php"?>
 
 <?php include_once "View/Layout/head.php" ?>
 </head>
@@ -17,19 +19,28 @@ echo "<label for=\"newTitle\">Title : </label>";
 echo "<select id=\"newTitle\" name=\"cars\">";
 choiceTitle();
 echo "</select></div><br>";
-for ($i = 1; $i<=16; $i++){
+$dbAdaper = (new DbAdaperFactory())->createService();
+$images=$dbAdaper->prepare('SELECT IDimage,image FROM image WHERE xpNeeded <= :xp;');
+$images->bindParam('xp',$_SESSION['xp']);
+$images->execute();
+$i=0;
+foreach ($images as $image){
 	echo '<span class="container">';
-	choicePP("waifu".$i.".png", 200,200,20);
+	choicePP($image['IDimage'], $image['image'], 200, 200, 20);
 	echo '<span class="checkmark"></span>';
 	echo "</span>";	
 	if($i%4 == 0){echo "<br>";}
+	$i++;
  	}
 	
 
 echo "<input class=\"subPP\" type=\"submit\"  value=\"Apply change\">";
 echo "</form>";
 }
-else { include_once "Forms/error.php";
+else
+{
+    connect_yourself();
+    exit();
 }
 ?>
 

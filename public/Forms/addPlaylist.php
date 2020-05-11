@@ -1,35 +1,36 @@
 <?php
-//******
-//This page is used for adding a new playlist to the database, after checking if the infos are correct.
-//File called by createPlaylist.php
-//what to add: getting the user)
-//*****
-set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 session_start();
-use Playist\PlaylistRepository;
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 
-include 'Playlist/Playlist.php';
-include 'Playlist/PlaylistRepository.php';
-include 'Factory/DbAdaperFactory.php';
+require_once 'Playlist/Playlist.php';
+require_once 'Playlist/PlaylistRepository.php';
+require_once 'Factory/DbAdaperFactory.php';
 
-$errsCount=0;
-$dbAdaper = (new DbAdaperFactory())->createService();
-$playlistRepository = new PlaylistRepository($dbAdaper);
-
-$name   = htmlspecialchars($_POST['name']);
-$publik = htmlspecialchars($_POST['publik']);
-$creator= $_SESSION['username'];
-
-//check validity of given name
-
-if ($name=='')
+if ( !isset($_SESSION['id']) )
 {
-    header("Location: ../createPlaylist.php?errs=noName");
-    exit();
-}
-elseif ($playlistRepository->checkPlaylist($name,$creator)>0){ //check if user already has a playlist with this name exist
-    header("Location: ../createPlaylist.php?errs=usedName");
+    echo '<div class=\"error\"> Veuillez <a href="/login.php">vous connecter</a> pour accéder aux playlists</div>';
     exit();
 }
 
+$dbAdapter = (new DbAdaperFactory())->createService();
+$playlistRepository = new \Playlist\PlaylistRepository($dbAdapter);
+
+$name = htmlspecialchars($_POST['name']);
+if ( $name === '' ) 
+    header("Location: /playlists/createPlaylist.php?errs=wrongName&name=" . $_POST['name']);
+if ( strlen($name)>127 ) 
+    header("Location: /playlists/createPlaylist.php?errs=tooLongName&name=" . $_POST['name']);
+
+$publik = htmlspecialchars($_POST['publik']);
+if ( $publik === "TRUE" )
+    $publik = true;
+else
+    $public = false;
+
+$creator = $_SESSION['id'];
+
+if ( $playlistRepository->createPlaylist($name, $creator, $publik) === true )
+    header("Location: /playlists/playlists.php?create=success");
+else
+    header("Location: /playlists/createPlaylist.php?errs=fail&name=" . $_POST['name'] . "&publik=" . $_POST['publik']);
 ?>

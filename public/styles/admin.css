@@ -1,5 +1,37 @@
+table, th, td
+{
+    border: 1px solid black;
+}
+
+th
+{
+    text-align: center;
+    vertical-align: center;
+}
+
+td
+{
+    text-align: center;
+    vertical-align: center;
+}
+
 .table
 {
+    margin: 0 5% 0 5%;
+    width: 90%;
     color: #FFFFFF;
-    text-align: center;
+}
+
+table button
+{
+    padding: 0;
+    margin: 0;
+    vertical-align: center;
+}
+
+table form
+{
+    padding: 0;
+    margin: 5px 0 5px 0;
+    vertical-align: center;
 }

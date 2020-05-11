@@ -1,6 +1,7 @@
-<?php
+<?php namespace Playlist;
+set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
+require_once 'Karas/Kara.php';
 
-namespace Playlist;
 
 class PlaylistRepository
 {
@@ -14,14 +15,15 @@ class PlaylistRepository
         $this->dbAdapter = $dbAdapter;
     }
 
-    public function fetchAll()
+    public function fromQueryToArray($query)
     {
-        $playlistsData = $this->dbAdapter->query('SELECT * FROM playlist');
         $playlists = [];
-        foreach ($playlistsData as $playlistDatum) {
+        foreach ($query as $playlistDatum) {
             $playlist = new Playlist();
+            $playlist->setId($playlistDatum['id']);
+            if ( isset($playlistDatum['username']) )
+                $playlist->setCreatorUsername($playlistDatum['username']);
             $playlist
-                ->setId($playlistDatum['id'])
                 ->setName($playlistDatum['name'])
                 ->setCreator($playlistDatum['creator'])
                 ->setContent($playlistDatum['content'])
@@ -31,20 +33,144 @@ class PlaylistRepository
         return $playlists;
     }
 
-    public function checkPlaylist ($name,$creator)
+    public function fromPlaylistToArray($query)
     {
-    $playlists=$this->dbAdapter->prepare('SELECT COUNT(*) From "playlist" WHERE name= :Name AND creator= :Creator');
-    $playlists->bindParam('Name',$name);
-    $playlists->bindParam('Creator',$creator);
-    $playlists->execute();
-    return $playlist->fetchColumn();
+        $playlist = new Playlist();
+        $playlist
+            ->setId($query['id'])
+            ->setCreatorUsername($query['username'])
+            ->setName($query['name'])
+            ->setCreator($query['creator'])
+            ->setPublik($query['publik']);
+        return $playlist;
     }
 
-    public function getPlaylist($creator)
+    public function fetchAllPublik()
     {
-    $playlists=$this->dbAdapter->prepare('SELECT * FROM "playlist" WHERE creator= :Creator');
-    $playlists->bindParam('Creator',$creator);
-    $playlists->execute();
-    return $playlist;
+        $playlists = $this->dbAdapter->query('SELECT playlist.id, name, creator, content, publik, username FROM playlist JOIN "user" ON "user".id=creator WHERE publik IS TRUE');
+        return $this->fromQueryToArray($playlists);
     }
+
+    public function getOwner($playlistId)
+    {
+        $public = $this->dbAdapter->prepare('SELECT creator FROM playlist WHERE id=:id');
+        $public->bindParam('id', $playlistId, \PDO::PARAM_INT);
+        $public->execute();
+        return $public->fetch(\PDO::FETCH_COLUMN);
+    }
+
+    public function isOwner($playlistId, $userId)
+    {
+        return  ( $this->getOwner($playlistId) === $userId );
+    }
+
+    public function fetchAllOf($userId)
+    {
+        $req = 'SELECT * FROM playlist WHERE creator=:id';
+        $playlists = $this->dbAdapter->prepare($req);
+        $playlists->bindParam('id', $userId, \PDO::PARAM_INT);
+        $playlists->execute();
+        return $this->fromQueryToArray($playlists->fetchAll(\PDO::FETCH_ASSOC));
+    }
+
+    public function fetchPlaylist($id, $userId)
+    {
+        $public = $this->dbAdapter->prepare('SELECT creator, publik FROM playlist WHERE id=:id');
+        $public->bindParam('id', $id, \PDO::PARAM_INT);
+        $public->execute();
+        $test = $public->fetch(\PDO::FETCH_ASSOC);
+        if ( $test['publik'] === false && $test['creator']!==$userId )
+            throw new \Exception("You don't have the rights to see this playlist");
+
+        $req = 'SELECT playlist.id, name, creator, publik, username FROM playlist JOIN "user" ON "user".id=creator WHERE playlist.id=:id';
+        $playlist_info = $this->dbAdapter->prepare($req);
+        $playlist_info->bindParam('id', $id, \PDO::PARAM_INT);
+        $playlist_info->execute();
+        $arrPlaylistInfo = $this->fromPlaylistToArray($playlist_info->fetch(\PDO::FETCH_ASSOC));
+
+        $req =
+            'SELECT karas.id, karas.song_name, karas.source_name, karas.category, karas.author_name, karas.song_number, karas.language
+             FROM playlist 
+                JOIN karas 
+                ON karas.id = ANY (content)
+             WHERE playlist.id=:id;';
+        $karas = $this->dbAdapter->prepare($req);
+        $karas->bindParam('id', $id, \PDO::PARAM_INT);
+        $karas->execute();
+        $karasData = $karas->fetchAll(\PDO::FETCH_ASSOC);
+        $arrKaras = [];
+        foreach ($karasData as $karaDatum) {
+            $kara = new \Kara\Kara();
+            $string = $karaDatum['source_name'] . " - " . $karaDatum['category'] . $karaDatum['song_number'] . " - " . $karaDatum['song_name'];
+            $kara
+                ->setId($karaDatum['id'])
+                ->setString($string)
+                ->setSourceName($karaDatum['source_name'])
+                ->setSongName($karaDatum['song_name'])
+                ->setCategory($karaDatum['category'])
+                ->setAuthorName($karaDatum['author_name'])
+                ->setSongNumber($karaDatum['song_number'])
+                ->setLanguage($karaDatum['language']);
+            $arrKaras[] = $kara;
+        }
+
+        $ret = [];
+        array_push($ret, $arrPlaylistInfo);
+        array_push($ret, $arrKaras);
+
+        return $ret;
+    }
+
+    public function createPlaylist($name, $creator, $public)
+    {
+        $req =
+            'INSERT INTO playlist (name, creator, content, publik)
+             VALUES (:name, :creator, ARRAY[]::integer[], :publik);';
+        $newPlaylist = $this
+            ->dbAdapter
+            ->prepare($req);
+        $newPlaylist->bindParam('name', $name, \PDO::PARAM_STR);
+        $newPlaylist->bindParam('creator', $creator, \PDO::PARAM_INT);
+        $newPlaylist->bindParam('publik', $public, \PDO::PARAM_BOOL);
+        return $newPlaylist->execute();
+    }
+
+    public function deletePlaylist($id, $idAsker)
+    {
+        if ( !$this->isOwner($id, $idAsker) )
+            throw new \Exception("You don't have the rights to delete this playlist");
+
+        $stmt = $this
+            ->dbAdapter
+            ->prepare('DELETE FROM playlist where id=:id');
+        $stmt->bindParam('id', $id, \PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
+    public function deleteKaraFromPlaylist($idPlaylist, $idKara, $idAsker)
+    {
+        if ( !$this->isOwner($idPlaylist, $idAsker) )
+            throw new \Exception("You don't have the rights to delete from this playlist");
+
+        $yeet = $this
+            ->dbAdapter
+            ->prepare(
+                'UPDATE playlist
+                    SET content=(SELECT array(SELECT unnest(content) 
+                        FROM playlist 
+                        WHERE id=:idPlaylist 
+                        EXCEPT SELECT :idKara))
+                 WHERE id=:idPlaylist;');
+        $yeet->bindParam('idPlaylist', $idPlaylist, \PDO::PARAM_INT);
+        $yeet->bindParam('idKara', $idKara, \PDO::PARAM_INT);
+        return $yeet->execute();
+    }
+
+    /*
+    public function addToPlaylist($kara, $playlist)
+    {
+        $req =
+            'UPDATE playlist';
+    }
+     */
 }

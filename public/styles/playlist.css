@@ -1,0 +1,9 @@
+form
+{
+    text-align: left;
+}
+
+ul li form
+{
+    display: inline;
+}
