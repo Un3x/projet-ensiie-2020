@@ -1,5 +1,7 @@
 <?php session_start();
-set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');?>
+set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');
+include_once "errors.php";
+?>
 
 <?php include_once "ViewPictures.php"?>
 
@@ -35,7 +37,10 @@ foreach ($images as $image){
 echo "<input class=\"subPP\" type=\"submit\"  value=\"Apply change\">";
 echo "</form>";
 }
-else { include_once "Forms/error.php";
+else
+{
+    connect_yourself();
+    exit();
 }
 ?>
 

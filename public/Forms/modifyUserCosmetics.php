@@ -21,6 +21,11 @@ $userID=htmlspecialchars($_SESSION['id']);
 if (isset($_POST['newImage'])){
 	try {
         $newImage = htmlspecialchars($_POST['newImage']);
+        if ( $newImage === 0 )
+        {
+            echo '<p>I see what you are trying to do here. Unfortunately, there is no going back possible.</p>';
+            exit();
+        }
 		$sql='UPDATE userCosmetics SET IDimage=:newImage WHERE id=:userID;';
 		$stmt=$dbAdapter->prepare($sql);
 		$stmt->bindParam('newImage', $newImage);

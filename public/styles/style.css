@@ -32,16 +32,18 @@ label{
     color: #df691a;
     size: 10px;
 }
+
 a:link, a:visited{
-    color: #df691a;
+    color: #8888FF;
     text-decoration:none;
 }
 a:hover{
-    color: #ef7a2b;
+    color: #8888FF;
 }
 a:active{
-    color:#ef7a2b;
+    color:#FF0000;
 }
+
 .choice{
     margin-bottom:12px;
     margin-left:12px;
