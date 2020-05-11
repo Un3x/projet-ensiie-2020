@@ -1,7 +1,7 @@
 <?php session_start();
 set_include_path('.:'.$_SERVER['DOCUMENT_ROOT'].'/../src');?>
 
-<?php include_once "../src/ViewPictures.php"?>
+<?php include_once "ViewPictures.php"?>
 
 <?php include_once "View/Layout/head.php" ?>
 </head>
@@ -19,7 +19,7 @@ choiceTitle();
 echo "</select></div><br>";
 for ($i = 1; $i<=16; $i++){
 	echo '<span class="container">';
-	choicePP("waifu".$i.".png", 200,200,20);
+	choicePP($i, "waifu".$i.".png", 200, 200, 20);
 	echo '<span class="checkmark"></span>';
 	echo "</span>";	
 	if($i%4 == 0){echo "<br>";}

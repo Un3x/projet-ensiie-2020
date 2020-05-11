@@ -8,9 +8,9 @@ function pp($name, $height, $width,$border)
 	echo "<img style=\"border-radius:".$border."%;\" class=\"pp\" src=\"/images/ProfilePictures/" .$name."\" alt=\"waifu\" height=".$height." width=".$width.">"  ;
 }
 
-function choicePP($name,$height, $width, $border) {
+function choicePP($i, $name, $height, $width, $border) {
 		
-	echo "<input type=\"radio\" class=\"funky\" id=\"".$name."\" name=\"newImage\" value=\"".$name."\">";
+	echo '<input type="radio" class="funky" id="' . $name . '" name="newImage" value="' . $i . '">';
 	echo "<img class=\"choice\" style=\"border-radius:".$border."%;\" id=\"pp\" src=\"images/ProfilePictures/" .$name."\" alt=\"waifu\" height=".$height." width=".$width.">" ;
 }
 
