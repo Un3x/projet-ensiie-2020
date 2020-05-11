@@ -43,6 +43,7 @@ if (strlen($username)>60){
 if (strpos($username," "))
 {
 	header("Location: ../login.php?errs=userUnknown");
+	exit();
 }
 
 //check if the user is known
@@ -72,6 +73,7 @@ if ($userRepository->checkUser($username) + $userRepository->checkEmail($usernam
 			$_SESSION['email']=$userFound['email'];
 			$_SESSION['rights']=$userFound['rights'];
 			$_SESSION['xp']=$userFound['xp'];
+			$_SESSION['port']=$userFound['port'];
 			$sql='SELECT * FROM userCosmetics NATURAL JOIN "user" WHERE id= :userID;';
 			try {
 				$cosmetics=$dbAdaper->prepare($sql);

@@ -39,4 +39,14 @@ class LectorRepository
         $stmt->bindParam('lectorId', $lectorId);
         $stmt->execute();
     }
+    public function add ($id, $ip, $port)
+    {
+	    $stmt=$this
+		    ->dbAdapter
+	    		->prepare('INSERT INTO "lector" (id, ip, port) VALUES (:id, :ip, :port)');
+	    $stmt->bindParam('id', $id);
+	    $stmt->bindParam('ip', $ip);
+	    $stmt->bindParam('port', $port);
+	    $stmt->execute();
+    }
 }
