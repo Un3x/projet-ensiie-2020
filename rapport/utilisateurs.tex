@@ -3,7 +3,7 @@
 Lorsque qu'un client arrive pour la première fois sur le site, il n'aura pas accès aux différents services du site. Il devra d'abord se créer un compte sur la page registration.php, ici il entrera ses 
 identifiants comme son adresse email, son nom d'utilisateur, et son mot de passe.\newline
 Il est à noter qu'un utilisateur ne peut pas avoir d'espace dans son nom, ce qui permet d'avoir une sécurité supplémentaire contre les injections SQL.\newline
-Après vérification javascript d'un formulaire ,on récupère et envoie ces informations à la page addUser.php qui va les inserer dns la table "user", le mot de passe sera hashé pour éviter toute tentative de vol de mot de passe. Tout transfert d'information se fera via la méthode POST, afin de récupérer les données de manière sécurisée.
+Après vérification javascript d'un formulaire ,on récupère et envoie ces informations à la page addUser.php qui va les inserer dns la table "user", le mot de passe sera hashé pour éviter toute tentative de vol de mot de passe. Tout transfert d'information se fera via la méthode POST, afin de transférer les données de manière sécurisée.
 \newline
 
 Ces informations peuvent être  ultérieurement modifiées sur la page modifyUser.php, qui enverra les modifications à modifyUserAccount.php.\newline
@@ -15,11 +15,12 @@ Lorsqu'un utilisateur se register, il peut se connecter sur login.php. Si il le 
 Aussi, après ajout d'un utilisateur dans "user" on insère une nouvelle ligne dans la table "UserCosmetics", cette table permet de savoir quel sont les cosmétiques choisi par l'utilisateur.  
 Chaque utilisateur aura accès à une liste d'images de profil et de titres qu'il pourra selectionner pour customiser son profil. Ces cosmétiques sont contenus dans les tables "Image" et "Titles". 
 \newline
+Ces images ne sont pas toutes disponibles dès le départ, en effet chaque utilisateur possède des points d'expérience, initialisés à 0 à la création du compte, qui peuvent être gagné lorsqu'un kara est rajouté à une playlist. Les images se débloquent au fur et à mesure que l'utilisateur passe du temps sur le site. Sur ChangePP.php seules les images et titres dont xpNeeded<SESSION['xp'] sont affichés.\newline
 Pour pouvoir modifier son compte, l'utilisateur doit se rendre sur changePP.php, pour modifier son image de profil et/ou son titre. Un formulaire envoie les informations à modifyUserCosmetics.php. L'utilsateur a le choix entre les ifferentes images contenu dans la table "Images" et les différents titres dans "Titles". \newline
 
 \subsection{les playlists}
 
-Un utilisateur peut créer ses propre playlists de karas disponibles dans la table "Karas".  d'ici il pourra ajouter cette playlist dans la Queue du lecteur, ou simplement retrouver les karas qu'il préfère afin de les ajouter. Toute ces informations sont contenues dans la table Playlist, les utilisateurs peuvent regarder les playlists des autres utilisateurs.
+Un utilisateur peut créer ses propre playlists de karas disponibles dans la table "Karas".  d'ici il pourra ajouter cette playlist dans la Queue du lecteur, ou simplement retrouver les karas qu'il préfère afin de les ajouter. Toute ces informations sont contenues dans la table Playlist, les utilisateurs peuvent regarder les playlists des autres utilisateurs. 
 
 \subsection{droits des utilisateurs}
 Lorsqu'un utilisateur se register dans la base de donnée, on lui attribut un droit 0. Les différents droits sont définis par des entiers:
