@@ -17,7 +17,8 @@ function choicePP($i, $name, $height, $width, $border) {
 function choiceTitle(){
 	include 'Factory/DbAdaperFactory.php';
 	$dbAdaper = (new DbAdaperFactory())->createService();
-	$titles=$dbAdaper->prepare('SELECT title FROM titles;');
+	$titles=$dbAdaper->prepare('SELECT title FROM titles WHERE xpNeeded <= :xp;');
+	$titles->bindParam('xp',$_SESSION['xp']);
 	$titles->execute();
 
 	foreach($titles as $title){
@@ -32,20 +33,6 @@ function choiceTitle(){
 	
 }
 
-function choiceTitleDummy(){
-
-	$titles = ['Titre 1','Titre 2', 'Titre 3', 'Titre 4', 'Titre 5'];
-	foreach($titles as $title){
-
-		echo "<option value=\"".$title."\"";
-			if ($_SESSION['title']==$title){
-				echo "selected=\"selected\">".$title."</option>";
-			}
-			else{
-				echo ">".$title."</option>";
-			}
-	}
-}
 
 function viewPP($name,$height, $width, $border) {
 	echo "<img style=\"border-radius:".$border."%;\" id=\"pp\" src=\"images/ProfilePictures/" .$name."\" alt=\"waifu\" height=".$height." width=".$width.">" ;
