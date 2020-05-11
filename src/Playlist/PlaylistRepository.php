@@ -218,4 +218,17 @@ class PlaylistRepository
         $add->bindParam('idKara', $idKara, \PDO::PARAM_INT);
         return $add->execute();
     }
+
+    public function importPlaylistToQueue($idPlaylist, $askerId)
+    {
+        $stmt = $this
+            ->dbAdapter
+            ->prepare(
+                'INSERT INTO queue (id, added_by)
+                 (SELECT unnest(content), :askerID FROM playlist
+                    WHERE playlist.id=:playlistId);');
+        $stmt->bindParam('askerID', $askerId, \PDO::PARAM_INT);
+        $stmt->bindParam('playlistId', $idPlaylist, \PDO::PARAM_INT);
+        return $stmt->execute();
+    }
 }
