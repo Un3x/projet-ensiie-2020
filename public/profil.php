@@ -19,6 +19,7 @@ $userid = $_SESSION['user']->getId();
 $asso = $assoRepository->fetch_Assos($userid);
 
 $assoAll=$assoRepository->fetch_all_Assos();
+
 ?>
 
 
@@ -32,7 +33,7 @@ $assoAll=$assoRepository->fetch_all_Assos();
     <link rel="stylesheet" href="css/styles.css?v=1.0">
 </head>
 
-<body>
+
 <header>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -53,28 +54,27 @@ $assoAll=$assoRepository->fetch_all_Assos();
                     ?>
                     <?php if($userRepository->IsSuperAdmin($_SESSION['user']->getId()))
                       echo "<a href='home_super_admin.php' class='nav-link'><span>Gestion</span></a>";
-                      ?>
-
-                <?php session_start();
-                        if($_SESSION['username'] !== ""){
-                         $user = $_SESSION['username'];
-                     // afficher un message
-                     echo "<div class='connection_id nav-link' id='idco' >";
-                     echo "$user";
-                     echo "</div>";
-		                  if(isset($_GET['deconnexion'])) { 
-                       if($_GET['deconnexion']==true) {  
-                  	    session_unset();
-                  	    header("location:index.php");
-                       }
-             	    }
-
-               	    }
-                ?>
-                    <a href='userlist.php?deconnexion=true' class="nav-link" style="align-text:right;"><span>Déconnexion</span></a> 
+                      ?>              
 
             </ul>
         </div>
+                        <?php session_start();
+                        if($_SESSION['username'] !== ""){
+                         $user = $_SESSION['username'];
+                     // afficher un message
+                     echo "<div class='connection_id nav-link' style='float:right;'' >";
+                     echo "$user";
+                     echo "</div>";
+                      if(isset($_GET['deconnexion'])) { 
+                       if($_GET['deconnexion']==true) {  
+                        session_unset();
+                        header("location:index.php");
+                       }
+                  }
+
+                    }
+                ?>
+         <div style="float:right;"><a href='userlist.php?deconnexion=true' ><span><FONT color="black">Déconnexion </FONT></span></div></a> 
     </nav>
 </header>
 
@@ -124,7 +124,8 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 //window.onload = function () { Hide("ListAsso");  };
 
 </script>
-
+<body>
+<a id="leg1">
 <h1>Mon profil</h1>
 
 <h2>Edition du profil</h2>
@@ -141,7 +142,7 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 </ul>
 
   <div id="formMDP" style= "position:absolute;top:22%;left:30%;">
-  <form action='modifMDP.php'  method="post">
+  <form action='modifMDP.php' id="mdp" method="post">
     Nouveau mot de passe: </br>
   <input type="text" name="newP">
   <input type="submit" name="Valider" value="Valider" id ='bouton_envoi' align="center">
@@ -154,6 +155,8 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
   <input type="submit" name="Valider" value="Valider" id ='bouton_envoi' align="center">
   </form>
   </div>
+</br>
+        <link rel="stylesheet" href="styleProfil.css"/>
 
 <h2>Demande d'adhesion a une association</h2>
 
@@ -172,8 +175,9 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
   echo "</form>";
 ?>
   
+</br>
 
-<h2>Formulaire de demande afin de devenir administrateur pour une association</h2>
+<h2>Formulaire de demande afin de devenir administrateur d'une association</h2>
 <a class="nav-link" href="./Form_demande_admin.php">Cliquez ici pour le formulaire</a>
 
 <h2>Informations du profil</h2>
@@ -194,3 +198,5 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
             </table>
     </div>
 </ul>
+</a>
+</body>

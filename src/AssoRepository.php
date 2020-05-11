@@ -37,7 +37,6 @@ public function fetch_Assos($userid)
     $Asso = [];
     foreach ($usersAsso as $TteAsso) {
         $userA = new Asso();
-        echo "bal".$TteAsso['nom_assoc'];
         $userA->setNomAssoc($TteAsso['nom_assoc']);
         $Asso[] = $userA;
        }

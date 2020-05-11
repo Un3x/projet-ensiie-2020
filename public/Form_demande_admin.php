@@ -47,7 +47,12 @@ $assoAll=$assoRepository->fetch_all_Assos();
   echo ' <input type="submit" name="demande_admin" value="Envoyer la demande" id ="bouton_demande_admin" align="center">';
   echo "</form>";
 ?>     
-
+    Vous ne pouvez demander a etre administrateur que des associations dont vous faites parti.
+    </br>
+    Si vous souhaitez vous inscrire dans d'autres associations cliquez ici:
+    <a class="nav-link" href="/profil.php"> Retour au profil</a>
+</form>
+    </fieldset>
 
     </body> 
     </html>
