@@ -70,12 +70,12 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 .story-container .content {
   position: absolute;
   top: 0%;
-  width: 100%;
+  width: 97%;
   text-align: center;
   color: snow;
   background-color: darkslategray;
   opacity: 95%;
-  padding: 20px 0px;
+  padding: 20px 10px;
 }
 
 .text-block {
