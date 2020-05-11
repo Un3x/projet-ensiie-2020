@@ -200,4 +200,20 @@ public function getReunion($meeting)
         }
         return $overlapingmeetings;
     }
+
+
+
+
+   /* public function compare_2_dates($date1, $date2){
+        if ($date1 > $date2){
+            echo "date 1 superieure";
+        }
+        else{
+            echo "date 2 superieure";
+        }
+    }*/
+
 }
+
+
+

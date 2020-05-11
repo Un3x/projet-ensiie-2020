@@ -107,6 +107,7 @@ INSERT INTO Demandes_user_Superadmin (username, Nom_assoc) VALUES ('flavio', 'Ba
 INSERT INTO Administrer (Id_Assoc, Id_Membre) VALUES (3, 5);
 INSERT INTO Administrer (Id_Assoc, Id_Membre) VALUES (4, 8);
 
+
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,1,'2020-05-04 08:00:00','2020-05-04 09:59:00', 1);
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,2,'2020-05-05 09:00:00','2020-05-05 13:59:00', 1);
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (1,3,'2020-05-05 16:00:00','2020-05-05 17:59:00', 1);
@@ -149,32 +150,37 @@ INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA)
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (12,39,'2020-05-04 08:00:00','2020-05-08 11:59:00', 1);
 INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (12,50,'2020-05-04 08:00:00','2020-05-08 11:59:00', 1);
 
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (3,51,'2020-05-04 08:00:00','2020-05-04 09:59:00', 5);
+INSERT INTO Reunion (Id_Assoc, Id_reu, Date_debut_reu, Date_fin_reu, Id_MembreA) VALUES (3,52,'2020-05-04 16:00:00','2020-05-04 17:00:00', 5);
+
 
 
 INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (1,2,'BDE');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,1,'Bakaclub');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,2,'Bakaclub');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,3,'Bakaclub');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,4,'Bakaclub');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,5,'Bakaclub');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,6,'Bakaclub');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,7,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,1,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,2,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,3,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,4,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,5,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,6,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,7,'Bakaclub');
 
 INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (3,5);
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (3,2);
+INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (3,3);
 
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,8,'Bakaclub');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (1,9,'BDE');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (2,9,'Cuisine');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (3,9,'BDS');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (4,9,'BDA');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (5,9,'I-TV');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (6,9,'Bakaclub');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (7,9,'DansIIE');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (8,9,'Riien');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (9,9,'LaTurboFiesta');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (10,9,'LesRamasseursDeMonaie');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (11,9,'LeCulteDeFayes');
-INSERT INTO Appartenir (Id_Assoc, Id_membre) VALUES (12,9,'DeglingosClub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,8,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (1,9,'BDE');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (2,9,'Cuisine');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (3,9,'BDS');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (4,9,'BDA');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (5,9,'I-TV');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (6,9,'Bakaclub');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (7,9,'DansIIE');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (8,9,'Riien');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (9,9,'LaTurboFiesta');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (10,9,'LesRamasseursDeMonaie');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (11,9,'LeCulteDeFayes');
+INSERT INTO Appartenir (Id_Assoc, Id_membre, Nom_assoc) VALUES (12,9,'DeglingosClub');
 
 
 INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (1,2,0);
@@ -193,6 +199,9 @@ INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (14,2,0);
 INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (15,2,1);
 INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (16,2,2);
 INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (17,2,0);
+
+INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (51,2,0);
+INSERT INTO Participations (Id_reu, Id_membre, statut) VALUES (51,3,0);
 
 INSERT INTO Participations (Id_reu, Id_membre, statut, retard) VALUES (18,1,3,'00:15:00');
 INSERT INTO Participations (Id_reu, Id_membre, statut, retard) VALUES (18,2,3,'00:15:00');
