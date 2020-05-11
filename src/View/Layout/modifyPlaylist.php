@@ -2,13 +2,16 @@
 session_start();
 set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 
-include 'Playlist/Playlist.php';
-include 'Playlist/PlaylistRepository.php';
-include 'Factory/DbAdaperFactory.php';
-
+include_once 'Playlist/Playlist.php';
+include_once 'Karas/Kara.php';
+include_once 'Karas/KaraRepository.php';
+include_once 'Factory/DbAdaperFactory.php';
+include_once 'Playlist/PlaylistRepository.php';
 
 if ( !isset($dbAdapter) )
     $dbAdapter = (new DbAdaperFactory())->createService();
+if ( !isset($karaRepository) )
+    $karaRepository = new \Kara\KaraRepository($dbAdapter);
 if ( !isset($playlistRepository) )
     $playlistRepository = new \Playlist\PlaylistRepository($dbAdapter);
 
@@ -19,6 +22,7 @@ try
     $playlist_all = $playlistRepository->fetchPlaylist($playlist_id, $_SESSION['id'], 1);
     $playlist = $playlist_all[0];
     $karasInPlaylist = $playlist_all[1];
+    $karas = $karaRepository->fetchAllNotInPlaylist($playlist_id);
 }
 
 catch ( Exception $e )
@@ -68,15 +72,6 @@ catch ( PDOException $err )
     </ul>
 </div> 
 
-<?php
-include_once 'Karas/Kara.php';
-include_once 'Karas/KaraRepository.php';
-include_once 'Factory/DbAdaperFactory.php';
-
-$dbAdaper = (new DbAdaperFactory())->createService();
-$karaRepository = new \Kara\KaraRepository($dbAdaper);
-$karas = $karaRepository->fetchAll();
-?>
 
 <input type="text" id="karaSearch" onkeyup="dynamicSearch()" placeholder="Search for karas">
 

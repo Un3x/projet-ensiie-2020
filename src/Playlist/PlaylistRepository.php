@@ -110,7 +110,7 @@ class PlaylistRepository
              FROM playlist 
                 JOIN karas 
                 ON karas.id = ANY (content)
-             WHERE playlist.id=:id;';
+                WHERE playlist.id=:id;';
         $karas = $this->dbAdapter->prepare($req);
         $karas->bindParam('id', $id, \PDO::PARAM_INT);
         $karas->execute();
