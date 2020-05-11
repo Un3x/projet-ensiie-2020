@@ -9,7 +9,7 @@
       </li>
       <?php if (isset($_SESSION['story'])&&isset($_SESSION['page'])) { ?>
       <li class="nav-item">
-        <form method="get" action="story.php">
+        <form class="header-form" method="get" action="story.php">
         	<input type="hidden" name="storyId" value="<?php echo $_SESSION['story'] ?>"/>
         	<input type="hidden" name="pageId" value="<?php echo $_SESSION['page'] ?>"/>
 	        <button type="submit" class="btn nav-link btn-link">Reprendre</button>
