@@ -1,0 +1,11 @@
+\section{Apparence visuel}
+\subsection{Modèle Vue/Controlleur}
+Pour l'apparence visuel du site nous avons adopté le modèle vue/controlleur. \\
+Cela s'avère particulièrement utile pour l'affichage du header qui permet à l'utilisateur d'accéder à toutes les fonctionnalités du site, et ce quelque soit la page sur laquelle il se trouve actuellement.\\
+Chaque page du site inclus donc la vue de ce header en entête, puis une vue de la page en question.
+Par exemple la page login.php inclus la vue header.php ainsi que la vue de login.php (une autre page qui n'est pas dans public).\\
+L'affichage des images de profil est aussi gérer par des vues et plus précisément par des fonctions php qui permettent d'afficher une image et de décider de ses dimensions ainsi que de sa forme en retournant une balise avec du CSS.\\
+
+
+\subsection{CSS}
+Pour assurer qu'aucun style directement implémenté dans le html ne se fasse écraser par la feuille de style, l'utilisation de classe à été privilégié pour mieux contrôler les balises sur lesquelles le style s'applique. Une feuille de style, style.css, est commune à toutes les pages (car présente dans le head que l'on inclus systématiquement). Il est cependant possible d'intégrer d'autres feuilles de style pour des pages spécifiques à chaque page.

@@ -44,6 +44,7 @@ body input[type=text]{
     height:50px;
     font-size:100%;
     margin-bottom:1%;
+    margin-left:10px;
 }
 body input[type=password]{
 	border: 3px solid #df691a;
@@ -80,6 +81,12 @@ body input[type=radio]{
 	border : 1px solid #df691a;
 }
 
+body form li{
+	font-size:30px;
+	
+
+}
+
 .lebutton{
 	height : 50px;
 	width : 200px;
@@ -88,8 +95,23 @@ body input[type=radio]{
 	margin-bottom:10px;
 	margin-left:10px;
 	margin-right:10px;
-	margin-top:10px
+	margin-top:10px;
 	
+	
+
+}
+
+.lebutton2{
+	height : 50px;
+	width : 200px;
+	font-size:100%;
+	border-radius: 10px;
+	margin-bottom:10px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:0px;
+	position:relative;
+	top:9px;
 
 }
 .lebutton:hover{
@@ -102,6 +124,7 @@ body input[type=radio]{
 	margin-left:5px;
 	margin-right:5px;
 }
+
 a{
     color: #8888FF;
     text-decoration:none;

@@ -35,7 +35,7 @@ if ( isset($_GET['errs']) && $_GET['errs'] === "wrongName" )
                 echo ' checked';
         ?>
         >No</input></li>
-        <li><button class = "lebutton" type="submit">Create playlist</button></li>
+        <button class = "lebutton" type="submit">Create playlist</button>
     </ul>
 </form>
 

@@ -3,7 +3,7 @@
         <li>Song name<input type="text" name="song_name"></input></li>
         <li>Source name<input type="text" name="source_name"></input></li>
         <li>Author name<input type="text" name="author_name"></input></li>
-        <li>
+        <li class="custom-select">
             Language
             <select class="custom-select" name="language">
                 <option value = "all">All</option>
@@ -13,7 +13,7 @@
                 <option value = "ru">Russian</option>
             </select>
         </li>
-        <li>
+        <li class="custom-select">
             Song Type
             <select class="custom-select" name="song_type">
                 <option value = "all">All</option>
