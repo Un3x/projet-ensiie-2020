@@ -65,6 +65,30 @@ class ParticipationRepository
     }
 
     /**
+     * @param $id_reu l'id d'une réu et $membre l'id d'un membre
+     * @return $participation la participation de $membre à la réu d'id $id_reu
+     */
+    public function getUniqueParticipation($id_reu,$membre)
+    {
+        $requete = "SELECT * 
+                    FROM participations
+                    WHERE id_reu = '$id_reu'
+                    AND id_membre = '$membre'";
+        $exec_requete = $this->dbAdapter->query($requete);  
+        if (empty($exec_requete)) return [];
+        $participations = [];
+        foreach ($exec_requete as $p_row) {
+            $participation = new Participation();
+            $participation
+                ->setIdReu($p_row['id_reu'])
+                ->setIdMembre($p_row['id_membre'])
+                ->setStatut($p_row['statut'])
+                ->setRetard($p_row['retard']);
+            return $participation;
+        }
+    }
+
+    /**
      * @param $id_reu l'id d'une réunion et $id_membre l'id d'un membre
      * @return $res = true si le statut de la participation du membre d'id $id_membre
      *         à la réunion d'id $id_reu est En_Attente et false sinon
@@ -173,5 +197,8 @@ class ParticipationRepository
         $delay = date('H:i',intdiv($sumDelay,$nbEntries));
         return $delay;
     }
+
+
+
 }
 ?>

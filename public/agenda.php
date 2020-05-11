@@ -55,7 +55,7 @@ function printInfo(){
 <header>
     <link rel="stylesheet" href="schedule.css" media="screen" type="text/css" />
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Parions retard</a>
+        <a class="navbar-brand" href="#">Parions Retard</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                            <ul class="navbar-nav mr-auto">

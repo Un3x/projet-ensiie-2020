@@ -117,7 +117,7 @@ function printCote(avgDelayArray,avgDelayAssoArray,nbParisCoeff){
 <header>
     <link rel="stylesheet" href="Bet.css" media="screen" type="text/css" />
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Projet Web Ensiie 2020</a>
+        <a class="navbar-brand" href="#">Parions Retard</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -126,7 +126,8 @@ function printCote(avgDelayArray,avgDelayAssoArray,nbParisCoeff){
                     <a href='profil.php' class="nav-link"><span>Profil</span></a> 
                     <a href='OrgaReu.php' class="nav-link"><span>Réunions</span></a>
                     <a href='bet.php' class="nav-link"><span>Paris</span></a>
-                    <?php session_start();
+                    <?php 
+                    session_start();
                     if($_SESSION['username'] !== ""){
                     $points = $_SESSION['user']->getPoints();
                     echo "<div class='nav-link'>$points \$ </div>";
@@ -136,7 +137,7 @@ function printCote(avgDelayArray,avgDelayAssoArray,nbParisCoeff){
                       echo "<a href='home_super_admin.php' class='nav-link'><span>Gestion</span></a>";
                       ?>
 
-                <?php session_start();
+                <?php 
                         if($_SESSION['username'] !== ""){
                          $user = $_SESSION['username'];
                      // afficher un message
@@ -339,15 +340,18 @@ function printCote(avgDelayArray,avgDelayAssoArray,nbParisCoeff){
                 <div class = 'bi-retard'>
                     <label for="retard">Retard</label>
                     <?php 
-                        $idReu = $_SESSION['btMeeting'];
-                        $Reu = $reunionRepository->getReunion($idReu);
-                        $duration = ($Reu->getDateFinReu()->getTimestamp() - $Reu->getDateDebutReu()->getTimestamp()) - 3600;
+                        if (isset($_SESSION['btMeeting'])) {
+                            $idReu = $_SESSION['btMeeting'];
+                            $Reu = $reunionRepository->getReunion($idReu);
+                            $duration = ($Reu->getDateFinReu()->getTimestamp() - $Reu->getDateDebutReu()->getTimestamp()) - 3600;
+                            $max = date('H:i',$duration);
 
-                        echo "<input type='time' id='bi-retard' name='betRetard' required
-                        onblur='printCote(\"$avgDelayArray\",\"$avgDelayAssoArray\",$nbParisCoeff);'
-                        max =' date('H:i',$duration);'
-                            
-                        placeholder='10 min'>"
+                            echo "<input type='time' id='bi-retard' name='betRetard' required
+                            onblur='printCote(\"$avgDelayArray\",\"$avgDelayAssoArray\",$nbParisCoeff);'
+                            max ='$max'
+                                
+                            placeholder='10 min'>";
+                        }
                     ?>
                 </div>
                 <div class = 'bi-mise'>
@@ -374,28 +378,56 @@ function printCote(avgDelayArray,avgDelayAssoArray,nbParisCoeff){
             $myBets = $parisRepository->getParisByPlayer($_SESSION['user']->getId());
             if (!empty($myBets)) {
                 foreach ($myBets as $bet) {
-                    $bet
-                ->setIdParis($bet_row['id_paris'])
-                ->setPlayer($bet_row['player'])
-                ->setIdReu($bet_row['id_reu'])
-                ->setIdUser($bet_row['id_user'])
-                ->setRetard($bet_row['retard'])
-                ->setMise($bet_row['mise'])
-                ->setDateParis($bet_row['date_paris']);
+                    $idBet = $bet->getIdParis();
                     $participant = $bet->getIdUser();
+                    $nomParticipant = $userRepository->getUserById($participant)->getUsername();
                     $delay = $bet->getRetard();
-                    $mise = $bet->setMise();
+                    $mise = $bet->getMise();
                     $idReu = $bet->getIdReu();
+                    $statut = $bet->getStatut();
                     $Reu = $reunionRepository->getReunion($idReu);
                     $dateDebutReu = $Reu->getDateDebutReu()->format('H:i');
                     $dateFinReu = $Reu->getDateFinReu()->format('H:i');
                     $jourReu = $Reu->getDateDebutReu()->format('d/m/Y');
                     $nomAsso = $reunionRepository->getNameAssoc($idReu);
-                    echo " <div>
-                            <div>Réunion $nomAsso du $jourReu $dateDebutReu - $dateFinReu<div>
-                            <div> $participant -> retard: $delay  Mise: $mise<div>
-                           </div>";
-
+                    $delay = explode(":",$delay);
+                    $hdelay = $delay[0];
+                    $mdelay = $delay[1];
+                    $delay = $hdelay."h".$mdelay."min";
+                    if ($statut <4) {
+                        echo " <div class ='mb-content'>
+                                <div>Réunion $nomAsso du $jourReu $dateDebutReu - $dateFinReu</div>
+                                <div> Paris: $nomParticipant -> $delay de retard - Mise: $mise</div>";
+                        if ($statut == 0) echo "<div class= 'mb-result-0'>Réunion à venir</div>";
+                        if ($statut == 1) echo "<div class= 'mb-result-1'>Résultats en attente</div>";
+                        if ($statut == 2 || $statut == 3) echo "<button class= 'mb-result-23' onclick ='window.location.href = \"transitionParis.php?getResult=$idBet\"'>Voir les résultats</button>";
+                        echo "</div>";
+                    }
+                }
+                foreach ($myBets as $bet) {
+                    $participant = $bet->getIdUser();
+                    $nomParticipant = $userRepository->getUserById($participant)->getUsername();
+                    $delay = $bet->getRetard();
+                    $mise = $bet->getMise();
+                    $idReu = $bet->getIdReu();
+                    $statut = $bet->getStatut();
+                    $Reu = $reunionRepository->getReunion($idReu);
+                    $dateDebutReu = $Reu->getDateDebutReu()->format('H:i');
+                    $dateFinReu = $Reu->getDateFinReu()->format('H:i');
+                    $jourReu = $Reu->getDateDebutReu()->format('d/m/Y');
+                    $nomAsso = $reunionRepository->getNameAssoc($idReu);
+                    $delay = explode(":",$delay);
+                    $hdelay = $delay[0];
+                    $mdelay = $delay[1];
+                    $delay = $hdelay."h".$mdelay."min";
+                    if ($statut >=4) {
+                        echo " <div class ='mb-content mb-lose'>
+                                <div>Réunion $nomAsso du $jourReu $dateDebutReu - $dateFinReu</div>
+                                <div> Paris: $nomParticipant -> $delay de retard - Mise: $mise</div>";
+                        if ($statut == 4) echo "<div class= 'mb-result-4'> Gagné</div>";
+                        if ($statut == 5) echo "<div class= 'mb-result-5'> Perdu</div>";        
+                        echo "</div>";
+                    }
                 }
             }
         ?>

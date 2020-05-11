@@ -40,6 +40,11 @@ class Paris
     private $date_paris;
 
     /**
+     * @var int
+     */
+    private $statut;
+
+    /**
      * @return int
      */
     public function getIdParis ()
@@ -155,6 +160,23 @@ class Paris
     public function setDateParis ($date_paris)
     {
         $this->date_paris = $date_paris;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatut ()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * @param int $statut
+     */
+    public function setStatut ($statut)
+    {
+        $this->statut = $statut;
         return $this;
     }
 }

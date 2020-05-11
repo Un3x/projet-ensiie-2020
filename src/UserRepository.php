@@ -244,7 +244,7 @@ class UserRepository
      * 
      * Met à jour les points du joueur (retranche la mise à ses points)
      */
-public function updateUserPoints($mise,$id_joueur) {
+    public function updateUserPoints($mise,$id_joueur) {
     $req=$this->dbAdapter->prepare('UPDATE Membre 
                                     SET points = :newpoints 
                                     WHERE id = :id_joueur ');

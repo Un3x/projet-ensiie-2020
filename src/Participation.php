@@ -20,7 +20,7 @@ class Participation
     private $statut;
 
     /**
-     * @var time
+     * @var TIME
      */
     private $retard;
 

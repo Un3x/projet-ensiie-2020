@@ -5,18 +5,24 @@
 </head>
 <body>
 <link rel="stylesheet" href="Bet.css" media="screen" type="text/css" />
+
 <?php
+include 'stat.php';
 include '../src/User.php';
 include '../src/UserRepository.php';
-include '../src/Paris.php';
+/*include '../src/Paris.php';
 include '../src/ParisRepository.php';
 include '../src/Reunion.php';
 include '../src/ReunionRepository.php';
-include '../src/Factory/DbAdaperFactory.php';
+include '../src/Participation.php';
+include '../src/ParticipationRepository.php';
+include '../src/Factory/DbAdaperFactory.php';*/
 $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new \User\UserRepository($dbAdaper);
 $reunionRepository = new \Reunion\ReunionRepository($dbAdaper);
+$participationRepository = new \Participation\ParticipationRepository($dbAdaper);
 $parisRepository = new \Paris\ParisRepository($dbAdaper);
+
 session_start();
 
 if (isset($_GET['setreu'])) {
@@ -36,9 +42,12 @@ if (isset($_GET['betSubmit'])) {
     $betMise = $_POST['betMise'];
     $betUser = $userRepository->getUserById($betId);
     $betUsername = $betUser->getUsername();
-    
+    $betRetardPrint = explode(":",$betRetard);
+    $hRetard = $betRetard[1];
+    $mRetard = $betRetard[0];
+    $betRetardPrint = $hRetard."h".$mRetard."min";
 
-    echo "<div class='validBet'>Vous vous apprêtez à parier $betMise points que $betUsername sera en retard de $betRetard
+    echo "<div class='validBet'>Vous vous apprêtez à parier $betMise points que $betUsername sera en retard de $betRetardPrint (+ ou - 5min)
                à la réunion $nomAsso du $jourReu $dateDebutReu - $dateFinReu
                <button class='validBet-confirm' onclick ='window.location.href = \"transitionParis.php?registerBet=true&id_reu=$idReu&id_user=$betId&retard=$betRetard&mise=$betMise\"'> Confirmer </button>
                <button class='validBet-cancel' onclick ='window.location.href = \"bet.php?transition=true\"'> Annuler </button>
@@ -58,6 +67,71 @@ if (isset($_GET['registerBet'])) {
 
     $location = 'Location: bet.php?transition=true&newBet='.$id_paris;
     header($location);
+}
+
+if (isset($_GET['getResult'])) {
+    $Bet = $parisRepository->getParisByIdParis($_GET['getResult']);
+    $idBet = $Bet->getIdParis();
+    $idReu = $Bet->getIdReu();
+    $idMembre = $Bet->getIdUser();
+    $mise = $Bet->getMise();
+    $statut = $Bet->getStatut();
+    
+    $Participation = $participationRepository->getUniqueParticipation($idReu,$idMembre);
+    $nomMembre = $userRepository->getUserById($idMembre)->getUsername();
+    $delayf = $Participation->getRetard();
+    $delayPrint = explode(":",$delayf);
+    $hDelay = $delayPrint[0];
+    $mDelay = $delayPrint[1];
+    $delayPrint = $hDelay."h".$mDelay."min";
+
+    $betDelay = $Bet->getRetard();
+
+    $betDelayPrint = explode(":",$betDelay);
+    $hbetDelay = $betDelayPrint[0];
+    $mbetDelay = $betDelayPrint[1];
+    $betDelayPrint = $hbetDelay."h".$mbetDelay."min";
+    if ($statut==2) {
+
+        $parisRepository->updateStatus($idBet,4);
+        $cote = cote_basique($delayf,$idMembre,$idReu);
+        $gain = $cote*$mise;
+        $Gain = round($gain,2);
+
+        echo "<div class='bet-result'>
+                <div class='bet-result-content'>$nomMembre à eu $delayPrint de retard.</div>
+                <div class='bet-result-content'>Vous aviez parié sur $betDelayPrint de retard.</div>
+                <div class='bet-result-content'>Félicitations! Vous avez gagné $Gain € !!</div>
+                <button class='bet-result-gain' onclick ='window.location.href = \"transitionParis.php?wonBet=$idBet&wonGain=$Gain\"'>Empochez vos gains</button>
+              </div>";
+
+    }
+    if ($statut==3) {
+
+        $parisRepository->updateStatus($idBet,5);
+        echo "<div class='bet-result'>
+                <div class='bet-result-content'>$nomMembre à eu $delayPrint de retard.</div>
+                <div class='bet-result-content'>Vous aviez parié sur $betDelayPrint de retard.</div>
+                <div class='bet-result-content'>Essayez une prochaine fois !</div>
+                <button class='bet-result-retour' onclick ='window.location.href = \"transitionParis.php?lostBet=$idBet\"'>Retour</button>
+              </div>";
+    }
+}
+
+if (isset($_GET['wonBet'])) {
+    $idParis = $_GET['wonBet'];
+    $Gain = - $_GET['wonGain'];
+    $player = $_SESSION['user']->getId();
+    $parisRepository->updateStatus($idParis,4);
+    $userRepository ->updateUserPoints($Gain,$player);
+    $_SESSION['user'] = $userRepository->getUser($_SESSION['username']);
+    header('Location: bet.php?transition=true');
+}
+
+if (isset($_GET['lostBet'])) {
+    $idParis = $_GET['lostBet'];
+    $parisRepository->updateStatus($idParis,5);
+    header('Location: bet.php?transition=true');
 }
 
 ?>
