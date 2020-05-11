@@ -44,6 +44,7 @@ body input[type=text]{
     height:50px;
     font-size:100%;
     margin-bottom:1%;
+    margin-left:10px;
 }
 body input[type=password]{
 	border: 3px solid #df691a;
@@ -78,6 +79,12 @@ body input[type=radio]{
 	size:50px;
 	
 	border : 1px solid #df691a;
+}
+
+body form li{
+	font-size:30px;
+	
+
 }
 
 .lebutton{
