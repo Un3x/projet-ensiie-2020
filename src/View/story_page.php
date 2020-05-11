@@ -98,7 +98,7 @@ if ($data['avg_rate']==5) {
 
 <div class="row">
   <div class="side">
-    <div>5 star</div>
+    <div>5 stars</div>
   </div>
   <div class="middle">
 
@@ -109,7 +109,7 @@ if ($data['avg_rate']==5) {
     <div><?php echo $data['star5'] ?></div>
   </div>
   <div class="side">
-    <div>4 star</div>
+    <div>4 stars</div>
   </div>
   <div class="middle">
 
@@ -120,7 +120,7 @@ if ($data['avg_rate']==5) {
     <div><?php echo $data['star4'] ?></div>
   </div>
   <div class="side">
-    <div>3 star</div>
+    <div>3 stars</div>
   </div>
   <div class="middle">
 
@@ -131,7 +131,7 @@ if ($data['avg_rate']==5) {
     <div><?php echo $data['star3'] ?></div>
   </div>
   <div class="side">
-    <div>2 star</div>
+    <div>2 stars</div>
   </div>
   <div class="middle">
 
