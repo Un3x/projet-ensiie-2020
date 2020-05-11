@@ -64,6 +64,17 @@ class PlaylistRepository
         return  ( $this->getOwner($playlistId) === $userId );
     }
 
+    public function canAccess($playlistId, $userId)
+    {
+        $public = $this->dbAdapter->prepare('SELECT creator, publik FROM playlist WHERE id=:id');
+        $public->bindParam('id', $playlistId, \PDO::PARAM_INT);
+        $public->execute();
+        $test = $public->fetch(\PDO::FETCH_ASSOC);
+        if ( $test['publik'] === true || $test['creator']===$userId )
+            return true;
+        return false;
+    }
+
     public function fetchAllOf($userId)
     {
         $req = 'SELECT * FROM playlist WHERE creator=:id';
@@ -73,14 +84,20 @@ class PlaylistRepository
         return $this->fromQueryToArray($playlists->fetchAll(\PDO::FETCH_ASSOC));
     }
 
-    public function fetchPlaylist($id, $userId)
+    public function fetchPlaylist($id, $userId, $mode)
     {
-        $public = $this->dbAdapter->prepare('SELECT creator, publik FROM playlist WHERE id=:id');
-        $public->bindParam('id', $id, \PDO::PARAM_INT);
-        $public->execute();
-        $test = $public->fetch(\PDO::FETCH_ASSOC);
-        if ( $test['publik'] === false && $test['creator']!==$userId )
-            throw new \Exception("You don't have the rights to see this playlist");
+        if ( $mode === 0 ) // Read-only
+        {
+            if ( !$this->canAccess($id, $userId) )
+                throw new \Exception("You don't have the rights to see this playlist");
+        }
+        elseif ( $mode === 1 ) // Read-write
+        {
+            if ( !$this->isOwner($id, $userId) )
+                throw new \Exception("You don't have the rights to see this playlist");
+        }
+        else
+            throw new \Exception("Unknown access mode to playlist");
 
         $req = 'SELECT playlist.id, name, creator, publik, username FROM playlist JOIN "user" ON "user".id=creator WHERE playlist.id=:id';
         $playlist_info = $this->dbAdapter->prepare($req);
@@ -166,11 +183,36 @@ class PlaylistRepository
         return $yeet->execute();
     }
 
-    /*
-    public function addToPlaylist($kara, $playlist)
+    public function isInPlaylist($idKara, $idPlaylist, $idAsker)
     {
-        $req =
-            'UPDATE playlist';
+        if ( !$this->canAccess($idPlaylist, $idAsker) )
+            throw new \Exception("You don't have the rights to access this playlist");
+
+        $stmt = $this
+            ->dbAdapter
+            ->prepare("SELECT '{:idKara}' && (SELECT content FROM playlist WHERE id=:idPlaylist);");
+        $stmt->bindParam('idKara', $idKara, \PDO::PARAM_INT);
+        $stmt->bindParam('idPlaylist', $idPlaylist, \PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(\PDO::FETCH_COLUMN);
     }
-     */
+
+    public function addKaraToPlaylist($idPlaylist, $idKara, $idAsker)
+    {
+        if ( !$this->isOwner($idPlaylist, $idAsker) )
+            throw new \Exception("You don't have the rights to delete from this playlist");
+
+        elseif ( $this->isInPlaylist($idPlaylist, $idKara, $idAsker) )
+            throw new \Exception("This kara is already in the playlist");
+
+        $add = $this
+            ->dbAdapter
+            ->prepare(
+                'UPDATE playlist
+                    SET content=content||:idKara 
+                 WHERE id=:idPlaylist;');
+        $add->bindParam('idPlaylist', $idPlaylist, \PDO::PARAM_INT);
+        $add->bindParam('idKara', $idKara, \PDO::PARAM_INT);
+        return $add->execute();
+    }
 }

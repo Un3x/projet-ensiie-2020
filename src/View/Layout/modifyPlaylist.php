@@ -16,7 +16,7 @@ if ( !isset($playlistRepository) )
 try
 {
     $playlist_id = htmlspecialchars($_GET['playlist_id']);
-    $playlist_all = $playlistRepository->fetchPlaylist($playlist_id, $_SESSION['id']);
+    $playlist_all = $playlistRepository->fetchPlaylist($playlist_id, $_SESSION['id'], 1);
     $playlist = $playlist_all[0];
     $karas = $playlist_all[1];
 }
