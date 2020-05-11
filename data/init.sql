@@ -53,7 +53,6 @@ CREATE TABLE saves (
     saveId SERIAL PRIMARY KEY,
     userId INT NOT NULL,
     pageId INT NOT NULL,
-    storyName VARCHAR(50) NOT NULL,
     skill INT NOT NULL,
     stamina INT NOT NULL,
     luck INT NOT NULL,
