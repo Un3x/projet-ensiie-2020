@@ -1,0 +1,741 @@
+/* Définition des polices personnalisées */
+
+@font-face
+{
+    font-family: 'BallparkWeiner';
+    src: url('polices/ballpark.eot');
+    src: url('polices/ballpark.eot?#iefix') format('embedded-opentype'),
+         url('polices/ballpark.woff') format('woff'),
+         url('polices/ballpark.ttf') format('truetype'),
+         url('polices/ballpark.svg#BallparkWeiner') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face
+{
+    font-family: 'Dayrom';
+    src: url('polices/dayrom.eot');
+    src: url('polices/dayrom.eot?#iefix') format('embedded-opentype'),
+         url('polices/dayrom.woff') format('woff'),
+         url('polices/dayrom.ttf') format('truetype'),
+         url('polices/dayrom.svg#Dayrom') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+
+/* Eléments principaux de la page */
+
+body
+{
+    background: url('images/fond_dark.png');
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+#bloc_page
+{
+    width: 1000px;
+    margin: auto;
+    color: white;
+}
+
+section h1, footer h1, nav a
+{
+    font-family: Dayrom, serif;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+/* Header */
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#titre_principal
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#logo
+{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+#logo img
+{
+    margin-top: 1em;
+    width: 100px;
+    height: 100px;
+}
+
+header h1
+{
+    font-family: "BallparkWeiner";
+    color:white;
+    font-size: 3.5em;
+    font-weight: normal;
+    margin: 0 0 0 250px;
+    width: 0px;
+}
+
+header h2
+{
+    font-family:"BallparkWeiner";
+    font-size: 2.0em;
+    margin-top: 40px;
+    font-weight: normal;
+    width: 300px;
+
+}
+
+/* Navigation */
+
+nav ul
+{
+    float: left;
+    list-style-type: none;
+    display: flex;
+}
+
+nav li
+{
+    margin-right: 15px;
+}
+
+nav a
+{
+    font-size: 1.3em;
+    color: white;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+nav a:hover
+{
+    color: red;
+    border-bottom: 3px solid red;
+}
+
+#deconnexion
+{
+    text-align: left;
+}
+
+#deconnexion a
+{
+    font-size: 1.3em;
+    color: white;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+#deconnexion a:hover
+{
+    color: red;
+    border-bottom: 3px solid red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Bannière */
+
+#banniere_accueil
+{
+    margin-top: 15px;
+    height: 200px;
+    border-radius: 5px;
+    background: url('images/FM_banniere_acceuil.jpeg') no-repeat;
+    position: relative;
+    box-shadow: 0px 4px 4px #1c1a19;
+    margin-bottom: 25px;
+}
+
+
+#banniere_image
+{
+    margin-top: 15px;
+    height: 200px;
+    border-radius: 5px;
+    background: url('images/FM_banniere1.png') no-repeat;
+    position: relative;
+    box-shadow: 0px 4px 4px #1c1a19;
+    margin-bottom: 25px;
+}
+
+
+#banniere_description
+{
+    position: absolute;
+    bottom: 0;
+    border-radius: 0px 0px 5px 5px;
+    width: 99.5%;
+    height: 33px;
+    padding-top: 15px;
+    padding-left: 4px;
+    background-color: rgba(24,24,24,0.8);
+    color: white;
+    font-size: 1.15em;
+    
+}
+
+#banniere_description a
+{
+    color: white;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+#banniere_description a:hover
+{
+    color: #4B0082;
+    border-bottom: 3px solid #4B0082;
+}
+
+.bouton_rouge
+{
+    height: 28px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background: url('images/fond_degraderouge.png') repeat-x;
+    border: 1px solid #760001;
+    border-radius: 100px;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 0px 8px 0px 8px;
+    color: white;
+    text-decoration: none;
+}
+
+.bouton_rouge img
+{
+    border: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Corps */
+.titre_accueil
+{
+    font-size: 3.0em;
+    text-align: center;
+    font-family: Impact, fantasy;
+}
+
+.titre
+{
+    font-size: 3.0em;
+    text-align: center;
+    font-family: Impact, fantasy;
+}
+
+section
+{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.gabs
+{
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 175px;
+    height: 175px;
+}
+
+.joueur_info
+{
+    font-size: 1.4em;
+}
+
+article, aside
+{
+    text-align: justify;
+}
+
+article
+{
+    margin-right: 20px;
+    flex: 3;
+}
+
+
+.ico_categorie
+{
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 50px;
+    height: 50px;
+}
+
+article p
+{
+    font-size: 0.8em;
+}
+
+.tact
+{
+    flex: 1.2;
+    position: relative;
+    background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
+}
+
+
+.aside_autres
+{
+    flex: 1.2;
+    position: relative;
+    background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-size: 0.9em;
+    margin: 0 0 0 300px;
+}
+
+
+#fleche_bulle
+{
+    position: absolute;
+    top: 100px;
+    left: -12px;
+}
+
+.coach
+{
+    margin-right: 0px;
+    width: 325px;
+    height: 650px;
+}
+
+.commentaire h1
+{
+    font-size: 1.9em;
+    margin: 0 0 0 370px;
+    font-family: Impact, fantasy;
+}
+
+textarea
+{
+    padding: 10px;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+
+#joueur_rech
+{
+    font-size: 1.2em;
+    color : white;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+#joueur_rech a
+{
+    color : white;
+    padding-bottom: 3px;
+    text-decoration: none;
+    
+}
+#joueur_rech a:hover
+{
+    color: red;
+    border-bottom: 3px solid red;
+}
+
+#joueur_retour
+{
+    font-size: 1.2em;
+    color : white;
+    text-align: end;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+#joueur_retour a
+{
+    color : white;
+    padding-bottom: 3px;
+    text-decoration: none;
+    
+}
+#joueur_retour a:hover
+{
+    color: red;
+    border-bottom: 3px solid red;
+}
+
+
+
+
+
+
+
+/*Pour Tactiques*/
+.equipe
+{
+    text-align: left;
+}
+
+.rating a {
+    color: blue;
+    text-decoration: none;
+    font-size: 5em;
+    transition: color .4s;
+}
+
+.rating a:hover,
+.rating a:focus 
+{
+    color: yellow;
+    cursor: pointer;
+}
+
+.page
+{
+
+    font-size: 1.3em;
+}
+.page2
+{
+    font-size: 0.7em;
+}
+.page a
+{
+    color: white;
+}
+.page a:hover
+{
+    color: #4B0082;
+}
+
+.tact_photo
+{
+    width: 375px;
+    height: 550px;
+}
+
+
+
+
+/*Pour les formulaires de connexion et d'inscription*/
+#container{
+    width:400px;
+    margin:0 auto;
+    margin-top:10%;
+    color: white;
+}
+
+.co_insc {
+    color: white;
+    width:100%;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#container h2{
+    color: white;
+}
+
+input[type=submit] {
+    background-color: #53af57;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+
+}
+input[type=submit]:hover {
+    background-color: white;
+    color: #53af57;
+    border: 1px solid #53af57;
+}
+
+#co
+{
+    color : white;
+    font-size: 1.2em;
+    text-align: center;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+#co a
+{
+    color : blue;
+    padding-bottom: 3px;
+    text-decoration: none;
+    
+}
+
+#co a:hover
+{
+    color: red;
+    border-bottom: 3px solid red;
+}
+
+
+#erreur
+{
+    color : blue;
+    font-size: larger;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+#erreur a
+{
+    color : white;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+#erreur a:hover
+{
+    color: red;
+    border-bottom: 3px solid red;
+}
+
+#edit
+{
+    font-size: 1.5em;
+    color : white;
+    text-align: end;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+#edit a
+{
+    color : blue;
+    padding-bottom: 3px;
+    text-decoration: none;
+    
+}
+
+#edit a:hover
+{
+    color: red;
+    border-bottom: 3px solid red;
+}
+
+
+.admin
+{
+    color : white;
+    text-align: left;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+.admin a
+{
+    color : red;
+    padding-bottom: 3px;
+    text-decoration: none;
+    
+}
+
+.admin a:hover
+{
+    color: red;
+    border-bottom: 3px solid red;
+}
+.les_infos
+{
+    color:white;
+    font-size: 1.1em;
+}
+
+#prof_info
+{
+    color : white;
+    text-align: center;
+    font-size: 1.5em;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+#prof_info h1
+{
+    color : white;
+    text-align: center;
+    font-size: 2.5em;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+
+/* Footer */
+
+footer
+{
+    display: flex;
+    background:  url('images/separateur.png') repeat-x top;
+    padding-top: 25px;
+}
+
+footer p, footer ul
+{
+    font-size: 0.8em;
+}
+
+footer h1
+{
+    font-size: 1.1em;
+}
+
+.contact
+{
+    width: 70%;
+}
+
+
+#aa
+{
+    width: 60%;
+}
+
+#contact a
+{
+    font-size: 1.1em;
+    color: white;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+#contact a:hover
+{
+    color: red;
+    border-bottom: 3px solid red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.main1
+{
+    color: white;
+    padding-bottom: 0px;
+    text-decoration: none;
+}
+.sub_info1
+{
+    font-size: 1.6em;
+    color: white;
+}
+
+.bbb a
+{
+    font-size: 1.2em;
+    color: white;
+    padding-bottom: 0px;
+    text-decoration: none;
+}
+.bbb a:hover
+{
+    color:	#800080;
+    border-bottom: 1px solid #800080;
+}
+
+.aaa
+{
+    font-size: 2.0em;
+    text-align: center;
+    color: #4B0082;
+}
+.aaa a
+{
+    font-size: 1.2em;
+    color: #4B0082;
+    padding-bottom: 0px;
+    text-decoration: none;
+}
+.aaa a:hover
+{
+    color:	#800080;
+    border-bottom: 1px solid #800080;
+}
+
+.create_tact
+{
+    text-align: right;
+    font-size: 1.2em;
+}
+
+.create_tact a
+{
+    font-size: 1.2em;
+    color: white;
+    padding-bottom: 0px;
+    text-decoration: none;
+}
+
+.create_tact a:hover
+{
+    color:	#800080;
+    border-bottom: 1px solid #800080;
+}
+
+.cc
+{
+    font-size: 0.7em;
+}
+
+
+
+
