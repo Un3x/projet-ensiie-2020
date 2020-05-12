@@ -1,0 +1,91 @@
+header {
+    color:orange;
+    font:  200% "Impact", cursive;
+    width: 200px;
+    display: block;
+    margin: auto;
+}
+
+.puce:before {
+    content: url("logo.PNG");
+}
+
+.fb:before {
+    content: url("fb.png")
+}
+
+.yt:before {
+    content: url("yt.png")
+}
+
+.tw:before {
+    content: url("tw.png")
+}
+
+
+.centrer {
+    text-align: center;
+}
+
+header {
+    border-radius: 15px;
+    display:flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom:10px;
+    
+    
+}
+#form_header{
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 30 px ;
+    
+}
+
+ul {
+    list-style:none;
+    margin-left:0;
+    padding-left:0;
+    text-align: center;
+
+}
+
+.inp {
+    list-style:none;
+    margin-left:0;
+    display: inline-flex;
+    padding-left:200px;
+    text-align: center;
+}
+
+.fb, .yt, .tw {
+    width: 200px;
+}
+
+
+#bandeau {
+    
+    float: right;
+    width: 200px;
+    height: 500px;
+}
+
+body {
+    background-image: url("fond.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    line-height: 30px;
+    text-align: center;
+    margin: 0 auto;
+    
+}
+ul input{
+    background-color: rgba(0, 0, 0, 0.979);
+    color: rgb(245, 204, 0);
+    font: 40% "Arial", cursive;
+    border-radius: 15px;
+    border-color: rgba(247, 247, 247, 0); 
+}
+;
