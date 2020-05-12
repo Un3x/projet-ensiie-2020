@@ -9,15 +9,6 @@ Objectif pédagogique
 >Apprendre à concevoir et développer des applications web utilisant un serveur de bases de données.
 >Prendre conscience des problématiques d’organisation d’équipes et de répartition des tâches.
 
-Les sujets
-------------
-
-Nous proposons trois sujets qui seront détaillés ultérieurement et présentés lors de la première séance :
-
-* [Agenda des associations](sujets/agenda-des-associations.md)
-* [Accueil des nouveaux arrivants](/document/sujets/accueil-des-nouveaux-arrivants.md)
-* [Le twitter de l’ENSIIE](sujets/twittiie-le-twitter-de-ensiie.md)
-
 PROJET LIBRE
 -----
 

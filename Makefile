@@ -2,10 +2,13 @@ start:
 	php -S localhost:8080 -t public/
 
 db.init:
-	createdb ensiie
-	psql -U ensiie -d ensiie -a -f data/init.sql
+	createdb -U corsaire -W corsaire
+	psql -U corsaire -W -d corsaire -a -f data/init.sql
 
 db.drop:
-	dropdb MyM
+	dropdb -U corsaire -W corsaire
 
 db.reset: db.drop db.init
+
+doc:
+	doxygen

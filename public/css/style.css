@@ -1,0 +1,24 @@
+
+nav, .jumbotron {
+    background: #222222;
+}
+
+.custom-width {
+    max-width: 500px;
+}
+
+#select-symbol>div {
+    float: left;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    margin: 8px;
+}
+
+#select-sequence>li>div {
+    float: left;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    margin: 4px;
+}
