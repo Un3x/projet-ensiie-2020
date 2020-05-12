@@ -19,9 +19,14 @@ $maps = $mapRepository->fetchAll();
 $pplonlines = $pplonlineRepository->fetchAll();
 $utilisateurs = $utilisateurRepository->fetchAll();
 $gameRepository = new \Ingame\IngameRepository($dbAdaper);
-$games = $gameRepository->fetchpplgame(1);
 
+$actualGame = $gameRepository->getGame();
 
+$games = $gameRepository->fetchpplgame($actualGame->getId());
+
+$mapgame = $mapRepository->selectmaps($actualGame->getMap1(), $actualGame->getMap2());
+
+/*
 if(isset($_SESSION['idmap1']) && isset($_SESSION['idmap2'])){
     $mapgame = $mapRepository->getmapbyid();
 }
@@ -31,8 +36,8 @@ else{
 if(empty($_SESSION['timer'])){
     $_SESSION['timer'] = time();
 }
-
 else{
+    unset($_SESSION['timer']);
     $delta = time() - $_SESSION['timer'];
   if($delta>60){
         header("Location: mapchoosed.php");
@@ -40,7 +45,7 @@ else{
 }
 $refreshafter = 60-$delta;
 header("Refresh: ".$refreshafter);
-
+*/
 
 ?>
 
@@ -131,20 +136,12 @@ if (isset($_POST['map'])){
     $_SESSION['check3'] = "";
     }
     else if($_POST['map'] == "AutreMap"){
-    $gameRepository->voteautre(1); 
+    $gameRepository->voteautre($actualGame->getId()); 
     $_SESSION['check3'] = "checked";
     $_SESSION['check1'] = "";
     $_SESSION['check2'] = "";
     }
 }
-
-if(isset($_SESSION['idmap1']) && isset($_SESSION['idmap2'])){
-    $mapgame = $mapRepository->getmapbyid();
-}
-else{
-    $mapgame = $mapRepository->selectmaps();
-}
-$voteautre = $gameRepository->getVote(1);
 
 ?>
 

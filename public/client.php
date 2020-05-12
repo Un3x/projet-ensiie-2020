@@ -47,7 +47,7 @@
             </form>
         </div>
         <?php if(isset($_GET['retour'])) $refreshAfter = $_GET['retour']; header('Refresh: ' . $refreshAfter) ?>
-        <?php if($utilisateurRepository->isGameReady() != -1) header('Location: index2.php') ?>
+        <?php if($utilisateurRepository->isGameReady() != -1)header('Location: index2.php') ?>
         <div id="volet_clos">
             <div id="volet">
                 <form method="POST" action="/updateUtilisateur.php" name="profile_changes">

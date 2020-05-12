@@ -7,7 +7,7 @@ class Ingame
      /**
      * @var int
      */
-    private $id;
+    private $id_game;
 
     /**
      * @var string
@@ -27,7 +27,9 @@ class Ingame
      * @return int
      *
      */
+    private $map1;
 
+    private $map2;
       /**
      * @var int
      */
@@ -119,7 +121,22 @@ class Ingame
         return $this;
     }
 
+    public function getMap1(){
+        return $this->map1;
+    }
 
+    public function setMap1($map1){
+        $this->map1 = $map1;
+        return $this;
+    }
 
+    public function getMap2(){
+        return $this->map2;
+    }
   
+    public function setMap2($map2){
+        $this->map2 = $map2;
+        return $this;
+    }
+
 }

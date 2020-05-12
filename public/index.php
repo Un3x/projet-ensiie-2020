@@ -45,7 +45,7 @@ $utilisateurs = $utilisateurRepository->fetchAll();
 <?php
     session_start();
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == True) echo("Welcome " .$_SESSION['username']);
-    else echo("You can log in by clicking the Play button");
+    else echo("Vous pouvez vous connecter en appuyant sur le bouton Jouer !");
 ?>
 
 <p>

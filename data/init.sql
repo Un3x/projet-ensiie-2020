@@ -8,7 +8,9 @@ CREATE TABLE "in_game" (
     pseudo VARCHAR NOT NULL,
     mdj VARCHAR,
     team INT,
-    voteautre INT
+    voteautre INT,
+    map1 INT,
+    map2 INT
 );
 
 CREATE TABLE "utilisateurs" (

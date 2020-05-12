@@ -49,29 +49,10 @@ class MapRepository
         $stmt->execute();
     }
 
-    public function countmap()
+    public function selectmaps($firstnumber, $secondnumber)
     {
-        $count = 0;
-        $stmt = $this->dbAdapter->query(' SELECT * FROM "map" ');
-        foreach ($stmt as $totmap){
-            $count++;
-        }
-        return $count;
-    }
-
-
-    public function selectmaps()
-    {
-        $totalmap = $this->countmap();
         $maptot = $this->dbAdapter->query('SELECT * FROM "map" ORDER BY id_map');
         $maps= [];
-        $firstnumber =  random_int(1,$totalmap);
-        $secondnumber =  random_int(1,$totalmap);
-        while($firstnumber == $secondnumber){
-            $secondnumber =  random_int(1,$totalmap);
-        }
-        $_SESSION['idmap1']=$firstnumber;        
-        $_SESSION['idmap2']=$secondnumber;
         foreach($maptot as $map){
             if ($map['id_map'] == $firstnumber){
                 $maptoadd = new Map();
@@ -92,6 +73,8 @@ class MapRepository
                 $maps[] = $maptoadd;
             }
         }
+        $_SESSION['idmap1'] = $firstnumber;
+        $_SESSION['idmap2'] = $secondnumber;
         return $maps;
 
     }

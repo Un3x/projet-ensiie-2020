@@ -67,6 +67,7 @@ class IngameRepository
 
     public function getVote($id){
         $games = $this->dbAdapter->query('SELECT * FROM "in_game" ');
+        $vote = -1;
         foreach($games as $game){
             if($game['id_game'] == $id){
                 $vote = $game['voteautre'];
@@ -74,6 +75,16 @@ class IngameRepository
             }
         }
         return $vote;
+    }
+
+    public function countmap()
+    {
+        $count = 0;
+        $stmt = $this->dbAdapter->query(' SELECT * FROM "map" ');
+        foreach ($stmt as $totmap){
+            $count++;
+        }
+        return $count;
     }
 
     public function countTeam($mdj, $team)
@@ -110,7 +121,7 @@ class IngameRepository
         $players = $this->dbAdapter->query('SELECT * FROM "in_game"');
         $players_tab = [];
         foreach($players as $player){
-            $joueur = new InGame();
+            $joueur = new Ingame();
             $joueur->setPseudo($player['pseudo']);
             $players_tab[] = $joueur;
         }
@@ -145,7 +156,59 @@ class IngameRepository
                 $find_team->bindParam('id_game', $last_id);
                 $find_team->bindParam('mdj', $mdj);
                 $find_team->execute();
+
+                //MAPS
+
+                $totalmap = $this->countmap();
+
+                $firstnumber =  random_int(1,$totalmap);
+                $secondnumber =  random_int(1,$totalmap);
+                while($firstnumber == $secondnumber){
+                    $secondnumber =  random_int(1,$totalmap);
+                }
+                $stmt = $this
+                    ->dbAdapter
+                    ->prepare('UPDATE "in_game" SET map1=:id_map1, map2=:id_map2 where id_game=:id_game');
+                $stmt->bindParam('id_map1', $firstnumber);
+                $stmt->bindParam('id_map2', $secondnumber);
+                $stmt->bindParam('id_game', $last_id);
+                $stmt->execute();
             }
         }
+    }
+
+    public function isEmpty($id){
+        session_start();
+        $games = $this->dbAdapter->query('SELECT * FROM "in_game" ');
+        $bool = true;
+        foreach($games as $game){
+            if($game['id_game'] == $id){
+                if($game['map1'] != null){
+                    $bool = false;
+                    $_SESSION['idmap1'] = $game['map1'];
+                }
+                if($game['map2'] != null){
+                    $bool = false;
+                    $_SESSIOn['idmap2'] = $game['map2'];
+                }
+            }
+        }
+        return $bool;
+    }
+
+    public function getGame(){
+        $stmt = $this->dbAdapter->query('SELECT * FROM in_game');
+        foreach($stmt as $game){
+            if($game['pseudo'] == $_SESSION['username']){
+                $joueur = new Ingame();
+                $joueur->setPseudo($game['pseudo'])
+                        ->setId($game['id_game'])
+                        ->setMdj($game['mdj'])
+                        ->setMap1($game['map1'])
+                        ->setMap2($game['map2'])
+                        ->setTeam($game['team']);
+            }
+        }
+        return $joueur;
     }
 }
