@@ -2,7 +2,7 @@
 
 Site to play to stories of which you are the hero
 
-## Utilisation
+## Usage
 
 Initialize the data base with
 
