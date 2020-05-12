@@ -47,8 +47,8 @@ CREATE TABLE IF NOT EXISTS queue (
     added_by INTEGER REFERENCES "user"
 );
 
-INSERT INTO queue (id, added_by) VALUES (1,1);
-INSERT INTO queue (id, added_by) VALUES (2,2);
+--INSERT INTO queue (id, added_by) VALUES (1,1);
+--INSERT INTO queue (id, added_by) VALUES (2,2);
 
 
 
