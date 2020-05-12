@@ -1,0 +1,13 @@
+RewriteBase /
+<Files .htaccess>
+Order Allow,Deny
+Deny from all
+</Files>
+<Files .htpasswd>
+Order Allow,Deny
+Deny from all
+</Files>
+RewriteEngine On
+RewriteRule ^songs$ songs.php [L]
+RewriteRule ^index$ index.php [L]
+RewriteRule ^editSong$ editSong.php [L]

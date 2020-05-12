@@ -1,0 +1,24 @@
+html, body {
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+body {
+  background-color: rgb(210, 210, 230);
+}
+
+#title {
+  padding-bottom: 0.2em;
+  margin-bottom: 0.9em;
+  position: relative;
+}
+
+#title:before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  bottom: 0;
+  height: 1px;
+  width: 80%;
+  border-bottom: 1px solid gray;
+}

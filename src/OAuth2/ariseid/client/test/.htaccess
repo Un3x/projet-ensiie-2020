@@ -1,0 +1,4 @@
+<IfModule mod_php5.c>
+	php_flag session.cookie_httponly on
+	php_value session.cookie_path " "
+</IfModule>

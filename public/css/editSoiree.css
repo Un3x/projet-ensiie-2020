@@ -1,0 +1,30 @@
+#disp {
+  margin-bottom: 0px;
+}
+
+#form>.columns, #search>.columns {
+  margin-bottom: 0px;
+}
+
+#search {
+  padding: 1em;
+  border: 1px dashed gray;
+  border-radius: 0.3em;
+}
+
+#search h6 {
+  margin-bottom: 0.5em;
+}
+
+#search .column {
+  margin-bottom: 0px;
+}
+
+.smaller {
+  font-size: 0.8em;
+}
+
+.message-body {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}

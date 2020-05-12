@@ -1,0 +1,538 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 11.7 (Ubuntu 11.7-0ubuntu0.19.10.1)
+-- Dumped by pg_dump version 11.7 (Ubuntu 11.7-0ubuntu0.19.10.1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: chanson; Type: TABLE; Schema: public; Owner: pm
+--
+
+CREATE TABLE public.chanson (
+    id integer NOT NULL,
+    nom character varying(64) NOT NULL,
+    artiste character varying(64),
+    paroles text,
+    id_utilisateur character varying(32) NOT NULL
+);
+
+
+ALTER TABLE public.chanson OWNER TO pm;
+
+--
+-- Name: chanson_id_seq; Type: SEQUENCE; Schema: public; Owner: pm
+--
+
+CREATE SEQUENCE public.chanson_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.chanson_id_seq OWNER TO pm;
+
+--
+-- Name: chanson_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pm
+--
+
+ALTER SEQUENCE public.chanson_id_seq OWNED BY public.chanson.id;
+
+
+--
+-- Name: chanson_soiree; Type: TABLE; Schema: public; Owner: pm
+--
+
+CREATE TABLE public.chanson_soiree (
+    id integer NOT NULL,
+    id_chanson integer NOT NULL,
+    id_soiree integer NOT NULL
+);
+
+
+ALTER TABLE public.chanson_soiree OWNER TO pm;
+
+--
+-- Name: chanson_soiree_id_seq; Type: SEQUENCE; Schema: public; Owner: pm
+--
+
+CREATE SEQUENCE public.chanson_soiree_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.chanson_soiree_id_seq OWNER TO pm;
+
+--
+-- Name: chanson_soiree_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pm
+--
+
+ALTER SEQUENCE public.chanson_soiree_id_seq OWNED BY public.chanson_soiree.id;
+
+
+--
+-- Name: chanteur; Type: TABLE; Schema: public; Owner: pm
+--
+
+CREATE TABLE public.chanteur (
+    id integer NOT NULL,
+    id_cs integer NOT NULL,
+    id_utilisateur character varying(32) NOT NULL
+);
+
+
+ALTER TABLE public.chanteur OWNER TO pm;
+
+--
+-- Name: chanteur_id_seq; Type: SEQUENCE; Schema: public; Owner: pm
+--
+
+CREATE SEQUENCE public.chanteur_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.chanteur_id_seq OWNER TO pm;
+
+--
+-- Name: chanteur_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pm
+--
+
+ALTER SEQUENCE public.chanteur_id_seq OWNED BY public.chanteur.id;
+
+
+--
+-- Name: lien; Type: TABLE; Schema: public; Owner: pm
+--
+
+CREATE TABLE public.lien (
+    id integer NOT NULL,
+    lien character varying(256) NOT NULL,
+    type_lien character varying(64),
+    id_chanson integer NOT NULL
+);
+
+
+ALTER TABLE public.lien OWNER TO pm;
+
+--
+-- Name: lien_id_seq; Type: SEQUENCE; Schema: public; Owner: pm
+--
+
+CREATE SEQUENCE public.lien_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.lien_id_seq OWNER TO pm;
+
+--
+-- Name: lien_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pm
+--
+
+ALTER SEQUENCE public.lien_id_seq OWNED BY public.lien.id;
+
+
+--
+-- Name: soiree; Type: TABLE; Schema: public; Owner: pm
+--
+
+CREATE TABLE public.soiree (
+    id integer NOT NULL,
+    nom character varying(32),
+    theme character varying(32),
+    date_soiree date NOT NULL,
+    publique boolean
+);
+
+
+ALTER TABLE public.soiree OWNER TO pm;
+
+--
+-- Name: soiree_id_seq; Type: SEQUENCE; Schema: public; Owner: pm
+--
+
+CREATE SEQUENCE public.soiree_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.soiree_id_seq OWNER TO pm;
+
+--
+-- Name: soiree_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: pm
+--
+
+ALTER SEQUENCE public.soiree_id_seq OWNED BY public.soiree.id;
+
+
+--
+-- Name: utilisateur; Type: TABLE; Schema: public; Owner: pm
+--
+
+CREATE TABLE public.utilisateur (
+    id character varying(32) NOT NULL,
+    pseudo character varying(32),
+    prenom character varying(32),
+    nom character varying(32),
+    role_utilisateur character varying(32)
+);
+
+
+ALTER TABLE public.utilisateur OWNER TO pm;
+
+--
+-- Name: chanson id; Type: DEFAULT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.chanson ALTER COLUMN id SET DEFAULT nextval('public.chanson_id_seq'::regclass);
+
+
+--
+-- Name: chanson_soiree id; Type: DEFAULT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.chanson_soiree ALTER COLUMN id SET DEFAULT nextval('public.chanson_soiree_id_seq'::regclass);
+
+
+--
+-- Name: chanteur id; Type: DEFAULT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.chanteur ALTER COLUMN id SET DEFAULT nextval('public.chanteur_id_seq'::regclass);
+
+
+--
+-- Name: lien id; Type: DEFAULT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.lien ALTER COLUMN id SET DEFAULT nextval('public.lien_id_seq'::regclass);
+
+
+--
+-- Name: soiree id; Type: DEFAULT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.soiree ALTER COLUMN id SET DEFAULT nextval('public.soiree_id_seq'::regclass);
+
+
+--
+-- Data for Name: chanson; Type: TABLE DATA; Schema: public; Owner: pm
+--
+
+COPY public.chanson (id, nom, artiste, paroles, id_utilisateur) FROM stdin;
+1	Lost in the Woods	Jonathan Groff	Bonjour je suis une parole\nEt un saut à la ligne	defaut0000
+3	Au clair de la Lune	Mon ami Pierrot	Prête moi ta plume...	defaut0000
+4	Maxwell's Silver Hammer	The Beatles	Joan was quizzical, studied pataphysical\r\nScience in the home\r\nLate nights all alone with a test tube\r\nOh, oh, oh, oh\r\n\r\nMaxwell Edison, majoring in medicine\r\nCalls her on the phone\r\n"Can I take you out to the pictures\r\nJoa, oa, oa, oan?"\r\n\r\nBut as she's getting ready to go\r\nA knock comes on the door\r\n\r\nBang! Bang! Maxwell's silver hammer\r\nCame down upon her head\r\nBang! Bang! Maxwell's silver hammer\r\nMade sure that she was dead\r\n\r\nBack in school again Maxwell plays the fool again\r\nTeacher gets annoyed\r\nWishing to avoid an unpleasant\r\nSce, e, e, ene\r\n\r\nShe tells Max to stay when the class has gone away\r\nSo he waits behind\r\nWriting fifty times "I must not be\r\nSo, o, o, o"\r\n\r\nBut when she turns her back on the boy\r\nHe creeps up from behind\r\n\r\nBang! Bang! Maxwell's silver hammer\r\nCame down upon her head\r\nBang! Bang! Maxwell's silver hammer\r\nMade sure that she was dead\r\n\r\nP. C. Thirty-one said, "We caught a dirty one"\r\nMaxwell stands alone\r\nPainting testimonial pictures\r\nOh, oh, oh, oh\r\n\r\nRose and Valerie, screaming from the gallery\r\nSay he must go free\r\n(Maxwell must go free)\r\nThe judge does not agree and he tells them\r\nSo, o, o, o\r\n\r\nBut as the words are leaving his lips\r\nA noise comes from behind\r\n\r\nBang! Bang! Maxwell's silver hammer\r\nCame down upon his head\r\nBang! Bang! Maxwell's silver hammer\r\nMade sure that he was dead\r\n\r\nWhoa, oh, oh, oh\r\nSilver hammer man	defaut0000
+5	All You Need Is Love	The Beatles	Love, Love, Love.\r\nLove, Love, Love.\r\nLove, Love, Love.\r\n\r\nThere's nothing you can do that can't be done.\r\nNothing you can sing that can't be sung.\r\nNothing you can say but you can learn how to play the game.\r\nIt's easy.\r\n\r\nNothing you can make that can't be made.\r\nNo one you can save that can't be saved.\r\nNothing you can do but you can learn how to be you in time.\r\nIt's easy.\r\n\r\nAll you need is love.\r\nAll you need is love.\r\nAll you need is love, love.\r\nLove is all you need.\r\n\r\nAll you need is love.\r\nAll you need is love.\r\nAll you need is love, love.\r\nLove is all you need.\r\n\r\nNothing you can know that isn't known.\r\nNothing you can see that isn't shown.\r\nNowhere you can be that isn't where you're meant to be.\r\nIt's easy.\r\n\r\nAll you need is love.\r\nAll you need is love.\r\nAll you need is love, love.\r\nLove is all you need.\r\n\r\nAll you need is love (All together, now!)\r\nAll you need is love. (Everybody!)\r\nAll you need is love, love.\r\nLove is all you need (love is all you need).\r\n\r\nYee-hai!\r\nOh yeah!\r\nShe loves you, yeah yeah yeah.\r\nShe loves you, yeah yeah yeah.	defaut0000
+6	When I'm Sixty-Four	The Beatles	When I get older\r\nLosing my hair\r\nMany years from now\r\nWill you still be sending me a Valentine?\r\nBirthday greetings bottle of wine?\r\n\r\nIf I'd been out\r\nTill quarter to three\r\nWould you lock the door?\r\nWill you still need me\r\nWill you still feed me\r\nWhen I'm sixty-four?\r\n\r\nYou'll be older too\r\nAnd if you say the word\r\nI could stay with you\r\n\r\nI could be handy\r\nMending a fuse\r\nWhen your lights have gone\r\nYou can knit a sweater by the fireside\r\nSunday mornings go for a ride\r\n\r\nDoing the garden\r\nDigging the weeds\r\nWho could ask for more?\r\nWill you still need me\r\nWill you still feed me\r\nWhen I'm sixty-four?\r\n\r\nEvery summer we can rent a cottage\r\nIn the Isle of Wight if it's not too dear\r\nWe shall scrimp and save (we shall scrimp and save)\r\nGrandchildren on your knee\r\nVera, Chuck, and Dave\r\n\r\nSend me a postcard\r\nDrop me a line\r\nStating point of view\r\nIndicate precisely what you mean to say\r\nYours sincerely wasting away\r\nGive me your answer\r\nFill in a form\r\nMine for evermore\r\nWill you still need me\r\nWill you still feed me\r\nWhen I'm sixty-four?	defaut0000
+7	Yellow Submarine	The Beatles	In the town where I was born\r\nLived a man who sailed to sea\r\nAnd he told us of his life\r\nIn the land of submarines\r\nSo we sailed up to the sun\r\n'Til we found a sea of green\r\nAnd we lived beneath the waves\r\nIn our yellow submarine\r\n\r\nWe all live in a yellow submarine\r\nYellow submarine, yellow submarine\r\nWe all live in a yellow submarine\r\nYellow submarine, yellow submarine\r\n\r\nAnd our friends are all aboard\r\nMany more of them live next door\r\nAnd the band begins to play\r\n\r\nWe all live in a yellow submarine\r\nYellow submarine, yellow submarine\r\nWe all live in a yellow submarine\r\nYellow submarine, yellow submarine\r\n\r\n(Full speed ahead Mr. Parker, full speed ahead\r\nFull speed ahead it is, Sergeant\r\nAction station, action station\r\nAye, aye, sir, fire\r\nCaptain, captain)\r\n\r\nAs we live a life of ease\r\nEveryone of us has all we need (has all we need)\r\nSky of blue (sky of blue) and sea of green (and sea of green)\r\nIn our yellow submarine (in our yellow, submarine, ha ha)\r\n\r\nWe all live in a yellow submarine\r\nYellow submarine, yellow submarine\r\nWe all live in a yellow submarine\r\nYellow submarine, yellow submarine\r\nWe all live in a yellow submarine\r\nYellow submarine, yellow submarine\r\nWe all live in a yellow submarine\r\nYellow submarine, yellow submarine	defaut0000
+8	A Day in the Life	The Beatles	"Dub the mic on the piano quite low this\r\nJust keeping it like maracas, you know\r\nYou know those old pianos"\r\n\r\n"Ok, we're on"\r\n\r\n"Sugarplum fairy, sugarplum fairy"\r\n\r\nI read the news today, oh boy\r\nAbout a lucky man who made the grade\r\nAnd though the news was rather sad\r\nWell, I just had to laugh\r\nI saw the photograph\r\n\r\nHe blew his mind out in a car\r\nHe didn't notice that the lights had changed\r\nA crowd of people stood and stared\r\nThey'd seen his face before\r\nNobody was really sure if he was from the House of Lords\r\n\r\nI saw a film today, oh boy\r\nThe English Army had just won the war\r\nA crowd of people turned away\r\nBut I just had to look\r\nHaving read the book\r\nI'd love to turn you on\r\n\r\n"Five, six, seven, eight, nine\r\nTen, eleven, twelve, thirteen, fourteen\r\nFifteen, sixteen, seventeen, eighteen, nineteen\r\nTwenty"\r\n\r\nWoke up, fell out of bed\r\nDragged a comb across my head\r\nFound my way downstairs and drank a cup\r\nAnd looking up I noticed I was late\r\nFound my coat and grabbed my hat\r\nMade the bus in seconds flat\r\nMade my way upstairs and had a smoke\r\nAnd everybody spoke and I went into a dream\r\n\r\n"Oh shit"\r\n\r\nI read the news today, oh boy\r\nFour thousand holes in Blackburn, Lancashire\r\nAnd though the holes were rather small\r\nThey had to count them all\r\nNow they know how many holes it takes to fill the Albert Hall\r\nI'd love to turn you\r\n\r\n"See the worst thing about doing this\r\nDoing something like this\r\nIs I think that at first people sort of are a bit suspicious\r\n'You know, come on, what are you up to?'	defaut0000
+2	Never Gonna Give You Up	Rick Astley	We're no strangers to love\r\nYou know the rules and so do I\r\nA full commitment's what I'm thinking of\r\nYou wouldn't get this from any other guy\r\n\r\nI just wanna tell you how I'm feeling\r\nGotta make you understand\r\n\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\n\r\nWe've known each other for so long\r\nYour heart's been aching but you're too shy to say it\r\nInside we both know what's been going on\r\nWe know the game and we're gonna play it\r\n\r\nAnd if you ask me how I'm feeling\r\nDon't tell me you're too blind to see\r\n\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\n\r\nNever gonna give, never gonna give\r\n(Give you up)\r\n(Ooh) Never gonna give, never gonna give\r\n(Give you up)\r\n\r\nWe've known each other for so long\r\nYour heart's been aching but you're too shy to say it\r\nInside we both know what's been going on\r\nWe know the game and we're gonna play it\r\n\r\nI just wanna tell you how I'm feeling\r\nGotta make you understand\r\n\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry\r\nNever gonna say goodbye\r\nNever gonna tell a lie and hurt you\r\nNever gonna give you up\r\nNever gonna let you down\r\nNever gonna run around and desert you\r\nNever gonna make you cry	defaut0000
+\.
+
+
+--
+-- Data for Name: chanson_soiree; Type: TABLE DATA; Schema: public; Owner: pm
+--
+
+COPY public.chanson_soiree (id, id_chanson, id_soiree) FROM stdin;
+1	2	1
+2	3	1
+3	2	1
+4	6	2
+\.
+
+
+--
+-- Data for Name: chanteur; Type: TABLE DATA; Schema: public; Owner: pm
+--
+
+COPY public.chanteur (id, id_cs, id_utilisateur) FROM stdin;
+\.
+
+
+--
+-- Data for Name: lien; Type: TABLE DATA; Schema: public; Owner: pm
+--
+
+COPY public.lien (id, lien, type_lien, id_chanson) FROM stdin;
+1	https://www.youtube.com/watch?v=qiGcfay5jNY	YT	1
+4	https://www.youtube.com/watch?v=mJag19WoAe0	YT	4
+5	https://www.youtube.com/watch?v=WWP80rXP4cM	YT-paroles	5
+6	https://www.youtube.com/watch?v=_7xMfIp-irg	YT	5
+7	https://www.youtube.com/watch?v=HCTunqv1Xt4	YT	6
+8	https://www.youtube.com/watch?v=FZLIcQf47TQ	YT-paroles	7
+9	https://www.youtube.com/watch?v=m2uTFF_3MaA	YT	7
+10	https://www.youtube.com/watch?v=0edji28K8mk	YT-orchestra	8
+11	https://www.youtube.com/watch?v=usNsCeOV4GM	YT	8
+12	https://www.youtube.com/watch?v=dQw4w9WgXcQ	YT	2
+13	https://www.youtube.com/watch?v=6_b7RDuLwcI	YT-paroles	2
+\.
+
+
+--
+-- Data for Name: soiree; Type: TABLE DATA; Schema: public; Owner: pm
+--
+
+COPY public.soiree (id, nom, theme, date_soiree, publique) FROM stdin;
+1	Test	Super thème	2020-04-18	t
+2	Super	Ancien	2019-05-14	t
+3	Test2	Super génial	2020-05-13	f
+\.
+
+
+--
+-- Data for Name: utilisateur; Type: TABLE DATA; Schema: public; Owner: pm
+--
+
+COPY public.utilisateur (id, pseudo, prenom, nom, role_utilisateur) FROM stdin;
+defaut0000	Défaut	Foo	Bar	admin
+\.
+
+
+--
+-- Name: chanson_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pm
+--
+
+SELECT pg_catalog.setval('public.chanson_id_seq', 8, true);
+
+
+--
+-- Name: chanson_soiree_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pm
+--
+
+SELECT pg_catalog.setval('public.chanson_soiree_id_seq', 5, true);
+
+
+--
+-- Name: chanteur_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pm
+--
+
+SELECT pg_catalog.setval('public.chanteur_id_seq', 1, false);
+
+
+--
+-- Name: lien_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pm
+--
+
+SELECT pg_catalog.setval('public.lien_id_seq', 13, true);
+
+
+--
+-- Name: soiree_id_seq; Type: SEQUENCE SET; Schema: public; Owner: pm
+--
+
+SELECT pg_catalog.setval('public.soiree_id_seq', 3, true);
+
+
+--
+-- Name: chanson chanson_pkey; Type: CONSTRAINT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.chanson
+    ADD CONSTRAINT chanson_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: chanson_soiree chanson_soiree_pkey; Type: CONSTRAINT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.chanson_soiree
+    ADD CONSTRAINT chanson_soiree_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: chanteur chanteur_pkey; Type: CONSTRAINT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.chanteur
+    ADD CONSTRAINT chanteur_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: lien lien_pkey; Type: CONSTRAINT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.lien
+    ADD CONSTRAINT lien_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: soiree soiree_pkey; Type: CONSTRAINT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.soiree
+    ADD CONSTRAINT soiree_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: utilisateur utilisateur_pkey; Type: CONSTRAINT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.utilisateur
+    ADD CONSTRAINT utilisateur_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: chanteur fk_chidcs; Type: FK CONSTRAINT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.chanteur
+    ADD CONSTRAINT fk_chidcs FOREIGN KEY (id_cs) REFERENCES public.chanson_soiree(id) ON DELETE CASCADE;
+
+
+--
+-- Name: chanteur fk_chidu; Type: FK CONSTRAINT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.chanteur
+    ADD CONSTRAINT fk_chidu FOREIGN KEY (id_utilisateur) REFERENCES public.utilisateur(id) ON DELETE CASCADE;
+
+
+--
+-- Name: chanson fk_cidu; Type: FK CONSTRAINT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.chanson
+    ADD CONSTRAINT fk_cidu FOREIGN KEY (id_utilisateur) REFERENCES public.utilisateur(id);
+
+
+--
+-- Name: chanson_soiree fk_csidc; Type: FK CONSTRAINT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.chanson_soiree
+    ADD CONSTRAINT fk_csidc FOREIGN KEY (id_chanson) REFERENCES public.chanson(id) ON DELETE CASCADE;
+
+
+--
+-- Name: chanson_soiree fk_csids; Type: FK CONSTRAINT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.chanson_soiree
+    ADD CONSTRAINT fk_csids FOREIGN KEY (id_soiree) REFERENCES public.soiree(id) ON DELETE CASCADE;
+
+
+--
+-- Name: lien fk_lidc; Type: FK CONSTRAINT; Schema: public; Owner: pm
+--
+
+ALTER TABLE ONLY public.lien
+    ADD CONSTRAINT fk_lidc FOREIGN KEY (id_chanson) REFERENCES public.chanson(id) ON DELETE CASCADE;
+
+
+--
+-- Name: TABLE chanson; Type: ACL; Schema: public; Owner: pm
+--
+
+GRANT ALL ON TABLE public.chanson TO ensiie;
+
+
+--
+-- Name: SEQUENCE chanson_id_seq; Type: ACL; Schema: public; Owner: pm
+--
+
+GRANT ALL ON SEQUENCE public.chanson_id_seq TO ensiie;
+
+
+--
+-- Name: TABLE chanson_soiree; Type: ACL; Schema: public; Owner: pm
+--
+
+GRANT ALL ON TABLE public.chanson_soiree TO ensiie;
+
+
+--
+-- Name: SEQUENCE chanson_soiree_id_seq; Type: ACL; Schema: public; Owner: pm
+--
+
+GRANT ALL ON SEQUENCE public.chanson_soiree_id_seq TO ensiie;
+
+
+--
+-- Name: TABLE chanteur; Type: ACL; Schema: public; Owner: pm
+--
+
+GRANT ALL ON TABLE public.chanteur TO ensiie;
+
+
+--
+-- Name: SEQUENCE chanteur_id_seq; Type: ACL; Schema: public; Owner: pm
+--
+
+GRANT ALL ON SEQUENCE public.chanteur_id_seq TO ensiie;
+
+
+--
+-- Name: TABLE lien; Type: ACL; Schema: public; Owner: pm
+--
+
+GRANT ALL ON TABLE public.lien TO ensiie;
+
+
+--
+-- Name: SEQUENCE lien_id_seq; Type: ACL; Schema: public; Owner: pm
+--
+
+GRANT ALL ON SEQUENCE public.lien_id_seq TO ensiie;
+
+
+--
+-- Name: TABLE soiree; Type: ACL; Schema: public; Owner: pm
+--
+
+GRANT ALL ON TABLE public.soiree TO ensiie;
+
+
+--
+-- Name: SEQUENCE soiree_id_seq; Type: ACL; Schema: public; Owner: pm
+--
+
+GRANT ALL ON SEQUENCE public.soiree_id_seq TO ensiie;
+
+
+--
+-- Name: TABLE utilisateur; Type: ACL; Schema: public; Owner: pm
+--
+
+GRANT ALL ON TABLE public.utilisateur TO ensiie;
+
+
+--
+-- PostgreSQL database dump complete
+--

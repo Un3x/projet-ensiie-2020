@@ -1,43 +1,13 @@
-# Installation du projet
+# Projet web - Vocasiite
 
-## Makefile
+Ce projet de web est dédié à la création d'un site web pour l'association VocalIIsE, où nous stockerons par exemple : une liste de chansons les paroles pour chaque chanson, et la liste des chansons pour chaque soirée.
 
-Le makefile dispose de 4 commandes :
-* make start qui permet de lancer le serveur sur localhost:8080
-* make db.init qui initialise la db a partir du fichier `./data/init.sql`
-* make db.drop qui détruit la db
-* make db.reset qui détruit puis initialise la db
+## Prérequis
+Vous devez avoir installé sur votre machine `php` (version 7+), `postgresql` et le driver pgsql pour PDO : `php7.X-pgsql`.  
+Assure-vous qu'un serveur postgresql est actif sur votre machine (si ce n'est pas le cas : `sudo service postgresql start`).  
+Un utilisateur postgresql du nom de `ensiie` et avec le mot de passe `ensiie` doit exister.
 
-## Accès db
-
-Pour que le code applicatif accède a la db il faut changer lkes paramètres dans le fichier `./src/config/config.php`.
-
-Pour que le makefile se connecte a la db il faut changer les paramètre directement dans le fichier `Makefile`.
-
-La mise en place de la db fait partit du projet  et vous devez vous en occuper.
-
-## Sujets
-
-Vous pourrez trouver le sujet complets détaillé dans le dossier `document`. L'un des sujet est un sujet libre, profitez en pour faire qqchose qui vous intéresse
-
-## Application
-
-Une base de code est déjà présente a titre d'exemple. Nous vous suggérons de bien lire le code et de le comprendre avant d'attaquer le développement et de vous inspirer de ce qui a été fait.
-
-## Scéance
-
-* 1ère scéance :
-  * constitution des groupes
-  * choix du sujets
-  * définition des fonctionnalités du site
-  * Modèle de base de données
-* 2ème scéance :
-  * relecture du code
-  * support aux groupes pour la réalisation
-  * réponses aux questions techniques
-* 3ème scéance :
-  * soutenance
-
-## ATTENTION NOTATION
-
-Afin que la notation se fasse simplement il est nécessaire que votre projet fonctionne directement après avoir lancer les commandes du makefile, sans quoi des pénalitées seront appliquées a la notation.
+## Dossiers
+data : contient la base de données  
+public : pages affichées sur le navigateur  
+src : contient le MVC

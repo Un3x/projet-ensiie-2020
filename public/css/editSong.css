@@ -1,0 +1,46 @@
+section.section .container .message {
+  overflow-y: auto;
+}
+
+.message {
+  margin: 0px 5px 0.8em 5px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0px;
+}
+
+.left .lyrics {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.left .lyrics textarea {
+  flex: 2;
+  resize: none;
+  min-height: 70vh;
+  max-height: none;
+}
+
+.left .links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.left .links textarea {
+  flex: 2;
+  resize: none;
+}
+
+#disp h1 {
+  margin-bottom: 0.5em;
+}
+
+#disp h3 {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
