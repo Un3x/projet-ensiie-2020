@@ -1,19 +1,19 @@
 \section{Structure du projet}
-\subsection{Modèle Vue/Controlleur}
-Pour l'apparence visuel du site nous avons adopté le modèle vue/controlleur. \\
-Cela s'avère particulièrement utile pour l'affichage du header qui permet à l'utilisateur d'accéder à toutes les fonctionnalités du site, et ce quelque soit la page sur laquelle il se trouve actuellement.\\
-Chaque page du site inclus donc la vue de ce header en entête, puis une vue de la page en question.
+\subsection{ModÃ¨le Vue/Controlleur}
+Pour l'apparence visuel du site nous avons adoptÃ© le modÃ¨le vue/controlleur. \\
+Cela s'avÃ¨re particuliÃ¨rement utile pour l'affichage du header qui permet Ã  l'utilisateur d'accÃ©der Ã  toutes les fonctionnalitÃ©s du site, et ce quelque soit la page sur laquelle il se trouve actuellement.\\
+Chaque page du site inclus donc la vue de ce header en entÃªte, puis une vue de la page en question.
 Par exemple la page login.php inclus la vue header.php ainsi que la vue de login.php (une autre page qui n'est pas dans public).\\
-L'affichage des images de profil est aussi gérer par des vues et plus précisément par des fonctions php qui permettent d'afficher une image et de décider de ses dimensions ainsi que de sa forme en retournant une balise avec du CSS.\\
-On retrouve dans le dossier /public/Forms les fichiers php qui s'occupe de la manipulation de la base de donnée côté serveur, avec par exemple login.php ou addKara.php.\newline
+L'affichage des images de profil est aussi gÃ©rÃ©e par des vues et plus prÃ©cisÃ©ment par des fonctions php qui permettent d'afficher une image et de dÃ©cider de ses dimensions ainsi que de sa forme en retournant une balise avec du CSS.\\
+On retrouve dans le dossier /public/Forms les fichiers php qui s'occupe de la manipulation de la base de donnÃ©e cÃ´tÃ© serveur, avec par exemple login.php ou addKara.php.\newline
 Les interfaces User, Lector, Playlist, et Kara se trouvent respectivement dans leur dossier respectifs dans le /src.
 
 
 \subsection{Apparence visuelle}
-Pour assurer qu'aucun style directement implémenté dans le html ne se fasse écraser par la feuille de style, l'utilisation de classe à été privilégié pour mieux contrôler les balises sur lesquelles le style s'applique. Une feuille de style, style.css, est commune à toutes les pages (car présente dans le head que l'on inclus systématiquement). Il est cependant possible d'intégrer d'autres feuilles de style pour des pages spécifiques à chaque page.
+Pour assurer qu'aucun style directement implÃ©mentÃ© dans le html ne se fasse Ã©craser par la feuille de style, l'utilisation de classe Ã  Ã©tÃ© privilÃ©giÃ© pour mieux contrÃ´ler les balises sur lesquelles le style s'applique. Une feuille de style, style.css, est commune Ã  toutes les pages (car prÃ©sente dans le head que l'on inclus systÃ©matiquement). Il est cependant possible d'intÃ©grer d'autres feuilles de style pour des pages spÃ©cifiques.
 
-\subsection{la base de donnée}
-On rajoute plusieurs tables à la base données pour pouvoir gérer les cosmétiques de chaque utilisateur et leur playlist, et la queue et la liste des lecteur du côté de lektor, voici le diagramme UML de la base de donnée du site:
+\subsection{la base de donnÃ©e}
+On rajoute plusieurs tables Ã  la base de donnÃ©es pour pouvoir gÃ©rer les cosmÃ©tiques de chaque utilisateur et leur playlist, et la queue et la liste des lecteur du cÃ´tÃ© de lektor, voici le diagramme UML de la base de donnÃ©e du site:
 \newline
 \begin{figure}[h!]
 \centering
