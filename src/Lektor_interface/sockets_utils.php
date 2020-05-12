@@ -144,7 +144,7 @@ function send_to_all_lectors($msg)
     for  ( $j=0; $j<$i; $j++ )
     {
         error_log("FORK J : $j");
-        pcntl_waitpid($pids[$j], $status, WNOHANG);
+        pcntl_waitpid($pids[$j], $status);
         if ( pcntl_wifexited($status) !== true )
             echo "Unexpected error for lector $j\n";
         else
