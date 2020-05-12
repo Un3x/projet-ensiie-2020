@@ -24,19 +24,15 @@ $allplaylists = $playlistRepository->fetchAllPublik();
     <ul>
         <?php foreach ($allplaylists as $playlist): ?>
             <li id="aPlaylistInPublikList">
-                <form action="/playlists/modifyPlaylist.php" method="GET">
+                <form action="/playlists/peekPlaylist.php" method="GET">
                 <input name="playlist_id" value="<?= $playlist->getId()?>" hidden>
-                <button type="submit">Modify</button>
-                </form>
-                <form action="/playlists/deletePlaylist.php" method="POST">
-                <input name="playlist_id" value="<?= $playlist->getId()?>" hidden>
-                <button type="submit">Delete</button>
+                <button type="submit">See</button>
                 </form>
                 <form action="/playlists/importPlaylistIntoQueue.php" method="POST">
                 <input name="playlist_id" value="<?= $playlist->getId()?>" hidden>
                 <button type="submit">Add to queue</button>
                 </form>
-                <span><?= $playlist->getName()?></span>
+                <span>[<?= $playlist->getCreatorUsername() ?>] : <?= $playlist->getName()?></span>
                 <div id=PlaylistInfo_<?= $playlist->getId()?> style="display: none">
                 </div>
             </li>

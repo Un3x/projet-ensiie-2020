@@ -86,18 +86,8 @@ class PlaylistRepository
 
     public function fetchPlaylist($id, $userId, $mode)
     {
-        if ( $mode === 0 ) // Read-only
-        {
-            if ( !$this->canAccess($id, $userId) )
-                throw new \Exception("You don't have the rights to see this playlist");
-        }
-        elseif ( $mode === 1 ) // Read-write
-        {
-            if ( !$this->isOwner($id, $userId) )
-                throw new \Exception("You don't have the rights to see this playlist");
-        }
-        else
-            throw new \Exception("Unknown access mode to playlist");
+        if ( !$this->canAccess($idPlaylist, $idAsker) )
+            throw new \Exception("You don't have the rights to see this playlist");
 
         $req = 'SELECT playlist.id, name, creator, publik, username FROM playlist JOIN "user" ON "user".id=creator WHERE playlist.id=:id';
         $playlist_info = $this->dbAdapter->prepare($req);
