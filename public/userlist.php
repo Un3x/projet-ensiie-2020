@@ -82,20 +82,13 @@ echo "nb d'identifiants = ".$nb_id;*/
                     <th>username</th>
                     <th>email</th>
                     <th>creation date</th>
-                    <th>Action</th>
-                </tr>
+                                    </tr>
                 <?php foreach($users as $user): ?>
                     <tr>
                         <td><?= $user->getId() ?></td>
                         <td><?= $user->getUsername() ?></td>
                         <td><?= $user->getEmail() ?></td>
                         <td><?= $user->getCreatedAt()->format(\DateTime::ATOM) ?></td>
-                        <td>
-                            <form method="POST" action="/deleteUser.php">
-                                <input name="user_id" type="hidden" value="<?= $user->getId() ?>">
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>
                     </tr>
                 <?php endforeach; ?>
             </table>

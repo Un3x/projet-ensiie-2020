@@ -96,7 +96,7 @@ if (isset($_GET['getResult'])) {
         $parisRepository->updateStatus($idBet,4);
         $cote = cote_basique($delayf,$idMembre,$idReu);
         $gain = $cote*$mise;
-        $Gain = round($gain,2);
+        $Gain = round($gain);
 
         echo "<div class='bet-result'>
                 <div class='bet-result-content'>$nomMembre à eu $delayPrint de retard.</div>
