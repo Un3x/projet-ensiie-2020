@@ -1,0 +1,81 @@
+footer{
+    text-align: right;
+    padding-right: 10px;
+    padding-left : 5px;
+    margin-top: 30px;
+    position: absolute;
+    right: 0px;
+    background-color: gainsboro;
+    width: 50%
+}
+
+#banniere{
+    max-height: 300px;
+    margin-bottom: 10px;
+}
+
+h5{
+    margin: 20px
+}
+
+h3{
+    color:red;
+    display:inline-block;
+    vertical-align:top
+}
+
+.bienvenue{
+    margin-left:80px;
+    margin-bottom:0px;
+    font-size: x-large;
+}
+
+.musique_delete, .playlist_play, .playlist_delete, .playlistasso_play{
+    margin-left:10px;
+    display:inline-block;
+    vertical-align:top;
+    height:35px;width:40px;
+}
+
+#imageAccueil{
+    height:100%;
+    position:fixed;
+}
+
+blockquote{
+    margin: 10px;
+}
+
+#verticalFrame{
+    position: fixed;
+    height:100%;
+}
+
+#verticalMenu{
+    height:100%;
+    overflow:auto;
+}
+
+#verticalMenuFrame{
+    height:40%;
+    overflow:auto;
+}
+
+#container_player{
+    height:55%;
+    margin-top:5%;
+    text-align: center;
+}
+
+#imagePlayer{
+    width: 75%;
+    height: auto;
+    border-radius: 2rem;
+    padding:0.3rem; 
+}
+
+#banniere{
+    width: 100%;
+    height: auto;
+}
+
