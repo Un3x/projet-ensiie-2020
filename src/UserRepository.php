@@ -147,11 +147,12 @@ class UserRepository
     {
         $req = $this->dbAdapter->prepare('INSERT INTO Membre(id, username, email,  passwd, points) VALUES(:id, :username, :email, :password, :pointss)');
 
+        $pointss = 0;
         $req->bindParam('id', $id);    
         $req->bindParam('username', $username);
         $req->bindParam('email', $email);
         $req->bindParam('password', $password);
-        $req->bindParam('pointss', 0);
+        $req->bindParam('pointss', $pointss);
 
         if (!$req) {
         echo "\nPDO::errorInfo():\n";
@@ -289,5 +290,16 @@ class UserRepository
             return false;
         }
     }
-
+    public function IdPartiToName($Id_Membre){
+        $req=$this->dbAdapter->query("SELECT username FROM Membre where id='$Id_Membre'");
+        $donnees = $req->fetch();
+        $username = $donnees['username'];
+        return $username;
+    }
+    public function NameToId($username){
+        $req=$this->dbAdapter->query("SELECT id FROM Membre where username='$username'");
+        $donnees = $req->fetch();
+        $id = $donnees['id'];
+        return $id;
+    }
 }

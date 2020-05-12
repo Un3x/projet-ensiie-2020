@@ -1,0 +1,56 @@
+
+
+#body1{
+    background: #ecf3f6;
+}
+
+#leg1 {
+
+    background : white;
+}
+
+input[type=submit]:hover {
+    background-color: white;
+    color:cornflowerblue;
+    border: 1px solid cornflowerblue;
+}
+
+#id2{
+    text-align: center;
+    margin-top: 0px;
+    border:3px solid black;
+    padding:3px;
+    background-color: #b0c4de; 
+}
+
+/*#li{
+    width: 220px;
+    padding: 10px;
+    background-color : white;
+    font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 3px;
+    box-shadow: 0 8px 16px 0 grey;
+    text-decoration: black;
+    display: block;
+    margin : auto;
+    color : cornflowerblue;
+}*/
+body{
+    background: cornflowerblue;
+}
+
+#body1{
+    background: white;
+}
+
+#leg1 {
+
+    background : white;
+  }
+input[type=submit]:hover {
+    background-color: white;
+    color:cornflowerblue;
+    border: 1px solid cornflowerblue;
+}
+

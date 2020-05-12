@@ -28,9 +28,14 @@ $admins = $adminRepository->fetchAdmin2();
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="/profil.php"><span>Home</span></a>
                 </li>
-		<a href='userlist.php?deconnexion=true'><span>Déconnexion</span></a>	
+                <a href='agenda.php' class="nav-link"><span>Agenda</span></a> 
+                <a href='profil.php' class="nav-link"><span>Profil</span></a> 
+                <a href='OrgaReu.php' class="nav-link"><span>Réunions</span></a>
+                 <a href='bet.php' class="nav-link"><span>Paris</span></a>
+                	
+        </ul>
+        </div>
                 <?php session_start();
 		    if(isset($_GET['deconnexion'])) { 
                        if($_GET['deconnexion']==true) {  
@@ -46,8 +51,9 @@ $admins = $adminRepository->fetchAdmin2();
                   	 echo "</div>";
                	    }
                 ?>
-            </ul>
-        </div>
+                
+          
+        <div style="float:right;"><a href='userlist.php?deconnexion=true' ><span><FONT color="black">Déconnexion </FONT></span></div></a> 
     </nav>
 </header>
 <div class="container">

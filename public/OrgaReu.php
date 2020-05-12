@@ -10,7 +10,10 @@ $userRepository = new \User\UserRepository($dbAdaper);
 $AssoRepository = new \Asso\AssoRepository($dbAdaper);
 
 session_start();
-$userid=$_SESSION['user']->getId();
+$_SESSION['user'] = $userRepository->getUser($_SESSION['username']);
+
+$userid = $_SESSION['user']->getId();
+
 $assoAll = $AssoRepository->fetch_all_Assos_for_Admin($userid);
 
 ?>
@@ -48,27 +51,27 @@ $assoAll = $AssoRepository->fetch_all_Assos_for_Admin($userid);
                     <?php if($userRepository->IsSuperAdmin($_SESSION['user']->getId()))
                       echo "<a href='home_super_admin.php' class='nav-link'><span>Gestion</span></a>";
                       ?>
+            </ul>
+        </div>
 
                 <?php session_start();
                         if($_SESSION['username'] !== ""){
                          $user = $_SESSION['username'];
                      // afficher un message
-                     echo "<div class='connection_id nav-link' id='idco' >";
+                     echo "<div class='connection_id nav-link' >";
                      echo "$user";
                      echo "</div>";
-		                  if(isset($_GET['deconnexion'])) { 
+                      if(isset($_GET['deconnexion'])) { 
                        if($_GET['deconnexion']==true) {  
-                  	    session_unset();
-                  	    header("location:index.php");
+                        session_unset();
+                        header("location:index.php");
                        }
-             	    }
+                  }
 
-               	    }
+                    }
                 ?>
-                    <a href='userlist.php?deconnexion=true' class="nav-link" style="align-text:right;"><span>Déconnexion</span></a> 
+                    <a href='userlist.php?deconnexion=true' class="nav-link" style="align-text:right;"><span><FONT color="black">Déconnexion</FONT></span></a> 
 
-            </ul>
-        </div>
     </nav>
 </header>
 
@@ -80,7 +83,7 @@ if($userRepository->IsAdmin($userid)){
    echo "<form name='FormReu' action='creaReu.php' method='post' >";
 
     echo "Nom de l'association :";
-    echo "<select name='nomAsso' id ='nomAsso' size='1'>";
+    echo "<select name='nom_asso' id ='nom_asso' size='1'>";
         foreach($assoAll as $element){
             echo '<option>'.$element->getNomAssoc();
         }
@@ -104,8 +107,21 @@ if($userRepository->IsAdmin($userid)){
 }
 else{
 	echo "<h1>";
-	echo "Vous devez être administrateur d'une association pour avoir accès à cette partie";
+  echo "<div align='center' style= 'position:absolute;top:40%;left:20%;''>";
+	echo "Vous devez être administrateur d'une association";
+  echo "</div>";
+  echo "<div align='center' style= 'position:absolute;top:50%;left:32%;''>";
+  echo " pour avoir accès à cette partie";
+  echo "</div>";
 	echo "</h1>";
+
+  echo "<h3>";
+  echo "<div align='center' style= 'position:absolute;top:65%;left:27%;''>";
+  echo "<a class='nav-link' href='/Form_demande_admin.php'><FONT color='white'> Cliquez ici pour demander à devenir administrateur</FONT></a>";
+  echo "</div>";
+  echo "</h3>";
+
+
 }
 
 ?>
