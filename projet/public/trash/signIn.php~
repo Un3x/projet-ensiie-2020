@@ -1,0 +1,62 @@
+<?php
+
+include '../src/User.php';
+include '../src/UserRepository.php';
+include '../src/Factory/DbAdaperFactory.php';
+
+$dbAdaper = (new DbAdaperFactory())->createService();
+$userRepository = new \User\UserRepository($dbAdaper);
+$users = $userRepository->fetchAll();
+
+?>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Medialiste</title>
+    <meta name="description" content="Projet web Ensiie - Sign in">
+    <meta name="author" content="Aymeric KEYEWA">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css?v=1.0">
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Medialiste</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>                      
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Sign in</a>
+                 </li>                                          
+                <li class="nav-item active">                                          
+                    <a class="nav-link" href="/">Sign up</a>
+                 </li>                                          
+            </ul>
+        </div>
+      </nav>        
+</header>
+
+
+<div class="container">
+      <label for="username">Username (4 to 15 characters) :</label>
+
+<input type="text" id="username" name="username" required
+       minlength="4" maxlength="15" size="17">
+
+<label for="password">Password :</label>
+
+<input type="password" id="password" name="password" required
+       minlength="4" maxlength="20" size="22">
+
+</div>
+
+       
+
+
+<script src="js/scripts.js"></script>
+</body>
+</html>
