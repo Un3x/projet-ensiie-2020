@@ -131,8 +131,6 @@ class UserRepository
             echo "\nPDO::errorInfo():\n";
             print_r($dbh->errorInfo());
             } 
-        echo "on passe dans la fonction delete";
-        echo "on supprime l'identifiant : ".$userId;
     }
         
     public function nb_users(){
@@ -145,16 +143,16 @@ class UserRepository
 
     public function newUser($id, $username, $email, $password)
     {
-        $req = $this->dbAdapter->prepare('INSERT INTO Membre(id, username, email,  passwd, points) VALUES(:id, :username, :email, :password, :pointss)');
+        $req = $this->dbAdapter->prepare('INSERT INTO Membre(id, username, email,  passwd, points) VALUES(:id, :username, :email, :password, :points)');
 
-        $pointss = 0;
+        $points = 0;
         $req->bindParam('id', $id);    
         $req->bindParam('username', $username);
         $req->bindParam('email', $email);
         $req->bindParam('password', $password);
-        $req->bindParam('pointss', $pointss);
+        $req->bindParam('points', $points);
 
-        if (!$req) {
+        if (!$req){
         echo "\nPDO::errorInfo():\n";
         print_r($dbh->errorInfo());
         } 

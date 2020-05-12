@@ -101,7 +101,7 @@ public function fetch_all_Assos_Excep($username)
 
 public function newMembre($Id_Membre,$Nom_Assoc,$username)
 {       
-        $sql2="SELECT Id_Assoc FROM Association where Nom_assoc = '$Nom_assoc'";
+        $sql2="SELECT Id_Assoc FROM Association where Nom_assoc = '$Nom_Assoc'";
         $result2 = $this->dbAdapter->query($sql2);
         $donnees2 = $result2->fetch();
         $Id_Assoc = $donnees2['id_assoc'];
@@ -166,4 +166,10 @@ public function fetch_all_Assos_for_Admin($userid)
     return $Asso;
     }
 
+public function NameToId($name){
+    $req=$this->dbAdapter->query("SELECT id_assoc FROM Association where Nom_assoc='$name'");
+    $donnees = $req->fetch();
+    $id = $donnees['id_assoc'];
+    return $id;
+}
 }

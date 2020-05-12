@@ -139,7 +139,7 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
 <ul>
   <li  onclick = "swipe2('formDelete','formMDP','formUsName');"><a href="#" > Suppression du compte :</a> </li>
 
-    <div id="formDelete" style= "position:absolute;top:22%;left:30%;">
+    <div id="formDelete" style= "position:absolute;top:24%;left:30%;">
     <form method="POST" action="/deleteUser.php">
         <button  type="submit">Valider la suppression</button>
     </form>
@@ -148,14 +148,14 @@ window.onload = function () { Hide("formMDP");Hide("ListAsso");Hide("formUsName"
   <li  onclick = "swipe('formUsName','formMDP','formDelete');"><a href="#" >Changement de nom d'utilisateur</a></li>
 </ul>
 
-  <div id="formMDP" style= "position:absolute;top:22%;left:30%;">
+  <div id="formMDP" style= "position:absolute;top:26%;left:30%;">
   <form action='modifMDP.php' id="mdp" method="post">
     Nouveau mot de passe: </br>
   <input type="text" name="newP">
   <input type="submit" name="Valider" value="Valider" id ='bouton_envoi' align="center">
   </form>
   </div>
-  <div id="formUsName" style= "position:absolute;top:26%;left:30%; ">
+  <div id="formUsName" style= "position:absolute;top:28%;left:30%; ">
   <form action='modifUsName.php'  method="post">
     Nouveau nom d'utilisateur: </br>
   <input type="text" name="newU">

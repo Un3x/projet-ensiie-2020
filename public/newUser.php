@@ -16,4 +16,4 @@ if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['pass'])
 }
 ?> 
 <h1>Votre compte a bien été créé </h1>
-<a class="nav-link" href="/userlist.php">Home</a>
+<a class="nav-link" href="/index.php">Home</a>
