@@ -11,5 +11,5 @@
 \contentsline {subsection}{\numberline {4.3}Droits des utilisateurs}{6}% 
 \contentsline {section}{\numberline {5}Queue et Lektor}{6}% 
 \contentsline {subsection}{\numberline {5.1}Queue}{6}% 
-\contentsline {subsection}{\numberline {5.2}Lector}{7}% 
-\contentsline {section}{\numberline {6}Conclusion}{7}% 
+\contentsline {subsection}{\numberline {5.2}Lektor}{7}% 
+\contentsline {section}{\numberline {6}Conclusion}{8}% 
