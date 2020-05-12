@@ -12,7 +12,6 @@ include_once "errors.php";
 <body>
 
 <?php if (isset($_SESSION['id'])){
-var_dump($_SESSION['image']);
 pp($_SESSION['image'],200,200,50);
 echo "<h1 class=\"titre\">".$_SESSION['title']."</h1>";
 echo "<form action=\"Forms/modifyUserCosmetics.php\" method=\"post\">";

@@ -18,8 +18,8 @@ if ( !isset($playlistRepository) )
 
 try
 {
-    $playlist_id = htmlspecialchars($_GET['playlist_id']);
-    $playlist_all = $playlistRepository->fetchPlaylist($playlist_id, $_SESSION['id'], 1);
+    $playlist_id = intval(htmlspecialchars($_GET['playlist_id']));
+    $playlist_all = $playlistRepository->fetchPlaylist($playlist_id, intval($_SESSION['id']));
     $playlist = $playlist_all[0];
     $karasInPlaylist = $playlist_all[1];
     $karas = $karaRepository->fetchAllNotInPlaylist($playlist_id);
