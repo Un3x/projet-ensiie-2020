@@ -1,0 +1,83 @@
+body {
+  margin: auto;
+  color: white;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
+header {
+  background-color: rgb(50, 82, 168);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10%;
+}
+
+a {
+  text-decoration: none;
+  color:white;
+  float: left;
+}
+
+.topnav-left {
+    margin-left: 1%;
+}
+.topnav-right {
+    margin-right: 5%;
+}
+
+#bg_image {
+
+    background-image: url("../img/image_ensiie_flou.jpg");
+    height: 90%; 
+    /* Centrer et ajuster l'image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* flexbox */
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+}
+
+#form_connexion_area{
+
+  width:35%;
+  height: auto;
+  background: rgba(149, 165, 166, 0.5);
+  border: 1px solid black;
+  margin-top:3%;
+}
+
+#infos {
+  text-align: center;
+}
+
+#username,#password {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: rgba(149, 165, 166, 0.5);
+  font-size:16px;
+}
+
+#submit {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 4px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+::placeholder {     /* texte par défaut des zones de saisie des informations personnelles */
+  color:white;
+  font-size: 14px;
+}

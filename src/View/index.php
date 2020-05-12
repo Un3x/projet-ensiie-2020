@@ -1,8 +1,8 @@
 <?php
 
-include '../src/User.php';
-include '../src/UserRepository.php';
-include '../src/Factory/DbAdaperFactory.php';
+include '../Model/Entity/User.php';
+include '../Model/Repository/UserRepository.php';
+include '../Model/Factory/DbAdaperFactory.php';
 
 $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new \User\UserRepository($dbAdaper);
@@ -17,7 +17,6 @@ $users = $userRepository->fetchAll();
     <meta name="description" content="Projet web Ensiie">
     <meta name="author" content="Thomas COMES">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
 </head>
 
 <body>
@@ -41,7 +40,6 @@ $users = $userRepository->fetchAll();
         <div class="col-sm-12">
             <table class="table">
                 <tr>
-                    <th>id</th>
                     <th>username</th>
                     <th>email</th>
                     <th>creation date</th>
@@ -49,13 +47,12 @@ $users = $userRepository->fetchAll();
                 </tr>
                 <?php foreach($users as $user): ?>
                     <tr>
-                        <td><?= $user->getId() ?></td>
                         <td><?= $user->getUsername() ?></td>
                         <td><?= $user->getEmail() ?></td>
                         <td><?= $user->getCreatedAt()->format(\DateTime::ATOM) ?></td>
                         <td>
-                            <form method="POST" action="/deleteUser.php">
-                                <input name="user_id" type="hidden" value="<?= $user->getId() ?>">
+                            <form method="POST" action="../../src/Utils/deleteUser.php">
+                                <input name="user_name" type="hidden" value="<?=$user->getUsername() ?>">
                                 <button type="submit">Delete</button>
                             </form>
                         </td>
@@ -65,6 +62,5 @@ $users = $userRepository->fetchAll();
         </div>
     </div>
 </div>
-<script src="js/scripts.js"></script>
 </body>
 </html>

@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Twitiie</title>
+        <link rel="stylesheet" href="../../public/css/style_inscription.css?v=1.0">
+        <link rel="icon" type="img/png" href="../../public/img/icon_ensiie" />
+        <script src="../../public/js/scripts.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div class="topnav-left">
+               <a href="connection.html"> <h2> Se connecter</h2> </a>
+           </div>
+        </header>
+
+        <div id="bg_image"> 
+            <div id="form_connexion_area">
+                <div id="infos">
+                    <h2> Vous y êtes presque !</h2>
+                    <p> Veuillez renseigner les champs ci-dessous <br> pour devenir membre de Twitiie.</p>
+                </div>
+
+                <form  method="POST" action="../../src/Utils/newUser.php" autocomplete="off" >
+
+                    <input type="text" name="username" id="username" placeholder="Nom d'utilisateur" maxlength="30">  <br>
+                    <input type="email" name="email" id="email" placeholder="Adresse mail" maxlength="30"> <br>
+
+                    <!-- le mot de passe doit contenir au moins 8 caractères dont au moins 1 nombre, 1 minuscule et 1 majuscule !-->
+                    <input type="password" name="password" id="password" placeholder="Mot de passe" maxlength="30" 
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Au moins 8 caractères dont une minuscule, une majuscule et un chiffre"> <br>
+
+                    <input type="submit" name="submit" id="submit" value="S'inscrire">
+
+                </form>
+                 
+            </div>
+        </div>
+
+    </body>
+
+</html>

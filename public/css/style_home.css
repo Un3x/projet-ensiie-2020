@@ -1,0 +1,251 @@
+body {
+	margin: auto;
+	font-family: sans-serif;
+}
+
+header {
+	background-color: rgb(50, 82, 168);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 10%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+div > a {
+  color:white;
+  float: left;
+}
+
+ul {
+  list-style: none;
+  margin-top: 5%;
+}
+
+.topnav-left {
+  margin-left: 1%;
+}
+.topnav-right {
+  margin-right: 3%;
+}
+
+#lower_div {
+  height: 90%;
+  background: linear-gradient(45deg,#59c173, #a17fe0, #5d26c1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: flex;  
+}
+
+
+#leftNav{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content : space-around;
+}
+
+#infos_user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#img_user{
+  width: 150px;
+  height: 150px;
+  margin-top: 25px;
+}
+
+#user_name{
+  color: white;
+  font-size: 40px;
+}
+
+ul li {
+  margin: 30px 0px 0px 0px;
+}
+
+ul li a {
+  color: #73264d;
+  font-size: 18px;
+}
+
+#appContainer{
+
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(#2E4053, #212F3D);
+  display: flex;
+  flex-direction: column;
+  justify-content : center;
+  align-items: center;
+}
+
+
+/* Code CSS : Toutes les publications */ 
+
+#messagerie{
+  height: 100%;
+  width: 99%;
+  background : linear-gradient(45deg,#7e67e5, #3498DB);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  -ms-overflow-style: none;   /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none;
+
+}
+
+#messagerie::-webkit-scrollbar {
+  display: none;    /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+
+form {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0; 
+    border: medium none;
+    color: #4c4c4c;
+    font-size: 15px;
+    width: 100%;
+    outline: none;
+}
+
+#tweet{
+  width: 100%;
+  height: 70px;
+  border: 0px;
+  font-size: 24px;
+  padding: 5px 14px 7px; 
+  border: 1px solid transparent; 
+  background-color : #ded3d3;
+  transition: 0.4s;
+}
+
+#tweet:focus {
+    padding: 5px 21px 7px; 
+    transition: 0.4s;
+    background-color : #c8b6b6  ;
+}
+
+
+#showTweets{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#tweetFormatter{
+  min-height: 40px;
+  max-width: 80%;
+  background-color: rgb(153, 153, 255);
+  border-radius: 10px;
+  padding: 5px 10px 5px 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content : space-between;
+  align-items: center;
+  margin: 10px -25px;     /* espace entre les items flexbox */
+  height: fit-content;
+}
+
+#content {
+  font-size: 20px;
+  margin: -10px 25px;     /* espace entre les items flexbox */
+  width: 80%;
+}
+
+#sentHour {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+#actions {
+margin-left: 1%;
+}
+
+#sendLike{
+  width: 10%;
+  margin-top: 5%;
+}
+
+button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+}
+
+
+#logolike {
+  width: 35px;
+  height: 35px;
+}
+
+#countLike{
+  margin-bottom : 17%;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+
+
+/* Code CSS : Mes abonnés */ 
+
+.titleViewFollows {   /* titre de la page "Mes abonnés" ou "Mes abonnements" */
+  font-size: 36px;
+  padding: 5px;
+  color: white;
+}
+
+.tableFollows {
+  font-size: 28px;
+}
+
+
+table {
+ border-collapse:separate; 
+  border-spacing:15px;
+  margin : auto;
+
+}
+
+ th, td {
+  border: 2px solid black;
+  padding: 15px;
+  background-color: #329da8;
+}
+
+
+#followName {
+  width: 15%;
+  margin-top: 2%; 
+}    
+
+#followName form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#followName button {
+  font-size: 24px;
+  border-radius: 8px; 
+  background-color: #008CBA; 
+  color: black; 
+  border: 2px solid black;
+  transition-duration: 0.4s;
+  padding : 10px;
+}
+
+#followName button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}

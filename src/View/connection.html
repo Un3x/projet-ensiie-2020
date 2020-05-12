@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Twitiie</title>
+        <link rel="stylesheet" href="../../public/css/style_connection.css?v=1.0">
+        <link rel="icon" type="img/png" href="../../public/img/icon_ensiie" />
+        <script src="../../public/js/scripts.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div class="topnav-left">
+               <a href="connection.html"> <h2> Web Uisy</h2> </a>
+           </div>
+            <div class="topnav-right">
+                <a href="inscription.html"><h2>S'inscrire </h2> </a>
+            </div>
+        </header>
+
+        <div id="bg_image">
+            <div id="form_connexion_area">
+
+                <div id="infos">
+                    <h2> Bienvenue ! </h2>
+                    <p> Un pseudo et un mot de passe<br>
+                    suffisent pour rentrer dans le monde de l'ENSIIE.</p>
+                </div>
+
+                <form method="POST" action="../../src/Utils/checkUser.php" autocomplete="off" >
+
+                    <input type="text" name="username" id="username" placeholder="Nom d'utilisateur" maxlength="30">  <br>
+                    <input type="password" name="password" id="password" placeholder="Mot de passe" maxlength="30"> <br>
+                    <input type="submit" name="submit" id="submit" value="Se connecter">
+
+                </form>
+
+            </div>
+        </div>
+
+    </body>
+
+</html>
