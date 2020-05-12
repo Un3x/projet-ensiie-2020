@@ -13,7 +13,7 @@ Le makefile dispose de 4 commandes :
 
 - Le package PHP php-pgsql doit être installé.
 
-- L'extension PDO-pgsql doit être active, ie. la ligne ';extension=pdo-pgsql' doit être décommentée (retirer le point-virgule) dans le fichier php.ini.
+- L'extension PDO-pgsql doit être active, ie. la ligne ';extension=pdo-pgsql' doit être décommentée (retirer le point-virgule) dans le fichier php.ini de votre système.
 
 ## Lancement du site
 Après avoir effectué les prérequis, exécuter les commandes suivantes :
