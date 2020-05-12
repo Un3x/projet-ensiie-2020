@@ -16,18 +16,20 @@ if (isset($_SESSION['id']))
         }
     }
 
+    $id = htmlspecialchars($_POST['id']);
+
     $dbAdapter = (new DbAdaperFactory())->createService();
-    echo "Adding kara n°" . $_POST['id'] . "...\n";
+    echo "Adding kara n°" . $id . "...\n";
     $req =
         'INSERT INTO "queue" (id, added_by)
          VALUES(:id, :adder);';
     $addition = $dbAdapter->prepare($req);
-    $addition->bindParam('id', $_POST['id']);
-    $addition->bindParam('adder', $_SESSION['id']);
+    $addition->bindParam('id', $id, \PDO::PARAM_INT);
+    $addition->bindParam('adder', $_SESSION['id'], \PDO::PARAM_INT);
     $addition->execute();
 
 
-    $msg = "add id://" . $_POST['id'] . "\n" ;
+    $msg = "add id://" . $id . "\n" ;
     error_log("SOCKETS : Starting sending to all lectors");
     send_to_all_lectors($msg);
     /*

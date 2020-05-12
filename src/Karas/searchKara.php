@@ -16,6 +16,8 @@ require_once 'Factory/DbAdaperFactory.php';
 //  6 : language
 //  7 : is_new
 //  8 : author_name
+//
+/*
 function searchKara($str)
 {
     $dbAdaper = (new DbAdaperFactory())->createService();
@@ -38,6 +40,7 @@ function searchKara($str)
 
     return $ret;
 }
+ */
 
 function searchKaraByCriteria($names)
 {
@@ -70,13 +73,13 @@ function searchKaraByCriteria($names)
     $n2 = "%" . $names[2] . "%";
 
     $ret = $dbAdapter->prepare($req);
-    $ret->bindParam(':n0', $n0);
-    $ret->bindParam(':n1', $n1);
-    $ret->bindParam(':n2', $n2);
+    $ret->bindParam(':n0', $n0, PDO::PARAM_STR);
+    $ret->bindParam(':n1', $n1, PDO::PARAM_STR);
+    $ret->bindParam(':n2', $n2, PDO::PARAM_STR);
     if ( $names[3] !== "all" )
-        $ret->bindParam(':n3', $n3);
+        $ret->bindParam(':n3', $n3, PDO::PARAM_STR);
     if ( $names[4] !== "all" )
-        $ret->bindParam(':n4', $n4);
+        $ret->bindParam(':n4', $n4, PDO::PARAM_STR);
 
     $ret->execute();
     return $ret->fetchAll();

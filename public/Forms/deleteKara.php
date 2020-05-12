@@ -6,17 +6,18 @@ require_once 'Lektor_interface/sockets_utils.php';
 
 if ( isset($_SESSION['id']) && ( $_SESSION['rights'] === 1 || $_SESSION['rights'] === 2) )
 {
+    $id = htmlspecialchars($_POST['id']);
     $dbAdapter = (new DbAdaperFactory())->createService();
-    echo "Deleting kara at position " . $_POST['id'] . "...\n";
+    echo "Deleting kara at position " . $id . "...\n";
     $req =
         'DELETE FROM "queue"
          WHERE id=:id;';
     $addition = $dbAdapter->prepare($req);
-    $addition->bindParam('id', $_POST['id']);
+    $addition->bindParam('id', $id, \PDO::PARAM_INT);
     $addition->execute();
 
 
-    $msg = "deleteid " . $_POST['id'] . "\n" ;
+    $msg = "deleteid " . $id . "\n" ;
     error_log("SOCKETS : Starting sending to all lectors");
     send_to_all_lectors($msg);
     /*

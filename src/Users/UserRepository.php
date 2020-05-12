@@ -56,9 +56,9 @@ class UserRepository
     public function add ($username, $email, $password)
     {
     $newUser=$this->dbAdapter->prepare('INSERT INTO "user" (username, email, password, xp, rights, created_at) VALUES (:userName, :Email, :passWord, 0, 0, NOW())');
-        $newUser->bindParam('userName', $username);
-        $newUser->bindParam('Email', $email);
-	$newUser->bindParam('passWord', $password);
+        $newUser->bindParam('userName', $username, PDO::PARAM_STR);
+        $newUser->bindParam('Email', $email, PDO::PARAM_STR);
+	$newUser->bindParam('passWord', $password, PDO::PARAM_STR);
 	$newUser->execute();
 
 	//add a row to userCosmetics
@@ -71,7 +71,7 @@ class UserRepository
 	$newCosmetics='INSERT INTO userCosmetics (id, IDimage, IDtitle) VALUES (:ID, 0, 0)';
 	$stmt=$this->dbAdapter->prepare($newCosmetics);
     error_log("ADDING GGGGG $id");
-	$stmt->bindParam('ID', $id);
+	$stmt->bindParam('ID', $id, PDO::PARAM_INT);
 	$stmt->execute();
     }
 
@@ -80,31 +80,31 @@ class UserRepository
         $stmt = $this
             ->dbAdapter
 	          ->prepare('DELETE FROM userCosmetics where id = :userId');
-        $stmt->bindParam('userId', $userId);
+        $stmt->bindParam('userId', $userId, PDO::PARAM_INT);
         $stmt->execute();
 
         $stmt2 = $this
             ->dbAdapter
 	          ->prepare('DELETE FROM queue where id = :userId');
-        $stmt2->bindParam('userId', $userId);
+        $stmt2->bindParam('userId', $userId, PDO::PARAM_INT);
         $stmt2->execute();
 
         $stmt3 = $this
             ->dbAdapter
 	          ->prepare('DELETE FROM lector where id = :userId');
-        $stmt3->bindParam('userId', $userId);
+        $stmt3->bindParam('userId', $userId, PDO::PARAM_INT);
         $stmt3->execute();
 
         $stmt4 = $this
             ->dbAdapter
 	          ->prepare('DELETE FROM playlist where id = :userId');
-        $stmt4->bindParam('userId', $userId);
+        $stmt4->bindParam('userId', $userId, PDO::PARAM_INT);
         $stmt4->execute();
 
         $stmt5 = $this
             ->dbAdapter
             ->prepare('DELETE FROM "user" where id = :userId');
-        $stmt5->bindParam('userId', $userId);
+        $stmt5->bindParam('userId', $userId, PDO::PARAM_INT);
         $stmt5->execute();
     }
 
@@ -116,8 +116,8 @@ class UserRepository
             ->prepare(
                 'UPDATE "user" SET rights=:rights
                 WHERE id=:id');
-        $stmt->bindParam('rights', $rights);
-        $stmt->bindParam('id', $userId);
+        $stmt->bindParam('rights', $rights, PDO::PARAM_INT);
+        $stmt->bindParam('id', $userId, PDO::PARAM_INT);
         $stmt->execute();
     }
 

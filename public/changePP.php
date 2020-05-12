@@ -23,7 +23,7 @@ choiceTitle();
 echo "</select></div><br>";
 $dbAdaper = (new DbAdaperFactory())->createService();
 $images=$dbAdaper->prepare('SELECT IDimage,image FROM image WHERE xpNeeded <= :xp;');
-$images->bindParam('xp',$_SESSION['xp']);
+$images->bindParam('xp',$_SESSION['xp'], PDO::PARAM_INT);
 $images->execute();
 $i=0;
 foreach ($images as $image){

@@ -28,8 +28,8 @@ if (isset($_POST['newImage'])){
         }
 		$sql='UPDATE userCosmetics SET IDimage=:newImage WHERE id=:userID;';
 		$stmt=$dbAdapter->prepare($sql);
-		$stmt->bindParam('newImage', $newImage);
-		$stmt->bindParam('userID', $userID);
+		$stmt->bindParam('newImage', $newImage, PDO::PARAM_INT);
+		$stmt->bindParam('userID', $userID, PDO::PARAM_INT);
 		$stmt->execute();
 		$_SESSION['image'] = $_POST['newImage'];
 	}
@@ -44,8 +44,8 @@ if (isset($_POST['newTitle'])){
         $newTitle = htmlspecialchars($_POST['newTitle']);
 		$sql='UPDATE userCosmetics SET IDtitle= :newTitle WHERE id= :userID;';
 		$stmt=$dbAdapter->prepare($sql);
-		$stmt->bindParam('newTitle', $newTitle);
-		$stmt->bindParam('userID',$userID);
+		$stmt->bindParam('newTitle', $newTitle, PDO::PARAM_INT);
+		$stmt->bindParam('userID',$userID, PDO::PARAM_INT);
 		$stmt->execute();
 		$_SESSION['title'] = $newTitle;
 	}

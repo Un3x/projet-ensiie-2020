@@ -58,9 +58,9 @@ class LectorRepository
         $stmt=$this
             ->dbAdapter
                 ->prepare('INSERT INTO "lector" (id, ip, port) VALUES (:id, :ip, :port)');
-        $stmt->bindParam('id', $id);
-        $stmt->bindParam('ip', $ip);
-        $stmt->bindParam('port', $port);
+        $stmt->bindParam('id', $id, PDO::PARAM_INT);
+        $stmt->bindParam('ip', $ip, PDO::PARAM_STR);
+        $stmt->bindParam('port', $port, PDO::PARAM_INT);
         $stmt->execute();
     }
 }

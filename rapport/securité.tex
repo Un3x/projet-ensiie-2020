@@ -1,7 +1,7 @@
 \section{Sécurité}
     Un minimum de sécurité a été implanté pour éviter des attaques récurrentes comme un ddos ou des injections SQL :
 
-Chaque variable obtenue d'un formulaire via la méthode POST sera d'abord filtré avec la commande htmlspecialchars() pour éviter que des caractères spéciaux apparaissent. Ensuite, ces variables seront rentrées en paramètres dans les commandes SQL via la méthode bindParam du PDO, et celà en rensaignant à chaque fois le paramètre optionnel \texttt{\$data\_type}, qui permet d'éviter un mauvais typage.\newline
+Chaque variable obtenue d'un formulaire via la méthode POST sera d'abord filtré avec la commande htmlspecialchars() pour éviter que des caractères spéciaux apparaissent. Ensuite, ces variables seront rentrées en paramètres dans les commandes SQL via la méthode \texttt{bindParam} du PDO, et cela en renseignant à chaque fois le paramètre optionnel \texttt{\$data\_type}, qui permet d'éviter un mauvais typage.\newline
 Lors d'une création, d'une connexion ou de la modification d'un compte, on vérifie bien que les champs remplis sont bien valides (email au bon format, pas d'espace dans le username), ainsi nous n'aurons pas de risque concernant l'utilisateur qui rentre une commande de type \texttt{DROP TABLE}.
 Chaque formulaire aura avant tout une validation javaScript pour ne pas surcharger le serveur par de mauvaises requêtes.
 

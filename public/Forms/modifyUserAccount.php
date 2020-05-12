@@ -34,7 +34,7 @@ $userID=htmlspecialchars($_SESSION['id']);
 //check if the password is correct
 $sql='SELECT * FROM "user" WHERE id= :userID;';
 $getOldPassword=$dbAdaper->prepare($sql);
-$getOldPassword->bindParam('userID',$userID);
+$getOldPassword->bindParam('userID',$userID, PDO::PARAM_INT);
 $getOldPassword->execute();
 $trueOldPassword=$getOldPassword->fetch();
 if (!password_verify($_POST['currentPassword'],$trueOldPassword['password']))
