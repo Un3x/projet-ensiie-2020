@@ -2,8 +2,8 @@ start:
 	php -S localhost:8080 -t projet/views/accueil.php
 
 db.init:
-	createdb MyM
-	psql -U ensiie -d MyM -a -f data/init.sql
+	createdb ensiie
+	psql -U ensiie -d ensiie -a -f data/init.sql
 
 db.drop:
 	dropdb MyM
