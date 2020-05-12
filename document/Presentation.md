@@ -1,6 +1,6 @@
 ![matters](https://cdn-images-1.medium.com/max/2000/1*Pl-fB1X01RfcEbPP-FVlew.jpeg)
 
-Projet web ENSIIE 1A 2020
+Projet web ENSIIE 1A 2019
 ======
 
 Objectif pédagogique
@@ -66,6 +66,12 @@ Nous attendons de la part des élèves une véritable appropriation du sujet. Il
 * jQuery utilisé n’importe comment
 * HTML5 utilisé n’importe comment
 
+### Séances
+
+> * **26 mars 2019** : choix du sujet, début des projets, présentation de cloud9 (documentation)
+> * **09 avril 2019** : point d’avancement, échange sur les bonnes pratiques, analyse du code
+> * **14 mai 2019** : soutenance, livraison des sources
+
 ### La notation
 
 Une partie de la note sera attribuée par groupe, une autre réservée à l’investissement personnel.
@@ -77,9 +83,14 @@ Une partie de la note sera attribuée par groupe, une autre réservée à l’in
 > * La soutenance du projet, nous souhaitons voir une soutenance dynamique. Pas de présentation point par point afin de vérifier que oui il y a bien une inscription et ou un CRUD. On veut voir que ça marche, on veut être convaincu et on veut se l’arracher votre projet. Encore moins une lecture de votre rapport.
 > * Le rapport du projet a un but complètement différent de la soutenance. La soutenance nous permet de voir le produit tel que vous avez imaginé son utilisation, le rapport nous permet de comprendre la partie interne du fonctionnement de votre groupe. Il est très important pour nous de bien comprendre quels ont été les enjeux de chaque groupe, quelles ont été les difficultés rencontrées et surtout quelles ont été les solutions trouvées pour les contourner.
 
+### L’environnement de développement
+
+Afin de s’affranchir de problème d’infrastructure, nous vous mettons à disposition un environnement de développement pour ce projet.
+>Lors du premier cours nous vous présenterons l'utilisation du git que nous avons mis à votre disposition ainsi que le fonctionnement d'un Docker entièrement configuré et prêt à être utilisé pour développer votre projet.
+
 ### Le rendu des sources et du rapport
 
->Les projets devront être pushé sur ce [repository git](https://github.com/Un3x/projet-ensiie-2020) sur une branche ```<nom-de-votre-groupe>-group```.
+>Les projets devront être pushé sur ce [repository git](https://github.com/Un3x/ensiie-project) sur une branche ```<nom-de-votre-groupe>-group```.
 
 **ATTENTION**: ce repo git n'as pas pour but d'être utilisé pendant le développement. Il s'agit de notre outil pour récupérer vos projets et pouvoir les utiliser. L'utilisation d'un git au cours du développement n'est pas obligatoire, mais nous vous encourageons à en utiliser un (github, arise, ensiie, bitbucket, gitlab etc)/
 
@@ -125,6 +136,6 @@ Aussi, n’oubliez pas qu’on est là pour passer un bon moment, pas de lynchag
 
 ### Comment nous contacter
 
-Nous mettons un discord à votre disposition pour échanger avec vous. 
+Nous mettons un slack à votre disposition pour échanger avec nous. L'url vous sera communiqué lors du premier cours.
 
 Vous êtes également les bienvenus tous les jeudis après-midi dans nos locaux au 10 rue du Faubourg Poissonnière 75010 PARIS. Ce sera l’occasion de faire un peu plus connaissance, et d’assister à nos SteamLearn, les formations hebdo !
