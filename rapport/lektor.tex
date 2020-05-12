@@ -1,27 +1,27 @@
 \section{Queue et Lektor}
 \subsection{Queue}
 
-La queue, qui est une "playlist courante", est une table de karaokes. Ses deux principaux attributs sont la position et l'id du karaoke. Elle représente donc une liste ordonnée de karaokes à être lus.
+La queue, qui est une "playlist courante", est une table de karaokes. Ses deux principaux attributs sont la position et l'id du karaoke. Elle représente donc une liste ordonnée de karaokes qui vont être lus.
 
-Elle possède aussi un attribut \texttt{added\_by}, qui permet de savoir quel utilisateur à ajouter chaque karaoke de la queue.
+Elle possède aussi un attribut \texttt{added\_by}, qui permet de savoir quel utilisateur a ajouté chaque karaoke de la queue.
 
 La queue est donc unique et n'importe quel utilisateur peut ajouter des karaokes à celle-ci.
 L'ajout se fait avec une requête \texttt{POST} à la page \texttt{/Forms/addKara.php}, en fournissant l'id du karaoke que l'on veut rajouter. Cette page va effectuer la requête, en s'assurant tout d'abord que l'utilisateur est connecté, et, si il n'est pas un administrateur, qu'il n'ajoute pas trop de karaokes en un temps restreint.
-Afin de pouvoir trouver facilement les karaokes voulus dans la queue, la liste de karaokes entière est chargé sur la page html et affichée sous forme de liste de formulaire. Une barre de recherche permet de rentrer des mot-clés, ce qui va executer une fonction javascript qui va cacher les karaokes qui ne correspondent pas. Cela permet aux utilisateurs de faire des recherches rapides et de ne pas surcharger le serveur de requêtes (la table \texttt{kara} n'ayant pas vocation à changer durant une
+Afin de pouvoir trouver facilement les karaokes voulus dans la queue, la liste complète des karaokes est chargée sur la page html et affichée sous forme de liste de formulaires. Une barre de recherche permet de rentrer des mot-clés, ce qui va exécuter une fonction javascript qui va cacher les karaokes qui ne correspondent pas. Cela permet aux utilisateurs de faire des recherches rapides et de ne pas surcharger le serveur de requêtes (la table \texttt{kara} n'ayant pas vocation à changer durant une
 session).
 Seul les administrateurs peuvent supprimer des karaokes de la queue à travers une requête \texttt{POST} vérifiant les droits nécessaires à travers la variable \texttt{\$\_SESSION{\lbrack'rights'\rbrack}} 
 L'état actuel de la queue peut être récupérée grâce à la page \texttt{/Forms/getQueue.php} à l'aide d'une requête \texttt{GET}.
 
-\subsection{Lector}
+\subsection{Lektor}
 
-Lektor est un logiciel de lecture de karaoke. Il fonctionne avec une architecture client-serveur permettant de faire tourner un daemon (lektord) sur son ordinateur, auquel on peut envoyer des commandes à l'aide d'un client (lkt) ou bien tout simplement à l'aide d'une socket ou de netcat. Lektord va ensuite, en fonction des commandes qu'il reçoit, lire les karaokes voulu sur le système où il tourne. Il respecte le protocole MPC, bien qu'étant encore en développement (par des élèves de
+Lektor est un logiciel de lecture de karaoke. Il fonctionne avec une architecture client-serveur permettant de faire tourner un daemon (lektord) sur son ordinateur, auquel on peut envoyer des commandes à l'aide d'un client (lkt) ou bien tout simplement à l'aide d'une socket ou de netcat. Lektord va ensuite, en fonction des commandes qu'il reçoit, lire les karaokes voulus sur le système où il tourne. Il respecte le protocole MPC, bien qu'étant encore en développement (par des élèves de
 l'ENSIIE).\newline
 Pour pouvoir faire fonctionner lektor sur son pc, une explication se trouve à la racine du projet dans le readMe.\newline
 
-C'est ce logiciel qu'utilise notre site pour lire des karaokes : chaque utilisateur peut, si il le souhaite et qu'il possède sur son ordinateur personnel la base de données de karaokes ainsi que lektord, s'ajouter sur le site en tant que lecteur. Il faut pour celà avoir l'adresse IP du client, qui est récupéra à l'aide de \texttt{\$\_SERVER\lbrack'HTTP\_CLIENT\_IP'\rbrack}, \texttt{\$\_SERVER\lbrack'HTTP\_X\_FORWARDED\_FOR'\rbrack} ou bien \texttt{\$\_SERVER\lbrack'REMOTE\_ADDR'\rbrack}.
+C'est ce logiciel qu'utilise notre site pour lire des karaokes : chaque utilisateur peut, si il le souhaite et qu'il possède sur son ordinateur personnel la base de données de karaokes ainsi que lektord, s'ajouter sur le site en tant que lecteur. Il faut pour celà avoir l'adresse IP du client, qui est récupérée à l'aide de \texttt{\$\_SERVER\lbrack'HTTP\_CLIENT\_IP'\rbrack}, \texttt{\$\_SERVER\lbrack'HTTP\_X\_FORWARDED\_FOR'\rbrack} ou bien \texttt{\$\_SERVER\lbrack'REMOTE\_ADDR'\rbrack}.
 L'utilisateur doit aussi signaler le port sur lequel son lektord écoute (si non renseigné, la valeur par défaut est le port 6600, qui est la valeur par défaut de lektord).
 Ces informations sont stockés dans la base de données.
-Une information plus "volatile" est stockée dans la variable \texttt{\$\_USER\lbrack'is\_lector'\rbrack}, qui permet de savoir si un utilisateur est un lecteur sans faire appel à la base de donnée.
+Une information plus "volatile" est stockée dans la variable \texttt{\$\_USER\lbrack'is\_lector'\rbrack}, qui permet de savoir si un utilisateur est un lecteur sans faire appel à la base de données.
 
 Ensuite, à chaque changement impactant la queue (ajout ou retrait de karaoke), le serveur va récuperer la liste des lecteurs dans la base de donnée, puis envoyer les commandes correspondantes aux lecteurs à l'aide de sockets php.
 L'implémentation actuelle du site envoie juste les sockets une par une aux différents lektor, avec un timeout de 4 secondes afin d'éviter qu'un lecteur injoignable ne bloque totalement le site. L'implémentation actuelle n'est donc pas vraiment optimale car l'information pourrait prendre un certain temps à atteindre les derniers lecteurs si les lecteurs précedents prennent du temps à accepter la connection. Pendant le développement, une version avec des forks php générés à l'aide de
