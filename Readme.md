@@ -10,7 +10,7 @@ Le makefile dispose de 4 commandes :
 
 ## Accès db
 
-Pour que le code applicatif accède a la db il faut changer lkes paramètres dans le fichier `./src/config/config.php`.
+Pour que le code applicatif accède a la db il faut changer les paramètres dans le fichier `./src/config/config.php`.
 
 Pour que le makefile se connecte a la db il faut changer les paramètre directement dans le fichier `Makefile`.
 

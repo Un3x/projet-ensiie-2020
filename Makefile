@@ -6,6 +6,6 @@ db.init:
 	psql -U ensiie -d ensiie -a -f data/init.sql
 
 db.drop:
-	dropdb MyM
+	dropdb ensiie
 
 db.reset: db.drop db.init

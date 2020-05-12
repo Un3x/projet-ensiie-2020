@@ -1,0 +1,105 @@
+table,th,td
+{
+    border : 5px solid grey;
+    text-align:center;
+    background-color: rgba(255,255,255,0.17);
+}
+table{
+    color : rgb(15,15,15);
+    text-shadow: rgb(160, 160, 160) .5px 0px;
+    font-size: x-large;
+}
+td{
+    vertical-align: middle !important;
+    font-size: x-large;
+}
+h1
+{
+    color:black;
+    text-shadow: black 1px 1px;
+    text-align: center;
+}
+a{
+    color:black;
+    text-shadow: black 1px 1px;
+}
+a:hover{
+    color : brown;
+}
+.navbar{
+    background-color: rgba(198, 198, 224,0.5) !important;
+}
+body
+{
+    background-color: ghostwhite;
+    background-image: url('Images/background.png');
+}
+.ui-widget
+{
+    position: absolute;
+    right: 1%;
+}
+.ui-helper-hidden-accessible
+{
+    display : none;
+}
+.ui-menu{
+    list-style: none;
+    cursor: pointer;
+    padding : 0;
+    margin : 0;
+    display: inline-block;
+}
+.ui-menu-item{
+    position: relative;
+    background-color: whitesmoke;
+}
+.ui-state-active{
+    border : 1px solid rgb(22, 22, 199);
+    background: rgb(144, 74, 209);
+    color:white;
+}
+.titre span, .auteur span, .resume span{
+    text-decoration: underline;
+}
+.texte{
+    position :absolute;
+    top : 500%;
+    left : 50%;
+    text-align: justify;
+    background-color: rgba(255,255,255,0.17);
+    font-size: x-large;
+}
+.apercu img{
+    position : absolute;
+    top : 200%;
+    left : 0%;
+    height : 3500%;
+    width : auto;
+}
+.catalogue a, .connecter a, .inscrire a{
+    background-color: rgba(255,255,255,0.8);
+}
+.catalogue a:hover, .connecter a:hover, .inscrire a:hover{
+    background-color: rgba(255,255,255,0.5);
+    font-size:1.2em;
+}
+.catalogue{
+    font-size: 300%;
+    padding-top : 10%;
+    text-align: center;
+    margin: auto;
+}
+.connecter{
+    font-size: 300%;
+    padding-top : 30%;
+    float: left;
+    margin: auto;
+}
+.inscrire{
+    float: right;
+    font-size: 300%;
+    padding-top : 30%;
+    padding-left: 50%;
+    margin: auto;
+}
