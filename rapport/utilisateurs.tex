@@ -1,10 +1,10 @@
 \section{Utilisateurs}
 
-Lorsque qu'un client arrive pour la première fois sur le site, il n'aura pas accès aux différents services du site. Il devra d'abord se créer un compte sur la page registration.php. Ici il entrera ses 
+Lorsque qu'un client arrive pour la première fois sur le site, il n'aura pas accès aux différents services du site. Il devra d'abord se créer un compte sur la page \texttt{registration.php}. Ici il entrera ses 
 identifiants comme son adresse email, son nom d'utilisateur, et son mot de passe.
 Il est à noter qu'un utilisateur ne peut pas avoir d'espace dans son nom, ce qui permet d'avoir une sécurité supplémentaire contre les injections SQL.
 
-Après vérification javascript d'un formulaire, on récupère et envoie ces informations à la page addUser.php qui va les insérer dans la table "user", le mot de passe sera hashé pour éviter toute tentative de vol de mot de passe. Tout transfert d'information se fera via la méthode \texttt{POST}, afin de transférer les données de manière sécurisée.
+Après vérification javascript d'un formulaire, on récupère et envoie ces informations à la page \texttt{/Forms/addUser.php} qui va les insérer dans la table \texttt{user}, le mot de passe sera hashé pour éviter toute tentative de vol de mot de passe. Tout transfert d'information se fera via la méthode \texttt{POST}, afin de transférer les données de manière sécurisée.
 
 Ces informations peuvent être  ultérieurement modifiées sur la page \texttt{/modifyUser.php}, qui enverra les modifications à \texttt{/Forms/modifyUserAccount.php}.
 
@@ -12,12 +12,12 @@ Une fois qu'un utilisateur s'est créé un compte, il peut se connecter via logi
 
 \subsection{Personnaliser son compte}
 
-Aussi, après ajout d'un utilisateur dans "user", on insère une nouvelle ligne dans la table "UserCosmetics", cette table permet de savoir quel sont les cosmétiques choisis par l'utilisateur.  
-Chaque utilisateur aura accès à une liste d'images de profil et de titres qu'il pourra sélectionner pour customiser son profil. Ces cosmétiques sont contenus dans les tables "Image" et "Titles".
+Aussi, après ajout d'un utilisateur dans \texttt{user}, on insère une nouvelle ligne dans la table \texttt{UserCosmetics}, cette table permet de savoir quel sont les cosmétiques choisis par l'utilisateur.  
+Chaque utilisateur aura accès à une liste d'images de profil et de titres qu'il pourra sélectionner pour customiser son profil. Ces cosmétiques sont contenus dans les tables \texttt{Image} et \texttt{Titles}.
 
-Ces images ne sont pas toutes disponibles dès le départ. En effet chaque utilisateur possède des points d'expérience, initialisés à 0 à la création du compte, qui peuvent être gagné lorsqu'il rajoute un karaoke à la queue. Les images se débloquent au fur et à mesure que l'utilisateur passe du temps sur le site. Sur \texttt{ChangePP.php} seules les images et titres dont \texttt{xpNeeded<\$\_SESSION\lbrack'xp'\rbrack} sont affichés.\newline
+Ces images ne sont pas toutes disponibles dès le départ. En effet chaque utilisateur possède des points d'expérience, initialisés à 0 à la création du compte, qui peuvent être gagné lorsqu'il rajoute un karaoke à la queue. Les images se débloquent au fur et à mesure que l'utilisateur passe du temps sur le site. Sur \texttt{ChangePP.php} seules les images et titres dont \texttt{xpNeeded<\$\_SESSION\lbrack'xp'\rbrack} sont affichés.
 
-Pour pouvoir modifier son compte, l'utilisateur doit se rendre sur changePP.php, pour modifier son image de profil et/ou son titre. Un formulaire envoie les informations à modifyUserCosmetics.php. L'utilisateur a le choix entre les différentes images contenues dans la table "Images" et les différents titres dans "Titles". \newline
+Pour pouvoir modifier son compte, l'utilisateur doit se rendre sur \texttt{changePP.php}, pour modifier son image de profil et/ou son titre. Un formulaire envoie les informations à \texttt{modifyUserCosmetics.php}. L'utilisateur a le choix entre les différentes images contenues dans la table \texttt{Images} et les différents titres dans \texttt{Titles}.
 
 \subsection{Les playlists}
 
@@ -34,4 +34,4 @@ Lorsqu'un utilisateur s'inscrit dans la base de donnée, on lui attribut un droi
 	\item 1 pour un admistrateur
 	\item 2 pour un super-administrateur
 \end{itemize}
-Un administrateur a la possibilité de révoquer ou d'augmenter les droits d'un utilisateur ayant des droits inférieurs ou égaux à lui-même. Ceci se fait sur la page \texttt{admin.php}, page seulement accessible par les administrateurs. C'est en vérifiant les attributs de la session actuelle \texttt{\$\_SESSION} qu'on détermine si l'utilisateur est bien un admin. Il n'a pas de restriction concernant l'ajout de karas à la queue et la modifier à sa guise. Il peut enfin rajouter des playlists entières à la queue.
+Un administrateur a la possibilité de révoquer ou d'augmenter les droits d'un utilisateur ayant des droits inférieurs ou égaux à lui-même. Ceci se fait sur la page \texttt{admin.php}, page seulement accessible par les administrateurs. C'est en vérifiant les attributs de la session actuelle \texttt{\$\_SESSION} qu'on détermine si l'utilisateur est bien un admin. Il n'a pas de restriction concernant l'ajout de karas à la queue et peut la modifier à sa guise. Il peut enfin rajouter des playlists entières à la queue.

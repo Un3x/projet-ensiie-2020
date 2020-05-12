@@ -10,14 +10,15 @@ Les interfaces User, Lector, Playlist, et Kara se trouvent respectivement dans l
 
 
 \subsection{Apparence visuelle}
-Pour assurer qu'aucun style directement implémenté dans le html ne se fasse écraser par la feuille de style, l'utilisation de classe à été privilégié pour mieux contrôler les balises sur lesquelles le style s'applique. Une feuille de style, style.css, est commune à toutes les pages (car présente dans le head que l'on inclus systématiquement). Il est cependant possible d'intégrer d'autres feuilles de style pour des pages spécifiques.
+Pour assurer qu'aucun style directement implémenté dans le html ne se fasse écraser par la feuille de style, l'utilisation de classe à été privilégié pour mieux contrôler les balises sur lesquelles le style s'applique. Une feuille de style, style.css, est commune à toutes les pages (car présente dans le \texttt{src/View/Layout/head.php} que l'on inclus systématiquement). Il est cependant possible d'intégrer d'autres feuilles de style pour des pages spécifiques.
 
 \subsection{la base de donnée}
-On rajoute plusieurs tables à la base de données pour pouvoir gérer les cosmétiques de chaque utilisateur et leur playlist, et la queue et la liste des lecteur du côté de lektor, voici le diagramme UML de la base de donnée du site:
+On rajoute plusieurs tables à la base de données pour pouvoir gérer les cosmétiques de chaque utilisateur, leur playlist, la queue et la liste des lecteur du côté de lektor. Voici le diagramme UML de la base de donnée du site:
 \newline
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.4]{UML.png}
+\hspace*{-1.2in}
+\includegraphics[scale=0.6]{UML.png}
 \caption{diagramme UML de la base}
 \label{fig:diagramme UML}
 \end{figure}
