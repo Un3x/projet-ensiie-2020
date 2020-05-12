@@ -180,8 +180,9 @@ class PlaylistRepository
 
         $stmt = $this
             ->dbAdapter
-            ->prepare("SELECT '{:idKara}'::int[] && (SELECT content FROM playlist WHERE id=:idPlaylist);");
-        $stmt->bindParam(':idKara', $idKara, \PDO::PARAM_INT);
+            ->prepare("SELECT :idKara::int[] && (SELECT content FROM playlist WHERE id=:idPlaylist);");
+        $karID = "'{" . $idKara . "}'";
+        $stmt->bindParam(':idKara', $karID, \PDO::PARAM_INT);
         $stmt->bindParam('idPlaylist', $idPlaylist, \PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch(\PDO::FETCH_COLUMN);

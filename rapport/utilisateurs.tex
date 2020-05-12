@@ -24,8 +24,9 @@ Pour pouvoir modifier son compte, l'utilisateur doit se rendre sur \texttt{chang
 Un utilisateur peut créer ses propres playlists de karas disponibles dans la table \texttt{karas}.
 D'ici il pourra ajouter cette playlist dans la queue du lecteur (à condition d'être administrateur), ou simplement retrouver les karas qu'il préfère afin de les ajouter.
 Toutes ces informations sont contenues dans la table \texttt{playlist}, et les utilisateurs peuvent regarder les playlists des autres utilisateurs si elles sont paramétrées comme étant publique.
-
 Une playlist ne peut cependant être éditée que par son créateur.
+
+L'implémentation SQL du contenu des playlists est un tableau d'entiers de type \texttt{INT\lbrack\rbrack}. Cela a posé quelques difficultés d'implémentations des requêtes, notamment dans la fonction \texttt{\textbackslash PlaylistRepository->isInPlaylist}, car cela complexifie l'utilisation de la fonction \texttt{bindParam}, dans des requêtes comme \texttt{SELECT '\{:idKara\}' \&\& ...}. 
 
 \subsection{Droits des utilisateurs}
 Lorsqu'un utilisateur s'inscrit dans la base de donnée, on lui attribut un droit 0. Les différents droits sont définis par des entiers:
