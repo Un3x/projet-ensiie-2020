@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<div class="centrer">
+<div class="titreInscription">Fil d'actualités :</div>
+</div>
+<form action="news_feed.php" method="post" id="message">
+<p class="part1">
+Champs avec k caractères au maximum.
+<br>
+<input class="input1" type="text" size="200" maxlength="198" id="roman"  placeholder="Roman" name="roman">
+<br>
+
+<button type="submit" id="submit">Poster</button>
+</form>
+<script src="signup.js"></script>
+</html>
