@@ -1,0 +1,369 @@
+/* The sidebar menu */
+.sidenav {
+  /*margin-top: 100px;*/
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  max-width: 100px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color:rgb(56, 21, 65);
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  align-content: center;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #a5a2a2;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+header{
+  align-content: center;
+  text-align: center;
+  width: 100%;
+  height: 120px;
+}
+
+header .navbar {
+  align-content: center;
+  text-align: center;
+
+}
+
+.welcometext{
+  margin-right: 10%;
+  color:yellowgreen;
+}
+
+main{
+  margin-left: 200px;
+}
+
+.titleincenter {
+  text-align: center;
+  text-decoration: underline;
+  text-emphasis: bold;
+  font-size: 25px;
+  color: black;
+
+}
+
+.borderpost {
+ border-style:solid;
+ border-color:rgb(26, 95, 155);
+ border-width: 6px;
+ box-sizing: content-box;
+  width: 60%px;
+  padding: 30px;
+  align-content: center;  
+}
+
+.bordernewpost {
+ border-style:solid;
+ border-color:rgb(177, 155, 35);
+ border-width: 6px;
+ box-sizing: content-box;
+  width: 50%px;
+  padding: 30px;
+  align-content: center;
+
+}
+
+.bordernewcomment{
+border-style:solid;
+ border-color:rgb(92, 0, 0);
+ border-width: 3px;
+ box-sizing: content-box;
+  width: 20%px;
+  padding: 30px;
+  align-content: center;
+}
+
+
+.buttondeletepost{
+  right : 60%;
+}
+
+.rightpanel {
+  /*margin-top: 100px;*/
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 230px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: rgb(86, 0, 107); /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+
+  text-align: center;
+}
+
+/* The navigation menu links 
+.rightpanel a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}*/
+
+/* When you mouse over the navigation links, change their color */
+.rightpanel a:hover {
+  color: #f1f1f1;
+}
+
+.rightpanel p{
+  color:#f1f1f1;
+  font-size: 15px;
+}
+
+.rightpanel hr {
+  background-color:white;
+  height: 1px;
+}
+
+.bordernewpost .hr {
+  background-color:blueviolet;
+  height: 1px;
+}
+hr{
+  background-color:grey;
+  height: 1px;
+}
+
+.rightpanel .superbold{
+  text-emphasis: bold;
+  text-emphasis-color: white;
+  color:#f1f1f1;
+  font-size: 25px;
+}
+
+.rightpanel .minusbold{
+  border-style:solid;
+  border-color:rgb(255, 255, 255);
+  border-width: 2px;
+  text-emphasis: bold;
+  text-emphasis-color: white;
+  padding:3px;
+  text-align: center;  
+  color:#ffffff;
+  font-size: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .rightpanel {padding-top: 15px;}
+  .rightpanel a {font-size: 18px;}
+}
+
+
+.navbar a, .navbar input[type=text] {
+        float: none;
+        display: block;
+        align-content: center;
+        text-align: center;
+        width: 50%;
+        margin-left: 25%;
+        padding: 14px;
+    }
+.navbar input[type=text] {
+        border: 1px solid #ccc;
+    }
+
+.settingsmain{
+    align-content: center;
+    text-align: center;
+}
+
+@media screen and (min-width: 800px){
+
+
+
+    .navbarphone{
+      display:none;
+    }
+    .navbar {
+        background-color :rgb(49, 0, 61);
+        align-self: top;
+        width: 100%;
+        align-content: center;
+        text-align: center;
+    }
+
+    .rightpanel {
+        align-self: right;
+        width:10%;
+        max-width: 230px;
+
+    }
+
+    .sidenav {
+        align-self: left;
+        background-color:  rgb(86, 0, 107);
+    }
+
+
+    main {
+        align-self: center;
+        text-align: center;
+        align-content: center;
+
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+
+    /*.imagenav{
+      display:none;
+    }
+    */
+
+    /*.imagenav{
+        display:block;
+    }*/
+
+    .linksmallscreen{
+          display:none;
+      }
+      .linkbigscreen{
+          display:block;
+      }
+
+    @media screen and (max-width: 950px){
+        .linksmallscreen{
+          display:block;
+        }
+        .linkbigscreen{
+          display:none;
+        }
+
+
+    }
+}
+
+@media screen and (max-width: 799px){
+
+    .flex-container {
+      align-content: center;
+    }
+
+    .navbar{
+      display:none;
+    }
+
+    .sidenav{
+      display:none;
+    }
+
+
+    .navbarphone input[type=text] {
+        float: none;
+        display: block;
+        text-align: center;
+        width : 50%;
+        margin-left: 25%;
+        padding: 14px;
+        margin-top:5px;
+        margin-bottom: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .navbarphone {
+        background-color:rgb(49, 0, 61);
+        align-self: top;
+        text-align:center;
+        width: 100%;
+        align-content: center;
+        height: auto;
+        z-index: 1;
+        top:0;
+        position: fixed;
+        padding-bottom:30px;
+        padding-top:30px;
+        margin-top: 0px;
+        margin-bottom: 30px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .rightpanel {
+        align-self: bottom;
+        position: relative;
+        width: 100%;
+        height: fit-content;
+        z-index: 0;
+        margin-top: 100px; /* Stay at the top */
+        right: 0;
+        margin-bottom: 10px;
+    }
+    main{
+      align-self: center;
+        width: 100%;
+    }
+    /*.sidenav {
+        text-align: center;
+        align-content: center;
+        align-self:top;
+        position: relative;
+        width: 100%;
+        height: 150px;
+        z-index: 1;
+        top:0;
+        left :0;
+        margin-bottom: auto;
+    }
+    */
+
+
+
+    /*.sidenav a {
+      display: none;
+    }*/
+}
+
+
+
+
+
+.navbar {
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  overflow: hidden;
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+}
+
+
+
+body{
+      font-family: "intercom-font", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+
+
+
+/*.container {
+  margin-top: 100px;
+}
+*/

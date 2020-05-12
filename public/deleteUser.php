@@ -2,8 +2,8 @@
 
 use User\UserRepository;
 
-include '../src/User.php';
-include '../src/UserRepository.php';
+include '../src/Model/User/User.php';
+include '../src/Model/User/UserRepository.php';
 include '../src/Factory/DbAdaperFactory.php';
 
 $dbAdaper = (new DbAdaperFactory())->createService();

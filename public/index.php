@@ -1,70 +1,152 @@
 <?php
+session_start();
 
-include '../src/User.php';
-include '../src/UserRepository.php';
-include '../src/Factory/DbAdaperFactory.php';
+if (isset($_SESSION['id']) && isset($_SESSION['pseudo']) && isset($_SESSION['email'])) {
+    header("location:home.php");
+}
 
-$dbAdaper = (new DbAdaperFactory())->createService();
-$userRepository = new \User\UserRepository($dbAdaper);
-$users = $userRepository->fetchAll();
+if (isset($_GET['newUserSaved']))
+    $newUserSaved = $_GET['newUserSaved'];
+else
+    $newUserSaved = 0;
+
+if (isset($_GET['issueconnect']))
+    $issueconnect = $_GET['issueconnect'];
+else
+    $issueconnect = 0;
+
+
+
 
 ?>
 
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <title>Projet web Ensiie</title>
+    <title>FacebIIkE</title>
     <meta name="description" content="Projet web Ensiie">
-    <meta name="author" content="Thomas COMES">
+    <meta name="author" content="Mathias DURAND">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="./css/styleindex.css">
+    <link rel="shortcut icon" type="image/png" href="./images/icon-chevre.png" />
+
 </head>
 
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Projet Web Ensiie 2020</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1>User List</h1>
-        </div>
-        <div class="col-sm-12">
-            <table class="table">
-                <tr>
-                    <th>id</th>
-                    <th>username</th>
-                    <th>email</th>
-                    <th>creation date</th>
-                    <th>Action</th>
-                </tr>
-                <?php foreach($users as $user): ?>
-                    <tr>
-                        <td><?= $user->getId() ?></td>
-                        <td><?= $user->getUsername() ?></td>
-                        <td><?= $user->getEmail() ?></td>
-                        <td><?= $user->getCreatedAt()->format(\DateTime::ATOM) ?></td>
-                        <td>
-                            <form method="POST" action="/deleteUser.php">
-                                <input name="user_id" type="hidden" value="<?= $user->getId() ?>">
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
-        </div>
+
+    <script type="text/javascript">
+        function showCreate() {
+            document.getElementById("createuser").style.display = "block";
+            document.getElementById("homecreate").style.display = "none";
+        }
+
+        function showReactivate() {
+            document.getElementById("reactivateform").style.display = "block";
+            document.getElementById("reactivatebutton").style.display = "none";
+
+            document.getElementById("connectform").style.display = "none";
+            document.getElementById("connect2button").style.display = "block";
+        }
+
+        function showConnect() {
+            document.getElementById("reactivateform").style.display = "none";
+            document.getElementById("reactivatebutton").style.display = "block";
+
+            document.getElementById("connectform").style.display = "block";
+            document.getElementById("connect2button").style.display = "none";
+        }
+
+        function valider() {
+            from = document.forms['createuserform'];
+            pass1 = from.elements['pswrdc'].value;
+            pass2 = from.elements['pswrdcverf'].value;
+            
+            if (pass1==""){
+                alert("Le mot de passe ne peut pas être vide");
+                return false;
+            }
+
+            else if (pass1.localeCompare(pass2)==0) {
+                return true;
+            } 
+            else {
+                alert("Les deux mots de passes doivent être identiques");
+                return false;
+            }
+        }
+    </script>
+
+    <div class="titlehome">
+        Bienvenue sur FacebIIkE
+        <h1>"Le rézo social du turfu"</h1>
+
     </div>
-</div>
-<script src="js/scripts.js"></script>
+    <br>
+    <br>
+    <div class="connectbox">
+        <form action="./ConnectUser.php" method='POST' id="connectform">
+            <input type="text" id="username" name="username" size="32" placeholder="Nom d'utilisateur" required>
+
+            <input type="password" id="pswrd" name="pswrd" size="32" placeholder="Mot de passe" required>
+            <br />
+            <br />
+            <input type="submit" id="connectbutton" name="connectbutton" value="Se connecter" />
+            <br>
+        </form>
+
+        <br>
+        <?php if ($issueconnect == 1) {
+            echo "<br><span style=\"color:red;\">Mauvais identifiant ou mot de passe</span>";
+        } else if ($issueconnect == 2) {
+            echo "<br><span style=\"color:red;\">Compte désactivé</span>";
+        } else if ($issueconnect == 3) {
+            echo "<br><span style=\"color:red;\">Compte dejà actif ou mauvais mot de passe</span>";
+        }
+
+        ?>
+        <hr>
+        <br>
+        <?php
+        #Apres tentative de javascript et php, méthode "brute"
+
+        if ($newUserSaved != 2 && $newUserSaved != 3) {
+            echo '<button onclick="showCreate()" id="homecreate">Créer un compte</button>
+        <div style="display:none;" class="createaccount" id="createuser">';
+        } else {
+            echo '<div style="display:block;" class="createaccount" id="createuser">';
+        }
+        ?>
+        <form action="CreateUser.php" method='POST' id='createuserform' onsubmit="return valider()">
+            <input type="text" id="emailcreate" name="emailc" size="32" placeholder="E-mail" required>
+            <input type="text" id="usernamecreate" name="usernamec" size="32" placeholder="Nom d'utilisateur" required>
+
+            <input type="password" id="pswrdc" name="pswrdc" size="32" placeholder="Mot de passe" required>
+            <input type="password" id="pswrdcreatever" name="pswrdcverf" size="32" placeholder="Tapez de nouveau votre mdp" required>
+            <br />
+            <br />
+            <input type="submit" id="createbutton" name="createbutton" value="Valider" />
+
+        </form>
+
+    </div><br>
+    <?php
+    #On pourrait utiliser une fonction javascript pour vérifier ces conditions
+    if ($newUserSaved == 0) {
+        echo "";
+    } else if ($newUserSaved == 1) {
+        echo "<span style=\"color:green;\">Compte créé</span>";
+    } else if ($newUserSaved == 2) {
+        echo "<span style=\"color:red;\">Ce nom d'utilisateur existe déjà</span>";
+    } else if ($newUserSaved == 3) {
+        echo "<span style=\"color:blue;\">Les deux mots de passe doivent être identiques</span>";
+    }
+
+    ?>
+
+    </div>
+
+
 </body>
+
 </html>

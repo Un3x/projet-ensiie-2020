@@ -19,6 +19,21 @@ class User
      */
     private $username;
 
+        /**
+     * @var string
+     */
+    private $slogan;
+
+        /**
+     * @var string
+     */
+    private $descript;
+
+    /**
+     * @var int
+     */
+    private $inactive;
+
     /**
      * @var \DateTime
      */
@@ -74,6 +89,58 @@ class User
         $this->username = $username;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getSlogan ()
+    {
+        return $this->slogan;
+    }
+
+    /**
+     * @param string $slogan
+     */
+    public function setSlogan ($slogan)
+    {
+        $this->slogan = $slogan;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription ()
+    {
+        return $this->descript;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription ($descript)
+    {
+        $this->descript = $descript;
+        return $this;
+    }
+
+    /**
+     * @return int $active
+     */
+    public function getInactive()
+    {
+        return $this->inactive;
+    }
+
+    /**
+     * @param int $active
+     */
+    public function setInactive($inactive)
+    {
+        $this->inactive=$inactive;
+        return $this;
+    }
+
 
     /**
      * @return \DateTime
