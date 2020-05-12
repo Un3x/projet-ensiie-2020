@@ -14,7 +14,7 @@ $utilisateurs = $utilisateurRepository->fetchAll();
 
 ?>
 
-<html lang="en">
+<html lang="en" class="chtml">
 <head>
     <meta charset="utf-8">
     <title>La Ligue des Deglingos</title>
@@ -24,20 +24,6 @@ $utilisateurs = $utilisateurRepository->fetchAll();
 </head>
 
 <body>
-
-<?php
-    session_start();
-    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == True) echo("Welcome " .$_SESSION['username']);
-    else echo("Vous pouvez vous connecter en appuyant sur le bouton Jouer !");
-?>
-
-<p>
-    <?php
-        echo("Online : ");
-        echo($pplonlineRepository->update());
-    ?>
-    </br>
-</p>
 
 <div class="toalign">
 <button type="button" id="playbutton" onclick=" document.getElementById('hide').style.display='block';">Jouer</button>

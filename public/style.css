@@ -622,10 +622,13 @@ td {
     opacity: 1;
 }
 
+.chtml {
+    background-image: url("images/bg.jpeg");
+}
+
 .toalign {
-    padding-top: 5%;
+    padding-top: 15%;
     padding-left: 30%;
-    background-image: "image/bg";
 }
 
 .toalign #playbutton{
