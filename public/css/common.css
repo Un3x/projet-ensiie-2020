@@ -1,0 +1,154 @@
+html{
+	font-family: "Arial", Arial, Sans-serif;
+	font-size: 1.25em;
+}
+
+body{
+	padding: 0px;
+    margin: 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	min-height: 100vh;
+}
+
+header{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	overflow: auto;
+	user-select: none;
+}
+
+header .main-menu li a{
+	-webkit-transition: color 0.3s ease;
+	-moz-transition: color 0.3s ease;
+	-o-transition: color 0.3s ease;
+	transition: color 0.3s ease;
+}
+
+.header-green{
+	background-image: linear-gradient(to left, #22c422, #19a419);
+	color: #fff;
+}
+
+.header-teal{
+	background-image: linear-gradient(to left, #66b2b2, #329999);
+	color: #fff;
+}
+
+header .main-menu li a{
+	color: #fff;
+}
+
+.header-green .main-menu li a:hover, .header-teal .main-menu li a:hover{
+	color: #3a3a3a;
+}
+
+.main-menu{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: stretch;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.main-menu li{
+	text-align: center;
+	padding: 3vh 1.5vw;
+}
+
+.main-menu li a{
+	text-decoration: none;
+}
+
+.body-light{
+	background-color: #F9F5F6;
+	color: #46515B;
+	display: flex;
+	align-items: stretch;
+	flex-direction: column;
+	flex: 1;
+	padding-bottom: 10px;
+}
+
+.body-light .content-light{
+	align-self: center;
+	max-width: 900px;
+	flex: 1;
+	text-align: justify;
+	word-wrap: break-word;
+	padding: 0 10px;
+	line-height: 1.7;
+}
+
+.body-light .content-light h1, .body-light .content-light h2{
+	text-align: center;
+}
+
+.footer-dark{
+	background-color: #222;
+	color: #F9F6F6;
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.game-list, .game-element {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.game-list {
+	padding: 0;
+	list-style-type: none;
+}
+
+.game-list .game-element {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: stretch;
+}
+
+.game-list .game-element p {
+	margin: 0;
+	padding: 5px 1.5vw;
+	text-align: center;
+}
+
+.game-list .game-element .won {
+	color: #19a419;
+}
+
+.game-list .game-element .lost {
+	color: #a41919;
+}
+
+.game-list .game-element .draw {
+	color: #1919a4;
+}
+
+.game-list .game-element .ratio {
+	color: #46515B;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+	header, .main-menu {
+		justify-content: center;
+	}
+}
+
+@media (max-height: 700px) {
+	h1 {
+		margin: 2vh;
+	}
+}

@@ -1,0 +1,75 @@
+#morpiien-container, .morpiien-row, .morpiien-cell  {
+	border: 2px solid black;
+	border-collapse: collapse;
+}
+
+#morpiien-container .morpiien-row .morpiien-cell-empty:hover {
+	background: url('../img/circle.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	cursor: pointer;
+}
+
+#morpiien-container .morpiien-row .morpiien-cell-cross {
+	background: url('../img/cross.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#morpiien-container .morpiien-row .morpiien-cell-circle {
+	background: url('../img/circle.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#refresh {
+	margin: 0;
+	padding: 5px 1.5vw;
+	text-align: center;
+}
+
+#refresh a {
+	text-decoration: none;
+	font-size: 1.4em;
+	text-align: right;
+	color: #35358f;
+	cursor: pointer;
+	
+	-webkit-transition: color 0.3s ease;
+	-moz-transition: color 0.3s ease;
+	-o-transition: color 0.3s ease;
+	transition: color 0.3s ease;
+}
+
+#refresh a:hover {
+	color: #119311;
+}
+
+#error {
+	display: none;
+}
+
+#victory {
+	display: none;
+}
+
+@media (min-width: 1000px) {
+	.morpiien-cell {
+		width: 10vw;
+		height: 10vw;
+	}
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+	.morpiien-cell {
+		width: 20vw;
+		height: 20vw;
+	}
+}
+
+@media (max-width: 600px) {
+	.morpiien-cell {
+		width: 32vw;
+		height: 32vw;
+	}
+}

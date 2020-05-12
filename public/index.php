@@ -1,70 +1,112 @@
 <?php
 
-include '../src/User.php';
-include '../src/UserRepository.php';
-include '../src/Factory/DbAdaperFactory.php';
+define('__VIEWROOT__', __DIR__);
 
-$dbAdaper = (new DbAdaperFactory())->createService();
-$userRepository = new \User\UserRepository($dbAdaper);
-$users = $userRepository->fetchAll();
+include '../src/Factory/DbAdapterFactory.php';
+include '../src/Controllers/Controllers.php';
+include '../src/Server/SimpleSocket.php';
+
+use \Controller\{GameController, NotFoundController,
+	GameHistoryController, HomeController,
+	ProfileController, ProfilesController,
+	ScoreBoardController, TournamentController,LoginController,
+	RegisterController,ModifyController,AdminController
+};
+use \Socket\SimpleSocket;
+
+try {
+	$env = trim(file_get_contents('../.env'));
+
+	if( $env === 'dev' || $env === 'test' ){
+		ini_set('display_errors', 'On');
+		error_reporting(E_ALL);
+	} elseif ( $env !== 'prod' ){
+		throw new Exception();
+	}
+} catch (Exception $e) {
+	exit;
+}
+
+$route = preg_split( '/\?/', trim($_SERVER['REQUEST_URI'], '/') )[0];
+$method = $_SERVER['REQUEST_METHOD'];
+$params = $_REQUEST;
+$socket = new SimpleSocket($env);
+
+// Initialize the session
+//session_start();
+
+$controller;
+switch ($route)
+{
+	case '':
+	case 'home':
+	case 'accueil':
+		$controller = new HomeController;
+		break;
+	case 'login':
+		$controller = new LoginController;
+		break;
+	case 'register':
+		$controller = new RegisterController;
+		break;
+	case 'profil':
+	case 'profile':
+		$controller = new ProfileController;
+		break;
+	case 'morpion':
+	case 'morpiien':
+	case 'jeu':
+	case 'game':
+		$controller = new GameController;
+		break;
+	case 'scores':
+	case 'scoreboard':
+		$controller = new ScoreBoardController;
+		break;
+	case 'tournoi':
+	case 'tournament':
+		$controller = new TournamentController;
+		break;
+	case 'historique':
+	case 'history':
+		$controller = new GameHistoryController;
+		break;
+	case 'profils':
+	case 'profiles':
+		//Les Users non-admin ne doivent avoir accès à cette page
+		if ($_SESSION["admin"] == true){
+			$controller = new ProfilesController;
+		}
+		else{
+			$controller = new NotFoundController;
+		}
+		break;
+	case 'modify':
+		$controller = new ModifyController;
+		break;
+	case 'logout':
+		$viewPath = __VIEWROOT__.'/html';
+		include_once $viewPath.'/logout.php';
+		break;
+	case 'adminmodify':
+		//Les Users non-admin ne doivent avoir accès à cette page
+		if ($_SESSION["admin"] == true){
+			$controller = new AdminController;
+		}
+		else{
+			$controller = new NotFoundController;
+		}
+	break;
+	default:
+		$controller = new NotFoundController;
+		break;
+}
+
+if (!$socket && $socket->hasErrorOccured())
+	$socket->printError();
+else
+	$controller->setSocket($socket);
+
+$controller->handle($params, $method);
 
 ?>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Projet web Ensiie</title>
-    <meta name="description" content="Projet web Ensiie">
-    <meta name="author" content="Thomas COMES">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-</head>
-
-<body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Projet Web Ensiie 2020</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1>User List</h1>
-        </div>
-        <div class="col-sm-12">
-            <table class="table">
-                <tr>
-                    <th>id</th>
-                    <th>username</th>
-                    <th>email</th>
-                    <th>creation date</th>
-                    <th>Action</th>
-                </tr>
-                <?php foreach($users as $user): ?>
-                    <tr>
-                        <td><?= $user->getId() ?></td>
-                        <td><?= $user->getUsername() ?></td>
-                        <td><?= $user->getEmail() ?></td>
-                        <td><?= $user->getCreatedAt()->format(\DateTime::ATOM) ?></td>
-                        <td>
-                            <form method="POST" action="/deleteUser.php">
-                                <input name="user_id" type="hidden" value="<?= $user->getId() ?>">
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
-        </div>
-    </div>
-</div>
-<script src="js/scripts.js"></script>
-</body>
-</html>
