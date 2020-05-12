@@ -12,48 +12,18 @@ class User
     /**
      * @var string
      */
-    private $nom;
+    private $email;
 
     /**
      * @var string
      */
-    private $prenom;
-    
+    private $username;
+
     /**
-     * @var string
+     * @var \DateTime
      */
-    private $pseudo;
-    
-    /**
-     * @var string
-     */
-    private $email;
-    
-    /**
-     * @var string
-     */
-    private $password;
-    
-    /**
-     * @var string
-     */
-    private $adresse;
-    
-    /**
-     * @var string
-     */
-    private $telephone;
-    
-    /**
-     * @var string
-     */
-    private $role;
-    
-    /**
-     * @var string
-     */
-    private $etat;
-    
+    private $createdAt;
+
     /**
      * @return int
      */
@@ -68,57 +38,6 @@ class User
     public function setId ($id)
     {
         $this->id = $id;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNom ()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * @param string $nom
-     */
-    public function setNom ($nom)
-    {
-        $this->nom = $nom;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPrenom ()
-    {
-        return $this->prenom;
-    }
-
-    /**
-     * @param string $prenom
-     */
-    public function setPrenom ($prenom)
-    {
-        $this->prenom = $prenom;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPseudo ()
-    {
-        return $this->pseudo;
-    }
-
-    /**
-     * @param string $pseudo
-     */
-    public function setPseudo ($pseudo)
-    {
-        $this->pseudo = $pseudo;
         return $this;
     }
 
@@ -142,86 +61,34 @@ class User
     /**
      * @return string
      */
-    public function getPassword ()
+    public function getUsername ()
     {
-        return $this->password;
+        return $this->username;
     }
 
     /**
-     * @param string $password
+     * @param string $username
      */
-    public function setPassword ($password)
+    public function setUsername ($username)
     {
-        $this->password = $password;
+        $this->username = $username;
         return $this;
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
-    public function getAdresse ()
+    public function getCreatedAt ()
     {
-        return $this->adresse;
+        return $this->createdAt;
     }
 
     /**
-     * @param string $adresse
+     * @param \DateTime $createdAt
      */
-    public function setAdresse ($adresse)
+    public function setCreatedAt ($createdAt)
     {
-        $this->adresse= $adresse;
+        $this->createdAt = $createdAt;
         return $this;
     }
-
-    /**
-     * @return string
-     */
-    public function getTelephone ()
-    {
-        return $this->telephone;
-    }
-
-    /**
-     * @param string $telephone
-     */
-    public function setTelephone ($telephone)
-    {
-        $this->telephone= $telephone;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRole ()
-    {
-        return $this->role;
-    }
-
-    /**
-     * @param string $Role
-     */
-    public function setRole ($role)
-    {
-        $this->role= $role;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEtat ()
-    {
-        return $this->etat;
-    }
-
-    /**
-     * @param string $etat
-     */
-    public function setEtat ($etat)
-    {
-        $this->etat= $etat;
-        return $this;
-    }
-
 }
