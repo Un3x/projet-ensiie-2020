@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projet web EpicEvry</title>
+    <meta name="description" content="Projet web Ensiie">
+    <meta name="author" content="Us">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<header role="header">
+<nav class="menu" role="navigation">
+<div class = "inner">
+<a href="#"><img src="logo2.png" class="m-link-logo"></a>
+<div class="m-right">
+<a href="#" class="m-link"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+<a href="#" class="m-link"><i class="fa fa-question-circle-o" aria-hidden="true"></i> A propos</a>
+<a href="index.php" class="m-link"><i class="fa fa-lemon-o" aria-hidden="true"></i> Aliment </a>
+<a href="#" class="m-link"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Panier </a>
+<a href="public2/index.php" class="m-link"><i class="fa fa-cutlery" aria-hidden="true"></i> Recettes</a>
+<a href="contact.php" class="m-link"><i class="fa fa-envelope-o" aria-hidden="true"></i> Contact</a>
+</div>
+</div>
+</nav>
+</header>
+</head>
+<body>
+
+<div class="container2x">
+
+<div class="row">
+  <div class="column">
+    <img src="logo2.png" style="width:100%">
+    <div style="text-align:center">
+    <h2>Contactez-nous</h2>
+          <p>Si vous avez des questions, des réclamations ou même des suggestions à nous faire, n'hésitez pas à nous contacter:</p>
+    </div>
+    </div>
+<div class="column">
+<form action="/action_page.php">
+<label for="fname">Prénom</label>
+<input type="text" id="fname" name="firstname" placeholder="Votre prénom..">
+<label for="lname">Nom</label>
+<input type="text" id="lname" name="lastname" placeholder="Votre nom..">
+<label for="country">Pays</label>
+<input type="text" id="country" name="namecountry" placeholder="Pays..">
+<label for="subject">Sujet</label>
+<textarea id="subject" type="text" name="messagesubject" placeholder=" Votre message.." style="height:170px"></textarea>
+<input type="submit" value="Submit">
+</form>
+</div>
+</div>
+</div>
+</body>
+<footer class="site-footer">
+<div class="container">
+<div class="row">
+<div class="col-sm-12 col-md-6">
+<a href="#"><img src="logo.png" width=100px height=100px></a>
+<h6> L'épicerie étudiante d'Evry Courcouronnes </h6>
+</div>
+<div class="col-xs-6 col-md-3">
+<h6>Services</h6>
+<ul class="footer-links">
+<li><a href="#">Acceuil</a></li>
+<li><a href="public2/index.php">Recettes</a></li>
+<li><a href="index.php">Aliments</a></li>
+<li><a href="#">Panier</a></li>
+<li><a href="#">Compte</a></li>
+</ul>
+</div>
+<div class="col-xs-6 col-md-3">
+<h6>Liens rapides</h6>
+<ul class="footer-links">
+<li><a href="contact.php">Contact</a></li>
+<li><a href="#">Contribuer</a></li>
+</ul>
+</div>
+</div>
+<hr>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-8 col-sm-6 col-xs-12">
+<p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by
+<a href="#">EpicEvry</a>.
+</p>
+</div>
+<div class="col-md-4 col-sm-6 col-xs-12">
+<ul class="social-icons">
+<li><a class="facebook" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+<li><a class="twitter" href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i>
+</a></li>
+<li><a class="instagram" href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+</i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+
+
+</html>

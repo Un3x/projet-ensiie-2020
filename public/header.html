@@ -1,0 +1,27 @@
+<header role="header">
+<nav class="menu" role="navigation">
+<div class = "inner">
+<a href="/"><img src="logo2.png" class="m-link-logo"></a>
+<div class="m-right">
+<a href="/" class="m-link"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+<a href="page_presentation.php" class="m-link"><i class="fa fa-question-circle-o" aria-hidden="true"></i> A propos</a>
+	<?php if (!isset($_SESSION['id']) && !isset($_SESSION['username'])): ?>
+	<a href="catalogue_accueil.php" class="m-link"><i class="fa fa-lemon-o" aria-hidden="true"></i> Aliment </a>
+	<?php endif ?>
+	<?php if (isset($_SESSION['id']) && isset($_SESSION['username'])): ?>
+	<a href="catalogue.php" class="m-link"><i class="fa fa-lemon-o" aria-hidden="true"></i> Aliment </a>
+	<a href="/panier.php?id=<?= $_SESSION['id'] ?>" class="m-link"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Panier </a>
+	<a href="/userprofile.php?id=<?= $_SESSION['id'] ?>" class="m-link"><i class="fa fa-user" aria-hidden="true"></i> Mon profil </a>
+	<a href="disconnect.php" class="m-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion</a>
+	<?php else: ?>
+	<a href="page_connexion.php" class="m-link"><i class="fa fa-sign-in" aria-hidden="true"></i> Connexion</a>
+	<?php endif ?>
+	<?php if (isset($_SESSION['id']) && ($_SESSION['role'] == 1)): ?>
+	<a href="/page_admin_commande.php" class="m-link"><i class="fa fa-user" aria-hidden="true"></i> Gestion des commandes</a>
+	<?php endif ?>
+<a href="/page_recette.php" class="m-link"><i class="fa fa-cutlery" aria-hidden="true"></i> Recettes</a>
+<a href="contact.php" class="m-link"><i class="fa fa-envelope-o" aria-hidden="true"></i> Contact</a>
+</div>
+</div>
+</nav>
+</header>

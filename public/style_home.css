@@ -1,0 +1,22 @@
+h1{
+    text-align: center;
+    color: green;
+}
+p{
+    text-align:center;
+}
+img{
+    text-align: center;
+
+    width: 300px;
+    height: 300px;
+
+}
+
+
+
+/*body{
+    background-image: url("essai.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+}*/

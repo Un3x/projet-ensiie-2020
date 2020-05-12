@@ -1,0 +1,139 @@
+<?php
+
+namespace recette;
+
+class recette
+{
+    /**
+     * @var int
+     */
+    private $id_recette;
+
+    /**
+     * @var string
+     */
+    private $titre_recette;
+
+    /**
+     * @var string
+     */
+    private $difficulte;
+
+    /**
+     * @var int
+     */
+    private $tps_prep;
+
+    /**
+     * @var int
+     */
+     private $nb_pers;
+
+     /**
+      * @var string
+      */
+      private $preparation;
+
+    /**
+     * @return int
+     */
+    public function getId_recette ()
+    {
+        return $this->id_recette;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId_recette ($id)
+    {
+        $this->id_recette = $id;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitre_recette ()
+    {
+        return $this->titre_recette;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setTitre_recette ($nom)
+    {
+        $this->titre_recette = $nom;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPrix_aliment ()
+    {
+        return $this->prix_aliment;
+    }
+
+    /**
+     * @param int $prix
+     */
+    public function setPrix_aliment ($prix)
+    {
+        $this->prix_aliment = $prix;
+        return $this;
+    }
+
+    /**
+     *@return int
+     */
+     public function getStock_aliment()
+     {
+	return $this->stock_aliment;
+     }
+
+     /**
+      *@param int stock
+      */
+      public function setStock_aliment ($stock)
+      {
+	$this->stock_aliment = $stock;
+      	return $this;
+      }
+
+    /**
+     * @return string
+     */
+    public function getSaison_aliment ()
+    {
+        return $this->saison_aliment;
+    }
+
+    /**
+     * @param string $saison
+     */
+    public function setSaison_aliment ($saison)
+    {
+        $this->saison_aliment = $saison;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+     public function getType_aliment()
+     {
+	return $this->type_aliment;
+     }
+
+
+     /**
+      * @param string type_al
+      */
+      public function setType_aliment ($type_al)
+      {
+           $this->type_aliment=$type_al;
+	   return $this;
+       }
+}

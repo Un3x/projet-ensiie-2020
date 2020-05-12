@@ -1,9 +1,9 @@
 <?php
 
-use User\UserRepository;
+use Aliment\AlimentRepository;
 
-include '../src/User.php';
-include '../src/UserRepository.php';
+include '../src/Aliment.php';
+include '../src/AlimentRepository.php';
 include '../src/Factory/DbAdaperFactory.php';
 
 $dbAdaper = (new DbAdaperFactory())->createService();

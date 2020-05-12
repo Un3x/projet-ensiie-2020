@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+  <html>
+  <meta charset="UTF-8" />
+  <title> Programmation web ENSIIE </title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <body>
+    
+    
+      <h1>Introduction à la programmation web </h1>
+      <p> Cette page a pour <i>objectif de faire le point sur quelques informations en HTML/CSS</i> </p>
+      <table>
+	<caption>HMTL ou CSS?</caption>
+	<tr><td></td><td>HTML</td><td>CSS</td></tr>
+	
+	<tr><td>titre de la page</td><td>x</td><td></td></tr>
+	<tr><td>couleur du titre</td><td></td><td>x</td></tr>
+	<tr><td>liste numérotée</td><td>x</td><td></td></tr>
+	<tr><td>largeur du menu</td><td></td><td>x</td></tr>
+      </table>
+      
+      <h2>Démonstation</h2>
+      <p>Une petite vidéo de présentation</p>
+      
+      <video width="320" height="240" controls>
+	<source src="w3schools_tab_example.ogv" type="video/ogg">
+	  Your browser does not support the video tag.
+      </video>
+      <p>
+	<a href="page_test.html">lien vers ma page test</a>
+      </p>
+      <p> Quelques <span class="lol">liens</span> utiles:</p>
+      <ul>
+	<li>
+	  <img src="w3c.png"/> <a href="https://www.w3.org">Site du w3c</a> 
+	</li>
+	<ol>
+	  1.<a href="page_test.html">validation html</a>
+	</ol>
+	<ol>
+	 2.<a href="page_test.html">validation css</a>
+	</ol>
+	<li>
+	  <a href="page_test.html">Web Accessibility Initiative</a>
+	</li>
+      </ul>     
+  </body>
+  
+  </html>
+  

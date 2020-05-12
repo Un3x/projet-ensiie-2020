@@ -20,9 +20,106 @@ class User
     private $username;
 
     /**
+     * @var string
+     */
+    private $password;
+
+    /**
      * @var \DateTime
      */
     private $createdAt;
+
+    /**
+    *@var int
+    */
+    private $mobile;
+
+    /**
+    *@var string
+    */
+    private $nom;
+
+    /**
+    *@var string
+    */
+    private $prenom;
+
+    /**
+    *@var int
+    */
+    private $role;
+
+
+    /**
+    *@return int
+    */
+    public function getRole()
+    {
+	return $this->role;
+    }
+
+    /**
+    *@param int $role
+    */
+    public function setRole($role)
+    {
+	$this->role = $role;
+	return $this;
+    }
+
+
+    /**
+    *@return string
+    */
+    public function getPrenom()
+    {
+	return $this->prenom;
+    }
+
+    /**
+    *@param string $prenom
+    */
+    public function setPrenom($prenom)
+    {
+	$this->prenom = $prenom;
+	return $this;
+    }
+
+
+
+    /**
+    *@return string
+    */
+    public function getNom()
+    {
+	return $this->nom;
+    }
+
+    /**
+    *@param string $nom
+    */
+    public function setNom($nom)
+    {
+	$this->nom = $nom;
+	return $this;
+    }
+
+    /**
+    *@return int
+    */
+    public function getMobile()
+    {
+	return $this->mobile;
+    }
+
+    /**
+    *@param int $mobile
+    */
+    public function setMobile($mobile)
+    {
+	$this->mobile = $mobile;
+	return $this;
+    }
 
     /**
      * @return int
@@ -73,6 +170,23 @@ class User
     {
         $this->username = $username;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword ()
+    {
+        return $this->password;
+    }
+    
+    /**
+     * @param string $password
+     */
+    public function setPassword ($password)
+    {
+	$this->password = $password;
+    	return $this;
     }
 
     /**

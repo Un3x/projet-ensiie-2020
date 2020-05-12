@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<?php
+
+include '../src/Recette.php';
+include '../src/RecetteRepository.php';
+include '../src/Factory/DbAdaperFactory2.php';
+
+$dbAdaper = (new DbAdaperFactory())->createService();
+$userRepository = new \Recette\RecetteRepository($dbAdaper);
+$users = $userRepository->fetchAll();
+
+?>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+        <title>Projet web EpicEvry</title>
+	    <meta name="description" content="Projet web Ensiie">
+	        <meta name="author" content="Us">
+		    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		        <link rel="stylesheet" href="css/header.css">
+			    <link rel="stylesheet" href="css/normalize.css">
+			    <link rel="stylesheet" href="css/footer.css">    
+			        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,500&display=swap" rel="stylesheet">
+				    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<header role="header">
+<nav class="menu" role="navigation">
+<div class = "inner">
+<a href="#"><img src="logo2.png" class="m-link-logo"></a>
+<div class="m-right">
+<a href="#" class="m-link"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+<a href="#" class="m-link"><i class="fa fa-question-circle-o" aria-hidden="true"></i> A propos</a>
+<a href="#" class="m-link"><i class="fa fa-lemon-o" aria-hidden="true"></i> Aliment </a>
+<a href="#" class="m-link"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Panier </a>
+<a href="#" class="m-link"><i class="fa fa-cutlery" aria-hidden="true"></i> Recettes</a>
+<a href="#" class="m-link"><i class="fa fa-envelope-o" aria-hidden="true"></i> Contact</a>
+</div>
+</div>
+</nav>
+</header>
+</head>
+<body>
+<div class="container">
+
+<div class="row">
+<div class="col-sm-12">
+<h1>Liste des recettes</h1>
+</div>
+<div class="col-sm-12">
+<table class="table">
+<tr>
+<th>identifiant de la recette</th>
+<th>Titre de la recette</th>
+<th>Difficulté</th>
+<th>Temps de préparation</th>
+<th>Nombre de personnes</th>
+<th>Préparation</th>
+<th>Action</th>
+</tr>
+<?php foreach($users as $user): ?>
+<tr>
+<td><?= $user->getId_recette() ?></td>
+<td><?= $user->getTitre_recette() ?></td>
+<td><?= $user->getDifficulte() ?></td>
+<td><?= $user->getTps_prep() ?></td>
+<td><?= $user->getNb_pers() ?></td>
+<td><?= $user->getPreparation() ?></td>
+<td>
+<form method="POST" action="/deleteRecette.php">
+<input name="recette_id" type="hidden" value="<?= $user->getId_recette() ?>">
+<button type="submit">Delete</button>
+</form>
+</td>
+</tr>
+<?php endforeach; ?>
+</table>
+</div>
+</div>
+</div>
+<script src="js/scripts.js"></script>
+<footer class="site-footer">
+<div class="container">
+<div class="row">
+<div class="col-sm-12 col-md-6">
+<img src="logo.png" width=100px height=100px>
+<h6> L'épicerie étudiante d'Evry Courcouronnes </h6>
+</div>
+<div class="col-xs-6 col-md-3">
+<h6>Services</h6>
+<ul class="footer-links">
+<li><a href="#">Acceuil</a></li>
+<li><a href="#">Recettes</a></li>
+<li><a href="#">Aliments</a></li><li><a href="#">Panier</a></li>
+<li><a href="#">Compte</a></li>
+</ul>
+</div>
+<div class="col-xs-6 col-md-3">
+<h6>Liens rapides</h6>
+<ul class="footer-links">
+<li><a href="#">Contact</a></li>
+<li><a href="#">Contribuer</a></li>
+</ul>
+</div>
+</div>
+<hr>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-8 col-sm-6 col-xs-12">
+<p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by
+<a href="#">EpicEvry</a>.
+</p>
+</div>
+<div class="col-md-4 col-sm-6 col-xs-12">
+<ul class="social-icons">
+<li><a class="facebook" href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+<li><a class="twitter" href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i>
+</a></li>
+<li><a class="instagram" href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+</i></a></li>
+</ul>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>
+																																																																																    
