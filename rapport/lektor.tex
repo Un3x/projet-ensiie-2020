@@ -7,6 +7,8 @@ Elle possède aussi un attribut \texttt{added\_by}, qui permet de savoir quel ut
 
 La queue est donc unique et n'importe quel utilisateur peut ajouter des karaokes à celle-ci.
 L'ajout se fait avec une requête \texttt{POST} à la page \texttt{/Forms/addKara.php}, en fournissant l'id du karaoke que l'on veut rajouter. Cette page va effectuer la requête, en s'assurant tout d'abord que l'utilisateur est connecté, et, si il n'est pas un administrateur, qu'il n'ajoute pas trop de karaokes en un temps restreint.
+Afin de pouvoir trouver facilement les karaokes voulus dans la queue, la liste de kara entière et chargé sur la page html et affichée sous forme de liste de formulaire. Une barre de recherche permet de rentrer des mot-clés, ce qui va executer une fonction javascript qui va cacher les karaokes qui ne correspondent pas. Cela permet aux utilisateurs de faire des recherches rapides et de ne pas surcharger le serveur de requêtes (la table \texttt{kara} n'ayant pas vocation à changer durant une
+session).
 Seul les administrateurs peuvent supprimer des karaokes de la queue à travers une requête \texttt{POST} vérifiant les droits nécessaires à travers la variable \texttt{\$\_SESSION{\lbrack'rights'\rbrack}} 
 L'état actuel de la queue peut être récupérée grâce à la page \texttt{/Forms/getQueue.php} à l'aide d'une requête \texttt{GET}.
 
