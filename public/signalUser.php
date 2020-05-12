@@ -23,7 +23,6 @@ if ($id_membre&&$id!=0) {
             //include_once '../public/template.php';
             //loadView('testadm',$id);
         }
-        else {echo "erreur 1";}
     }
     else 
     {
