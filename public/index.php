@@ -62,18 +62,18 @@ $utilisateurs = $utilisateurRepository->fetchAll();
     ?>
 </p>
 
-</br>
-<button type="button" id="playbutton" onclick=" document.getElementById('hide').style.display='block';">Jouer</button> 
+</br> <div align="center">
+<button type="button" id="playbutton" onclick=" document.getElementById('hide').style.display='block';">Jouer</button>
 <form method="POST" style="display:none" id="hide" action="/Login.php" onsubmit="return login_validation()" name="login">
   <label for="name">Pseudo:</label>
-  <input type="text" id="name" name="nom_utilisateur">
+  <input type="text" id="name" name="nom_utilisateur" placeholder="Votre pseudo. .">
   <br>
   <label for="mdp">Mot de passe :</label>
-  <input type="password" id="mdp" name="mdp_utilisateur">
+  <input type="password" id="mdp" name="mdp_utilisateur" placeholder="Votre mot de passe. .">
   <br>
   <button type="submit"> Se connecter</button>
   <p id="hide" style="display:none">No account ? Signup now ! </p>
-  <button type="button" onclick=" document.getElementById('hide2').style.display='block';document.getElementById('hide').style.display='none';">Créer un  compte</button> 
+  <button type="button" onclick=" document.getElementById('hide2').style.display='block';document.getElementById('hide').style.display='none';">Créer un  compte</button> </div>
 </form>
 <form method="POST" style="display:none" id="hide2" action="/createUtilisateur.php" onsubmit="return signin_validation()" name="signin">
   <label for="name">Pseudo:</label>

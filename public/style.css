@@ -549,8 +549,8 @@ html {
 table{
     color: whitesmoke;
     left: 100px;
-    border-width:3px; 
-    border-style:solid; 
+    border-width:3px;
+    border-style:solid;
     border-color:black;
     width:50%;
     right: 100px;
@@ -559,9 +559,9 @@ table{
     margin-left: 250px;
 }
 
-td { 
+td {
     border-width:2px;
-    border-style:solid; 
+    border-style:solid;
     border-color: black;
     width:50%;
     vertical-align:middle;
@@ -624,4 +624,23 @@ td {
 }
 .vote .map3:active{
     opacity: 1;
+}
+
+.playbutton{
+  background-color: #f44630;
+  font-size: 140px;
+  padding : 50px 100px;
+  border: 10px solid #555555;
+  color : #FFD700;
+  box-shadow: 0 20px 34px 0 rgba(0,0,0,0.4), 0 16px 40px 0 rgba(0,0,0,0.3);
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+  transition-duration: 1s;
+  font-family: Impact;
+}
+
+.playbutton:hover {
+background-color: #4B0082;
+  color: #3CB371;
 }
