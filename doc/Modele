@@ -1,0 +1,10 @@
+Utilisateur(#id_u,pseudo,filiere,promo)
+Admin(#id_u,pseudo,filiere,promo)
+Sujet(#id_suj, matiere,filiere,annee,concours,difficulté,theme)
+Commentaire(#id_com,id_u,id_suj,text,reponse[])
+
+Rechercher(id_u,matiere,filiere,annee,concours,difficulté,theme)
+Deposer(id_u,matiere,filiere,annee,concours,difficulté,theme)
+Contacter(#id_u,#id_u)
+
+

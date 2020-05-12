@@ -4,59 +4,18 @@ namespace User;
 
 class User
 {
-    /**
-     * @var int
-     */
-    private $id;
-
-    /**
-     * @var string
-     */
-    private $email;
 
     /**
      * @var string
      */
     private $username;
+    
 
-    /**
-     * @var \DateTime
+     /**
+     * @var string
      */
-    private $createdAt;
+    private $password;
 
-    /**
-     * @return int
-     */
-    public function getId ()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId ($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getEmail ()
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param string $email
-     */
-    public function setEmail ($email)
-    {
-        $this->email = $email;
-        return $this;
-    }
 
     /**
      * @return string
@@ -75,20 +34,21 @@ class User
         return $this;
     }
 
-    /**
-     * @return \DateTime
+     /**
+     * @return string
      */
-    public function getCreatedAt ()
+    public function getPassword ()
     {
-        return $this->createdAt;
+        return $this->password;
     }
 
     /**
-     * @param \DateTime $createdAt
+     * @param string $username
      */
-    public function setCreatedAt ($createdAt)
+    public function setPassword ($password)
     {
-        $this->createdAt = $createdAt;
+        $this->password = $password;
         return $this;
     }
+
 }

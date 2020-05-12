@@ -1,11 +1,18 @@
+
+export PGPASSWORD=ensiie
+
 start:
 	php -S localhost:8080 -t public/
 
 db.init:
-	createdb ensiie
-	psql -U ensiie -d ensiie -a -f data/init.sql
+	createdb toraux
+	psql toraux -h localhost toraux < data/toraux.sql
 
 db.drop:
-	dropdb ensiie
+	dropdb toraux
 
-db.reset: db.drop db.init
+db.reset:
+	dropdb toraux
+	createdb toraux
+	psql toraux -h localhost  toraux < data/toraux.sql
+

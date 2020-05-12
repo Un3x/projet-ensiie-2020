@@ -1,70 +1,66 @@
-<?php
+<html>
+    <head>
+       <meta charset="utf-8">
+       <link rel="stylesheet" href="style/style2.css"/>
+       <?php
+		if(isset($_GET['state'])){
+                   $state=$_GET['state'];
+                   if ($state==0){
+	             session_start();
+	             session_destroy();
+	           }
+	        }
+       ?>
+    </head>
+    <body>
+      <div id="header" class="header">
+      <img src="style/logo.png" alt="logo" style="width:150px;height:150px;">
+	 <h1>T-Oraux</h1>
+	 <div class="header-right">
+	 <a href="accueil.php">Accueil</a>
+	 <a href="contact/contact.php">Contact</a>
+	 <a href="index.php" class="active">Connexion</a>
+         </div>
+      </div>
+      <div id="container">
+	Bienvenue sur <b>T-Oraux</b>&#8239;!
+      </div>
+      <div id="container">
+	<?php
+		if(isset($_GET['id'])){
+                   $id=$_GET['id'];
+                   if ($id==1){
+                   echo "<p style='color:green'> Création de compte réussie </p>";}}?>
+	<form action="login.php" method="POST">
+	<h1>Connexion</h1>
+        <label><b>Nom d’utilisateur</b></label>
+        <input type="text" placeholder="Nom d’utilisateur" name="username" required>
 
-include '../src/User.php';
-include '../src/UserRepository.php';
-include '../src/Factory/DbAdaperFactory.php';
+        <label><b>Mot de passe</b></label>
+        <input type="password" placeholder="Mot de passe" name="password" required>
 
-$dbAdaper = (new DbAdaperFactory())->createService();
-$userRepository = new \User\UserRepository($dbAdaper);
-$users = $userRepository->fetchAll();
-
-?>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Projet web Ensiie</title>
-    <meta name="description" content="Projet web Ensiie">
-    <meta name="author" content="Thomas COMES">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-</head>
-
-<body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Projet Web Ensiie 2020</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1>User List</h1>
-        </div>
-        <div class="col-sm-12">
-            <table class="table">
-                <tr>
-                    <th>id</th>
-                    <th>username</th>
-                    <th>email</th>
-                    <th>creation date</th>
-                    <th>Action</th>
-                </tr>
-                <?php foreach($users as $user): ?>
-                    <tr>
-                        <td><?= $user->getId() ?></td>
-                        <td><?= $user->getUsername() ?></td>
-                        <td><?= $user->getEmail() ?></td>
-                        <td><?= $user->getCreatedAt()->format(\DateTime::ATOM) ?></td>
-                        <td>
-                            <form method="POST" action="/deleteUser.php">
-                                <input name="user_id" type="hidden" value="<?= $user->getId() ?>">
-                                <button type="submit">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
-        </div>
-    </div>
-</div>
-<script src="js/scripts.js"></script>
-</body>
+	<div class="bouton">
+	<input type="submit" id='submit' value='Se connecter' >
+	</div>
+	<div class="bouton">
+	  <input type="button" id='Rappel' value="Mot de passe oublié&#8239;?"
+		 onClick="window.location.href='rappel_mdp/rappel.php'">
+	  <?php
+	     if(isset($_GET['mdp'])){
+             $id=$_GET['mdp'];
+             if ($id==2){
+             echo "<p style='color:green'> Reponse: </p>";}} ?>
+	  <input type="button" id='Rappel' value="Créer compte"
+		 onClick="window.location.href='enregistrement/enr1.php'">
+          <?php
+             if(isset($_GET['erreur'])){
+             $err = $_GET['erreur'];
+             if($err==1 || $err==2)
+             echo "<p style='color:red'>Utilisateur ou mot de passe incorrect!</p>";
+             }
+             ?>
+	  </div>
+	</form>
+      </div>
+  </body>
 </html>

@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+
+#header {
+    width:auto;
+    height: 200px;
+    text-align: center;
+    color: red;
+    margin: 0 auto;
+}
+		    
+body{
+    background-color: #FAEBD7;
+    background-image:url(Photos/Ferme.jpg);
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#container{
+    width:500px;
+    height: 400px;
+    padding: 10px;
+    padding-top: 3px;
+    border: 1px solid #f1f1f2;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4) 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    text-align: left;
+    margin:200px auto;
+    margin-top:10%;
+}
+
+#container h1{
+    font-family: Georgia;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+/* Full-width inputs */
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+    background-color: #53af57;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=submit]:hover {
+    background-color: #D3D3D3;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    margin: 8px 0;
+    width: 100%;
+}
