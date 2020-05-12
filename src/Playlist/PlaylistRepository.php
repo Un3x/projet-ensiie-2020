@@ -84,9 +84,9 @@ class PlaylistRepository
         return $this->fromQueryToArray($playlists->fetchAll(\PDO::FETCH_ASSOC));
     }
 
-    public function fetchPlaylist($id, $userId, $mode)
+    public function fetchPlaylist($id, $userId)
     {
-        if ( !$this->canAccess($idPlaylist, $idAsker) )
+        if ( !$this->canAccess($id, $userId) )
             throw new \Exception("You don't have the rights to see this playlist");
 
         $req = 'SELECT playlist.id, name, creator, publik, username FROM playlist JOIN "user" ON "user".id=creator WHERE playlist.id=:id';
@@ -184,13 +184,12 @@ class PlaylistRepository
         $stmt->bindParam(':idKara', $idKara, \PDO::PARAM_INT);
         $stmt->bindParam('idPlaylist', $idPlaylist, \PDO::PARAM_INT);
         $stmt->execute();
-        var_dump($stmt->fetch(\PDO::FETCH_COLUMN));
         return $stmt->fetch(\PDO::FETCH_COLUMN);
     }
 
     public function addKaraToPlaylist($idPlaylist, $idKara, $idAsker)
     {
-        if ( !$this->isOwner($idPlaylist, $idAsker) )
+        if ( !($this->isOwner($idPlaylist, $idAsker)) )
             throw new \Exception("You don't have the rights to delete from this playlist");
 
         /*

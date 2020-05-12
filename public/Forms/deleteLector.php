@@ -4,7 +4,7 @@ session_start();
 $toDelete = intval(htmlspecialchars($_POST['lector_id']));
 
 
-if ( !(isset($_SESSION['id']) && (( $_SESSION['rights'] === 1 || $_SESSION['rights'] === 2) || ( $_SESSION['id'] === $toDelete )) ) )
+if ( !(isset($_SESSION['id']) && (( $_SESSION['rights'] === 1 || $_SESSION['rights'] === 2) || ( intval($_SESSION['id']) === $toDelete )) ) )
 {
     echo "Please be nice and leave, OK ?";
     exit();

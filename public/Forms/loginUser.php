@@ -59,7 +59,7 @@ if ($userRepository->checkUser($username) + $userRepository->checkEmail($usernam
 	$hash_password=password_hash($password,PASSWORD_DEFAULT);
 	$idUser=$dbAdaper->prepare('SELECT * FROM "user" WHERE username= :user OR email= :email;' );
 	$idUser->bindParam('user',$username, \PDO::PARAM_STR);
-	$idUser->bindParam('email',$username \PDO::PARAM_STR);
+	$idUser->bindParam('email',$username, \PDO::PARAM_STR);
 	$idUser->execute();
 	//a user has been found
 	if ($idUser->rowCount()>0){

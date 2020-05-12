@@ -15,8 +15,8 @@ if ( !isset($playlistRepository) )
 try 
 {
     $playlistId = htmlspecialchars($_POST['playlist_id']);
-    $karaId = htmlspecialchars($_POST['kara_id']);
-    var_dump($playlistRepository->addKaraToPlaylist($playlistId, $karaId, $_SESSION['id']));
+    $karaId = intval(htmlspecialchars($_POST['kara_id']));
+    $playlistRepository->addKaraToPlaylist($playlistId, $karaId, intval($_SESSION['id']));
 }
 catch ( Exception $e )
 {
@@ -30,6 +30,7 @@ catch ( PDOException $err )
 }
 
 header('Location: /playlists/modifyPlaylist.php?playlist_id=' . $_POST['playlist_id']);
+die();
 
 
 }

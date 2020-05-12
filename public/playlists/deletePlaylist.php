@@ -2,7 +2,7 @@
 session_start();
 set_include_path('.:' . $_SERVER['DOCUMENT_ROOT'] . '/../src');
 
-if ( isset($_SESSION['id']) && ( $_SESSION['rights'] === 1 || $_SESSION['rights'] === 2) )
+if ( isset($_SESSION['id']) )
 {
 require_once 'Factory/DbAdaperFactory.php';
 require_once 'Playlist/PlaylistRepository.php';
@@ -15,7 +15,7 @@ if ( !isset($playlistRepository) )
 try 
 {
     $playlistId = htmlspecialchars($_POST['playlist_id']);
-    $playlistRepository->deletePlaylist($playlistId, $_SESSION['id']);
+    $playlistRepository->deletePlaylist($playlistId, intval($_SESSION['id']));
 }
 catch ( Exception $e )
 {
