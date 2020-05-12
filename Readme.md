@@ -32,9 +32,9 @@ Pour installer le site, il y a trois étapes :
 
 ## Lancement du site
 
-**Il faut s'assurer que le serveur PostgreSQL est démarré avant toute manipulation du site !**
+**Il faut s'assurer que le serveur PostgreSQL est bien démarré avant toute manipulation du site !**
 
-Pour démarrer le serveur, il suffit juste d'effectuer la commande `make` qui va démarrer le serveur en localhost.
+Pour démarrer le serveur PHP, il suffit juste d'effectuer la commande `make` qui va démarrer le serveur en localhost.
 
 Pour accéder au site Web, il suffit juste d'aller sur [http://localhost:8080](http://localhost:8080)
 
