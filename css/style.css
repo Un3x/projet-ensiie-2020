@@ -1,0 +1,178 @@
+body {
+    background: linear-gradient(27deg, #151515 2px, transparent 2px) 0 2px, linear-gradient(207deg, #151515 2px, transparent 2px) 4px 0px, linear-gradient(27deg, #222 2px, transparent 2px) 0px 4px, linear-gradient(207deg, #222 2px, transparent 2px) 4px 2px, linear-gradient(90deg, #1b1b1b 4px, transparent 4px), linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 8px 8px;
+    color: #fff;
+    margin-top: 70px;
+}
+
+::-webkit-scrollbar {
+    background-color: #1c1e1f;
+    color: #fff;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #1c1e1f;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #6020a090;
+}
+
+::selection {
+    background: #6020a0;
+    color: #fff;
+}
+
+::-moz-selection {
+    background: #6020a0;
+    color: #fff;
+}
+
+.avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    transition: .3s;
+    object-fit: cover;
+}
+
+.text-overflow {
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.logo {
+    font-family: 'Sen', sans-serif;
+    text-shadow: 0 0 5px #fff;
+}
+
+.logo .letter {
+    animation: glow 3s infinite ease-in-out;
+}
+
+@keyframes glow {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+pre {
+    color: #fff;
+    background: #000;
+    padding: 5px;
+}
+
+.card, .input-group, .btn, .card-img, .card-img-overlay, .modal-content, .message blockquote {
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.input-group>*:first-child, .input-group>*:first-child>* {
+    border-top-left-radius: 20px;
+}
+
+.input-group>*:last-child {
+    border-bottom-right-radius: 20px !important;
+}
+
+.card-header, .modal-header {
+    background: linear-gradient(to right, #0000, #6020a0);
+}
+
+.navbar {
+    background: linear-gradient(to left, #0000 50%, #6020a0);
+}
+
+.form-control:focus {
+    border-left-color: #6020a0;
+    border-bottom-color: #6020a0;
+    border-right-color: #00e7a9;
+    border-top-color: #00e7a9;
+    box-shadow: -1px 1px 2px 0.2rem #6020a080, 1px -1px 2px 0.2rem #00e7a980;
+}
+
+a {
+    color: #a060e0;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #6020a0;
+}
+
+.emoji {
+    height: 1.25em;
+    width: 1.25em;
+}
+
+.card-img {
+    filter: brightness(0.5);
+}
+
+/*Ripple*/
+
+.ripple, .ripple div {
+    z-index: 2000;
+    width: 10px;
+    height: 10px;
+    opacity: 0;
+    transform: scale(0);
+    background: #00e7a980;
+    border-radius: 50%;
+    position: fixed;
+    animation: ripple-mo 1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.ripple div {
+    background: #6020a0;
+    animation: .7s ripple-mo-2 .3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+/*Animate Function*/
+
+.animate {
+    animation: ripple-mo 1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+@keyframes ripple-mo {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(10);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple-mo-2 {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* Emoji Picker */
+
+.emoji-picker__content {
+    height: unset;
+}
+
+.emoji-picker__emojis, .emoji-picker__container {
+    width: fit-content;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+}
