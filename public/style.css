@@ -542,10 +542,6 @@ html {
     background: #d400ff;
 }
 
-.playbutton{
-    color: black;
-}
-
 table{
     color: whitesmoke;
     left: 100px;
@@ -626,11 +622,16 @@ td {
     opacity: 1;
 }
 
-.playbutton{
-  background-color: #f44630;
+.toalign {
+    padding-top: 5%;
+    padding-left: 30%;
+    background-image: "image/bg";
+}
+
+.toalign #playbutton{
+  background-color: #ad1400;
   font-size: 140px;
-  padding : 50px 100px;
-  border: 10px solid #555555;
+  border: 7px solid #555555;
   color : #FFD700;
   box-shadow: 0 20px 34px 0 rgba(0,0,0,0.4), 0 16px 40px 0 rgba(0,0,0,0.3);
   border-radius: 30px;
@@ -638,18 +639,19 @@ td {
   text-align: center;
   transition-duration: 1s;
   font-family: Impact;
+  overflow-y: hidden;
 }
 
-.playbutton:hover {
+.toalign #playbutton:hover {
 background-color: #4B0082;
   color: #3CB371;
 }
 
-.newaccbutton{
-  background-color: #f44630;
+.toalign #newaccbutton{
+  background-color: #ad1400;
   font-size: 15px;
   padding : 7px 20px;
-  border: 10px solid #555555;
+  border: 2px solid #555555;
   color : #FFD700;
   box-shadow: 0 20px 34px 0 rgba(0,0,0,0.4), 0 16px 40px 0 rgba(0,0,0,0.3);
   border-radius: 10px;
@@ -659,7 +661,7 @@ background-color: #4B0082;
   font-family: Impact;
 }
 
-.newaccbutton:hover {
+.toalign #newaccbutton:hover {
 background-color: #4B0082;
   color: #3CB371;
 }

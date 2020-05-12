@@ -41,9 +41,9 @@
             ?>
             <input type="hidden" id=nbr_online value=<?php echo($pplonlineRepository->update()); ?> />
             <?php echo("Bonjour " .$_SESSION["username"]); ?>
-            <?php echo("/ Online : "); echo($pplonlineRepository->update()); $refreshAfter = 910 ?>
+            <?php echo("/ En ligne : "); echo($pplonlineRepository->update()); $refreshAfter = 910 ?>
             <form method="POST" action="/Logout.php">
-                <button type="submit">Logout</button>
+                <button type="submit">Se deconnecter</button>
             </form>
         </div>
         <?php if(isset($_GET['retour'])) $refreshAfter = $_GET['retour']; header('Refresh: ' . $refreshAfter) ?>

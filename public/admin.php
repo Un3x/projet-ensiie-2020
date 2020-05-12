@@ -94,8 +94,5 @@
             </table>
         </div>
         </div>
-        <p>
-        Ici se situe la page admin
-        </p>
     </body>
 </html>
