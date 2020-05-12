@@ -25,15 +25,9 @@ $utilisateurs = $utilisateurRepository->fetchAll();
 <body>
 
 <div class="endgame">
-    <?php $mapchoisie = $mapRepository->getChoosedMap();
-        $votedMap =  "images/map" . $mapchoisie . ".jpg" ;?>
-    <div class="image">
-        <img src=<?= $votedMap ?>>
-    </div>
-    <?php $nb_votes = $mapRepository->getVoteMap($mapchoisie); ?>
-    <p>Map Choisie avec <?php echo($nb_votes); ?> votes !</p>
-    <form action="/gameend.php">
-        <button class="gamebutton">Commencer la partie</button>
+    <p>L'équipe <?php echo(random_int(1, 2)) ?> a gagné !</p>
+    <form action="/reset_game.php">
+        <button class="gamebutton">Retour au menu</button>
     </form>
 </div>
 

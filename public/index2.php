@@ -26,7 +26,7 @@ $games = $gameRepository->fetchpplgame($actualGame->getId());
 
 $mapgame = $mapRepository->selectmaps($actualGame->getMap1(), $actualGame->getMap2());
 
-/*
+
 if(isset($_SESSION['idmap1']) && isset($_SESSION['idmap2'])){
     $mapgame = $mapRepository->getmapbyid();
 }
@@ -39,13 +39,13 @@ if(empty($_SESSION['timer'])){
 else{
     unset($_SESSION['timer']);
     $delta = time() - $_SESSION['timer'];
-  if($delta>60){
+  if($delta>30){
         header("Location: mapchoosed.php");
     }
 }
-$refreshafter = 60-$delta;
+$refreshafter = 30-$delta;
 header("Refresh: ".$refreshafter);
-*/
+
 
 ?>
 

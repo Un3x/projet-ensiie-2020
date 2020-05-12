@@ -623,7 +623,9 @@ td {
 }
 
 .chtml {
-    background-image: url("images/bg.jpeg");
+    background-image: url("images/bg.jpeg"); 
+    -moz-background-size: cover;
+    background-size: cover;
 }
 
 .toalign {
@@ -641,7 +643,7 @@ td {
   cursor: pointer;
   text-align: center;
   transition-duration: 1s;
-  font-family: Impact;
+  font-family: Impact, fantasy;
   overflow-y: hidden;
 }
 
@@ -661,10 +663,38 @@ background-color: #4B0082;
   cursor: pointer;
   text-align: center;
   transition-duration: 1s;
-  font-family: Impact;
+  font-family: Impact, fantasy;
 }
 
 .toalign #newaccbutton:hover {
 background-color: #4B0082;
   color: #3CB371;
+}
+
+.endgame {
+    padding: 5%;
+    padding-left: 350px;
+}
+
+.endgame p {
+    font-family: Impact, fantasy;
+    font-size: 30px;
+    font-weight: 500;
+    color: #00d9ff;
+}
+
+.endgame .gamebutton {
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: Impact, fantasy;
+    font-size: 30px;
+    background-color: #fff;
+    color: #020096;
+    border: 2px solid #020096;
+    border-radius: 8px;
+}
+
+.endgame .gamebutton:hover {
+    border: 4px solid #00d9ff;
+    color: #00d9ff;
 }

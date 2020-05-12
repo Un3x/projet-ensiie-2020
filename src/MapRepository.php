@@ -96,4 +96,29 @@ class MapRepository
         }
         return $maps;
     }
+
+    public function getChoosedMap(){
+        $sql = $this->dbAdapter->query('SELECT * FROM "map"');
+        $id_map = 0;
+        $max_vote = 0;
+        foreach($sql as $map){
+            if(isset($map['vote'])){
+                if($map['vote'] > $max_vote){
+                    $id_map = $map['id_map'];
+                    $max_vote = $map['vote'];
+                }
+            }
+        }
+        return $id_map;
+    }
+
+    public function getVoteMap($id_map){
+        $sql = $this->dbAdapter->query('SELECT * FROM "map"');
+        foreach($sql as $map){
+            if($map['id_map'] == $id_map){
+                return $map['vote'];
+            }
+        }
+        return -1;
+    }
 }

@@ -177,25 +177,6 @@ class IngameRepository
         }
     }
 
-    public function isEmpty($id){
-        session_start();
-        $games = $this->dbAdapter->query('SELECT * FROM "in_game" ');
-        $bool = true;
-        foreach($games as $game){
-            if($game['id_game'] == $id){
-                if($game['map1'] != null){
-                    $bool = false;
-                    $_SESSION['idmap1'] = $game['map1'];
-                }
-                if($game['map2'] != null){
-                    $bool = false;
-                    $_SESSIOn['idmap2'] = $game['map2'];
-                }
-            }
-        }
-        return $bool;
-    }
-
     public function getGame(){
         $stmt = $this->dbAdapter->query('SELECT * FROM in_game');
         foreach($stmt as $game){
@@ -210,5 +191,14 @@ class IngameRepository
             }
         }
         return $joueur;
+    }
+
+    public function reset_game(){
+        session_start();
+        $stmt = $this
+            ->dbAdapter
+            ->prepare('DELETE FROM "in_game" where pseudo=:pseudo');
+        $stmt->bindParam('pseudo', $_SESSION['username']);
+        $stmt->execute();
     }
 }

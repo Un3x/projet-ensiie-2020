@@ -25,7 +25,6 @@
             <ul>
                 <li><a href="#volet" class="open" aria-hidden="true">Profil</a>
                 <li><a href="#" id="Roles_button">Roles</a></li>
-                <li><a href="#">Modes de jeu</a></li>
             </ul>
         </div>
         <div id="connexion_info">
