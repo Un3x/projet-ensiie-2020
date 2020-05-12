@@ -1,0 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+*:focus {
+  outline: none;
+}
+
+input[type="submit"] {
+    margin-top: 0px;
+    width: 230px;
+    height: 32px;
+    background: #ffab05;
+    border: none;
+    border-radius: 2px;
+    color: #444;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.1s ease;
+    cursor: pointer;
+  }

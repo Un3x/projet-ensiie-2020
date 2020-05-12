@@ -1,0 +1,29 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+*:focus {
+  outline: none;
+}
+
+#answer-box {
+    position: relative;
+    margin: 5% auto;
+    width: 300px;
+    height: 200px;
+    background: #444;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  input[type="submit"] {
+    margin-top: 0px;
+    width: 130px;
+    height: 32px;
+    background: #ffab05;
+    border: none;
+    border-radius: 2px;
+    color: #444;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.1s ease;
+    cursor: pointer;
+  }
