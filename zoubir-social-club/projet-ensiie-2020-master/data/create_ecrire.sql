@@ -1,0 +1,9 @@
+
+
+CREATE TABLE ecrire(
+n_pers INTEGER PRIMARY KEY,
+n_mess INTEGER PRIMARY KEY,
+CONSTRAINT n_pers NOT NULL,
+CONSTRAINT n_pers UNIQUE,
+CONSTRAINT nn_perso FOREIGN KEY (n_pers) REFERENCES personne(n_pers),
+CONSTRAINT nn_mess FOREIGN KEY (n_mess) REFERENCES message(n_mess));

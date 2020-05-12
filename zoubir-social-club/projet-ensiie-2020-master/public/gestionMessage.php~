@@ -1,0 +1,41 @@
+<?php
+include_once '../src/utils/autoloader.php';
+// create the database connection
+$dbfactory = new \Rediite\Model\Factory\DbAdapterFactory();
+$dbAdapter = $dbfactory->createService();
+
+
+/*
+	$data = [];
+	include_once '../src/view/template.php';
+	loadView('wall', $data);
+*/
+
+$MessageHydrator = new \Rediite\Model\Hydrator\MessageHydrator();
+$MessageRepository = new \Rediite\Model\Repository\MessageRepository($dbAdapter, $MessageHydrator);
+
+$date = date('y-m-d h:i:s');
+      if (isset($_POST['message_contenu'])
+      {
+	if (!empty($_POST['message_contenu'])
+      	{
+		$message_content = htmlspecialchars($_POST['message_contenu']);
+		$MessageRepository->insertMessage($message_content,
+						  $date,
+						  0,
+						  0,
+						  $_SESSION['n_pers']);
+		$message = "Votre post a bien été envoyé";
+	}
+        else
+	{
+		echo "Veuillez écrire un message";
+	}			
+
+      }
+
+
+include_once '../src/view/template.php';
+loadView('thanks_signup', $_POST);
+
+?>
