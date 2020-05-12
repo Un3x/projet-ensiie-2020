@@ -1,0 +1,21 @@
+Ceci est une liste des features du futur site /*FIND A NAME*/:
+
+    1) Créer un compte utilisateur : lors de la création du compte, on renseigne également les jeux préférés. (compte discord ?)
+
+    2) Possibilité d'ajouter d'autres utilisateurs en amis
+
+    3) Un onglet Recherche où on voit tout les joueurs recherchant une partie, avec filtre (amis, jeux...)
+
+    4) Lorsque deux joueurs (ou plus) se trouvent, le site ouvre un chat texte (et envoie un lien discord si ils veulent vocal)
+
+    5) Possibilité de faire des groupes d'amis, qui rechercheront donc ensemble.
+
+    6) Possibilité de rajouter un jeu à la bdd du site
+
+    7) Côté administration: Possibilité de faire des comptes administrateurs qui seront capable de: accepter les requêtes de jeux des utilisateur, supprimer un jeu, ban des utilisateurs, modifier les attributs d'un jeu
+
+    (8) Création de tournois (LanPartiie ?) )
+
+    9) Possibilité d'inviter un joueur en rentrant son pseudo
+
+    10) Possibilité de bloquer d'autres utilisateurs

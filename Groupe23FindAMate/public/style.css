@@ -1,0 +1,139 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+nav{
+    background: #990000;
+}
+
+body{
+    background: #262626;
+    padding-top: 7%;
+    padding-bottom: 10%;
+    color: #FFFFFF;
+}
+
+a{
+    color: #e60000;
+}
+
+.get-started{
+    background: #990000;
+}
+.table{
+    color: #FFFFFF;
+}
+
+.button{
+    background: #990000;
+    color: #FFFFFF;
+    border: 1px solid black;
+    border-radius: 10%;
+}
+
+.acquired{
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+}
+
+.footer {
+    position: absolute;
+    padding: top 50px ;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    background: #262626;
+    color: #FFFFFF;
+}
+
+.colonne1{
+    float: left;
+    width: 26%;
+    margin-left: 5%;
+    border-radius: 5%;
+    font-size: x-large;
+    padding: 4px;
+    border: 2px solid black;
+    clear: none;
+}
+
+.Rejoindre{
+    background: #990000;
+    color: #ffffff;
+    float: right;
+    position: relative;
+    bottom: 10px;
+}
+
+.colonne2{
+    float:left;
+    width: 26%;
+    border-radius: 5%;
+    margin:5%;
+    font-size: x-large;
+    border: 2px solid black;
+    padding: 4px;
+    clear: none;
+}
+
+.colonne3{
+    float: left;
+    width: 25%;
+    margin-right: 5%;
+    border-radius: 5%;
+    font-size: x-large;
+    border: 2px solid black;
+    clear: none;
+    padding: 4px;
+
+}
+
+.titre {
+    font-size: xx-large;
+}
+.rectangle{
+    margin-top: 10px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 10px;
+    padding-top : 10px;
+    padding-bottom : 10px;
+    padding-left : 10px;
+    padding-right : 10px;
+    border-top : solid;
+    border-top-color : #828282;
+    border-left : solid;
+    border-right : solid;
+    border-bottom : solid;
+    border-top-width : 3px;
+}
+
+.rectangle2{
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 10px;
+    padding-top : 10px;
+    padding-bottom : 10px;
+    padding-left : 10px;
+    padding-right : 10px;
+    border-top : solid;
+    border-top-color : #828282;
+    border-left : solid;
+    border-right : solid;
+    border-bottom : solid;
+    border-top-width : 3px;
+}
+
+p 
+{
+    clear: both;
+
+}
+p span 
+{
+    float: left;
+}
+  
