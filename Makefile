@@ -1,11 +1,11 @@
 start:
-	php -S localhost:8080 -t public/
+	php -S localhost:8080 -t projet/views/accueil.php
 
 db.init:
-	createdb ensiie
-	psql -U ensiie -d ensiie -a -f data/init.sql
+	createdb MyM
+	psql -U ensiie -d MyM -a -f data/init.sql
 
 db.drop:
-	dropdb ensiie
+	dropdb MyM
 
 db.reset: db.drop db.init
