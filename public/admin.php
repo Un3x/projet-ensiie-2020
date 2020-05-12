@@ -36,7 +36,7 @@
             <?php echo("Welcome " .$_SESSION["username"]); ?>
             <?php echo("/ Online : "); echo($pplonlineRepository->update()); ?>
             <form method="POST" action="/Logout.php">
-                <button type="submit">Logout</button>
+                <button type="submit">Se deconnecter</button>
             </form>
         </div>
         <div id="board">

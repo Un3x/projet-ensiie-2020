@@ -459,7 +459,7 @@ html {
     width: 50px;
     background: #2A2A2A;
     border: 1px solid #444;
-    color: #444;
+    color: #fff;
     border-radius: 4px;
 }
 
@@ -697,4 +697,9 @@ background-color: #4B0082;
 .endgame .gamebutton:hover {
     border: 4px solid #00d9ff;
     color: #00d9ff;
+}
+
+.client {
+    background-image: url("images/contourcss.jpg");
+    background-size: cover;
 }

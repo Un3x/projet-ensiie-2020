@@ -12,7 +12,7 @@
     $utilisateurs = $utilisateurRepository->fetchAll();
 ?>
 
-<html>
+<html class="client">
     <head>
         <meta charset="utf-8">
         <title>La Ligue des Deglingos</title>
@@ -40,7 +40,8 @@
             ?>
             <input type="hidden" id=nbr_online value=<?php echo($pplonlineRepository->update()); ?> />
             <?php echo("Bonjour " .$_SESSION["username"]); ?>
-            <?php echo("/ En ligne : "); echo($pplonlineRepository->update()); $refreshAfter = 910 ?>
+            </br>
+            <?php echo("En ligne : "); echo($pplonlineRepository->update()); $refreshAfter = 910 ?>
             <form method="POST" action="/Logout.php">
                 <button type="submit">Se deconnecter</button>
             </form>

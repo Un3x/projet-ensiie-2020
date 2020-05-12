@@ -200,5 +200,9 @@ class IngameRepository
             ->prepare('DELETE FROM "in_game" where pseudo=:pseudo');
         $stmt->bindParam('pseudo', $_SESSION['username']);
         $stmt->execute();
+        $stmt2 = $this
+            ->dbAdapter
+            ->prepare('UPDATE "map" SET vote=0');
+        $stmt2->execute();
     }
 }
