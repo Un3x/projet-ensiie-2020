@@ -13,7 +13,8 @@ L'état actuel de la queue peut être récupérée grâce à la page \texttt{/Fo
 \subsection{Lector}
 
 Lektor est un logiciel de lecture de karaoke. Il fonctionne avec une architecture client-serveur permettant de faire tourner un daemon (lektord) sur son ordinateur, auquel on peut envoyer des commandes à l'aide d'un client (lkt) ou bien tout simplement à l'aide d'une socket ou de netcat. Lektord va ensuite, en fonction des commandes qu'il reçoit, lire les karaokes voulu sur le système où il tourne. Il respecte le protocole MPC, bien qu'étantt encore en développement (réalisé par des élèves de
-l'ENSIIE).
+l'ENSIIE).\newline
+Pour pouvoir faire fonctionner lektor sur son pc, une explication se trouve à la racine du projet dans le readMe.\newline
 
 C'est ce logiciel qu'utilise notre site pour lire des karaokes : chaque utilisateur peut, si il le souhaite et qu'il possède sur son ordinateur personnel la base de données de karaokes ainsi que lektord, s'ajouter sur le site en tant que lecteur. Il faut pour celà avoir l'adresse IP du client, qui est récupéra à l'aide de \texttt{\$\_SERVER\lbrack'HTTP\_CLIENT\_IP'\rbrack}, \texttt{\$\_SERVER\lbrack'HTTP\_X\_FORWARDED\_FOR'\rbrack} ou bien \texttt{\$\_SERVER\lbrack'REMOTE\_ADDR'\rbrack}.
 L'utilisateur doit aussi signaler le port sur lequel son lektord écoute (si non renseigné, la valeur par défaut est le port 6600, qui est la valeur par défaut de lektord).
