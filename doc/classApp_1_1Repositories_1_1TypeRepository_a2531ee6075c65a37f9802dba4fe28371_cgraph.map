@@ -1,0 +1,4 @@
+<map id="App\Repositories\TypeRepository\addType" name="App\Repositories\TypeRepository\addType">
+<area shape="rect" id="node2" href="$classApp_1_1Models_1_1Type.html#a2392cfb683ec20b620f27b98f5521402" title="App\\Models\\Type\\getName" alt="" coords="289,5,484,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Models_1_1Type.html#a08edbce6ef70ffc25468f363d422ea63" title="App\\Models\\Type\\getTags" alt="" coords="294,56,479,83"/>
+</map>

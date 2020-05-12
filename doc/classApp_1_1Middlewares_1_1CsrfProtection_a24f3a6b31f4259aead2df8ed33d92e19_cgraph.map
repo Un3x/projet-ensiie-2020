@@ -1,0 +1,16 @@
+<map id="App\Middlewares\CsrfProtection\handle" name="App\Middlewares\CsrfProtection\handle">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1App.html#ac9531e8239e6c5ce1b22f83db46f9e52" title="App\\Core\\App\\currentRoute" alt="" coords="283,5,481,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1App.html#acf94d63f76951026c717a15be6c6946b" title="App\\Core\\App\\request" alt="" coords="1472,259,1635,285"/>
+<area shape="rect" id="node4" href="$classApp_1_1Utils.html#afa62924a0b9ce4dd6f057a74b43b6bee" title="App\\Utils\\getClientIp" alt="" coords="304,107,460,133"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Session.html#af52026350712ed9eaf57e02ddec66510" title="App\\Core\\Session\\get" alt="" coords="795,157,955,184"/>
+<area shape="rect" id="node7" href="$classApp_1_1Core_1_1App.html#a9ce18ef492b923ab2dc61e8d7c3ffe56" title="App\\Core\\App\\addError" alt="" coords="297,208,467,235"/>
+<area shape="rect" id="node8" href="$classApp_1_1Core_1_1Redirect.html#a8aed43d02f86ed000268d17ee222c5bb" title="App\\Core\\Redirect\\back" alt="" coords="295,259,469,285"/>
+<area shape="rect" id="node10" href="$classApp_1_1Core_1_1Blade.html#ac697d9d4bbcbcab0fc194b03afd5aaa3" title="App\\Core\\Blade\\instance" alt="" coords="291,309,473,336"/>
+<area shape="rect" id="node15" href="$classApp_1_1Core_1_1Session.html#af386d08419abfdbb97ff63383c0b7510" title="App\\Core\\Session\\set" alt="" coords="303,360,461,387"/>
+<area shape="rect" id="node6" href="$classApp_1_1Core_1_1App.html#a531e072eeecca3b1e5228248830296d4" title="App\\Core\\App\\instance" alt="" coords="1013,157,1183,184"/>
+<area shape="rect" id="node9" href="$classApp_1_1Core_1_1Request.html#a840a42a5d41a8643a9d5b69d56333277" title="App\\Core\\Request\\previousUrl" alt="" coords="529,233,747,260"/>
+<area shape="rect" id="node11" href="$classApp_1_1Core_1_1Request.html#ac16679570e72cc1bbeaf6007e48b0c17" title="App\\Core\\Request\\baseUrl" alt="" coords="542,309,734,336"/>
+<area shape="rect" id="node12" href="$classApp_1_1Core_1_1Request.html#ada184d38ca08d7ffe3fc8e9db42eba87" title="App\\Core\\Request\\url" alt="" coords="795,309,954,336"/>
+<area shape="rect" id="node13" href="$classApp_1_1Core_1_1Request.html#af115414ed0f719f8749ebe8f7278d92b" title="App\\Core\\Request\\pathUrl" alt="" coords="1003,309,1193,336"/>
+<area shape="rect" id="node14" href="$classApp_1_1Core_1_1Request.html#a68c4a83405f7a133a56d8f47f86914ed" title="App\\Core\\Request\\fullUrl" alt="" coords="1241,360,1424,387"/>
+</map>

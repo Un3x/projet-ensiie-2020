@@ -1,0 +1,44 @@
+@import 'bootstrap-addons/variables';
+@import 'bootstrap-addons/mixins';
+
+// Plugins CSS
+@import "bootstrap-addons/plugins/plugin-bootstrap-switch";
+@import "bootstrap-addons/plugins/plugin-nouislider";
+@import "bootstrap-addons/plugins/plugin-isometricGrids";
+@import "bootstrap-addons/plugins/plugin-bootstrap-select";
+@import "bootstrap-addons/plugins/plugin-tagsinput";
+@import "bootstrap-addons/plugins/plugin-fileupload";
+@import "bootstrap-addons/plugins/plugin-datetimepicker";
+
+// Core CSS
+@import "bootstrap-addons/buttons";
+@import "bootstrap-addons/inputs";
+@import "bootstrap-addons/checkboxes-radio";
+@import "bootstrap-addons/progress";
+@import "bootstrap-addons/badges";
+@import "bootstrap-addons/pagination";
+@import "bootstrap-addons/typography";
+@import "bootstrap-addons/misc";
+@import "bootstrap-addons/pills";
+
+// components
+@import "bootstrap-addons/tabs";
+@import "bootstrap-addons/navbar";
+@import "bootstrap-addons/dropdown";
+@import "bootstrap-addons/alerts";
+@import "bootstrap-addons/images";
+@import "bootstrap-addons/popups";
+@import "bootstrap-addons/nucleo-outline";
+@import "bootstrap-addons/tables";
+@import "bootstrap-addons/info-areas";
+@import "bootstrap-addons/media";
+@import "bootstrap-addons/modals";
+@import "bootstrap-addons/carousel";
+@import "bootstrap-addons/cards";
+@import "bootstrap-addons/footers";
+
+// example pages and sections
+@import "bootstrap-addons/example-pages";
+@import "bootstrap-addons/sections";
+
+@import "bootstrap-addons/responsive";

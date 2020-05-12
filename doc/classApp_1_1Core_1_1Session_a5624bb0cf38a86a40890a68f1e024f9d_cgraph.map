@@ -1,0 +1,6 @@
+<map id="App\Core\Session\__construct" name="App\Core\Session\__construct">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Session.html#ac10617407da059e188b13a9ba6a91425" title="App\\Core\\Session\\start" alt="" coords="200,31,369,57"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Session.html#a051b36b37efb3207df0169c58d3c5af6" title="App\\Core\\Session\\isStarted" alt="" coords="417,5,615,32"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Request.html#ac8069c4d3d4cf01ebc4e05cf685e191e" title="App\\Core\\Request\\isSecure" alt="" coords="417,56,615,83"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1App.html#acf94d63f76951026c717a15be6c6946b" title="App\\Core\\App\\request" alt="" coords="663,56,825,83"/>
+</map>

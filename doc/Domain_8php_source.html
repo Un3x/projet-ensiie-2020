@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ton nez dans mon vin:  Fichier source de app/Models/Domain.php</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Ton nez dans mon vin
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('Domain_8php_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Domain.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Domain_8php.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceApp_1_1Models.html">App\Models</a>;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespaceApp_1_1Core_1_1File.html">App\Core\File</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classApp_1_1Models_1_1Domain.html">Domain</a></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html#a4b44e639eaf78bca557f3575a8e07228">   18</a></span>&#160;    <span class="keyword">private</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#a4b44e639eaf78bca557f3575a8e07228">$id</a>;</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html#a3e30eb16b272adb7af4bc489636cb9ca">   22</a></span>&#160;    <span class="keyword">private</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#a3e30eb16b272adb7af4bc489636cb9ca">$name</a>;</div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html#a474cff87a2d3819f9452781ffc939e93">   26</a></span>&#160;    <span class="keyword">private</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#a474cff87a2d3819f9452781ffc939e93">$tags</a>;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html#a167889475aa610f394840128eea8cb03">   33</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#a167889475aa610f394840128eea8cb03">fromDbRow</a>($row){</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        $domain = <span class="keyword">new</span> <a class="code" href="classApp_1_1Models_1_1Domain.html">Domain</a>();</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        $domain-&gt;setId($row[<span class="stringliteral">&#39;did&#39;</span>]);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        $domain-&gt;setName($row[<span class="stringliteral">&#39;name&#39;</span>]);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        $domain-&gt;setTags($row[<span class="stringliteral">&#39;tags&#39;</span>]);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> $domain;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html#a0f4bb68e90537abdd9864d79a7cbab19">   45</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#a0f4bb68e90537abdd9864d79a7cbab19">getImagePath</a>(){</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> self::getImagePathFromId($this-&gt;<a class="code" href="classApp_1_1Models_1_1Domain.html#ac89284c0eb17516819c16fdb9cdeb551">getId</a>());</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    }</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html#a9f1527987ea906dfb31029b2b40e39a0">   55</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#a9f1527987ea906dfb31029b2b40e39a0">getImagePathFromId</a>(<a class="code" href="classApp_1_1Models_1_1Domain.html#a4b44e639eaf78bca557f3575a8e07228">$id</a>){</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        $path = <span class="stringliteral">&#39;img/domains/&#39;</span> . <a class="code" href="classApp_1_1Models_1_1Domain.html#a4b44e639eaf78bca557f3575a8e07228">$id</a> . <span class="stringliteral">&#39;.jpg&#39;</span>;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classApp_1_1Core_1_1File.html#abde26d215377af261bb315254f219ef2">File::exists</a>(<a class="code" href="classApp_1_1Core_1_1File.html#a841a40c09a313ca28e6cfefe2872e7a2">File::asset</a>($path)) ? $path : <span class="stringliteral">&#39;img/domains/default.jpg&#39;</span>;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html#ac89284c0eb17516819c16fdb9cdeb551">   63</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#ac89284c0eb17516819c16fdb9cdeb551">getId</a>()</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    {</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#a4b44e639eaf78bca557f3575a8e07228">$this-&gt;id</a>;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html#ad18629648d20484562c0fc6406d9a43d">   72</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#ad18629648d20484562c0fc6406d9a43d">setId</a>(<a class="code" href="classApp_1_1Models_1_1Domain.html#a4b44e639eaf78bca557f3575a8e07228">$id</a>)</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        $this-&gt;<span class="keywordtype">id</span> = <a class="code" href="classApp_1_1Models_1_1Domain.html#a4b44e639eaf78bca557f3575a8e07228">$id</a>;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> $this;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html#ab03f708b332ef882f8e8fd673c70d5ef">   81</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#ab03f708b332ef882f8e8fd673c70d5ef">getName</a>()</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#a3e30eb16b272adb7af4bc489636cb9ca">$this-&gt;name</a>;</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div><div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html#a93ecbec67cdab9ae805392f0de8d1668">   90</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#a93ecbec67cdab9ae805392f0de8d1668">setName</a>(<a class="code" href="classApp_1_1Models_1_1Domain.html#a3e30eb16b272adb7af4bc489636cb9ca">$name</a>)</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        $this-&gt;name = <a class="code" href="classApp_1_1Models_1_1Domain.html#a3e30eb16b272adb7af4bc489636cb9ca">$name</a>;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> $this;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div><div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html#a2bf8e7d9334955a62e5d1f1297551820">  100</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#a2bf8e7d9334955a62e5d1f1297551820">getTags</a>($array = <span class="keyword">true</span>){</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">return</span> $array ? explode(<span class="charliteral">&#39;,&#39;</span>, $this-&gt;tags) : <a class="code" href="classApp_1_1Models_1_1Domain.html#a474cff87a2d3819f9452781ffc939e93">$this-&gt;tags</a>;</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div><div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1Domain.html#ab157aa920f208851d9b1dbf25e95feb9">  108</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Models_1_1Domain.html#ab157aa920f208851d9b1dbf25e95feb9">setTags</a>(<a class="code" href="classApp_1_1Models_1_1Domain.html#a474cff87a2d3819f9452781ffc939e93">$tags</a>){</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        $this-&gt;tags = is_array(<a class="code" href="classApp_1_1Models_1_1Domain.html#a474cff87a2d3819f9452781ffc939e93">$tags</a>) ? implode(<span class="charliteral">&#39;,&#39;</span>, <a class="code" href="classApp_1_1Models_1_1Domain.html#a474cff87a2d3819f9452781ffc939e93">$tags</a>) : <a class="code" href="classApp_1_1Models_1_1Domain.html#a474cff87a2d3819f9452781ffc939e93">$tags</a>;</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">return</span> $this;</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div><div class="ttc" id="classApp_1_1Models_1_1Domain_html_a2bf8e7d9334955a62e5d1f1297551820"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html#a2bf8e7d9334955a62e5d1f1297551820">App\Models\Domain\getTags</a></div><div class="ttdeci">getTags($array=true)</div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00100">Domain.php:100</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1Domain_html_a0f4bb68e90537abdd9864d79a7cbab19"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html#a0f4bb68e90537abdd9864d79a7cbab19">App\Models\Domain\getImagePath</a></div><div class="ttdeci">getImagePath()</div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00045">Domain.php:45</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1Domain_html_ac89284c0eb17516819c16fdb9cdeb551"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html#ac89284c0eb17516819c16fdb9cdeb551">App\Models\Domain\getId</a></div><div class="ttdeci">getId()</div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00063">Domain.php:63</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Models_html"><div class="ttname"><a href="namespaceApp_1_1Models.html">App\Models</a></div><div class="ttdef"><b>Definition:</b> <a href="Comment_8php_source.html#l00004">Comment.php:4</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1Domain_html"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html">App\Models\Domain</a></div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00013">Domain.php:13</a></div></div>
+<div class="ttc" id="classApp_1_1Core_1_1File_html_a841a40c09a313ca28e6cfefe2872e7a2"><div class="ttname"><a href="classApp_1_1Core_1_1File.html#a841a40c09a313ca28e6cfefe2872e7a2">App\Core\File\asset</a></div><div class="ttdeci">static asset($path)</div><div class="ttdef"><b>Definition:</b> <a href="File_8php_source.html#l00070">File.php:70</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1Domain_html_ab03f708b332ef882f8e8fd673c70d5ef"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html#ab03f708b332ef882f8e8fd673c70d5ef">App\Models\Domain\getName</a></div><div class="ttdeci">getName()</div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00081">Domain.php:81</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1Domain_html_a93ecbec67cdab9ae805392f0de8d1668"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html#a93ecbec67cdab9ae805392f0de8d1668">App\Models\Domain\setName</a></div><div class="ttdeci">setName($name)</div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00090">Domain.php:90</a></div></div>
+<div class="ttc" id="classApp_1_1Core_1_1File_html_abde26d215377af261bb315254f219ef2"><div class="ttname"><a href="classApp_1_1Core_1_1File.html#abde26d215377af261bb315254f219ef2">App\Core\File\exists</a></div><div class="ttdeci">static exists($path)</div><div class="ttdef"><b>Definition:</b> <a href="File_8php_source.html#l00032">File.php:32</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1Domain_html_a9f1527987ea906dfb31029b2b40e39a0"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html#a9f1527987ea906dfb31029b2b40e39a0">App\Models\Domain\getImagePathFromId</a></div><div class="ttdeci">static getImagePathFromId($id)</div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00055">Domain.php:55</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1Domain_html_a4b44e639eaf78bca557f3575a8e07228"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html#a4b44e639eaf78bca557f3575a8e07228">App\Models\Domain\$id</a></div><div class="ttdeci">$id</div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00018">Domain.php:18</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1Domain_html_ad18629648d20484562c0fc6406d9a43d"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html#ad18629648d20484562c0fc6406d9a43d">App\Models\Domain\setId</a></div><div class="ttdeci">setId($id)</div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00072">Domain.php:72</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1Domain_html_a3e30eb16b272adb7af4bc489636cb9ca"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html#a3e30eb16b272adb7af4bc489636cb9ca">App\Models\Domain\$name</a></div><div class="ttdeci">$name</div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00022">Domain.php:22</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1Domain_html_a167889475aa610f394840128eea8cb03"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html#a167889475aa610f394840128eea8cb03">App\Models\Domain\fromDbRow</a></div><div class="ttdeci">static fromDbRow($row)</div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00033">Domain.php:33</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1Domain_html_ab157aa920f208851d9b1dbf25e95feb9"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html#ab157aa920f208851d9b1dbf25e95feb9">App\Models\Domain\setTags</a></div><div class="ttdeci">setTags($tags)</div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00108">Domain.php:108</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Core_1_1File_html"><div class="ttname"><a href="namespaceApp_1_1Core_1_1File.html">File</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1Domain_html_a474cff87a2d3819f9452781ffc939e93"><div class="ttname"><a href="classApp_1_1Models_1_1Domain.html#a474cff87a2d3819f9452781ffc939e93">App\Models\Domain\$tags</a></div><div class="ttdeci">$tags</div><div class="ttdef"><b>Definition:</b> <a href="Domain_8php_source.html#l00026">Domain.php:26</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d422163b96683743ed3963d4aac17747.html">app</a></li><li class="navelem"><a class="el" href="dir_fc6199fba97859a095e1d9a5aa5fae23.html">Models</a></li><li class="navelem"><a class="el" href="Domain_8php.html">Domain.php</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

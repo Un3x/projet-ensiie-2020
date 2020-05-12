@@ -1,0 +1,4 @@
+<map id="App\Models\Comment\toDbRow" name="App\Models\Comment\toDbRow">
+<area shape="rect" id="node2" href="$classApp_1_1Models_1_1Comment.html#a6faf1b350afa1aa260dee6fe22418df1" title="App\\Models\\Comment\l\\getType" alt="" coords="219,5,384,47"/>
+<area shape="rect" id="node3" href="$classApp_1_1Models_1_1Comment.html#a1790ca76132197dda6cb8a6457ea29a2" title="App\\Models\\Comment\l\\getMsg" alt="" coords="219,71,384,112"/>
+</map>

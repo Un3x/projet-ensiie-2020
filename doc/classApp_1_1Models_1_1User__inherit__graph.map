@@ -1,0 +1,3 @@
+<map id="App\Models\User" name="App\Models\User">
+<area shape="rect" id="node2" href="$classApp_1_1Models_1_1LoggedUser.html" title="{App\\Models\\LoggedUser\n|&#45; $lastLoggedTime\l|+ fromUser()\l+ setLastLogged()\l+ getLastLogged()\l}" alt="" coords="5,439,184,545"/>
+</map>

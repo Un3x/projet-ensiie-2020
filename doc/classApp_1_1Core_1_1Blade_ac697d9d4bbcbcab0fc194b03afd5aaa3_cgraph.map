@@ -1,0 +1,7 @@
+<map id="App\Core\Blade\instance" name="App\Core\Blade\instance">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Request.html#ac16679570e72cc1bbeaf6007e48b0c17" title="App\\Core\\Request\\baseUrl" alt="" coords="235,61,427,88"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1App.html#acf94d63f76951026c717a15be6c6946b" title="App\\Core\\App\\request" alt="" coords="1151,36,1313,62"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Request.html#ada184d38ca08d7ffe3fc8e9db42eba87" title="App\\Core\\Request\\url" alt="" coords="475,61,633,88"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Request.html#af115414ed0f719f8749ebe8f7278d92b" title="App\\Core\\Request\\pathUrl" alt="" coords="681,61,872,88"/>
+<area shape="rect" id="node6" href="$classApp_1_1Core_1_1Request.html#a68c4a83405f7a133a56d8f47f86914ed" title="App\\Core\\Request\\fullUrl" alt="" coords="920,112,1103,138"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="App\Repositories\DomainRepository\addDomain" name="App\Repositories\DomainRepository\addDomain">
+<area shape="rect" id="node2" href="$classApp_1_1Models_1_1Domain.html#ab03f708b332ef882f8e8fd673c70d5ef" title="App\\Models\\Domain\\getName" alt="" coords="311,5,527,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Models_1_1Domain.html#a2bf8e7d9334955a62e5d1f1297551820" title="App\\Models\\Domain\\getTags" alt="" coords="315,56,522,83"/>
+</map>

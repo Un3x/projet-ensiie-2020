@@ -1,0 +1,8 @@
+<map id="App\Controllers\SearchController\handleResults" name="App\Controllers\SearchController\handleResults">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Request.html#ab35c33f9024034396561720741bbb7c9" title="App\\Core\\Request\\input" alt="" coords="318,5,493,32"/>
+<area shape="rect" id="node4" href="$classApp_1_1Controllers_1_1SearchController.html#a1faab79addafd3350161f58ebda927ab" title="App\\Controllers\\SearchController\l\\processResults" alt="" coords="288,57,523,98"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Blade.html#a2f0c1ad6f2b8e0f218baf12ef3bad87f" title="App\\Core\\Blade\\create" alt="" coords="322,123,489,149"/>
+<area shape="rect" id="node6" href="$classApp_1_1Core_1_1App.html#a7bdebd0367465d575e76c43f48002113" title="App\\Core\\App\\jsonPayload" alt="" coords="309,173,502,200"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Request.html#a3db2412687bdde80c55caf86605a7bb8" title="App\\Core\\Request\\hasInput" alt="" coords="571,5,769,32"/>
+<area shape="rect" id="node7" href="$classApp_1_1Core_1_1Response.html#a59d7ef3f3f00e95f79ec35cb20caddbf" title="App\\Core\\Response\\create" alt="" coords="573,173,767,200"/>
+</map>

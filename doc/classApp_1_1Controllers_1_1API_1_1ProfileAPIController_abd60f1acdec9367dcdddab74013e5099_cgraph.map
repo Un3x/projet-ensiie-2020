@@ -1,0 +1,5 @@
+<map id="App\Controllers\API\ProfileAPIController\manageFile" name="App\Controllers\API\ProfileAPIController\manageFile">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1App.html#a9ce18ef492b923ab2dc61e8d7c3ffe56" title="App\\Core\\App\\addError" alt="" coords="457,5,627,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1File.html#a07b236265eb1335aa3f803d06f85dd77" title="App\\Core\\File\\convertImage" alt="" coords="207,31,409,57"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1File.html#a841a40c09a313ca28e6cfefe2872e7a2" title="App\\Core\\File\\asset" alt="" coords="235,81,381,108"/>
+</map>

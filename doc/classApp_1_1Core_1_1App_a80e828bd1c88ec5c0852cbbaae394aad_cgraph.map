@@ -1,0 +1,26 @@
+<map id="App\Core\App\handle" name="App\Core\App\handle">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1App.html#af4c372571ea76a5ce1a0b5fdf1f59518" title="App\\Core\\App\\findRoute" alt="" coords="219,152,396,179"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1App.html#acf94d63f76951026c717a15be6c6946b" title="App\\Core\\App\\request" alt="" coords="1473,276,1636,303"/>
+<area shape="rect" id="node8" href="$classApp_1_1Core_1_1Route.html#aa08192f35ba4e3399d8f73d9b6fda7cb" title="App\\Core\\Route\\has" alt="" coords="232,51,383,78"/>
+<area shape="rect" id="node10" href="$classApp_1_1Core_1_1Route.html#a30c803ea44299eb671ca61d591631ea0" title="App\\Core\\Route\\find" alt="" coords="231,102,383,128"/>
+<area shape="rect" id="node11" href="$classApp_1_1Core_1_1Response.html#aeadb469e344758f8af51ed20ce260f4d" title="App\\Core\\Response\\forget\lMeInLastUrl" alt="" coords="212,204,403,245"/>
+<area shape="rect" id="node12" href="$classApp_1_1Core_1_1App.html#a0cb54f81533bfafe550de873ae20690c" title="App\\Core\\App\\send" alt="" coords="235,350,380,376"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Request.html#af115414ed0f719f8749ebe8f7278d92b" title="App\\Core\\Request\\pathUrl" alt="" coords="458,102,649,128"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Request.html#ada184d38ca08d7ffe3fc8e9db42eba87" title="App\\Core\\Request\\url" alt="" coords="1008,352,1167,379"/>
+<area shape="rect" id="node7" href="$classApp_1_1Core_1_1Request.html#a68c4a83405f7a133a56d8f47f86914ed" title="App\\Core\\Request\\fullUrl" alt="" coords="731,290,914,316"/>
+<area shape="rect" id="node6" href="$classApp_1_1Core_1_1Request.html#ac16679570e72cc1bbeaf6007e48b0c17" title="App\\Core\\Request\\baseUrl" alt="" coords="1233,352,1425,379"/>
+<area shape="rect" id="node9" href="$classApp_1_1Core_1_1App.html#a2b1551079d1b281deacb6f57c778bdaa" title="App\\Core\\App\\getRoutes" alt="" coords="463,51,643,78"/>
+<area shape="rect" id="node13" href="$classApp_1_1Core_1_1Response.html#ac1623035fc208c3d9c3115cc8b0711d3" title="App\\Core\\Response\\getLast\lUrlTrigger" alt="" coords="453,153,653,194"/>
+<area shape="rect" id="node14" href="$classApp_1_1Core_1_1Response.html#a34c9e0184af46bf42369e02d3f7a54fd" title="App\\Core\\Response\\isClient\lError" alt="" coords="453,218,654,260"/>
+<area shape="rect" id="node15" href="$classApp_1_1Core_1_1Response.html#a2cce61226244ba3a4c575e7269decd56" title="App\\Core\\Response\\isServer\lError" alt="" coords="451,284,656,325"/>
+<area shape="rect" id="node16" href="$classApp_1_1Core_1_1Session.html#af386d08419abfdbb97ff63383c0b7510" title="App\\Core\\Session\\set" alt="" coords="474,350,633,376"/>
+<area shape="rect" id="node17" href="$classApp_1_1Core_1_1Request.html#aa4a377fe31693304fccdc907990205c5" title="App\\Core\\Request\\queryString" alt="" coords="714,502,931,528"/>
+<area shape="rect" id="node18" href="$classApp_1_1Core_1_1Response.html#a6a9c5cbc49a6c2820b137a11b87fc8e2" title="App\\Core\\Response\\send" alt="" coords="462,679,645,706"/>
+<area shape="rect" id="node19" href="$classApp_1_1Core_1_1Response.html#aaaad2e0f7964476a60054c602fd9f83c" title="App\\Core\\Response\\sendHeaders" alt="" coords="704,679,941,706"/>
+<area shape="rect" id="node25" href="$classApp_1_1Core_1_1Response.html#aedaac84ef82dc1900281824e422489e1" title="App\\Core\\Response\\sendContent" alt="" coords="705,730,940,756"/>
+<area shape="rect" id="node20" href="$classApp_1_1Core_1_1Session.html#a369c9a5eb0211ffa433aa37fa597090c" title="App\\Core\\Session\\flash" alt="" coords="1002,806,1173,832"/>
+<area shape="rect" id="node21" href="$classApp_1_1Core_1_1App.html#a627854edaef679c2b181169bccdcfe60" title="App\\Core\\App\\getErrors" alt="" coords="1001,603,1174,630"/>
+<area shape="rect" id="node22" href="$classApp_1_1Core_1_1App.html#af1d9891cfebe3d1a6f7335dc83129de4" title="App\\Core\\App\\getWarnings" alt="" coords="989,654,1185,680"/>
+<area shape="rect" id="node23" href="$classApp_1_1Core_1_1App.html#af79189da79de464b39687e80eab68f1e" title="App\\Core\\App\\getNotifs" alt="" coords="1000,704,1175,731"/>
+<area shape="rect" id="node24" href="$classApp_1_1Core_1_1App.html#ae2d3536ad730e2a57b126e3384ee3b1d" title="App\\Core\\App\\getSuccess" alt="" coords="994,755,1181,782"/>
+</map>

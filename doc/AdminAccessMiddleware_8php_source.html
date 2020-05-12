@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ton nez dans mon vin:  Fichier source de app/Middlewares/AdminAccessMiddleware.php</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Ton nez dans mon vin
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('AdminAccessMiddleware_8php_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">AdminAccessMiddleware.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="AdminAccessMiddleware_8php.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="namespaceApp_1_1Middlewares.html">    4</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceApp_1_1Middlewares.html">App\Middlewares</a>;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespaceApp_1_1Core_1_1App.html">App\Core\App</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;use <a class="code" href="namespaceApp_1_1Core_1_1Auth.html">App\Core\Auth</a>;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;use <a class="code" href="namespaceApp_1_1Core_1_1Redirect.html">App\Core\Redirect</a>;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;use <a class="code" href="namespaceClosure.html">Closure</a>;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classApp_1_1Middlewares_1_1AdminAccessMiddleware.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classApp_1_1Middlewares_1_1AdminAccessMiddleware.html">AdminAccessMiddleware</a></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classApp_1_1Middlewares_1_1AdminAccessMiddleware.html#a37850abb151c2c48a2dc21d1af7fcae4">   26</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Middlewares_1_1AdminAccessMiddleware.html#a37850abb151c2c48a2dc21d1af7fcae4">handle</a>(<a class="code" href="namespaceClosure.html">Closure</a> $next){</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span>(!<a class="code" href="classApp_1_1Core_1_1Auth.html#a01daf403a75943278f3f05fd8ab5e024">Auth::isLogged</a>()){</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <a class="code" href="classApp_1_1Core_1_1App.html#a9ce18ef492b923ab2dc61e8d7c3ffe56">App::addError</a>(<span class="stringliteral">&quot;Vous devez être connecté pour accéder à cette page !&quot;</span>);</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classApp_1_1Core_1_1Redirect.html#a850ee54003b8959d13c83eb2d397d29a">Redirect::to</a>(<span class="charliteral">&#39;/&#39;</span>);</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">if</span>(!<a class="code" href="classApp_1_1Core_1_1Auth.html#a068bb918ae3720c45c6a2a5a21c40b40">Auth::isAdmin</a>()){</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <a class="code" href="classApp_1_1Core_1_1App.html#a9ce18ef492b923ab2dc61e8d7c3ffe56">App::addError</a>(<span class="stringliteral">&quot;Vous devez être administrateur pour accéder à cette page !&quot;</span>);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classApp_1_1Core_1_1Redirect.html#a850ee54003b8959d13c83eb2d397d29a">Redirect::to</a>(<span class="charliteral">&#39;/&#39;</span>);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">return</span> $next();</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div><div class="ttc" id="classApp_1_1Core_1_1Redirect_html_a850ee54003b8959d13c83eb2d397d29a"><div class="ttname"><a href="classApp_1_1Core_1_1Redirect.html#a850ee54003b8959d13c83eb2d397d29a">App\Core\Redirect\to</a></div><div class="ttdeci">static to($url)</div><div class="ttdef"><b>Definition:</b> <a href="Redirect_8php_source.html#l00018">Redirect.php:18</a></div></div>
+<div class="ttc" id="classApp_1_1Core_1_1App_html_a9ce18ef492b923ab2dc61e8d7c3ffe56"><div class="ttname"><a href="classApp_1_1Core_1_1App.html#a9ce18ef492b923ab2dc61e8d7c3ffe56">App\Core\App\addError</a></div><div class="ttdeci">static addError($msg)</div><div class="ttdef"><b>Definition:</b> <a href="App_8php_source.html#l00337">App.php:337</a></div></div>
+<div class="ttc" id="namespaceClosure_html"><div class="ttname"><a href="namespaceClosure.html">Closure</a></div></div>
+<div class="ttc" id="classApp_1_1Core_1_1Auth_html_a01daf403a75943278f3f05fd8ab5e024"><div class="ttname"><a href="classApp_1_1Core_1_1Auth.html#a01daf403a75943278f3f05fd8ab5e024">App\Core\Auth\isLogged</a></div><div class="ttdeci">static isLogged()</div><div class="ttdef"><b>Definition:</b> <a href="Auth_8php_source.html#l00102">Auth.php:102</a></div></div>
+<div class="ttc" id="classApp_1_1Core_1_1Auth_html_a068bb918ae3720c45c6a2a5a21c40b40"><div class="ttname"><a href="classApp_1_1Core_1_1Auth.html#a068bb918ae3720c45c6a2a5a21c40b40">App\Core\Auth\isAdmin</a></div><div class="ttdeci">static isAdmin()</div><div class="ttdef"><b>Definition:</b> <a href="Auth_8php_source.html#l00111">Auth.php:111</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Core_1_1App_html"><div class="ttname"><a href="namespaceApp_1_1Core_1_1App.html">App</a></div></div>
+<div class="ttc" id="classApp_1_1Middlewares_1_1AdminAccessMiddleware_html"><div class="ttname"><a href="classApp_1_1Middlewares_1_1AdminAccessMiddleware.html">App\Middlewares\AdminAccessMiddleware</a></div><div class="ttdef"><b>Definition:</b> <a href="AdminAccessMiddleware_8php_source.html#l00016">AdminAccessMiddleware.php:16</a></div></div>
+<div class="ttc" id="classApp_1_1Middlewares_1_1AdminAccessMiddleware_html_a37850abb151c2c48a2dc21d1af7fcae4"><div class="ttname"><a href="classApp_1_1Middlewares_1_1AdminAccessMiddleware.html#a37850abb151c2c48a2dc21d1af7fcae4">App\Middlewares\AdminAccessMiddleware\handle</a></div><div class="ttdeci">handle(Closure $next)</div><div class="ttdef"><b>Definition:</b> <a href="AdminAccessMiddleware_8php_source.html#l00026">AdminAccessMiddleware.php:26</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Middlewares_html"><div class="ttname"><a href="namespaceApp_1_1Middlewares.html">App\Middlewares</a></div><div class="ttdef"><b>Definition:</b> <a href="AdminAccessMiddleware_8php_source.html#l00004">AdminAccessMiddleware.php:4</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Core_1_1Auth_html"><div class="ttname"><a href="namespaceApp_1_1Core_1_1Auth.html">Auth</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Core_1_1Redirect_html"><div class="ttname"><a href="namespaceApp_1_1Core_1_1Redirect.html">Redirect</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d422163b96683743ed3963d4aac17747.html">app</a></li><li class="navelem"><a class="el" href="dir_2309b94244fa4eb0e4587aa5f77d6549.html">Middlewares</a></li><li class="navelem"><a class="el" href="AdminAccessMiddleware_8php.html">AdminAccessMiddleware.php</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

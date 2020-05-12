@@ -1,0 +1,6 @@
+<map id="App\Controllers\API\SearchAPIController\handleDomain" name="App\Controllers\API\SearchAPIController\handleDomain">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Request.html#ab35c33f9024034396561720741bbb7c9" title="App\\Core\\Request\\input" alt="" coords="217,5,392,32"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1App.html#a7bdebd0367465d575e76c43f48002113" title="App\\Core\\App\\jsonPayload" alt="" coords="208,56,401,83"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Request.html#a3db2412687bdde80c55caf86605a7bb8" title="App\\Core\\Request\\hasInput" alt="" coords="449,5,648,32"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Response.html#a59d7ef3f3f00e95f79ec35cb20caddbf" title="App\\Core\\Response\\create" alt="" coords="452,56,645,83"/>
+</map>

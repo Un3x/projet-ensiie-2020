@@ -1,0 +1,20 @@
+<map id="App\Core\App\send" name="App\Core\App\send">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Response.html#ac1623035fc208c3d9c3115cc8b0711d3" title="App\\Core\\Response\\getLast\lUrlTrigger" alt="" coords="201,5,401,47"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Response.html#a34c9e0184af46bf42369e02d3f7a54fd" title="App\\Core\\Response\\isClient\lError" alt="" coords="201,71,402,112"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Response.html#a2cce61226244ba3a4c575e7269decd56" title="App\\Core\\Response\\isServer\lError" alt="" coords="199,136,404,177"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Session.html#af386d08419abfdbb97ff63383c0b7510" title="App\\Core\\Session\\set" alt="" coords="222,202,381,229"/>
+<area shape="rect" id="node6" href="$classApp_1_1Core_1_1Request.html#af115414ed0f719f8749ebe8f7278d92b" title="App\\Core\\Request\\pathUrl" alt="" coords="206,417,397,443"/>
+<area shape="rect" id="node8" href="$classApp_1_1Core_1_1Request.html#ada184d38ca08d7ffe3fc8e9db42eba87" title="App\\Core\\Request\\url" alt="" coords="756,414,915,441"/>
+<area shape="rect" id="node9" href="$classApp_1_1Core_1_1Request.html#ac16679570e72cc1bbeaf6007e48b0c17" title="App\\Core\\Request\\baseUrl" alt="" coords="981,370,1173,397"/>
+<area shape="rect" id="node10" href="$classApp_1_1Core_1_1Request.html#a68c4a83405f7a133a56d8f47f86914ed" title="App\\Core\\Request\\fullUrl" alt="" coords="479,303,662,330"/>
+<area shape="rect" id="node11" href="$classApp_1_1Core_1_1Request.html#aa4a377fe31693304fccdc907990205c5" title="App\\Core\\Request\\queryString" alt="" coords="462,530,679,557"/>
+<area shape="rect" id="node12" href="$classApp_1_1Core_1_1Response.html#a6a9c5cbc49a6c2820b137a11b87fc8e2" title="App\\Core\\Response\\send" alt="" coords="210,657,393,683"/>
+<area shape="rect" id="node7" href="$classApp_1_1Core_1_1App.html#acf94d63f76951026c717a15be6c6946b" title="App\\Core\\App\\request" alt="" coords="1221,421,1384,447"/>
+<area shape="rect" id="node13" href="$classApp_1_1Core_1_1Response.html#aaaad2e0f7964476a60054c602fd9f83c" title="App\\Core\\Response\\sendHeaders" alt="" coords="452,657,689,683"/>
+<area shape="rect" id="node19" href="$classApp_1_1Core_1_1Response.html#aedaac84ef82dc1900281824e422489e1" title="App\\Core\\Response\\sendContent" alt="" coords="453,707,688,734"/>
+<area shape="rect" id="node14" href="$classApp_1_1Core_1_1Session.html#a369c9a5eb0211ffa433aa37fa597090c" title="App\\Core\\Session\\flash" alt="" coords="750,682,921,709"/>
+<area shape="rect" id="node15" href="$classApp_1_1Core_1_1App.html#a627854edaef679c2b181169bccdcfe60" title="App\\Core\\App\\getErrors" alt="" coords="749,733,922,759"/>
+<area shape="rect" id="node16" href="$classApp_1_1Core_1_1App.html#af1d9891cfebe3d1a6f7335dc83129de4" title="App\\Core\\App\\getWarnings" alt="" coords="737,783,933,810"/>
+<area shape="rect" id="node17" href="$classApp_1_1Core_1_1App.html#af79189da79de464b39687e80eab68f1e" title="App\\Core\\App\\getNotifs" alt="" coords="748,581,923,607"/>
+<area shape="rect" id="node18" href="$classApp_1_1Core_1_1App.html#ae2d3536ad730e2a57b126e3384ee3b1d" title="App\\Core\\App\\getSuccess" alt="" coords="742,631,929,658"/>
+</map>

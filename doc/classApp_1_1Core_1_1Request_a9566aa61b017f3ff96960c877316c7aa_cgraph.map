@@ -1,0 +1,15 @@
+<map id="App\Core\Request\__construct" name="App\Core\Request\__construct">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Request.html#a651ab87c3d39198fc1e2465d002aa5be" title="App\\Core\\Request\\init" alt="" coords="203,132,365,159"/>
+<area shape="rect" id="node10" href="$classApp_1_1Core_1_1Request.html#ada184d38ca08d7ffe3fc8e9db42eba87" title="App\\Core\\Request\\url" alt="" coords="205,321,363,348"/>
+<area shape="rect" id="node3" href="$classApp_1_1Utils.html#af2dd83cd641059b91ee483e4d345e015" title="App\\Utils\\toCamelCase" alt="" coords="463,5,635,32"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Request.html#a7d4958429fca3580ed05f9f96fa83cfc" title="App\\Core\\Request\\methodWorkaround" alt="" coords="413,56,684,83"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Request.html#a2fa65c8a9f5057e2bf5dbec886c31f1b" title="App\\Core\\Request\\handleGet" alt="" coords="444,107,653,133"/>
+<area shape="rect" id="node7" href="$classApp_1_1Core_1_1Request.html#a052e04c76cd116513fdab2d72681008c" title="App\\Core\\Request\\handlePost" alt="" coords="441,157,656,184"/>
+<area shape="rect" id="node9" href="$classApp_1_1Core_1_1Request.html#a81695a8a6242c17acccf54b33dfe276d" title="App\\Core\\Request\\handleFile" alt="" coords="444,208,653,235"/>
+<area shape="rect" id="node6" href="$classApp_1_1Core_1_1Request.html#a32e3c4ade74e6f2eeffb7aabf6e76eeb" title="App\\Core\\Request\\hasGetParams" alt="" coords="732,107,969,133"/>
+<area shape="rect" id="node8" href="$classApp_1_1Core_1_1Request.html#aa66aa2503500c373bdaeab2330db52e2" title="App\\Core\\Request\\hasPost\lParams" alt="" coords="754,175,947,217"/>
+<area shape="rect" id="node11" href="$classApp_1_1Core_1_1App.html#acf94d63f76951026c717a15be6c6946b" title="App\\Core\\App\\request" alt="" coords="1257,352,1420,379"/>
+<area shape="rect" id="node12" href="$classApp_1_1Core_1_1Request.html#ac16679570e72cc1bbeaf6007e48b0c17" title="App\\Core\\Request\\baseUrl" alt="" coords="1017,324,1209,351"/>
+<area shape="rect" id="node13" href="$classApp_1_1Core_1_1Request.html#af115414ed0f719f8749ebe8f7278d92b" title="App\\Core\\Request\\pathUrl" alt="" coords="453,435,644,461"/>
+<area shape="rect" id="node14" href="$classApp_1_1Core_1_1Request.html#a68c4a83405f7a133a56d8f47f86914ed" title="App\\Core\\Request\\fullUrl" alt="" coords="759,384,942,411"/>
+</map>

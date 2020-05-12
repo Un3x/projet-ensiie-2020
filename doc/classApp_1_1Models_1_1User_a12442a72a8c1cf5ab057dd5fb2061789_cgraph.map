@@ -1,0 +1,6 @@
+<map id="App\Models\User\toDbRow" name="App\Models\User\toDbRow">
+<area shape="rect" id="node2" href="$classApp_1_1Models_1_1User.html#a65e731aef1a1fe4e81f3d2c3d7c615bb" title="App\\Models\\User\\getUsername" alt="" coords="253,5,475,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Models_1_1User.html#a2942675cbd3fb351755059db697f9f0b" title="App\\Models\\User\\getHashedPwd" alt="" coords="248,56,480,83"/>
+<area shape="rect" id="node4" href="$classApp_1_1Models_1_1User.html#acf907814fa95a8dcd8434cec27103be2" title="App\\Models\\User\\getRoleString" alt="" coords="253,107,475,133"/>
+<area shape="rect" id="node5" href="$classApp_1_1Models_1_1User.html#a1706f9ad7250498b216539c973322ca6" title="App\\Models\\User\\getDescription" alt="" coords="249,157,479,184"/>
+</map>

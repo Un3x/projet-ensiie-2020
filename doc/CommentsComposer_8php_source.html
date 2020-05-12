@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ton nez dans mon vin:  Fichier source de app/Composers/CommentsComposer.php</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Ton nez dans mon vin
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('CommentsComposer_8php_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">CommentsComposer.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="CommentsComposer_8php.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="namespaceApp_1_1Composers.html">    4</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceApp_1_1Composers.html">App\Composers</a>;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespaceApp_1_1Core_1_1Auth.html">App\Core\Auth</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;use <a class="code" href="namespaceApp_1_1Repositories_1_1CommentRepository.html">App\Repositories\CommentRepository</a>;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;use <a class="code" href="namespaceApp_1_1Repositories_1_1UserRepository.html">App\Repositories\UserRepository</a>;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;use <a class="code" href="namespaceException.html">Exception</a>;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classApp_1_1Composers_1_1CommentsComposer.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="classApp_1_1Composers_1_1CommentsComposer.html">CommentsComposer</a></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classApp_1_1Composers_1_1CommentsComposer.html#a2e4752deb4bc53a2276ff6f1c6e88ac7">   22</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">const</span> <a class="code" href="classApp_1_1Composers_1_1CommentsComposer.html#a2e4752deb4bc53a2276ff6f1c6e88ac7">respId</a> = <span class="stringliteral">&#39;response-logged&#39;</span>;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classApp_1_1Composers_1_1CommentsComposer.html#a0305b51f220d39adb529860022ff0df4">   32</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Composers_1_1CommentsComposer.html#a0305b51f220d39adb529860022ff0df4">compose</a>($view, $vars){</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        $wid = array_key_exists(<span class="stringliteral">&#39;wid&#39;</span>, $vars) ? $vars[<span class="stringliteral">&#39;wid&#39;</span>] : null;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        $did = array_key_exists(<span class="stringliteral">&#39;did&#39;</span>, $vars) ? $vars[<span class="stringliteral">&#39;did&#39;</span>] : null;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        $tid = array_key_exists(<span class="stringliteral">&#39;tid&#39;</span>, $vars) ? $vars[<span class="stringliteral">&#39;tid&#39;</span>] : null;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        $yid = array_key_exists(<span class="stringliteral">&#39;yid&#39;</span>, $vars) ? $vars[<span class="stringliteral">&#39;yid&#39;</span>] : null;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        $repo = <span class="keyword">new</span> <a class="code" href="classApp_1_1Repositories_1_1CommentRepository.html">CommentRepository</a>();</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        list($roots, $children) = $this-&gt;<a class="code" href="classApp_1_1Composers_1_1CommentsComposer.html#a4db3b5c561a8793888be1dccddfd4edc">buildChildren</a>($repo-&gt;getCommentsFor($wid, $did, $tid, $yid), $repo);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        return \array_merge($vars, [<span class="stringliteral">&#39;roots&#39;</span> =&gt; $roots, <span class="stringliteral">&#39;children&#39;</span> =&gt; $children, <span class="stringliteral">&#39;respId&#39;</span> =&gt; self::respId]);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classApp_1_1Composers_1_1CommentsComposer.html#a4db3b5c561a8793888be1dccddfd4edc">   52</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Composers_1_1CommentsComposer.html#a4db3b5c561a8793888be1dccddfd4edc">buildChildren</a>($vrac, <a class="code" href="classApp_1_1Repositories_1_1CommentRepository.html">CommentRepository</a> $cRepo){</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        $roots = [];</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        $children = [];</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        $repo = <span class="keyword">new</span> <a class="code" href="classApp_1_1Repositories_1_1UserRepository.html">UserRepository</a>();</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        $users = [];</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">foreach</span>($vrac as $comment) {</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="comment">// Ici on change le user</span></div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span>(!\array_key_exists($comment-&gt;getUser(), $users)){</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                $users[$comment-&gt;getUser()] = $repo-&gt;get($comment-&gt;getUser());</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            $comment-&gt;setUser($users[$comment-&gt;getUser()]);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            $comment-&gt;{<span class="stringliteral">&#39;likes&#39;</span>} = $cRepo-&gt;<a class="code" href="classApp_1_1Repositories_1_1CommentRepository.html#a1b308831149f5a999b5cf8a1f71671bd">getLikes</a>($comment-&gt;getId());</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="classApp_1_1Core_1_1Auth.html#a01daf403a75943278f3f05fd8ab5e024">Auth::isLogged</a>()){</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                $comment-&gt;{<span class="stringliteral">&#39;isLiked&#39;</span>} = $cRepo-&gt;<a class="code" href="classApp_1_1Repositories_1_1CommentRepository.html#a0689cbecd99f20979966eecda5325a98">isLiked</a>(<a class="code" href="classApp_1_1Core_1_1Auth.html#aef5ff1f7ba353dd8cdb909080ebf7dc4">Auth::loggedUser</a>()-&gt;getId(), $comment-&gt;getId());</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            }</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">if</span>($comment-&gt;getReplyTo() === null){</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                $roots[] = $comment;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }<span class="keywordflow">else</span>{</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                <span class="keywordflow">if</span>(!\array_key_exists($comment-&gt;getReplyTo(), $children)){</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    $children[$comment-&gt;getReplyTo()] = [];</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                }</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                $children[$comment-&gt;getReplyTo()][] = $comment;</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            }</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">//On retourne le tableau enfant car on veut les plus anciens au début (contrairement au roots)</span></div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">foreach</span>($children as $key =&gt; $child){</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            $children[$key] = array_reverse($child);</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span> [$roots, $children];</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div><div class="ttc" id="classApp_1_1Composers_1_1CommentsComposer_html_a4db3b5c561a8793888be1dccddfd4edc"><div class="ttname"><a href="classApp_1_1Composers_1_1CommentsComposer.html#a4db3b5c561a8793888be1dccddfd4edc">App\Composers\CommentsComposer\buildChildren</a></div><div class="ttdeci">buildChildren($vrac, CommentRepository $cRepo)</div><div class="ttdef"><b>Definition:</b> <a href="CommentsComposer_8php_source.html#l00052">CommentsComposer.php:52</a></div></div>
+<div class="ttc" id="classApp_1_1Core_1_1Auth_html_aef5ff1f7ba353dd8cdb909080ebf7dc4"><div class="ttname"><a href="classApp_1_1Core_1_1Auth.html#aef5ff1f7ba353dd8cdb909080ebf7dc4">App\Core\Auth\loggedUser</a></div><div class="ttdeci">static loggedUser()</div><div class="ttdef"><b>Definition:</b> <a href="Auth_8php_source.html#l00080">Auth.php:80</a></div></div>
+<div class="ttc" id="classApp_1_1Repositories_1_1CommentRepository_html"><div class="ttname"><a href="classApp_1_1Repositories_1_1CommentRepository.html">App\Repositories\CommentRepository</a></div><div class="ttdef"><b>Definition:</b> <a href="CommentRepository_8php_source.html#l00015">CommentRepository.php:15</a></div></div>
+<div class="ttc" id="classApp_1_1Core_1_1Auth_html_a01daf403a75943278f3f05fd8ab5e024"><div class="ttname"><a href="classApp_1_1Core_1_1Auth.html#a01daf403a75943278f3f05fd8ab5e024">App\Core\Auth\isLogged</a></div><div class="ttdeci">static isLogged()</div><div class="ttdef"><b>Definition:</b> <a href="Auth_8php_source.html#l00102">Auth.php:102</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Composers_html"><div class="ttname"><a href="namespaceApp_1_1Composers.html">App\Composers</a></div><div class="ttdef"><b>Definition:</b> <a href="CommentsComposer_8php_source.html#l00004">CommentsComposer.php:4</a></div></div>
+<div class="ttc" id="classApp_1_1Repositories_1_1CommentRepository_html_a1b308831149f5a999b5cf8a1f71671bd"><div class="ttname"><a href="classApp_1_1Repositories_1_1CommentRepository.html#a1b308831149f5a999b5cf8a1f71671bd">App\Repositories\CommentRepository\getLikes</a></div><div class="ttdeci">getLikes($cid)</div><div class="ttdef"><b>Definition:</b> <a href="CommentRepository_8php_source.html#l00091">CommentRepository.php:91</a></div></div>
+<div class="ttc" id="classApp_1_1Composers_1_1CommentsComposer_html_a2e4752deb4bc53a2276ff6f1c6e88ac7"><div class="ttname"><a href="classApp_1_1Composers_1_1CommentsComposer.html#a2e4752deb4bc53a2276ff6f1c6e88ac7">App\Composers\CommentsComposer\respId</a></div><div class="ttdeci">const respId</div><div class="ttdef"><b>Definition:</b> <a href="CommentsComposer_8php_source.html#l00022">CommentsComposer.php:22</a></div></div>
+<div class="ttc" id="classApp_1_1Repositories_1_1CommentRepository_html_a0689cbecd99f20979966eecda5325a98"><div class="ttname"><a href="classApp_1_1Repositories_1_1CommentRepository.html#a0689cbecd99f20979966eecda5325a98">App\Repositories\CommentRepository\isLiked</a></div><div class="ttdeci">isLiked($uid, $cid)</div><div class="ttdef"><b>Definition:</b> <a href="CommentRepository_8php_source.html#l00103">CommentRepository.php:103</a></div></div>
+<div class="ttc" id="classApp_1_1Composers_1_1CommentsComposer_html"><div class="ttname"><a href="classApp_1_1Composers_1_1CommentsComposer.html">App\Composers\CommentsComposer</a></div><div class="ttdef"><b>Definition:</b> <a href="CommentsComposer_8php_source.html#l00016">CommentsComposer.php:16</a></div></div>
+<div class="ttc" id="classApp_1_1Repositories_1_1UserRepository_html"><div class="ttname"><a href="classApp_1_1Repositories_1_1UserRepository.html">App\Repositories\UserRepository</a></div><div class="ttdef"><b>Definition:</b> <a href="UserRepository_8php_source.html#l00015">UserRepository.php:15</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Repositories_1_1CommentRepository_html"><div class="ttname"><a href="namespaceApp_1_1Repositories_1_1CommentRepository.html">CommentRepository</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Core_1_1Auth_html"><div class="ttname"><a href="namespaceApp_1_1Core_1_1Auth.html">Auth</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Repositories_1_1UserRepository_html"><div class="ttname"><a href="namespaceApp_1_1Repositories_1_1UserRepository.html">UserRepository</a></div></div>
+<div class="ttc" id="classApp_1_1Composers_1_1CommentsComposer_html_a0305b51f220d39adb529860022ff0df4"><div class="ttname"><a href="classApp_1_1Composers_1_1CommentsComposer.html#a0305b51f220d39adb529860022ff0df4">App\Composers\CommentsComposer\compose</a></div><div class="ttdeci">compose($view, $vars)</div><div class="ttdef"><b>Definition:</b> <a href="CommentsComposer_8php_source.html#l00032">CommentsComposer.php:32</a></div></div>
+<div class="ttc" id="namespaceException_html"><div class="ttname"><a href="namespaceException.html">Exception</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d422163b96683743ed3963d4aac17747.html">app</a></li><li class="navelem"><a class="el" href="dir_0759238f36d58f638647001e904f935c.html">Composers</a></li><li class="navelem"><a class="el" href="CommentsComposer_8php.html">CommentsComposer.php</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

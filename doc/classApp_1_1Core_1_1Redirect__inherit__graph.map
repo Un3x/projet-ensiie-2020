@@ -1,0 +1,3 @@
+<map id="App\Core\Redirect" name="App\Core\Redirect">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Response.html" title="{App\\Core\\Response\n|+ HTTP_CONTINUE\l+ HTTP_SWITCHING_PROTOCOLS\l+ HTTP_PROCESSING\l+ HTTP_EARLY_HINTS\l+ HTTP_OK\l+ HTTP_CREATED\l+ HTTP_ACCEPTED\l+ HTTP_NON_AUTHORITATIVE\l_INFORMATION\l+ HTTP_NO_CONTENT\l+ HTTP_RESET_CONTENT\let 55 de plus...\l+ $statusTexts\l# $content\l# $version\l# $statusCode\l# $statusText\l# $charset\l# $errorsInSession\l# $saveInLastUrl\l|+ __construct()\l+ forgetMeInLastUrl()\l+ getLastUrlTrigger()\l+ __clone()\l+ __toString()\l+ withInput()\l+ sendHeaders()\l+ sendContent()\l+ send()\l+ setContent()\let 19 de plus...\l+ create()\l+ old()\l}" alt="" coords="5,5,245,537"/>
+</map>

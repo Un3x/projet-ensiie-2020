@@ -1,0 +1,5 @@
+<map id="Tests\BaseTestCase" name="Tests\BaseTestCase">
+<area shape="rect" id="node3" href="$classTests_1_1Unit_1_1CoreTest.html" title="{Tests\\Unit\\CoreTest\n||+ testUrls()\l}" alt="" coords="5,263,152,341"/>
+<area shape="rect" id="node4" href="$classTests_1_1Unit_1_1RouterTest.html" title="{Tests\\Unit\\RouterTest\n||+ testRouting()\l+ testApiRouting()\l}" alt="" coords="177,256,335,348"/>
+<area shape="rect" id="node5" href="$classTests_1_1Unit_1_1TestTest.html" title="{Tests\\Unit\\TestTest\n||+ testUnEgalUn()\l+ testUnEgalDeux()\l}" alt="" coords="360,256,512,348"/>
+</map>

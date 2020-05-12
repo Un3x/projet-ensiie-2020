@@ -1,0 +1,10 @@
+<map id="App\Repositories\CommentRepository\addComment" name="App\Repositories\CommentRepository\addComment">
+<area shape="rect" id="node2" href="$classApp_1_1Models_1_1Comment.html#acef3258391fd706b02d366722ef28267" title="App\\Models\\Comment\l\\getUser" alt="" coords="253,5,419,47"/>
+<area shape="rect" id="node3" href="$classApp_1_1Models_1_1Comment.html#a7b69109964b5f04e18dfa3f03f82b7c3" title="App\\Models\\Comment\l\\getWine" alt="" coords="253,71,419,112"/>
+<area shape="rect" id="node4" href="$classApp_1_1Models_1_1Comment.html#a9988f97547623e8b4b5926cb2b887e7a" title="App\\Models\\Comment\l\\getDomain" alt="" coords="253,136,419,177"/>
+<area shape="rect" id="node5" href="$classApp_1_1Models_1_1Comment.html#a2bcb8e772cd62b4726d8d69d96d10641" title="App\\Models\\Comment\l\\getYear" alt="" coords="253,201,419,243"/>
+<area shape="rect" id="node6" href="$classApp_1_1Models_1_1Comment.html#a6faf1b350afa1aa260dee6fe22418df1" title="App\\Models\\Comment\l\\getType" alt="" coords="253,267,419,308"/>
+<area shape="rect" id="node7" href="$classApp_1_1Models_1_1Comment.html#a06a44e1e74ac263956a7639a6680dd35" title="App\\Models\\Comment\l\\getPostedAt" alt="" coords="253,332,419,373"/>
+<area shape="rect" id="node8" href="$classApp_1_1Models_1_1Comment.html#a1790ca76132197dda6cb8a6457ea29a2" title="App\\Models\\Comment\l\\getMsg" alt="" coords="253,397,419,439"/>
+<area shape="rect" id="node9" href="$classApp_1_1Models_1_1Comment.html#a200213bdcfc6c24002afeaa996f05074" title="App\\Models\\Comment\l\\getReplyTo" alt="" coords="253,463,419,504"/>
+</map>

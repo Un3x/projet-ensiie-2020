@@ -1,0 +1,5 @@
+<map id="App\Core\Redirect\back" name="App\Core\Redirect\back">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Request.html#a840a42a5d41a8643a9d5b69d56333277" title="App\\Core\\Request\\previousUrl" alt="" coords="228,5,445,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Session.html#af52026350712ed9eaf57e02ddec66510" title="App\\Core\\Session\\get" alt="" coords="493,5,653,32"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1App.html#a531e072eeecca3b1e5228248830296d4" title="App\\Core\\App\\instance" alt="" coords="701,5,871,32"/>
+</map>

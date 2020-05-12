@@ -1,0 +1,7 @@
+<map id="App\Controllers\SearchController\handleSearch" name="App\Controllers\SearchController\handleSearch">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Redirect.html#a8aed43d02f86ed000268d17ee222c5bb" title="App\\Core\\Redirect\\back" alt="" coords="288,5,463,32"/>
+<area shape="rect" id="node6" href="$classApp_1_1Core_1_1Blade.html#a2f0c1ad6f2b8e0f218baf12ef3bad87f" title="App\\Core\\Blade\\create" alt="" coords="292,56,459,83"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Request.html#a840a42a5d41a8643a9d5b69d56333277" title="App\\Core\\Request\\previousUrl" alt="" coords="511,5,728,32"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Session.html#af52026350712ed9eaf57e02ddec66510" title="App\\Core\\Session\\get" alt="" coords="776,5,936,32"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1App.html#a531e072eeecca3b1e5228248830296d4" title="App\\Core\\App\\instance" alt="" coords="984,5,1153,32"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="App\Core\Route\__construct" name="App\Core\Route\__construct">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1App.html#a531e072eeecca3b1e5228248830296d4" title="App\\Core\\App\\instance" alt="" coords="261,5,430,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Route.html#ae9da3e7e853c54e86864bd79dbb18bb1" title="App\\Core\\Route\\callback" alt="" coords="255,56,436,83"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Route.html#a906fa8d4b75016b855031a1e210b822b" title="App\\Core\\Route\\path" alt="" coords="267,107,423,133"/>
+<area shape="rect" id="node5" href="$classApp_1_1Utils.html#a731bcdbe00bd99b2e8d6c62ae1997259" title="App\\Utils\\formatRoute" alt="" coords="484,107,651,133"/>
+</map>

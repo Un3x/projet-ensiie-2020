@@ -1,0 +1,6 @@
+<map id="App\Core\Request\fullUrl" name="App\Core\Request\fullUrl">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1App.html#acf94d63f76951026c717a15be6c6946b" title="App\\Core\\App\\request" alt="" coords="683,55,845,81"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Request.html#ada184d38ca08d7ffe3fc8e9db42eba87" title="App\\Core\\Request\\url" alt="" coords="236,80,395,107"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Request.html#ac16679570e72cc1bbeaf6007e48b0c17" title="App\\Core\\Request\\baseUrl" alt="" coords="443,29,635,56"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Request.html#af115414ed0f719f8749ebe8f7278d92b" title="App\\Core\\Request\\pathUrl" alt="" coords="443,131,634,157"/>
+</map>

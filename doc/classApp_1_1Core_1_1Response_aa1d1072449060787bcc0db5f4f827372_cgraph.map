@@ -1,0 +1,5 @@
+<map id="App\Core\Response\setNotModified" name="App\Core\Response\setNotModified">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Response.html#ae2a0b57caef19a8deeef986596444a66" title="App\\Core\\Response\\setStatusCode" alt="" coords="248,5,495,32"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Response.html#a130baad06bba92b09713dacd88e4c456" title="App\\Core\\Response\\setContent" alt="" coords="260,56,483,83"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Response.html#abfa77a144eca4ea86e927431578d933d" title="App\\Core\\Response\\isInvalid" alt="" coords="543,5,749,32"/>
+</map>

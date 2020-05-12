@@ -1,43 +1,49 @@
+# Ton nez dans mon vin
+
+## Présentation
+
+Voici le brand new site d'OenologIIE, qui permet aux utilisateurs de déposer des vins et de pouvoir en parler.
+
+[Voir le rapport](./Rapport.pdf)
+
 # Installation du projet
 
-## Makefile
+## Bibliothèques requises
 
-Le makefile dispose de 4 commandes :
-* make start qui permet de lancer le serveur sur localhost:8080
-* make db.init qui initialise la db a partir du fichier `./data/init.sql`
-* make db.drop qui détruit la db
-* make db.reset qui détruit puis initialise la db
+Le site fonctionne avec les versions de PHP 7.1, 7.2, 7.3 et 7.4
 
-## Accès db
+Le site nécessite plusieurs bibliothèques natives de PHP, il faut activer les modules suivants dans le php.ini (en supposant que les paquets sont installés sur la machine) :
+* PHP-Curl (`extension=curl`)
+* PHP-GD (`extension=gd` ou `extension=gd2`)
+* PHP-MbString (`extension=mbstring`)
+* PHP-Pgsql (`extension=pgsql`)
+* PHP-PDO-Pgsql (`extension=pdo_pgsql`)
+* PHP-Exif (`extension=exif`)
 
-Pour que le code applicatif accède a la db il faut changer lkes paramètres dans le fichier `./src/config/config.php`.
+Il faut qu'elles soient actives pour un bon fonctionnement du site !
 
-Pour que le makefile se connecte a la db il faut changer les paramètre directement dans le fichier `Makefile`.
+## Installation du site
 
-La mise en place de la db fait partit du projet  et vous devez vous en occuper.
+Pour installer le site, il y a trois étapes : 
+* Il faut copier le fichier `.env.example` en `.env` et y configurer ses accès au PostgreSQL ([PHPDotEnv](https://github.com/vlucas/phpdotenv))
+* Il faut installer [Composer](https://getcomposer.org/doc/00-intro.md) et exécuter la commande : `composer install`
+  Cela va avoir pour effet de télécharger les librairies requises pour le bon fonctionnement du site et également avertir si une bibliothèque native de PHP requise est manquante.
+* Il faut remplir la base de données via la commande `make db.init` ou `make db.reset` le cas échéant.
 
-## Sujets
+## Lancement du site
 
-Vous pourrez trouver le sujet complets détaillé dans le dossier `document`. L'un des sujet est un sujet libre, profitez en pour faire qqchose qui vous intéresse
+**Il faut s'assurer que le serveur PostgreSQL est démarré avant toute manipulation du site !**
 
-## Application
+Pour démarrer le serveur, il suffit juste d'effectuer la commande `make` qui va démarrer le serveur en localhost.
 
-Une base de code est déjà présente a titre d'exemple. Nous vous suggérons de bien lire le code et de le comprendre avant d'attaquer le développement et de vous inspirer de ce qui a été fait.
+Pour accéder au site Web, il suffit juste d'aller sur [http://localhost:8080](http://localhost:8080)
 
-## Scéance
+## Informations
 
-* 1ère scéance :
-  * constitution des groupes
-  * choix du sujets
-  * définition des fonctionnalités du site
-  * Modèle de base de données
-* 2ème scéance :
-  * relecture du code
-  * support aux groupes pour la réalisation
-  * réponses aux questions techniques
-* 3ème scéance :
-  * soutenance
+La documentation Doxygen est disponible dans le fichier [./doc/index.html](./doc/index.html)
 
-## ATTENTION NOTATION
-
-Afin que la notation se fasse simplement il est nécessaire que votre projet fonctionne directement après avoir lancer les commandes du makefile, sans quoi des pénalitées seront appliquées a la notation.
+La base de données contient par défaut 4 comptes avec comme nom d'utilisateur et mot de passe :
+* `bleh` => `123456789`     de rôle Utilisateur
+* `noctali` => `123456789`  de rôle Utilisateur
+* `inako` => `123456789`    de rôle Utilisateur
+* `nitorac` => `123456789`  de rôle Administrateur

@@ -1,0 +1,6 @@
+<map id="App\Core\Headers\clearCookie" name="App\Core\Headers\clearCookie">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Headers.html#a52b200f33475eb85769164d5e36a3099" title="App\\Core\\Headers\\setCookie" alt="" coords="273,56,481,83"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Cookie.html#a0186c357ab534c2066c6da2597875f4e" title="App\\Core\\Cookie\\getDomain" alt="" coords="529,5,736,32"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Cookie.html#a72ebf13500cab8e6eb38965a5cda7dab" title="App\\Core\\Cookie\\getPath" alt="" coords="541,56,725,83"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Cookie.html#adf1e425912b35f2935f7db0913c35bed" title="App\\Core\\Cookie\\getName" alt="" coords="535,107,730,133"/>
+</map>

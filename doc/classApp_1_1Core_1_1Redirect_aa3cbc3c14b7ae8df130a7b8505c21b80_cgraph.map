@@ -1,0 +1,10 @@
+<map id="App\Core\Redirect\name" name="App\Core\Redirect\name">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Request.html#ac16679570e72cc1bbeaf6007e48b0c17" title="App\\Core\\Request\\baseUrl" alt="" coords="241,59,433,86"/>
+<area shape="rect" id="node7" href="$classApp_1_1Core_1_1Route.html#af64abf8512c61bebda9827dd44e09dd0" title="App\\Core\\Route\\_handleArgs\lInNamedRoute" alt="" coords="233,157,440,199"/>
+<area shape="rect" id="node9" href="$classApp_1_1Core_1_1App.html#a9ce18ef492b923ab2dc61e8d7c3ffe56" title="App\\Core\\App\\addError" alt="" coords="252,223,421,250"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1App.html#acf94d63f76951026c717a15be6c6946b" title="App\\Core\\App\\request" alt="" coords="1185,34,1348,61"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Request.html#ada184d38ca08d7ffe3fc8e9db42eba87" title="App\\Core\\Request\\url" alt="" coords="499,59,657,86"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Request.html#af115414ed0f719f8749ebe8f7278d92b" title="App\\Core\\Request\\pathUrl" alt="" coords="716,59,907,86"/>
+<area shape="rect" id="node6" href="$classApp_1_1Core_1_1Request.html#a68c4a83405f7a133a56d8f47f86914ed" title="App\\Core\\Request\\fullUrl" alt="" coords="955,110,1137,137"/>
+<area shape="rect" id="node8" href="$classApp_1_1Core_1_1App.html#a2b1551079d1b281deacb6f57c778bdaa" title="App\\Core\\App\\getRoutes" alt="" coords="488,211,668,238"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="App\Core\Auth\isLogged" name="App\Core\Auth\isLogged">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Session.html#af52026350712ed9eaf57e02ddec66510" title="App\\Core\\Session\\get" alt="" coords="231,5,391,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1App.html#a531e072eeecca3b1e5228248830296d4" title="App\\Core\\App\\instance" alt="" coords="439,5,608,32"/>
+</map>

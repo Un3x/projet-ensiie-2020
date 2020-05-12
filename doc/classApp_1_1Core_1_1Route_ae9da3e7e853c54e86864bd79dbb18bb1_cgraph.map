@@ -1,0 +1,6 @@
+<map id="App\Core\Route\callback" name="App\Core\Route\callback">
+<area shape="rect" id="node2" href="$classApp_1_1Utils.html#a731bcdbe00bd99b2e8d6c62ae1997259" title="App\\Utils\\formatRoute" alt="" coords="239,5,405,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1App.html#a5464d9cad59c0fc5705e4fc0cdcacf31" title="App\\Core\\App\\singleton" alt="" coords="235,56,409,83"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1App.html#adc64400724500b642178d21a0af201ef" title="App\\Core\\App\\resolve" alt="" coords="241,107,403,133"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1App.html#a531e072eeecca3b1e5228248830296d4" title="App\\Core\\App\\instance" alt="" coords="457,107,627,133"/>
+</map>

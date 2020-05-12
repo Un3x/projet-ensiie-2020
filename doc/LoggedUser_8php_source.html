@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ton nez dans mon vin:  Fichier source de app/Models/LoggedUser.php</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Ton nez dans mon vin
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('LoggedUser_8php_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">LoggedUser.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="LoggedUser_8php.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceApp_1_1Models.html">App\Models</a>;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;use <a class="code" href="namespaceCarbon_1_1Carbon.html">Carbon\Carbon</a>;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1LoggedUser.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classApp_1_1Models_1_1LoggedUser.html">LoggedUser</a> <span class="keyword">extends</span> <a class="code" href="classApp_1_1Models_1_1User.html">User</a></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1LoggedUser.html#aee62932cfd71a660a72cbaa4b416823f">   19</a></span>&#160;    <span class="keyword">private</span> <a class="code" href="classApp_1_1Models_1_1LoggedUser.html#aee62932cfd71a660a72cbaa4b416823f">$lastLoggedTime</a>;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1LoggedUser.html#a12aad7959b0d3e9445e2844f971cce61">   26</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Models_1_1LoggedUser.html#a12aad7959b0d3e9445e2844f971cce61">fromUser</a>(<a class="code" href="classApp_1_1Models_1_1User.html">User</a> $user){</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        $this-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#adf85f092233543371a8466020d33fe3e">setId</a>($user-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#a5f68a087d8c4a1b8995ec86293de12a8">getId</a>());</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        $this-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#afda3de407ff08f90d4482ef07a4f8d4f">setUsername</a>($user-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#a65e731aef1a1fe4e81f3d2c3d7c615bb">getUsername</a>());</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        $this-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#a4e3ea1b236599b9fe184cc87a8188f4f">setEmail</a>($user-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#a192caeeeb3a8722fdca0c8ff90913e03">getEmail</a>());</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        $this-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#a24e38a0c42ac0b09ed7a3ae06861f4a6">setHashedPwd</a>($user-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#a2942675cbd3fb351755059db697f9f0b">getHashedPwd</a>());</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        $this-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#a1c7140006aa3181135e7a112682cb6fe">setCreatedAt</a>($user-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#ab68ed87c9ce358a8433590b197d6653f">getCreatedAt</a>());</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        $this-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#a5c9fc851ad24c78510ef7b7170a1696c">setRole</a>($user-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#a0aa97a07b76efc95b3402be49344733a">getRole</a>());</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        $this-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#adeab66f9f7111f3f14059f800e26627e">setDescription</a>($user-&gt;<a class="code" href="classApp_1_1Models_1_1User.html#a1706f9ad7250498b216539c973322ca6">getDescription</a>());</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1LoggedUser.html#aa3a96590c96b493e7aa98fd00156f4d3">   42</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Models_1_1LoggedUser.html#aa3a96590c96b493e7aa98fd00156f4d3">setLastLogged</a>($last){</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        $this-&gt;lastLoggedTime = $last;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> $this;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classApp_1_1Models_1_1LoggedUser.html#aaa4082e6a6ec66fd36b225fc4a7b500b">   52</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="classApp_1_1Models_1_1LoggedUser.html#aaa4082e6a6ec66fd36b225fc4a7b500b">getLastLogged</a>(){</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classApp_1_1Models_1_1LoggedUser.html#aee62932cfd71a660a72cbaa4b416823f">$this-&gt;lastLoggedTime</a>;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    }</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div><div class="ttc" id="classApp_1_1Models_1_1LoggedUser_html_a12aad7959b0d3e9445e2844f971cce61"><div class="ttname"><a href="classApp_1_1Models_1_1LoggedUser.html#a12aad7959b0d3e9445e2844f971cce61">App\Models\LoggedUser\fromUser</a></div><div class="ttdeci">fromUser(User $user)</div><div class="ttdef"><b>Definition:</b> <a href="LoggedUser_8php_source.html#l00026">LoggedUser.php:26</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_a1706f9ad7250498b216539c973322ca6"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#a1706f9ad7250498b216539c973322ca6">App\Models\User\getDescription</a></div><div class="ttdeci">getDescription()</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00286">User.php:286</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1LoggedUser_html_aa3a96590c96b493e7aa98fd00156f4d3"><div class="ttname"><a href="classApp_1_1Models_1_1LoggedUser.html#aa3a96590c96b493e7aa98fd00156f4d3">App\Models\LoggedUser\setLastLogged</a></div><div class="ttdeci">setLastLogged($last)</div><div class="ttdef"><b>Definition:</b> <a href="LoggedUser_8php_source.html#l00042">LoggedUser.php:42</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_a24e38a0c42ac0b09ed7a3ae06861f4a6"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#a24e38a0c42ac0b09ed7a3ae06861f4a6">App\Models\User\setHashedPwd</a></div><div class="ttdeci">setHashedPwd($pwd)</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00200">User.php:200</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_a65e731aef1a1fe4e81f3d2c3d7c615bb"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#a65e731aef1a1fe4e81f3d2c3d7c615bb">App\Models\User\getUsername</a></div><div class="ttdeci">getUsername()</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00156">User.php:156</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_a2942675cbd3fb351755059db697f9f0b"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#a2942675cbd3fb351755059db697f9f0b">App\Models\User\getHashedPwd</a></div><div class="ttdeci">getHashedPwd()</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00192">User.php:192</a></div></div>
+<div class="ttc" id="namespaceCarbon_1_1Carbon_html"><div class="ttname"><a href="namespaceCarbon_1_1Carbon.html">Carbon</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_adeab66f9f7111f3f14059f800e26627e"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#adeab66f9f7111f3f14059f800e26627e">App\Models\User\setDescription</a></div><div class="ttdeci">setDescription($desc)</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00294">User.php:294</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Models_html"><div class="ttname"><a href="namespaceApp_1_1Models.html">App\Models</a></div><div class="ttdef"><b>Definition:</b> <a href="Comment_8php_source.html#l00004">Comment.php:4</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_a5c9fc851ad24c78510ef7b7170a1696c"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#a5c9fc851ad24c78510ef7b7170a1696c">App\Models\User\setRole</a></div><div class="ttdeci">setRole($role)</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00278">User.php:278</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1LoggedUser_html_aee62932cfd71a660a72cbaa4b416823f"><div class="ttname"><a href="classApp_1_1Models_1_1LoggedUser.html#aee62932cfd71a660a72cbaa4b416823f">App\Models\LoggedUser\$lastLoggedTime</a></div><div class="ttdeci">$lastLoggedTime</div><div class="ttdef"><b>Definition:</b> <a href="LoggedUser_8php_source.html#l00019">LoggedUser.php:19</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_a5f68a087d8c4a1b8995ec86293de12a8"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#a5f68a087d8c4a1b8995ec86293de12a8">App\Models\User\getId</a></div><div class="ttdeci">getId()</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00120">User.php:120</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html"><div class="ttname"><a href="classApp_1_1Models_1_1User.html">App\Models\User</a></div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00013">User.php:13</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_ab68ed87c9ce358a8433590b197d6653f"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#ab68ed87c9ce358a8433590b197d6653f">App\Models\User\getCreatedAt</a></div><div class="ttdeci">getCreatedAt()</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00174">User.php:174</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_a0aa97a07b76efc95b3402be49344733a"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#a0aa97a07b76efc95b3402be49344733a">App\Models\User\getRole</a></div><div class="ttdeci">getRole()</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00248">User.php:248</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1LoggedUser_html_aaa4082e6a6ec66fd36b225fc4a7b500b"><div class="ttname"><a href="classApp_1_1Models_1_1LoggedUser.html#aaa4082e6a6ec66fd36b225fc4a7b500b">App\Models\LoggedUser\getLastLogged</a></div><div class="ttdeci">getLastLogged()</div><div class="ttdef"><b>Definition:</b> <a href="LoggedUser_8php_source.html#l00052">LoggedUser.php:52</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_a192caeeeb3a8722fdca0c8ff90913e03"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#a192caeeeb3a8722fdca0c8ff90913e03">App\Models\User\getEmail</a></div><div class="ttdeci">getEmail()</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00138">User.php:138</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_a4e3ea1b236599b9fe184cc87a8188f4f"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#a4e3ea1b236599b9fe184cc87a8188f4f">App\Models\User\setEmail</a></div><div class="ttdeci">setEmail($email)</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00147">User.php:147</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1LoggedUser_html"><div class="ttname"><a href="classApp_1_1Models_1_1LoggedUser.html">App\Models\LoggedUser</a></div><div class="ttdef"><b>Definition:</b> <a href="LoggedUser_8php_source.html#l00013">LoggedUser.php:13</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_a1c7140006aa3181135e7a112682cb6fe"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#a1c7140006aa3181135e7a112682cb6fe">App\Models\User\setCreatedAt</a></div><div class="ttdeci">setCreatedAt($createdAt)</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00183">User.php:183</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_afda3de407ff08f90d4482ef07a4f8d4f"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#afda3de407ff08f90d4482ef07a4f8d4f">App\Models\User\setUsername</a></div><div class="ttdeci">setUsername($username)</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00165">User.php:165</a></div></div>
+<div class="ttc" id="classApp_1_1Models_1_1User_html_adf85f092233543371a8466020d33fe3e"><div class="ttname"><a href="classApp_1_1Models_1_1User.html#adf85f092233543371a8466020d33fe3e">App\Models\User\setId</a></div><div class="ttdeci">setId($id)</div><div class="ttdef"><b>Definition:</b> <a href="User_8php_source.html#l00129">User.php:129</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d422163b96683743ed3963d4aac17747.html">app</a></li><li class="navelem"><a class="el" href="dir_fc6199fba97859a095e1d9a5aa5fae23.html">Models</a></li><li class="navelem"><a class="el" href="LoggedUser_8php.html">LoggedUser.php</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

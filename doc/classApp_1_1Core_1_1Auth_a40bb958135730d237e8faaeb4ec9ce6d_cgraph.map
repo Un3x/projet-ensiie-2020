@@ -1,0 +1,4 @@
+<map id="App\Core\Auth\canEdit" name="App\Core\Auth\canEdit">
+<area shape="rect" id="node2" href="$classApp_1_1Models_1_1User.html#a5f68a087d8c4a1b8995ec86293de12a8" title="App\\Models\\User\\getId" alt="" coords="229,5,397,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Models_1_1User.html#a0aa97a07b76efc95b3402be49344733a" title="App\\Models\\User\\getRole" alt="" coords="220,56,405,83"/>
+</map>

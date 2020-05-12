@@ -1,0 +1,5 @@
+<map id="App\Controllers\API\CommentsAPIController\handleDelete" name="App\Controllers\API\CommentsAPIController\handleDelete">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1App.html#a9ce18ef492b923ab2dc61e8d7c3ffe56" title="App\\Core\\App\\addError" alt="" coords="248,5,417,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1App.html#a7bdebd0367465d575e76c43f48002113" title="App\\Core\\App\\jsonPayload" alt="" coords="236,56,429,83"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Response.html#a59d7ef3f3f00e95f79ec35cb20caddbf" title="App\\Core\\Response\\create" alt="" coords="477,56,671,83"/>
+</map>

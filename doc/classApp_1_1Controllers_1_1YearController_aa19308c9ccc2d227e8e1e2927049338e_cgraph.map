@@ -1,0 +1,8 @@
+<map id="App\Controllers\YearController\handlePage" name="App\Controllers\YearController\handlePage">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1App.html#a9ce18ef492b923ab2dc61e8d7c3ffe56" title="App\\Core\\App\\addError" alt="" coords="273,5,443,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Redirect.html#a8aed43d02f86ed000268d17ee222c5bb" title="App\\Core\\Redirect\\back" alt="" coords="271,56,445,83"/>
+<area shape="rect" id="node7" href="$classApp_1_1Core_1_1Blade.html#a2f0c1ad6f2b8e0f218baf12ef3bad87f" title="App\\Core\\Blade\\create" alt="" coords="275,107,441,133"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Request.html#a840a42a5d41a8643a9d5b69d56333277" title="App\\Core\\Request\\previousUrl" alt="" coords="493,56,711,83"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Session.html#af52026350712ed9eaf57e02ddec66510" title="App\\Core\\Session\\get" alt="" coords="759,56,919,83"/>
+<area shape="rect" id="node6" href="$classApp_1_1Core_1_1App.html#a531e072eeecca3b1e5228248830296d4" title="App\\Core\\App\\instance" alt="" coords="967,56,1136,83"/>
+</map>

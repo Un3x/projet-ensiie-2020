@@ -1,0 +1,11 @@
+<map id="App\Controllers\WineController\handlePage" name="App\Controllers\WineController\handlePage">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1App.html#a9ce18ef492b923ab2dc61e8d7c3ffe56" title="App\\Core\\App\\addError" alt="" coords="288,5,457,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Redirect.html#a8aed43d02f86ed000268d17ee222c5bb" title="App\\Core\\Redirect\\back" alt="" coords="285,56,460,83"/>
+<area shape="rect" id="node7" href="$classApp_1_1Core_1_1Auth.html#a01daf403a75943278f3f05fd8ab5e024" title="App\\Core\\Auth\\isLogged" alt="" coords="537,107,715,133"/>
+<area shape="rect" id="node8" href="$classApp_1_1Core_1_1Auth.html#aef5ff1f7ba353dd8cdb909080ebf7dc4" title="App\\Core\\Auth\\loggedUser" alt="" coords="276,157,469,184"/>
+<area shape="rect" id="node10" href="$classApp_1_1Core_1_1Blade.html#a2f0c1ad6f2b8e0f218baf12ef3bad87f" title="App\\Core\\Blade\\create" alt="" coords="289,208,456,235"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Request.html#a840a42a5d41a8643a9d5b69d56333277" title="App\\Core\\Request\\previousUrl" alt="" coords="517,56,735,83"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Session.html#af52026350712ed9eaf57e02ddec66510" title="App\\Core\\Session\\get" alt="" coords="783,107,943,133"/>
+<area shape="rect" id="node6" href="$classApp_1_1Core_1_1App.html#a531e072eeecca3b1e5228248830296d4" title="App\\Core\\App\\instance" alt="" coords="991,107,1160,133"/>
+<area shape="rect" id="node9" href="$classApp_1_1Core_1_1Session.html#ac70406a46cf2a1af5b6f7508d6df1de7" title="App\\Core\\Session\\clear" alt="" coords="541,208,711,235"/>
+</map>

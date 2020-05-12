@@ -1,0 +1,3 @@
+<map id="App\Models\LoggedUser" name="App\Models\LoggedUser">
+<area shape="rect" id="node2" href="$classApp_1_1Models_1_1User.html" title="{App\\Models\\User\n|+ VIEWER_ROLE\l+ ADMIN_ROLE\l&#45; $id\l&#45; $username\l&#45; $email\l&#45; $hashedPwd\l&#45; $createdAt\l&#45; $role\l&#45; $description\l|+ __construct()\l+ toDbRow()\l+ getId()\l+ setId()\l+ getEmail()\l+ setEmail()\l+ getUsername()\l+ setUsername()\l+ getCreatedAt()\l+ setCreatedAt()\let 10 de plus...\l+ fromDbRow()\l+ getPPPathFromId()\l+ getBGPathFromId()\l}" alt="" coords="15,5,175,391"/>
+</map>

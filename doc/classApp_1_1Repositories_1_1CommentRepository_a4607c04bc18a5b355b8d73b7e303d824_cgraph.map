@@ -1,0 +1,6 @@
+<map id="App\Repositories\CommentRepository\saveComment" name="App\Repositories\CommentRepository\saveComment">
+<area shape="rect" id="node2" href="$classApp_1_1Models_1_1Comment.html#a80fa93eb583759461671099448c4cb38" title="App\\Models\\Comment\l\\toDbRow" alt="" coords="253,37,419,79"/>
+<area shape="rect" id="node5" href="$classApp_1_1Models_1_1Comment.html#aa7ec916ff242ad597045f5092a5fc0b1" title="App\\Models\\Comment\l\\getId" alt="" coords="253,103,419,144"/>
+<area shape="rect" id="node3" href="$classApp_1_1Models_1_1Comment.html#a6faf1b350afa1aa260dee6fe22418df1" title="App\\Models\\Comment\l\\getType" alt="" coords="467,5,632,47"/>
+<area shape="rect" id="node4" href="$classApp_1_1Models_1_1Comment.html#a1790ca76132197dda6cb8a6457ea29a2" title="App\\Models\\Comment\l\\getMsg" alt="" coords="467,71,632,112"/>
+</map>

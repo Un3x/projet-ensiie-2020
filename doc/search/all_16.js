@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['unset',['unset',['../classApp_1_1Core_1_1Session.html#a03172b3e7d53e2beb67ec4c366412938',1,'App::Core::Session']]],
+  ['update',['update',['../classApp_1_1Core_1_1Pgsql.html#a0e53f0476f67338bbf74c103232e733d',1,'App::Core::Pgsql']]],
+  ['upper',['UPPER',['../classApp_1_1Core_1_1Headers.html#ab4f62fa68f7bc75d174b0da2547063c9',1,'App::Core::Headers']]],
+  ['url',['Url',['../classApp_1_1Core_1_1Url.html',1,'App\Core\Url'],['../classApp_1_1Core_1_1Request.html#ada184d38ca08d7ffe3fc8e9db42eba87',1,'App\Core\Request\url()']]],
+  ['url_2ephp',['Url.php',['../Url_8php.html',1,'']]],
+  ['user',['User',['../classApp_1_1Models_1_1User.html',1,'App::Models']]],
+  ['user_2ephp',['User.php',['../User_8php.html',1,'']]],
+  ['user_5fkey',['USER_KEY',['../classApp_1_1Core_1_1Auth.html#a43b81ee3debc2b5a626161f7c6611699',1,'App::Core::Auth']]],
+  ['useraccessmiddleware',['UserAccessMiddleware',['../classApp_1_1Middlewares_1_1UserAccessMiddleware.html',1,'App::Middlewares']]],
+  ['useraccessmiddleware_2ephp',['UserAccessMiddleware.php',['../UserAccessMiddleware_8php.html',1,'']]],
+  ['userapicontroller',['UserAPIController',['../classApp_1_1Controllers_1_1API_1_1UserAPIController.html',1,'App::Controllers::API']]],
+  ['userapicontroller_2ephp',['UserAPIController.php',['../UserAPIController_8php.html',1,'']]],
+  ['userrepository',['UserRepository',['../classApp_1_1Repositories_1_1UserRepository.html',1,'App::Repositories']]],
+  ['userrepository_2ephp',['UserRepository.php',['../UserRepository_8php.html',1,'']]],
+  ['utils',['Utils',['../classApp_1_1Utils.html',1,'App']]],
+  ['utils_2ephp',['Utils.php',['../Utils_8php.html',1,'']]]
+];

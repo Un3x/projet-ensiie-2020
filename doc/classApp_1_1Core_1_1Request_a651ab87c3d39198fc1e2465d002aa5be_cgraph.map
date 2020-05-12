@@ -1,0 +1,9 @@
+<map id="App\Core\Request\init" name="App\Core\Request\init">
+<area shape="rect" id="node2" href="$classApp_1_1Utils.html#af2dd83cd641059b91ee483e4d345e015" title="App\\Utils\\toCamelCase" alt="" coords="265,5,437,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1Request.html#a7d4958429fca3580ed05f9f96fa83cfc" title="App\\Core\\Request\\methodWorkaround" alt="" coords="216,56,487,83"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1Request.html#a2fa65c8a9f5057e2bf5dbec886c31f1b" title="App\\Core\\Request\\handleGet" alt="" coords="247,107,456,133"/>
+<area shape="rect" id="node6" href="$classApp_1_1Core_1_1Request.html#a052e04c76cd116513fdab2d72681008c" title="App\\Core\\Request\\handlePost" alt="" coords="244,157,459,184"/>
+<area shape="rect" id="node8" href="$classApp_1_1Core_1_1Request.html#a81695a8a6242c17acccf54b33dfe276d" title="App\\Core\\Request\\handleFile" alt="" coords="247,208,456,235"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1Request.html#a32e3c4ade74e6f2eeffb7aabf6e76eeb" title="App\\Core\\Request\\hasGetParams" alt="" coords="535,107,772,133"/>
+<area shape="rect" id="node7" href="$classApp_1_1Core_1_1Request.html#aa66aa2503500c373bdaeab2330db52e2" title="App\\Core\\Request\\hasPost\lParams" alt="" coords="557,179,750,221"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="App\Models\Wine\toDbRow" name="App\Models\Wine\toDbRow">
+<area shape="rect" id="node2" href="$classApp_1_1Models_1_1Wine.html#a6af651cd796067cb6c5dbdb87f926f35" title="App\\Models\\Wine\\getName" alt="" coords="268,5,467,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Models_1_1Wine.html#aacf53b5702236988fb6cd2b493a2047f" title="App\\Models\\Wine\\getDescription" alt="" coords="251,56,484,83"/>
+<area shape="rect" id="node4" href="$classApp_1_1Models_1_1Wine.html#a44c04411b2b425a083323f004c1d9f7a" title="App\\Models\\Wine\\getTags" alt="" coords="273,107,461,133"/>
+<area shape="rect" id="node5" href="$classApp_1_1Models_1_1Wine.html#a00248561983a325dd592bc60abc2049d" title="App\\Models\\Wine\\getTypeId" alt="" coords="267,157,468,184"/>
+<area shape="rect" id="node6" href="$classApp_1_1Models_1_1Wine.html#a0924a978367f2a3cc377b76d6075b11b" title="App\\Models\\Wine\\getDomainId" alt="" coords="256,208,479,235"/>
+<area shape="rect" id="node7" href="$classApp_1_1Models_1_1Wine.html#a7d608465b19c8cdadb4806c3474a6cb9" title="App\\Models\\Wine\\getYearId" alt="" coords="268,259,467,285"/>
+</map>

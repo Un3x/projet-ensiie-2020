@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Ton nez dans mon vin:  Fichier source de public/index.php</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Ton nez dans mon vin
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('index_8php_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">index.php</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="index_8php.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;require __DIR__ . <span class="stringliteral">&#39;/../autoloader.php&#39;</span>;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// On définit la langue par défaut</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;setlocale(LC_TIME, <span class="stringliteral">&#39;fr_FR&#39;</span>);</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;Carbon\Carbon::setLocale(<span class="stringliteral">&#39;fr&#39;</span>);</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// On définit la taille maximale d&#39;upload (8 Mo)</span></div><div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="index_8php.html#a1d5ddf5d5df3e22235122bd80be42780">    9</a></span>&#160;define(<span class="stringliteral">&#39;MAX_FILE_UPLOAD&#39;</span>, 8000000);</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;use <a class="code" href="namespaceApp_1_1Core_1_1App.html">App\Core\App</a>;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;use <a class="code" href="namespaceApp_1_1Core_1_1Blade.html">App\Core\Blade</a>;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;use <a class="code" href="namespaceApp_1_1Core_1_1Pgsql.html">App\Core\Pgsql</a>;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;use <a class="code" href="namespaceApp_1_1Core_1_1Request.html">App\Core\Request</a>;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="index_8php.html#adfb117f244076aa9bc269269f7e57403">   16</a></span>&#160;<a class="code" href="index_8php.html#adfb117f244076aa9bc269269f7e57403">$app</a> = <span class="keyword">new</span> <a class="code" href="namespaceApp.html">App</a>(<span class="keyword">new</span> <a class="code" href="classApp_1_1Core_1_1Request.html">Request</a>());</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * Ici on définit les classes qui doivent être définies une seule fois !</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> *</span></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * Ca s&#39;utilise comme ça : App::resolve(Objet::class);</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> */</span></div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// Par exemple, une connexion à la base de donnée peut être appellée par : App::resolve(Pgsql::class)-&gt;...</span></div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<a class="code" href="index_8php.html#adfb117f244076aa9bc269269f7e57403">$app</a>-&gt;singleton(Pgsql::class, <span class="keyword">function</span>(){</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classApp_1_1Core_1_1Pgsql.html">Pgsql</a>(</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        getenv(<span class="stringliteral">&#39;DB_HOST&#39;</span>),</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        getenv(<span class="stringliteral">&#39;DB_NAME&#39;</span>),</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        getenv(<span class="stringliteral">&#39;DB_USER&#39;</span>),</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        getenv(<span class="stringliteral">&#39;DB_PASS&#39;</span>)</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    );</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;});</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;Blade::compose(<span class="stringliteral">&#39;components.comments&#39;</span>, <span class="stringliteral">&#39;\App\Composers\CommentsComposer&#39;</span>);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;Blade::compose(<span class="stringliteral">&#39;components.fav-wines-section&#39;</span>, <span class="stringliteral">&#39;\App\Composers\FavoriteWinesComposer&#39;</span>);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">// On définit les routes dans ce fichier</span></div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;include_once <span class="stringliteral">&#39;web.php&#39;</span>;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">// On définit les middlewares dans ce fichier</span></div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;include_once <span class="stringliteral">&#39;middlewares.php&#39;</span>;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">// On résout le routeur (après avoir déclaré toutes les routes, on choisit lequel est adapté)</span></div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordflow">return</span> <a class="code" href="index_8php.html#adfb117f244076aa9bc269269f7e57403">$app</a>-&gt;handle();</div><div class="ttc" id="namespaceApp_html"><div class="ttname"><a href="namespaceApp.html">App</a></div></div>
+<div class="ttc" id="index_8php_html_adfb117f244076aa9bc269269f7e57403"><div class="ttname"><a href="index_8php.html#adfb117f244076aa9bc269269f7e57403">$app</a></div><div class="ttdeci">$app</div><div class="ttdef"><b>Definition:</b> <a href="index_8php_source.html#l00016">index.php:16</a></div></div>
+<div class="ttc" id="classApp_1_1Core_1_1Request_html"><div class="ttname"><a href="classApp_1_1Core_1_1Request.html">App\Core\Request</a></div><div class="ttdef"><b>Definition:</b> <a href="Request_8php_source.html#l00017">Request.php:17</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Core_1_1Request_html"><div class="ttname"><a href="namespaceApp_1_1Core_1_1Request.html">Request</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Core_1_1Blade_html"><div class="ttname"><a href="namespaceApp_1_1Core_1_1Blade.html">Blade</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Core_1_1App_html"><div class="ttname"><a href="namespaceApp_1_1Core_1_1App.html">App</a></div></div>
+<div class="ttc" id="namespaceApp_1_1Core_1_1Pgsql_html"><div class="ttname"><a href="namespaceApp_1_1Core_1_1Pgsql.html">Pgsql</a></div></div>
+<div class="ttc" id="classApp_1_1Core_1_1Pgsql_html"><div class="ttname"><a href="classApp_1_1Core_1_1Pgsql.html">App\Core\Pgsql</a></div><div class="ttdef"><b>Definition:</b> <a href="Pgsql_8php_source.html#l00017">Pgsql.php:17</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_f832923ad3cb060bc87ad85e68b8a1c3.html">public</a></li><li class="navelem"><a class="el" href="index_8php.html">index.php</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

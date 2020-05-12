@@ -1,0 +1,10 @@
+<map id="App\Repositories\WineRepository\saveWine" name="App\Repositories\WineRepository\saveWine">
+<area shape="rect" id="node2" href="$classApp_1_1Models_1_1Wine.html#a1a716b02c856d538ef7f120eb1915b04" title="App\\Models\\Wine\\toDbRow" alt="" coords="292,132,489,159"/>
+<area shape="rect" id="node9" href="$classApp_1_1Models_1_1Wine.html#a8d827c2e5d365c07b99c3df1d16892c8" title="App\\Models\\Wine\\getId" alt="" coords="305,183,476,209"/>
+<area shape="rect" id="node3" href="$classApp_1_1Models_1_1Wine.html#a6af651cd796067cb6c5dbdb87f926f35" title="App\\Models\\Wine\\getName" alt="" coords="555,5,753,32"/>
+<area shape="rect" id="node4" href="$classApp_1_1Models_1_1Wine.html#aacf53b5702236988fb6cd2b493a2047f" title="App\\Models\\Wine\\getDescription" alt="" coords="537,56,771,83"/>
+<area shape="rect" id="node5" href="$classApp_1_1Models_1_1Wine.html#a44c04411b2b425a083323f004c1d9f7a" title="App\\Models\\Wine\\getTags" alt="" coords="560,107,748,133"/>
+<area shape="rect" id="node6" href="$classApp_1_1Models_1_1Wine.html#a00248561983a325dd592bc60abc2049d" title="App\\Models\\Wine\\getTypeId" alt="" coords="553,157,755,184"/>
+<area shape="rect" id="node7" href="$classApp_1_1Models_1_1Wine.html#a0924a978367f2a3cc377b76d6075b11b" title="App\\Models\\Wine\\getDomainId" alt="" coords="543,208,765,235"/>
+<area shape="rect" id="node8" href="$classApp_1_1Models_1_1Wine.html#a7d608465b19c8cdadb4806c3474a6cb9" title="App\\Models\\Wine\\getYearId" alt="" coords="555,259,753,285"/>
+</map>

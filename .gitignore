@@ -1,1 +1,7 @@
 .idea
+/vendor/
+.env
+.phpunit.*
+/cache/*
+MainModel.mxm_*
+MainModel*.sql

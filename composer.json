@@ -1,0 +1,36 @@
+{
+    "name": "oenologiie/tonnezdansmonvin",
+    "type": "project",
+    "description": "Un site pour Oenologiie",
+    "keywords": [
+        "blinoctac",
+        "tonnezdansmonvin"
+    ],
+    "license": "",
+    "require": {
+        "php": "^7.1",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "ext-gd": "*",
+        "ext-exif": "*",
+        "eftec/bladeone": "^3.37",
+        "nesbot/carbon": "^2.32",
+        "vlucas/phpdotenv": "^4.1",
+        "ext-mbstring": "*"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+    
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

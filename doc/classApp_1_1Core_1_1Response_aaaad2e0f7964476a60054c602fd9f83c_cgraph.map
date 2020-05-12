@@ -1,0 +1,7 @@
+<map id="App\Core\Response\sendHeaders" name="App\Core\Response\sendHeaders">
+<area shape="rect" id="node2" href="$classApp_1_1Core_1_1Session.html#a369c9a5eb0211ffa433aa37fa597090c" title="App\\Core\\Session\\flash" alt="" coords="303,5,474,32"/>
+<area shape="rect" id="node3" href="$classApp_1_1Core_1_1App.html#a627854edaef679c2b181169bccdcfe60" title="App\\Core\\App\\getErrors" alt="" coords="302,56,475,83"/>
+<area shape="rect" id="node4" href="$classApp_1_1Core_1_1App.html#af1d9891cfebe3d1a6f7335dc83129de4" title="App\\Core\\App\\getWarnings" alt="" coords="291,107,487,133"/>
+<area shape="rect" id="node5" href="$classApp_1_1Core_1_1App.html#af79189da79de464b39687e80eab68f1e" title="App\\Core\\App\\getNotifs" alt="" coords="301,157,476,184"/>
+<area shape="rect" id="node6" href="$classApp_1_1Core_1_1App.html#ae2d3536ad730e2a57b126e3384ee3b1d" title="App\\Core\\App\\getSuccess" alt="" coords="295,208,482,235"/>
+</map>
