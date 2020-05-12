@@ -21,4 +21,4 @@ Après avoir effectué les prérequis, exécuter les commandes suivantes :
 $ make db.init
 $ make start
 ```
-Le site est alors accessible à l'adresse \texttt{localhost:8080}. 
+Le site est alors accessible à l'adresse localhost:8080. 
