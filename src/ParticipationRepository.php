@@ -289,5 +289,19 @@ class ParticipationRepository
         }
         return($count>0);
     }
+    public function insertStatus($id_reu,$id_membre,$statut)
+    {
+        $req=$this->dbAdapter->prepare('INSERT INTO Participations (statut,id_reu,id_membre) VALUES (:statut, :idreu, :id_membre)');
+
+        $req->bindParam('statut',$statut);
+        $req->bindParam('idreu',$id_reu);
+        $req->bindParam('id_membre',$id_membre);
+
+        if (!$req) {
+        echo "\nPDO::errorInfo():\n";
+        print_r($dbh->errorInfo());
+        } 
+        $req->execute();
+    }
 }
 ?>

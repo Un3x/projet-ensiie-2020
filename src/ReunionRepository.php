@@ -202,7 +202,7 @@ public function getReunion($meeting)
         return $overlapingmeetings;
     }
     public function reuAsso($id){
-        $usersAsso=$this->dbAdapter->query("SELECT Date_debut_reu,Id_reu FROM Reunion WHERE Id_Assoc= '$id'");
+        $usersAsso=$this->dbAdapter->query("SELECT * FROM Reunion WHERE Id_Assoc= $id");
         $Asso = [];
         foreach ($usersAsso as $TteAsso) {
             $userA = new Reunion();

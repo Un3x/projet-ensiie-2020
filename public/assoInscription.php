@@ -8,6 +8,8 @@ include '../src/AssoRepository.php';
 include '../src/Reunion.php';
 include '../src/ReunionRepository.php';
 include '../src/ParticipationRepository.php';
+include '../src/Participation.php';
+
 
 $dbAdaper = (new DbAdaperFactory())->createService();
 $userRepository = new \User\UserRepository($dbAdaper);
@@ -20,11 +22,9 @@ $_SESSION['user']=$userRepository->getUser($_SESSION['username']);
 $assoRepository = new \Asso\AssoRepository($dbAdaper);
 //$id = $_SESSION['user']->getId();
 $id_membre=$_SESSION['user']->getId();
-echo $_POST['nomasso'];
 $assoRepository->newMembre($id_membre,$_POST['nomasso'],$_SESSION['username']); 
 
 $id=$assoRepository->NameToId($_POST['nomasso']);
-echo $id;
 $reu = $reuRepository->reuAsso($id);
 foreach ($reu as $r) {
 	$idreu=$r->getIdReu();
