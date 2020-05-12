@@ -35,7 +35,7 @@ Les utilisateurs auront un feed d’activité et un feed de leur propre activit�
 
 > * Les utilisateurs inscrits ont le droit de diffuser du contenu (limité en caractères, et avec un langage augmenté, émoticon, @, # ou autre)
 > * Les utilisateurs inscrits peuvent s’abonner aux contenu d’autres utilisateurs. Ce contenu apparaîtra alors dans leur feed d’activité.
-> * Les hashtag et les noms d’utilisateurs devront être cliquables afin de voir leur flux d’activité respectifs.
+> * Les hashtag et le********s noms d’utilisateurs devront être cliquables afin de voir leur flux d’activité respectifs.
 > * Les administrateurs peuvent supprimer les publications. Les utilisateurs doivent faire une demande de suppression qui s’affichera dans une notification pour les administrateurs (tant qu’elle n’a pas été supprimée).
 > * Les utilisateurs peuvent ‘liker’ un message. Un contenu automatique pourrait alors être diffusé (tel utilisateur a ‘liké’ ce message, à diffuser sur le mur perso par exemple, ou sur une page dédiée).
 > * Les utilisateurs peuvent répondre à un message (et répondre à la réponse etc).

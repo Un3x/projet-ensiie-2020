@@ -1,0 +1,179 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    background-color:white;
+    height: 100%; /* 100% Full-height */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+}
+
+button {
+    border: none;
+    outline: solid grey 1px;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button.delete{
+    padding: 2px 2px -1px;
+    background-color: rgba(120,121,255,0.59);
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(0,0,0,1);
+    outline: none;
+    position: absolute;
+    right: 3.5%;
+    border-radius: 8px;
+    opacity: 0.7;
+}
+
+button.delete:hover{
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color:black;
+}
+
+button:hover, a:hover {
+    opacity: 0.7;
+}
+body {
+    background-image: url("images/overlay.png"), url("images/bg.jpg");
+    background-repeat: repeat, no-repeat;
+    background-size: auto, 100% 100%;
+    background-attachment: fixed;
+}
+
+div.comment{
+    background-color:white;
+    position: fixed;
+    margin-left:auto;
+    margin-right:auto;
+    right:25%;
+    width:50%;
+    padding-right:5px;
+    padding-top: 70px;
+    height: 100vh;
+    overflow-y: auto;
+}
+.input{
+    height:100%;
+}
+
+
+div.profile{
+    left: 0;
+    width: 300px;
+    position: fixed;
+    padding-right: 5px;
+    padding-top: 70px;
+    background: white;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+div.followed{
+    right: 0;
+    width: 300px;
+    position: fixed;
+    padding-top: 32px;
+    background: white;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.i2Style{
+    font:bold 24px sans-serif;
+    font-style:normal;
+    color:#ffffff;
+    background: rgba(59,88,211,0.63);
+    border:0px solid #ffffff;
+    width:100%;
+    padding:20px 43px;
+    cursor:pointer;
+    margin:0 auto;
+    text-align: center;
+}
+
+.post {
+    padding: 5px;
+    display: none;
+    background: white;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+button.contact{
+    width: 100%;
+    left: 0;
+}
+
+button.open-button {
+    right: 0;
+    color: white;
+    width: 300px;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+}
+
+button.like {
+    padding: 2px;
+    background-color: rgba(185,118,9,0.89);
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    outline: none;
+    box-shadow: 0 0 1px 1px coral;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+button.like:hover{
+    opacity: 0.7;
+}
+
+button.comments{
+    padding: 2px;
+    background-color: rgba(185,118,9,0.89);
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    outline: none;
+    box-shadow: 0 0 1px 1px coral;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+button.comments:hover{
+    opacity: 0.7;
+}
+
+button.unsub {
+    float : left;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: rgba(209,20,17,0.67);
+}

@@ -3,9 +3,9 @@ start:
 
 db.init:
 	createdb ensiie
-	psql -U ensiie -d ensiie -a -f data/init.sql
+	psql -U ensiie -d ensiie -h localhost -a -f data/init.sql
 
 db.drop:
-	dropdb MyM
+	dropdb ensiie
 
 db.reset: db.drop db.init

@@ -1,0 +1,69 @@
+
+body{
+    background-image: url("assets/css/images/overlay.png"), url("assets/css/images/bg.jpg");
+    background-repeat: repeat, no-repeat;
+    background-size: auto, 100% 100%;
+    background-attachment: fixed;
+    overflow-y: scroll;
+}
+div.authentification{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width : 50%;
+    padding: 20px;
+    background: white;
+}
+
+div.navbar-right{
+ right:0;
+
+}
+
+button.like {
+    padding: 2px;
+    background-color: rgba(185,118,9,0.89);
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    outline: none;
+    box-shadow: 0 0 1px 1px coral;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+button.like:hover{
+    opacity: 0.7;
+}
+
+button.comments{
+    padding: 2px;
+    background-color: rgba(185,118,9,0.89);
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    outline: none;
+    box-shadow: 0 0 1px 1px coral;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+button.delete{
+    padding: 2px 2px -1px;
+    background-color: rgba(120,121,255,0.59);
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(0,0,0,1);
+    outline: none;
+    position: absolute;
+    right: 5%;
+    border-radius: 8px;
+    opacity: 0.7;
+}
+button:hover, a:hover {
+    opacity: 0.7;
+}
+
+button.delete:hover{
+    opacity: 1;
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head><title>Twittiie -Trends</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="assetsbis/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assetsbis/css/noscript.css"/>
+    </noscript>
+    <script>
+        let Pref=[];
+    </script>
+</head>
+<body class="is-preload">        <!-- Wrapper -->
+<div id="wrapper">                <!-- Header -->
+    <header id="header"><h1><a href="index.php" style="padding:5px">Retour</a>   <strong>Tendances</strong>  Cochez les cases correspondants à vos préférences!</a> </h1>
+        <button id="sendpref" type="submit" onclick="SubmitPref(Pref)" >Envoyez vos préférences</button>
+        <nav>
+            <ul>
+                <li><a href="#footer" class="icon solid fa-info-circle">À propos</a></li>
+            </ul>
+        </nav>
+    </header>                <!-- Main -->
+    <div id="main">
+        <article class="thumb"><a href="images/fulls/developpement.png" class="image"><img
+                src="images/thumbs/developpement.png" alt=""/></a>
+            <h2>Développement</h2>
+            <p>Pour les férus d'informatique</p>
+            <div class="closer">
+                <form ><input type=checkbox id=1 value="Développement" onchange="ChangePref(this,Pref)" autocomplete="off" ><label for=1>Ajouter à votre fil d'actu</label>
+                </form>
+            </div>
+        </article>
+        <article class="thumb"><a href="images/fulls/sport.png" class="image"><img src="images/thumbs/sport.png"
+                                                                                   alt=""/></a>
+            <h2>Sport</h2>
+            <p>Parlons peu, parlons sport</p>
+            <div class="closer">
+                <form method="post"><input type=checkbox id=2 value="Sport" onchange="ChangePref(this,Pref)" autocomplete="off"><label for=2>Ajouter à votre fil d'actu</label>
+                </form>
+            </div>
+        </article>
+        <article class="thumb"><a href="images/fulls/politique.png" class="image"><img src="images/thumbs/politique.png"
+                                                                                       alt=""/></a>
+            <h2>Politique et société</h2>
+            <p>L'endroit idéal pour les débats fructueux</p>
+            <div class="closer">
+                <form method="post"><input type=checkbox id=3 value="Politique et société" onchange="ChangePref(this,Pref)" autocomplete="off"><label for=3>Ajouter à votre fil d'actu</label>
+                </form>
+            </div>
+        </article>
+        <article class="thumb"><a href="images/fulls/jeuxsoc.png" class="image"><img src="images/thumbs/jeuxsoc.png"
+                                                                                     alt=""/></a>
+            <h2>Jeux de société</h2>
+            <p>Du jeu de cartes au jeu de rôle il y en a pour tous les goûts</p>
+            <div class="closer">
+                <form method="post"><input type=checkbox id=4 value="Jeux de société" onchange="ChangePref(this,Pref)" autocomplete="off"><label for=4>Ajouter à votre fil d'actu</label>
+                </form>
+            </div>
+        </article>
+        <article class="thumb"><a href="images/fulls/videoga.png" class="image"><img src="images/thumbs/videoga.png"
+                                                                                     alt=""/></a>
+            <h2>Jeux vidéos</h2>
+            <p></p>
+            <div class="closer">
+                <form method="post"><input type=checkbox id=5 value="Jeux vidéos" onchange="ChangePref(this,Pref)" autocomplete="off"><label for=5>Ajouter à votre fil d'actu</label>
+                </form>
+            </div>
+        </article>
+        <article class="thumb"><a href="images/fulls/cinema.png" class="image"><img src="images/thumbs/cinema.png"
+                                                                                    alt=""/></a>
+            <h2>Cinéma</h2>
+            <p>L'incontournable point de rencontre de tout cinéphile</p>
+            <div class="closer">
+                <form method="post"><input type=checkbox id=6 value="Cinéma" onchange="ChangePref(this,Pref)" autocomplete="off"><label for="6">Ajouter à votre fil d'actu</label>
+                </form>
+            </div>
+        </article>
+        <article class="thumb"><a href="images/fulls/art.png" class="image"><img src="images/thumbs/art.png"
+                                                                                 alt=""/></a>
+            <h2>Art</h2>
+            <p>Laissez parler l'artiste en qui est en vous </p>
+            <div class="closer">
+                <form method="post"><input type=checkbox id=7 value="Art" onchange="ChangePref(this,Pref)" autocomplete="off"><label for=7>Ajouter à votre fil d'actu</label>
+                </form>
+            </div>
+        </article>
+        <article class="thumb"><a href="images/fulls/musique.png" class="image"><img src="images/thumbs/musique.png"
+                                                                                     alt=""/></a>
+            <h2>Musique</h2>
+            <p>Classique,rock,pop... Il y en a pour tous les goûts !</p>
+            <div class="closer">
+                <form method="post"><input type=checkbox id=8 value="Musique" onchange="ChangePref(this,Pref)" autocomplete="off"><label for=8>Ajouter à votre fil d'actu</label>
+                </form>
+            </div>
+        </article>
+        <article class="thumb"><a href="images/fulls/litterature.png" class="image"><img
+                src="images/thumbs/litterature.png" alt=""/></a>
+            <h2>Littérature</h2>
+            <p>Discutez des plus grands classiques aux opus les plus modernes</p>
+            <div class="closer">
+                <form method="post"><input type=checkbox id=9 value="Littérature" onchange="ChangePref(this,Pref)" autocomplete="off"><label for=9>Ajouter à votre fil d'actu</label>
+                </form>
+            </div>
+        </article>
+        <article class="thumb"><a href="images/fulls/science.jpg" class="image"><img src="images/thumbs/science.jpg"
+                                                                                     alt=""/></a>
+            <h2>Sciences et technologies</h2>
+            <p>Façonnez l'avenir</p>
+            <div class="closer">
+                <form method="post"><input type=checkbox id=10 value="Sciences et technologie" onchange="ChangePref(this,Pref)" autocomplete="off"><label for=10>Ajouter à votre fil d'actu</label>
+                </form>
+            </div>
+        </article>
+        <article class="thumb"><a href="images/fulls/theatre.jpg" class="image"><img src="images/thumbs/theatre.jpg"
+                                                                                     alt=""/></a>
+            <h2>Théâtre et comédie</h2>
+            <p>«Le monde entier est un théâtre, Et tous, hommes et femmes, n'en sont que les acteurs.»</p>
+            <div class="closer">
+                <form method="post"><input type=checkbox id=11 value="Théâtre et comédie" onchange="ChangePref(this,Pref)" autocomplete="off"><label for=11>Ajouter à votre fil d'actu</label>
+                </form>
+            </div>
+        </article>
+        <article class="thumb"><a href="images/fulls/divers.jpg" class="image"><img src="images/thumbs/divers.jpg"
+                                                                                    alt=""/></a>
+            <h2>Divers</h2>
+            <p>Ici on parle de tout et de rien !</p>
+            <div class="closer">
+                <form method="post"><input type=checkbox id=12 value="Divers" onchange="ChangePref(this,Pref)" autocomplete="off"><label for=12>Ajouter à votre fil d'actu</label>
+                </form>
+            </div>
+        </article>
+    </div>                <!-- Footer -->
+    <footer id="footer" class="panel">
+        <div class="inner split">
+            <div>
+                <section><h2>Préférences actuelles :</h2>
+                    <p id="listpref"></p></section>
+                <section><h2>Liens vers vos autres comptes</h2>
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                        <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+                    </ul>
+                </section>
+                <p class="copyright"> ENSIIE Design: ENSIIE. </p></div>
+            <div>
+                <section><h2>Vous pouvez retrouver les articles correspondants à vos préférences dans le fil d'actualité.</h2>
+                        <div class="fields">
+                            <button onclick="location.href = '/#work';" class="float-left submit-button" ><h1 style="color:lightsalmon">Retour à votre fil d'actualité</h1></button>
+                        </div>
+                </section>
+            </div>
+        </div>
+    </footer>
+</div>        <!-- Scripts -->
+<script src="assetsbis/js/jquery.min.js"></script>
+<script src="assetsbis/js/jquery.poptrox.min.js"></script>
+<script src="assetsbis/js/browser.min.js"></script>
+<script src="assetsbis/js/breakpoints.min.js"></script>
+<script src="assetsbis/js/util.js"></script>
+<script src="assetsbis/js/main.js"></script>
+<script src="scripts.js"></script>
+
+
+
+</body>
+</html>
+

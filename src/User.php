@@ -2,12 +2,10 @@
 
 namespace User;
 
+use DateTime;
+
 class User
 {
-    /**
-     * @var int
-     */
-    private $id;
 
     /**
      * @var string
@@ -20,31 +18,24 @@ class User
     private $username;
 
     /**
-     * @var \DateTime
+     * @var string
+     */
+    private $password;
+
+    /**
+     * @var DateTime
      */
     private $createdAt;
 
     /**
-     * @return int
+     * @var bool
      */
-    public function getId ()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId ($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
+    private $admin;
 
     /**
      * @return string
      */
-    public function getEmail ()
+    public function getEmail()
     {
         return $this->email;
     }
@@ -52,7 +43,7 @@ class User
     /**
      * @param string $email
      */
-    public function setEmail ($email)
+    public function setEmail($email)
     {
         $this->email = $email;
         return $this;
@@ -61,7 +52,7 @@ class User
     /**
      * @return string
      */
-    public function getUsername ()
+    public function getUsername()
     {
         return $this->username;
     }
@@ -69,26 +60,59 @@ class User
     /**
      * @param string $username
      */
-    public function setUsername ($username)
+    public function setUsername($username)
     {
         $this->username = $username;
         return $this;
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getCreatedAt ()
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+        return $this;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }
 
     /**
-     * @param \DateTime $createdAt
+     * @param DateTime $createdAt
      */
-    public function setCreatedAt ($createdAt)
+    public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+        return $this;
+    }
+    /**
+     * @return bool
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param bool $admin
+     */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
         return $this;
     }
 }
