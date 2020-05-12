@@ -644,3 +644,22 @@ td {
 background-color: #4B0082;
   color: #3CB371;
 }
+
+.newaccbutton{
+  background-color: #f44630;
+  font-size: 15px;
+  padding : 7px 20px;
+  border: 10px solid #555555;
+  color : #FFD700;
+  box-shadow: 0 20px 34px 0 rgba(0,0,0,0.4), 0 16px 40px 0 rgba(0,0,0,0.3);
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition-duration: 1s;
+  font-family: Impact;
+}
+
+.newaccbutton:hover {
+background-color: #4B0082;
+  color: #3CB371;
+}
