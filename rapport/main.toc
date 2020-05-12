@@ -1,12 +1,15 @@
 \babel@toc {french}{}
 \contentsline {section}{\numberline {1}Introduction}{2}% 
-\contentsline {section}{\numberline {2}Sécurité}{2}% 
-\contentsline {section}{\numberline {3}Utilisateurs}{3}% 
-\contentsline {subsection}{\numberline {3.1}Personnaliser son compte}{3}% 
-\contentsline {subsection}{\numberline {3.2}Les playlists}{4}% 
-\contentsline {subsection}{\numberline {3.3}Droits des utilisateurs}{4}% 
-\contentsline {section}{\numberline {4}Queue et Lektor}{4}% 
-\contentsline {subsection}{\numberline {4.1}Queue}{4}% 
-\contentsline {subsection}{\numberline {4.2}Lector}{5}% 
-\contentsline {section}{\numberline {5}Conclusion}{5}% 
-\contentsline {section}{\numberline {6}Annexes}{6}% 
+\contentsline {section}{\numberline {2}Structure du projet}{2}% 
+\contentsline {subsection}{\numberline {2.1}Modèle Vue/Controlleur}{2}% 
+\contentsline {subsection}{\numberline {2.2}Apparence visuelle}{3}% 
+\contentsline {subsection}{\numberline {2.3}la base de donnée}{3}% 
+\contentsline {section}{\numberline {3}Sécurité}{3}% 
+\contentsline {section}{\numberline {4}Utilisateurs}{4}% 
+\contentsline {subsection}{\numberline {4.1}Personnaliser son compte}{5}% 
+\contentsline {subsection}{\numberline {4.2}Les playlists}{5}% 
+\contentsline {subsection}{\numberline {4.3}Droits des utilisateurs}{5}% 
+\contentsline {section}{\numberline {5}Queue et Lektor}{6}% 
+\contentsline {subsection}{\numberline {5.1}Queue}{6}% 
+\contentsline {subsection}{\numberline {5.2}Lector}{6}% 
+\contentsline {section}{\numberline {6}Conclusion}{7}% 
