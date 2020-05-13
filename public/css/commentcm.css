@@ -1,0 +1,35 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f9e5e1; 
+    font-family: monospace; 
+    font-size: 100%;
+}
+
+
+p{
+  font-size: 20px;
+  text-align: center;
+}
+
+p1{
+  color: #c12709;
+  font-size: 40px;
+  text-align: center;
+  font-family: monospace;
+}
+
+
+h1{
+  color: #c12709;
+  font-size: 40px;
+  text-align: center;
+}
+
+h2{
+  font-size: 30px;
+  text-align: center;
+}

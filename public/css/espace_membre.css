@@ -1,0 +1,72 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: white; 
+    font-family: monospace;
+    font-size: 100%;
+   
+}
+
+p3{
+  color: #c12709;
+  font-size: 30px;
+  text-align: center;
+}
+
+span {
+  color: #c12709;
+  font-weight: bold;
+  font-family: monospace;
+  margin-left: 50px;
+}
+
+span1 {
+  color: #c12709;
+  font-style: italic;
+  font-family: monospace;
+  margin-left: 50px;
+}
+
+p5{
+  border-style: outset;
+  text-align: center;
+  color: #c12709;
+  font-weight: bold;
+}
+
+
+h3{
+  color: #c12709;
+  font-size: 20px;
+  text-align: center;
+  
+
+}
+
+p8{
+
+  font-size: 25px;
+  text-align: center;
+  margin-left: 800px;
+}
+
+#formmdp {
+    margin-left:750px;
+}
+#validate {
+    margin-left:180px;
+}
+
+
+#arriere {
+    margin-left:230px;
+}
+#info {
+    margin-left:750px;
+    font-size: 17px
+}
+
+
