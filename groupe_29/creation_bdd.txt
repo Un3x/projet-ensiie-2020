@@ -1,0 +1,100 @@
+CREATE TABLE utilisateur(
+id INTEGER PRIMARY KEY,
+prenom VARCHAR(255) NOT NULL,
+nom VARCHAR(255) NOT NULL,
+pseudo VARCHAR(255) UNIQUE NOT NULL,
+genre VARCHAR(255) NOT NULL,
+annee_etude VARCHAR(3) NOT NULL,
+email VARCHAR(255) UNIQUE NOT NULL,
+ville VARCHAR(255) NOT NULL,
+filiere VARCHAR(255),
+adresse VARCHAR(255),
+numero_tel VARCHAR(10),
+date_naissance VARCHAR(10) NOT NULL,
+mot_de_passe VARCHAR(255) NOT NULL,
+statut VARCHAR(255) NOT NULL);
+
+INSERT INTO utilisateur(id, prenom, nom, pseudo, genre, annee_etude, email, ville, numero_tel, date_naissance, mot_de_passe, statut)
+VALUES (1, 'Caroline', 'CAO', 'Chipie', 'Féminin', '1A', 'caocaroline@outlook.com', 'Evry-Courcouronnes', '0771454643', '19/05/1999', '12345', 'admin');
+
+INSERT INTO utilisateur(id, prenom, nom, pseudo, genre, annee_etude, email, ville, numero_tel, date_naissance, mot_de_passe, statut)
+VALUES (2, 'Dorian', 'JOUBAUD', 'Joker', 'Masculin', '1A', 'djoubaud@gmail.com', 'Evry-Courcouronnes', '0678020932', '03/06/1999', '23456', 'admin');
+
+INSERT INTO gout(id, aime_lire, aime_voyager)
+VALUES (1, 'oui', 'oui');
+
+INSERT INTO gout(id, aime_lire, aime_voyager)
+VALUES (2, 'non', 'oui');
+
+
+INSERT INTO association(id, nom_association)
+VALUES (1,'Liien');
+
+INSERT INTO association(id, nom_association)
+VALUES (2,'Origine');
+
+CREATE TABLE lecture(
+id INTEGER NOT NULL REFERENCES utilisateur(id),
+type_oeuvre VARCHAR(255),
+genre_oeuvre VARCHAR(255),
+titre TEXT,
+auteurs TEXT);
+
+CREATE TYPE yesno AS ENUM ('oui','non');
+
+CREATE TABLE gout(
+id INTEGER NOT NULL REFERENCES utilisateur(id),
+aime_lire yesno,
+aime_voyager yesno);
+
+
+
+CREATE TABLE film(
+id INTEGER NOT NULL REFERENCES utilisateur(id),
+type_film VARCHAR(255),
+nom_film TEXT,
+realisateur_film VARCHAR(255));
+
+CREATE TABLE voyage(
+id INTEGER NOT NULL REFERENCES utilisateur(id),
+lieu VARCHAR(255),
+ville VARCHAR(255),
+pays VARCHAR(255),
+type_voyage VARCHAR(255));
+
+
+CREATE TABLE amis(
+id1 INTEGER REFERENCES utilisateur(id),
+id2 INTEGER NOT NULL,
+annee_connaissance INTEGER,
+PRIMARY KEY (id1, id2));
+
+CREATE TYPE relation_ami AS ENUM ('demande', 'refuser');
+
+CREATE TABLE demande_ami(
+id1 INTEGER NOT NULL,
+id2 INTEGER NOT NULL,
+statut relation_ami);
+
+
+CREATE TABLE association(
+id INTEGER NOT NULL REFERENCES utilisateur(id),
+nom_association VARCHAR(255));
+
+CREATE TABLE sport(
+id INTEGER NOT NULL REFERENCES utilisateur(id),
+nom_sport VARCHAR(255),
+club yesno,
+niveau VARCHAR(255));
+
+CREATE TYPE situation AS ENUM ('en couple', 'célibataire', 'marié', 'compliqué');
+CREATE TYPE rechercher AS ENUM ('serieux', 'libre');
+CREATE TYPE orientation AS ENUM ('femme', 'homme', 'bi', 'aucun');
+
+CREATE TABLE relation(
+id INTEGER REFERENCES utilisateur(id),
+relation_recherchée rechercher,
+situation_actuelle situation,
+attirance_sexuelle orientation,
+PRIMARY KEY (id));
+

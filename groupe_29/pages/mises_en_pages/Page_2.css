@@ -1,0 +1,67 @@
+body{
+	background-image: url("fond1.jpg");
+	background-repeat: no-repeat;
+	/*background-attachment: fixed;*/
+	background-size: cover;
+	
+	background-attachment: fixed;
+
+}
+div {
+    text-align: center; 
+}
+
+.topbar{
+	
+	background-color: #3d636f;
+	overflow: hidden;
+	border-radius: 10px;
+	/*position: fixed;*/
+}
+.topbar a{
+	float: left;
+	color: #f2f2f2;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 20px;
+	font-family: Verdana;
+	font-weight: bold;
+	
+}
+.topbar a:hover, a:focus{
+	background-color: #cacbcc ;
+	color: white;
+	box-shadow: 0 1px 0 rgba(255,255,255,0)
+}
+
+.topbar a.actif{
+	background-color: #00aabb;
+	color: white;
+}
+
+.topbar a.param{
+	position: absolute;
+	right: 0%;
+}
+.topbar a.param:hover{
+	background-color: #cd5c5c;
+}
+
+.profil{
+	max-width: 400px;
+	opacity: .90;
+	color: #00aabb;
+	background: #f4f7f8;
+	margin: 10px auto;
+	padding: 20px;
+	background: #f4f7f8;
+	border-radius: 8px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+.photo{
+	width:200px;
+   	clip-path:ellipse(50% 50%);
+}
+
+
+

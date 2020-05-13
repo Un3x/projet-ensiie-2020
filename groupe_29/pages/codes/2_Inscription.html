@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8"/>
+        <title> Inscription </title>
+        <link rel="stylesheet" type="text/css" href="../mises_en_pages/Inscription.css">
+        
+        <script type = "text/javascript">
+        function confirmation() {
+            var mdp1 = document.getElementById("mdp").value;
+            var mdp2 = document.getElementById("confirmation").value;
+
+            if (mdp1 != mdp2) {
+                alert("Les mots de passe ne correspondent pas.");
+                return false; }
+            else {
+                return true; }
+        }
+        </script>
+    </head>
+
+    <body>
+
+        <div class="topbar">
+            <a href="1_Page_1.php">Accueil</a>
+            <a class="actif" href="2_Inscription.html">Inscription</a>
+            <a href="informations.html">Informations</a>
+        </div>
+
+        <div id="text_haut_gauche">
+            <h1> Créez votre compte </h1>
+            <p> Afin de profiter de notre fabuleux site de rencontres dès maintenant en quelques clics </p> <br/>
+        </div>
+
+    
+       
+        <form id = "formul" name = "formul" method = "post" onsubmit = "return confirmation()" action = "./pages_traitements/2_Inscription.php">
+            <p>
+
+        	    <center><h2> Vos coordonnées </h2></center> 
+
+        		<label for = "prenom"> Prénom* : </label>
+        		<input type="text" name="prenom" id = "prenom" required /> <br/>
+
+        		<label for = "nom"> Nom* : </label>
+                <input type="text" name="nom" id="nom" required /> <br/>
+                
+                <label for = "pseudo"> Pseudo* : </label>
+                <input type="text" name="pseudo" id=pseudo required /> <br/>
+
+                <label for = "date_n"> Date de naissance* : </label>
+                <input type="date" name="date_n" id="date_n" required /> <br/>
+
+                <label for = sexe > Sexe* : </label>
+			    <select name="sexe" id="sexe" required>
+				    <option value="feminin" > Féminin </option>
+			    	<option value="masculin"> Masculin </option> 
+			    	<option value= "autres"> Autres </option>
+                </select> <br/>
+
+                <label for = "adresse_mail"> Adresse mail* : </label>
+                <input type="email" name="adresse_mail" id="adresse_mail" required /> <br/>
+
+
+                <label for = "ville"> Ville de résidence* : </label>
+                <input type="text" name="ville" id="ville" required /> <br/>
+
+                <label for = "adresse"> Adresse : </label>
+                <input type="text" name="adresse" id="adresse" /> <br/>
+
+                <label for = "num_tel"> Numéro de téléphone : </label>
+                <input type="tel" name="num_tel" id="num_tel" /> <br/>
+                
+                <label for = "annee_etude"> Année d'étude* : </label>
+                <select name="annee_etude" id = "annee_etude" required >
+                    <option value="1A"> 1A </option>
+                    <option value="2A"> 2A </option>
+                    <option value="3A"> 3A </option>
+                    <option value="4A"> 4A </option>
+                    <option value="5A"> 5A </option>
+                    <option value="6A+"> 6A+ </option>
+                </select> <br/>
+
+                <label for = "filiere"> Filière : </label>
+                <input type="text" name="filiere" id=filiere /> <br/>
+
+                <label for = "mdp"> Mot de passe* : </label>
+                <input type="password" name="mdp" id="mdp" required/> <br/>
+
+                <label for = "confirmationmdp" > Confirmer votre Mot de passe* : </label>
+                <input type="password" name ="confirmationmdp" id = "confirmation" required/> <br/>
+                
+                <center><input type="submit" value = "Validation"></center> <br/>
+
+            </p>
+        </form>
+
+    </body>
+</html>
