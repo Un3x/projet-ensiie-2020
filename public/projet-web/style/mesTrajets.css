@@ -1,0 +1,77 @@
+.colonnes{
+	border:solid 1px grey;
+	margin-top:10px;
+	height: 800px;
+	overflow: auto;
+	margin-bottom: 35px;
+}
+.wrapper{
+	border:solid 1px grey;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	box-shadow: 0.4px 0.9px 0px 0px grey;
+	margin: auto;
+	margin-bottom: 10px;
+	width: 50%
+}
+
+.colTrajets{
+	text-align: center;
+}
+
+.trajetTab{
+	width: 100%;
+	height: 120px;
+	padding:5px;
+}
+
+.headTrajet{
+	display: flex;
+}
+
+.titreTrajet{
+	display: inline-block;
+	flex: 1;
+}
+
+.auteurTrajet{
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 5px;
+	display: inline-block;
+	text-align: right;
+	flex:1;
+	padding-right: 5px;
+}
+
+
+.buttonWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.reserver{
+	background-color: #14b100; /* Green */
+  	border: none;
+    color: white;
+    padding: 7px 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.reserver:hover{
+	background-color: #119500;
+}
+
+.titleCol{
+	text-align: center;
+}
+
+
+button{
+	margin: 5px;
+}

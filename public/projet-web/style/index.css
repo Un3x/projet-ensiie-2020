@@ -1,0 +1,162 @@
+body{
+	font-family: 'raleway';
+	padding-bottom: 50px;
+	padding-top: 0;
+}
+
+.r{
+	text-decoration: underline;
+	text-decoration-color:#D5E1DF;
+}
+
+.head{
+	position: fixed;
+	width: 100%;
+	padding: 10px;
+	margin-top: 0px;
+	background-color: white;
+	z-index: 10;
+	line-height: 0px;
+}
+
+.head h1{
+	font-size: 20px;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.head p{
+	display:inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.connexion{
+	text-align: right;
+	color:red;
+	margin-left: 130px;
+}
+
+.containertitre{
+	padding-top: 30px;
+	padding-left: 30px;
+	display: flex;
+}
+
+.containertitre h1{
+	width: 100%;
+	font-size: 50px;
+	font-weight: 700;
+}
+
+.containertitre p{
+	font-size:40px;
+	font-weight: bold;
+	font-weight: 500;
+	width: 100%;
+}
+
+.photoNailly{
+	border-radius: 50%;
+	border: solid #0f4c5c;
+	width: 50%;
+	height:auto;
+	float: right;
+	margin-right: 60px
+}
+
+.container{
+	display: flex;
+	padding-top: 100pt;
+}
+
+.containerproposer{
+	margin: auto;
+}
+
+.containerproposer h2{
+	text-align: center;
+}
+
+.proposer,.demander{
+	border: solid 0.75px;
+	height: 600px;
+	width: 425px;
+	overflow: auto;
+	background-color:whitesmoke;
+}
+
+
+.containerdemander{
+	margin: auto;
+}
+
+.containerdemander h2{
+	text-align: center;
+}
+
+.prop{
+	position: relative;
+	margin:5px;
+	height:200px;
+	border: solid 0.75px;
+	box-shadow: 0.4px 0.8px 0px 0px grey;
+}
+
+.propHead{
+	display: flex;
+}
+
+.prop h3{
+	margin-top: 3px;
+	margin-left: 3px;
+	display: inline-block;
+	flex: 1;
+}
+
+.nom{
+	display: inline-block;
+	margin-top:3px;
+	flex:1;
+	text-align: right;
+	margin-right: 3px;
+}
+
+.carte_label{
+	font-weight: bold;
+}
+table{
+	margin:auto;
+	margin-bottom: 9px;
+	border-collapse: separate;
+	border-spacing: 6px 20px;
+}
+
+tr{
+	margin-top: 20px;
+}
+
+td{
+	margin:auto;
+}
+
+.vertical-center{
+	width: 202px;
+	margin: auto;
+}
+
+.indexButton{
+	width: 200px;
+	border-radius: 5px;
+	text-decoration: none;
+	border:solid #0f4c5c;
+	color:black;
+}
+
+.indexButton:hover{
+	width: 200px;
+	border-radius: 5px;
+	text-decoration: none;
+	color:white;
+	background-color: #0f4c5c;
+}

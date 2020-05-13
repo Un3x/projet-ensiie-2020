@@ -1,0 +1,22 @@
+.wrapper{
+    margin-top: 20px;
+    width: 600px;
+    margin-bottom: 20px;
+}
+
+input{
+    width: 100%;
+}
+
+label{
+    margin-top: 10px;
+}
+
+button{
+    margin-top:10px;
+}
+
+.success{
+    color:green;
+}
+

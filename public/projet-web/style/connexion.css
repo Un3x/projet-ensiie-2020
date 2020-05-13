@@ -1,0 +1,59 @@
+body{
+	font-family: 'Raleway'
+}
+
+.wrapperC{
+    width:400px;
+    margin:auto;
+    margin-top:5%;
+}
+
+/* Bordered form */
+.wrapperC {
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.wrapperC h1{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Set a style for all buttons */
+button{
+    background-color: #0f4c5c;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+}
+button:hover{
+    border:solid 1px #0f4c5c;
+    color: black; 
+    background-color: white;
+}
+
+a{
+	color: grey;
+}
+
+.error{
+    color : red;
+}
+
+.success{
+    color:green;
+}
