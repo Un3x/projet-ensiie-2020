@@ -1,11 +1,11 @@
-start:
+clstart:
 	php -S localhost:8080 -t public/
 
 db.init:
-	createdb ensiie
-	psql -U ensiie -d ensiie -a -f data/init.sql
+	createdb allez-retour
+	psql -U postgres -d allez-retour -a -f data/init.sql
 
 db.drop:
-	dropdb MyM
+	dropdb allez-retour
 
 db.reset: db.drop db.init
